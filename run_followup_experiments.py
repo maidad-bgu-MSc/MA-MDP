@@ -33,9 +33,9 @@ def adapt_obs_dict(obs_dict):
             adapted[agent_id] = obs
     return adapted
 
-def train_tabular_agents(env, algo, size, episodes=5):
+def train_tabular_agents(env, algo, size, episodes=100):
     """Trains classical tabular agents quickly inside the environment."""
-    agent_ids = env.agents
+    agent_ids = env.possible_agents
     agents = {}
     
     # Initialize agents
@@ -133,9 +133,9 @@ def train_tabular_agents(env, algo, size, episodes=5):
                 
     print(f"Finished training {algo} on {size}x{size} grid and saved models!")
 
-def train_qmix_agents(env, size, episodes=3):
+def train_qmix_agents(env, size, episodes=100):
     """Trains QMIX hypernetworks and deep mixing networks."""
-    agent_ids = env.agents
+    agent_ids = env.possible_agents
     num_agents = len(agent_ids)
     
     # Instantiate models
@@ -221,14 +221,39 @@ def train_qmix_agents(env, size, episodes=3):
         torch.save(agent.state_dict(), os.path.join(model_dir, f"qmix_{a_id}_{size}x{size}.pth"))
     print(f"Finished QMIX training on {size}x{size} grid and saved weights!")
 
-def evaluate_on_grid(algo, size):
+def evaluate_on_grid(algo, size, scenario="standard"):
     """Executes a single deterministic evaluation episode and calculates waiting times."""
-    net_file = f"grid_{size}x{size}.net.xml"
-    rou_file = f"grid_{size}x{size}.rou.xml"
-    
-    # Programmatic grid build if it doesn't exist yet
-    if not os.path.exists(net_file) or not os.path.exists(rou_file):
-        build_network_size(size)
+    if scenario == "standard":
+        net_file = f"grid_{size}x{size}.net.xml"
+        rou_file = f"grid_{size}x{size}.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            build_network_size(size)
+    elif scenario == "platoon":
+        net_file = f"grid_{size}x{size}_platoon.net.xml"
+        rou_file = f"grid_{size}x{size}_platoon.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_platoon_network import build_platoon_scenario
+            build_platoon_scenario(size)
+    elif scenario == "osm":
+        net_file = "osm.net.xml"
+        rou_file = "osm.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_osm_network import build_osm_scenario
+            build_osm_scenario()
+    elif scenario == "bottleneck":
+        net_file = "bottleneck.net.xml"
+        rou_file = "bottleneck.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_bottleneck_network import build_bottleneck_scenario
+            build_bottleneck_scenario()
+    elif scenario == "spillback":
+        net_file = f"grid_{size}x{size}_spillback.net.xml"
+        rou_file = f"grid_{size}x{size}_spillback.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_spillback_network import build_spillback_scenario
+            build_spillback_scenario(size)
+    else:
+        raise ValueError(f"Unknown scenario: {scenario}")
         
     env = sumo_rl.parallel_env(
         net_file=net_file,
@@ -267,25 +292,36 @@ def evaluate_on_grid(algo, size):
                 if os.path.exists(w_path): agent.w_tables[i] = np.load(w_path)
             agents[agent_id] = agent
         elif algo == "jal":
-            col = ord(agent_id[0]) - 65
-            row = int(agent_id[1])
-            neighbor_ids = []
-            if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-            if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-            if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-            if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
+            # For OSM or Bottleneck, adjacent mapping differs
+            if scenario == "osm":
+                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
+            elif scenario == "bottleneck":
+                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
+            else:
+                col = ord(agent_id[0]) - 65
+                row = int(agent_id[1])
+                neighbor_ids = []
+                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
+                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
+                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
+                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
             agent = JALAgent(agent_id, neighbor_ids)
             path = os.path.join("models", f"jal_{agent_id}_{size}x{size}.npy")
             if os.path.exists(path): agent.q_table = np.load(path)
             agents[agent_id] = agent
         elif algo == "max_plus":
-            col = ord(agent_id[0]) - 65
-            row = int(agent_id[1])
-            neighbor_ids = []
-            if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-            if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-            if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-            if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
+            if scenario == "osm":
+                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
+            elif scenario == "bottleneck":
+                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
+            else:
+                col = ord(agent_id[0]) - 65
+                row = int(agent_id[1])
+                neighbor_ids = []
+                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
+                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
+                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
+                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
             agent = MaxPlusAgent(agent_id, neighbor_ids)
             local_path = os.path.join("models", f"maxplus_local_{agent_id}_{size}x{size}.npy")
             if os.path.exists(local_path): agent.q_local = np.load(local_path)
@@ -303,6 +339,26 @@ def evaluate_on_grid(algo, size):
 
     total_waiting_time = 0.0
     steps = 0
+    episode_mses = []
+    
+    # Pre-calculate neighbor map for coordination gap MSE
+    neighbors = {}
+    if scenario == "osm":
+        neighbors = {"A": ["B"], "B": ["A", "C"], "C": ["B"]}
+    elif scenario == "bottleneck":
+        neighbors = {"A": ["B"], "B": ["A"]}
+    else:
+        for agent_id in agent_ids:
+            col = ord(agent_id[0]) - 65
+            row = int(agent_id[1])
+            neighs = []
+            if col > 0: neighs.append(f"{chr(65 + col - 1)}{row}")
+            if col < size - 1: neighs.append(f"{chr(65 + col + 1)}{row}")
+            if row > 0: neighs.append(f"{chr(65 + col)}{row - 1}")
+            if row < size - 1: neighs.append(f"{chr(65 + col)}{row + 1}")
+            neighbors[agent_id] = [n for n in neighs if n in agent_ids]
+            
+    os.makedirs("outputs", exist_ok=True)
     
     try:
         while env.agents:
@@ -330,12 +386,32 @@ def evaluate_on_grid(algo, size):
             next_obs_dict, rewards, terminations, truncations, infos = env.step(actions)
             next_obs_dict = adapt_obs_dict(next_obs_dict)
             
+            # Coordination Gap Metric: Step MSE of queues across neighboring junctions
+            q_vals = {a_id: sum(next_obs_dict[a_id]) for a_id in env.agents}
+            neigh_diffs = []
+            for u in neighbors:
+                for v in neighbors[u]:
+                    if u < v and u in q_vals and v in q_vals:
+                        neigh_diffs.append((q_vals[u] - q_vals[v]) ** 2)
+            step_mse = np.mean(neigh_diffs) if neigh_diffs else 0.0
+            episode_mses.append(step_mse)
+            
+            # Print decision logging every 20 steps (100 simulation seconds)
+            if steps % 20 == 0:
+                avg_q = np.mean(list(q_vals.values())) if q_vals else 0.0
+                max_cap = 6.0 if scenario == "spillback" else 15.0
+                deadlocks = sum(1 for q in q_vals.values() if q >= max_cap)
+                teleports = sum(1 for q in q_vals.values() if q > 25.0)
+                
+                log_line = f"[Scenario: {scenario.capitalize()}] | Step: {steps*5:04d} | Avg Queue: {avg_q:.1f} | Deadlocks Detected: {deadlocks} | Teleports: {teleports}"
+                print(log_line)
+                
+                with open("outputs/scenario_evaluation.log", "a") as log_f:
+                    log_f.write(log_line + "\n")
+            
             # Compile sum of waiting times
             for agent_id in env.agents:
-                # Observations contain lane queue size
-                # In SUMO-RL, the info contains waiting time metrics
                 tl_info = infos.get(agent_id, {})
-                # Access accumulated waiting time per junction
                 total_waiting_time += tl_info.get("system_total_waiting_time", sum(next_obs_dict[agent_id]))
                 
             obs_dict = next_obs_dict
@@ -344,7 +420,9 @@ def evaluate_on_grid(algo, size):
     finally:
         env.close()
         
-    return total_waiting_time / (steps * len(agent_ids))
+    avg_waiting_time = total_waiting_time / (steps * len(agent_ids))
+    avg_queue_mse = np.mean(episode_mses) if episode_mses else 0.0
+    return avg_waiting_time, avg_queue_mse
 
 def generate_scaling_plot(df_results=None):
     """Generates the comparative line plot across grid sizes and algorithms."""
@@ -419,5 +497,125 @@ def generate_scaling_plot(df_results=None):
     print(f"Saved numerical scaling metrics to: {csv_path}")
 
 if __name__ == "__main__":
-    # If run directly without arguments, compile and generate the stunning line plot comparison
-    generate_scaling_plot()
+    if "--train" in sys.argv:
+        # Get grid sizes to train on (default 2x2 and 3x3 to run in reasonable time)
+        sizes = [2, 3]
+        if "--sizes" in sys.argv:
+            idx = sys.argv.index("--sizes")
+            sizes = []
+            for arg in sys.argv[idx+1:]:
+                if arg.startswith("-"):
+                    break
+                sizes.append(int(arg))
+                
+        print(f"\n========================================================")
+        print(f"LAUNCHING ACTIVE TRAINING & EVALUATION PIPELINE")
+        print(f"Targeting Grid Sizes: {sizes}")
+        print(f"========================================================\n")
+        
+        results = []
+        algorithms = ["fixed", "iql_tabular", "sarsa_tabular", "w_learning", "jal", "max_plus", "qmix"]
+        
+        for size in sizes:
+            net_file = f"grid_{size}x{size}.net.xml"
+            rou_file = f"grid_{size}x{size}.rou.xml"
+            
+            # Programmatic grid build if it doesn't exist yet
+            if not os.path.exists(net_file) or not os.path.exists(rou_file):
+                build_network_size(size)
+                
+            for algo in algorithms:
+                if algo != "fixed":
+                    # Initialize parallel SUMO-RL environment for training
+                    env = sumo_rl.parallel_env(
+                        net_file=net_file,
+                        route_file=rou_file,
+                        use_gui=False,
+                        num_seconds=1000,
+                        delta_time=5,
+                        reward_fn=custom_reward_fn,
+                        observation_class=QueueObservationFunction
+                    )
+                    
+                    if algo == "qmix":
+                        train_qmix_agents(env, size, episodes=100)
+                    else:
+                        train_tabular_agents(env, algo, size, episodes=100)
+                        
+                # Perform actual evaluation
+                print(f"Evaluating trained {algo} on {size}x{size} grid...")
+                avg_wait, _ = evaluate_on_grid(algo, size)
+                results.append({
+                    "Algorithm": {
+                        "fixed": "Fixed-Time Controller",
+                        "iql_tabular": "Independent Tabular Q-Learning",
+                        "sarsa_tabular": "Independent SARSA",
+                        "w_learning": "Distributed W-Learning",
+                        "jal": "Joint-Action Learners (JAL)",
+                        "max_plus": "Max-Plus Algorithm",
+                        "qmix": "QMIX Centralized Mixing"
+                    }[algo],
+                    "Grid Size": f"{size}x{size}",
+                    "Agents": size * size,
+                    "Avg Waiting Time (s)": avg_wait
+                })
+                
+        df_results = pd.DataFrame(results)
+        generate_scaling_plot(df_results)
+        
+    elif "--scenario" in sys.argv:
+        idx = sys.argv.index("--scenario")
+        scenario = sys.argv[idx+1]
+        
+        print(f"\n========================================================")
+        print(f"LAUNCHING AD-HOC SCENARIO EVALUATION")
+        print(f"Scenario: {scenario.upper()}")
+        print(f"========================================================\n")
+        
+        # Scenario size mapping
+        size = 3 if scenario == "osm" else 2
+        results = []
+        algorithms = ["fixed", "iql_tabular", "sarsa_tabular", "w_learning", "jal", "max_plus", "qmix"]
+        
+        for algo in algorithms:
+            print(f"\nRunning {algo} on {scenario} scenario...")
+            avg_wait, avg_mse = evaluate_on_grid(algo, size, scenario=scenario)
+            results.append({
+                "Algorithm": {
+                    "fixed": "Fixed-Time Controller",
+                    "iql_tabular": "Independent Tabular Q-Learning",
+                    "sarsa_tabular": "Independent SARSA",
+                    "w_learning": "Distributed W-Learning",
+                    "jal": "Joint-Action Learners (JAL)",
+                    "max_plus": "Max-Plus Algorithm",
+                    "qmix": "QMIX Centralized Mixing"
+                }[algo],
+                "Scenario": scenario,
+                "Grid Size": f"{size}x{size}" if scenario not in ["osm", "bottleneck"] else scenario.upper(),
+                "Agents": size * size if scenario not in ["osm", "bottleneck"] else (3 if scenario == "osm" else 2),
+                "Avg Waiting Time (s)": avg_wait,
+                "Queue MSE (Neighbor Variance)": avg_mse
+            })
+            
+        df_results = pd.DataFrame(results)
+        os.makedirs("outputs", exist_ok=True)
+        # Write to outputs/coordination_metrics.csv
+        df_results.to_csv("outputs/coordination_metrics.csv", index=False)
+        print(f"\nSuccessfully completed scenario '{scenario}' evaluation!")
+        print(f"Saved coordination metrics to outputs/coordination_metrics.csv")
+        
+        print("\n" + "="*80)
+        print(f"COORDINATION GAP METRICS SUMMARY TABLE ({scenario.upper()})")
+        print("="*80)
+        print(df_results[["Algorithm", "Avg Waiting Time (s)", "Queue MSE (Neighbor Variance)"]].to_string(index=False))
+        print("="*80)
+        
+    else:
+        # If run directly without arguments, compile and generate the stunning line plot comparison
+        print("\n" + "=" * 80)
+        print("Tip: Run with '--train' to execute active training and evaluation loops on physical networks.")
+        print("Tip: Run with '--scenario <name>' to stress-test coordination algorithms under advanced scenarios.")
+        print("Example: py run_followup_experiments.py --train --sizes 2 3")
+        print("Example: py run_followup_experiments.py --scenario platoon")
+        print("=" * 80 + "\n")
+        generate_scaling_plot()

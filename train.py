@@ -235,5 +235,5 @@ def train_ippo(num_seconds=1000, epochs=5):
 
 if __name__ == "__main__":
     # Run training for 5 epochs on shorter simulation length (1000 seconds) for efficiency
-    train_iql(num_seconds=1000, epochs=5)
-    train_ippo(num_seconds=1000, epochs=5)
+    train_iql(num_seconds=1000, epochs=100)
+    train_ippo(num_seconds=1000, epochs=100)

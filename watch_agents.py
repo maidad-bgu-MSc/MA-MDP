@@ -38,10 +38,13 @@ def parse_args():
                         choices=["fixed", "iql_tabular", "sarsa_tabular", "w_learning", "jal", "max_plus", "qmix", "iql_deep"],
                         help="Algorithm to watch in GUI.")
     parser.add_argument("--delay", type=float, default=0.1, help="Simulation step sleep delay in seconds.")
+    parser.add_argument("--scenario", type=str, default="standard",
+                        choices=["standard", "platoon", "osm", "bottleneck", "spillback"],
+                        help="Scenario to run in SUMO-GUI.")
     return parser.parse_args()
 
 
-def load_policy(algo, agent_ids, size):
+def load_policy(algo, agent_ids, size, scenario="standard"):
     """Loads a pre-trained policy for each agent from disk."""
     agents = {}
     
@@ -83,14 +86,18 @@ def load_policy(algo, agent_ids, size):
             print(f"Loaded W-Learning tables for agent {agent_id}")
             agents[agent_id] = agent
         elif algo == "jal":
-            # For JAL, count physical neighbors in KxK grid
-            col = ord(agent_id[0]) - 65
-            row = int(agent_id[1])
-            neighbor_ids = []
-            if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-            if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-            if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-            if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
+            if scenario == "osm":
+                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
+            elif scenario == "bottleneck":
+                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
+            else:
+                col = ord(agent_id[0]) - 65
+                row = int(agent_id[1])
+                neighbor_ids = []
+                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
+                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
+                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
+                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
             
             agent = JALAgent(agent_id, neighbor_ids)
             path = os.path.join(model_dir, f"jal_{agent_id}_{size}x{size}.npy")
@@ -99,13 +106,18 @@ def load_policy(algo, agent_ids, size):
                 print(f"Loaded JAL Q-table for agent {agent_id}")
             agents[agent_id] = agent
         elif algo == "max_plus":
-            col = ord(agent_id[0]) - 65
-            row = int(agent_id[1])
-            neighbor_ids = []
-            if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-            if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-            if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-            if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
+            if scenario == "osm":
+                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
+            elif scenario == "bottleneck":
+                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
+            else:
+                col = ord(agent_id[0]) - 65
+                row = int(agent_id[1])
+                neighbor_ids = []
+                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
+                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
+                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
+                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
             
             agent = MaxPlusAgent(agent_id, neighbor_ids)
             # Load local and pair Q tables
@@ -149,15 +161,44 @@ def load_policy(algo, agent_ids, size):
 
 def run_gui_simulation():
     args = parse_args()
-    net_file = f"grid_{args.size}x{args.size}.net.xml"
-    rou_file = f"grid_{args.size}x{args.size}.rou.xml"
+    scenario = args.scenario
+    size = args.size
     
-    if not os.path.exists(net_file) or not os.path.exists(rou_file):
-        print(f"Error: Network files for {args.size}x{args.size} grid do not exist.")
-        print("Please run 'scale_network.py --size [N]' to generate them first.")
-        sys.exit(1)
-        
-    print(f"\nLaunching SUMO-GUI for algorithm '{args.algo}' on network size {args.size}x{args.size}...")
+    if scenario == "standard":
+        net_file = f"grid_{size}x{size}.net.xml"
+        rou_file = f"grid_{size}x{size}.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            print(f"Error: Network files for {size}x{size} grid do not exist.")
+            print("Please run 'scale_network.py --size [N]' to generate them first.")
+            sys.exit(1)
+    elif scenario == "platoon":
+        net_file = f"grid_{size}x{size}_platoon.net.xml"
+        rou_file = f"grid_{size}x{size}_platoon.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_platoon_network import build_platoon_scenario
+            build_platoon_scenario(size)
+    elif scenario == "osm":
+        net_file = "osm.net.xml"
+        rou_file = "osm.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_osm_network import build_osm_scenario
+            build_osm_scenario()
+        size = 3
+    elif scenario == "bottleneck":
+        net_file = "bottleneck.net.xml"
+        rou_file = "bottleneck.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_bottleneck_network import build_bottleneck_scenario
+            build_bottleneck_scenario()
+        size = 2
+    elif scenario == "spillback":
+        net_file = f"grid_{size}x{size}_spillback.net.xml"
+        rou_file = f"grid_{size}x{size}_spillback.rou.xml"
+        if not os.path.exists(net_file) or not os.path.exists(rou_file):
+            from generate_spillback_network import build_spillback_scenario
+            build_spillback_scenario(size)
+            
+    print(f"\nLaunching SUMO-GUI for algorithm '{args.algo}' on scenario '{scenario}'...")
     
     # Initialize parallel environment directly (forces SUMO-GUI)
     env = sumo_rl.parallel_env(
@@ -171,7 +212,7 @@ def run_gui_simulation():
     )
     
     agent_ids = env.possible_agents
-    agents = load_policy(args.algo, agent_ids, args.size)
+    agents = load_policy(args.algo, agent_ids, size, scenario=scenario)
     
     # Step through one episode slowly
     step = 0

@@ -41,13 +41,27 @@ def test_net_generation():
         
     finally:
         # 5. Clean up temporary test files
-        if os.path.exists(net_file):
-            os.remove(net_file)
-        if os.path.exists(rou_file):
-            os.remove(rou_file)
+        try:
+            if os.path.exists(net_file):
+                os.remove(net_file)
+        except Exception:
+            pass
+            
+        try:
+            if os.path.exists(rou_file):
+                os.remove(rou_file)
+        except Exception:
+            pass
             
         # 6. Restore original backups
-        if os.path.exists(net_backup):
-            shutil.move(net_backup, net_file)
-        if os.path.exists(rou_backup):
-            shutil.move(rou_backup, rou_file)
+        try:
+            if os.path.exists(net_backup):
+                shutil.move(net_backup, net_file)
+        except Exception:
+            pass
+            
+        try:
+            if os.path.exists(rou_backup):
+                shutil.move(rou_backup, rou_file)
+        except Exception:
+            pass
