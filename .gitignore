@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest & Caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SUMO temporary XML network and route files
+*.net.xml
+*.rou.xml
+*.net.xml.bak
+*.rou.xml.bak
+mock_net.xml
+
+# Outputs and Plots (kept for local review, but excluded from raw git sync)
+outputs/*.csv
+outputs/*.png
+
+# Editor / System Files
+.vscode/
+.idea/
+.gemini/
+.DS_Store
+Thumbs.db
