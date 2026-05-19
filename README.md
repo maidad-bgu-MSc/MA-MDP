@@ -46,7 +46,7 @@ The control actions are processed every `delta_time = 5` seconds with a minimum 
 ### 4. Reward Function ($\mathcal{R}$)
 To foster coordination, the environment wraps individual rewards into a synchronized global reward:
 *   **Local Reward:** For each traffic signal $ts_j$, the reward is the negative accumulated waiting time of all vehicles halting on its incoming lanes:
-    $$R_{\text{local}}(ts_j) = - \sum_{\text{lane} \in \text{incoming}(ts_j)} \text{waiting\_time}(\text{lane})$$
+    $$R_{\text{local}}(ts_j) = - \sum_{\text{lane} \in \text{incoming}(ts_j)} \text{waiting-time}(\text{lane})$$
 *   **Global Synced Reward:** The wrapper sums the local rewards across all intersections and broadcasts this single cooperative scalar to all four agents:
     $$R_{\text{global}} = \sum_{j \in \{\text{A0, B0, C0, D0}\}} R_{\text{local}}(ts_j)$$
 
