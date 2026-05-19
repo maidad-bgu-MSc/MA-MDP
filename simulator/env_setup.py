@@ -53,51 +53,57 @@ def discretize_queue_5_bins(q):
 class QueueObservationFunction(ObservationFunction):
     """Custom look-ahead observation function perfectly sized for Tabular Q-Learning.
     
-    Observes exactly 2 values for each agent (5x5 = 25 state space):
-    1. Local queue length on the East-West arterial incoming lane (discretized to 5 bins).
-    2. Queue length on the immediate upstream East-West arterial incoming lane (neighbor to the West, discretized to 5 bins).
+    Observes exactly 4 values for each agent (5^4 = 625 state space):
+    1. Local East-West queue (discretized to 5 bins).
+    2. Local North-South queue (discretized to 5 bins).
+    3. Rest of Network East-West queue (discretized to 5 bins).
+    4. Rest of Network North-South queue (discretized to 5 bins).
     """
     
     def __init__(self, ts):
         super().__init__(ts)
         
     def __call__(self) -> np.ndarray:
-        ts_id = self.ts.id
+        # Sum up all local incoming lane queues
+        local_lanes = self.ts.lanes
+        local_ew, local_ns = 0, 0
         
-        # Determine local and upstream East-West arterial incoming lanes based on traffic light ID
-        # Flow runs West to East (Eastbound)
-        if ts_id == "A0":
-            local_lane = "left0A0_0"
-            upstream_lane = None
-        elif ts_id == "B0":
-            local_lane = "A0B0_0"
-            upstream_lane = "left0A0_0"
-        elif ts_id == "C0":
-            local_lane = "B0C0_0"
-            upstream_lane = "A0B0_0"
-        elif ts_id == "D0":
-            local_lane = "C0D0_0"
-            upstream_lane = "B0C0_0"
-        else:
-            raise ValueError(f"Unknown traffic light ID: {ts_id}")
-            
-        # Get queue lengths (halting vehicles count)
-        local_q = self.ts.sumo.lane.getLastStepHaltingNumber(local_lane)
-        upstream_q = 0
-        if upstream_lane is not None:
-            upstream_q = self.ts.sumo.lane.getLastStepHaltingNumber(upstream_lane)
-            
-        # Apply 5-bin discretization
-        discrete_local = discretize_queue_5_bins(local_q)
-        discrete_upstream = discretize_queue_5_bins(upstream_q)
+        for lane in local_lanes:
+            q = self.ts.sumo.lane.getLastStepHaltingNumber(lane)
+            if "top" in lane or "bottom" in lane:
+                local_ns += q
+            else:
+                local_ew += q
+                
+        # Sum up all rest-of-network queues
+        other_ew, other_ns = 0, 0
+        for other_ts_id in self.ts.env.ts_ids:
+            if other_ts_id == self.ts.id:
+                continue
+            # Need to get lanes for the other ts, we can access the TrafficSignal object
+            other_ts = self.ts.env.traffic_signals[other_ts_id]
+            for lane in other_ts.lanes:
+                q = self.ts.sumo.lane.getLastStepHaltingNumber(lane)
+                if "top" in lane or "bottom" in lane:
+                    other_ns += q
+                else:
+                    other_ew += q
+                    
+        # Apply 5-bin discretization to all 4 dimensions
+        obs = np.array([
+            discretize_queue_5_bins(local_ew),
+            discretize_queue_5_bins(local_ns),
+            discretize_queue_5_bins(other_ew),
+            discretize_queue_5_bins(other_ns)
+        ], dtype=np.int32)
         
-        return np.array([discrete_local, discrete_upstream], dtype=np.int32)
+        return obs
         
     def observation_space(self) -> gym.spaces.Box:
-        # Array of 2 discrete bins (values from 0 to 4)
+        # Array of 4 discrete bins (values from 0 to 4)
         return gym.spaces.Box(
-            low=np.zeros(2, dtype=np.int32),
-            high=np.full(2, 4, dtype=np.int32),
+            low=np.zeros(4, dtype=np.int32),
+            high=np.full(4, 4, dtype=np.int32),
             dtype=np.int32
         )
 

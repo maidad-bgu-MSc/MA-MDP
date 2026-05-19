@@ -38,7 +38,7 @@ def load_policy(algo, agent_ids):
     
     for agent_id in agent_ids:
         if algo == "iql_tabular":
-            agent = TabularQLearningAgent(agent_id, num_states=25)
+            agent = TabularQLearningAgent(agent_id, num_states=625)
             # Adjust model path based on naming convention
             path = os.path.join(model_dir, f"{algo}_{agent_id}.npy")
             if os.path.exists(path):

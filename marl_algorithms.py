@@ -27,19 +27,22 @@ def discretize_queue(q_length):
         return 4
 
 def get_discrete_state(obs):
-    """Converts continuous lane-queue observation into a discrete state index (0 to 24)."""
-    # Assuming obs is already discretized from QueueObservationFunction into [bin1, bin2]
-    # We map this 5x5 space to a single integer 0-24
-    q1 = int(obs[0])
-    q2 = int(obs[1])
-    return q1 * 5 + q2
+    """Converts continuous lane-queue observation into a discrete state index (0 to 624)."""
+    # Assuming obs is already discretized from QueueObservationFunction into [bin1, bin2, bin3, bin4]
+    # We map this 5x5x5x5 space to a single integer 0-624
+    if len(obs) == 4:
+        return int(obs[0]) * 125 + int(obs[1]) * 25 + int(obs[2]) * 5 + int(obs[3])
+    elif len(obs) == 2:
+        return int(obs[0]) * 5 + int(obs[1])
+    else:
+        raise ValueError(f"Unsupported observation shape: {obs.shape}")
 
 # =====================================================================
 # 1. Independent Tabular Q-Learning (Decentralized Classical)
 # =====================================================================
 class TabularQLearningAgent:
     """Decentralized tabular Q-Learning with discretized state space."""
-    def __init__(self, agent_id, num_states=25, num_actions=2, lr=0.1, gamma=0.95, epsilon=0.1):
+    def __init__(self, agent_id, num_states=625, num_actions=2, lr=0.1, gamma=0.95, epsilon=0.1):
         self.agent_id = agent_id
         self.num_states = num_states
         self.num_actions = num_actions

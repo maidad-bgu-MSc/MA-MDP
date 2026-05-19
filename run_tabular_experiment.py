@@ -20,7 +20,7 @@ def train_tabular_agents(episodes=30, sim_seconds=1000):
     env = make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=sim_seconds)
     env.reset()
     
-    agents = {agent: TabularQLearningAgent(agent, num_states=25) for agent in env.possible_agents}
+    agents = {agent: TabularQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
     
     # Progress Bar for Episodes
     for episode in tqdm(range(episodes), desc="Training Progress"):
