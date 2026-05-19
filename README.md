@@ -10,6 +10,52 @@ The system is modeled as a Decentralized Partially Observable Markov Decision Pr
 
 ---
 
+## 📝 Problem Definition (As Defined in Code)
+
+The environment represents the traffic corridor coordination problem formulated as a Dec-POMDP:
+
+### 1. Agents ($\mathcal{N}$)
+The system coordinates four traffic signal agents along a horizontal arterial corridor: **`A0`**, **`B0`**, **`C0`**, and **`D0`**.
+
+### 2. State & Observation Space ($\mathcal{O}$)
+Each agent observes a 4-dimensional discrete vector from the environment (`QueueObservationFunction` in `simulator/env_setup.py`):
+1.  **Local East-West Queue:** Sum of halting vehicles on the local E-W incoming lanes.
+2.  **Local North-South Queue:** Sum of halting vehicles on the local N-S incoming lanes.
+3.  **Rest of Network East-West Queue:** Sum of halting vehicles on the E-W incoming lanes of all other three intersections.
+4.  **Rest of Network North-South Queue:** Sum of halting vehicles on the N-S incoming lanes of all other three intersections.
+
+#### Queue Discretization (5-Bins)
+To enable tabular representation, continuous queue lengths are converted into discrete bins:
+*   **`0`**: 0 vehicles
+*   **`1`**: 1–5 vehicles
+*   **`2`**: 6–15 vehicles
+*   **`3`**: 16–29 vehicles
+*   **`4`**: 30+ vehicles
+
+#### Discrete State Index Mapping
+For tabular agents, the resulting bin vector $[b_0, b_1, b_2, b_3]$ is mapped to a single state index $S \in [0, 624]$ using base-5 positional encoding:
+$$S = (b_0 \times 125) + (b_1 \times 25) + (b_2 \times 5) + b_3$$
+
+### 3. Action Space ($\mathcal{A}$)
+Each traffic signal agent has a discrete action space of size 2 (`Discrete(2)`):
+*   **Action 0:** Phase green for East-West arterial roads.
+*   **Action 1:** Phase green for North-South cross-streets.
+
+The control actions are processed every `delta_time = 5` seconds with a minimum green phase duration of `min_green = 10` seconds, followed by a mandatory `3` second yellow light phase transition.
+
+### 4. Reward Function ($\mathcal{R}$)
+To foster coordination, the environment wraps individual rewards into a synchronized global reward:
+*   **Local Reward:** For each traffic signal $ts_j$, the reward is the negative accumulated waiting time of all vehicles halting on its incoming lanes:
+    $$R_{\text{local}}(ts_j) = - \sum_{\text{lane} \in \text{incoming}(ts_j)} \text{waiting\_time}(\text{lane})$$
+*   **Global Synced Reward:** The wrapper sums the local rewards across all intersections and broadcasts this single cooperative scalar to all four agents:
+    $$R_{\text{global}} = \sum_{j \in \{\text{A0, B0, C0, D0}\}} R_{\text{local}}(ts_j)$$
+
+### 5. Transition Dynamics ($\mathcal{T}$)
+*   **Arterial Corridor (East-West & West-East):** Highly congested. High-density platoons of **30 vehicles** are injected over a **10-second window** every **150 seconds**.
+*   **Cross-Streets (North-South):** Light, stochastic traffic generated via a Poisson process with a arrival probability of **0.1** per step.
+
+---
+
 ## 📂 Repository Structure
 
 The codebase is organized into the following components:
