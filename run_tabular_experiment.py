@@ -2,12 +2,12 @@ import os
 import numpy as np
 from tqdm import tqdm
 from simulator.env_setup import make_wave_env
-from marl_algorithms import TabularQLearningAgent
+from marl_algorithms import TabularQLearningAgent, HystereticQLearningAgent
 from watch_agents import FixedTimeController
 
-def train_tabular_agents(episodes=30, sim_seconds=1000):
+def train_tabular_agents(algo="iql_tabular", episodes=100, sim_seconds=1000, eval_interval=10, eval_seconds=600):
     print("\n" + "="*50)
-    print(f"TRAINING TABULAR Q-LEARNING AGENTS ({episodes} episodes)")
+    print(f"TRAINING {algo.upper()} AGENTS ({episodes} episodes)")
     print("="*50)
     
     # Initialize Environment
@@ -20,10 +20,17 @@ def train_tabular_agents(episodes=30, sim_seconds=1000):
     env = make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=sim_seconds)
     env.reset()
     
-    agents = {agent: TabularQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
+    if algo == "iql_tabular":
+        agents = {agent: TabularQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
+    elif algo == "hysteretic":
+        agents = {agent: HystereticQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
+    else:
+        raise ValueError(f"Unsupported tabular algorithm: {algo}")
+    
+    eval_history = []
     
     # Progress Bar for Episodes
-    for episode in tqdm(range(episodes), desc="Training Progress"):
+    for episode in tqdm(range(episodes), desc=f"{algo} Training Progress"):
         env.reset()
         last_obs = {a: None for a in env.possible_agents}
         last_action = {a: None for a in env.possible_agents}
@@ -44,7 +51,7 @@ def train_tabular_agents(episodes=30, sim_seconds=1000):
                     action=last_action[agent_id], 
                     reward=reward, 
                     next_obs=obs, 
-                    done=termination or truncation
+                    done=termination or truncation,
                 )
                 
             if termination or truncation:
@@ -56,15 +63,22 @@ def train_tabular_agents(episodes=30, sim_seconds=1000):
                 
             env.step(action)
             
+        # Periodic Evaluation
+        if (episode + 1) % eval_interval == 0:
+            # We use evaluate_agents inside the same file.
+            # evaluate_agents creates its own fresh environment to avoid messing with the training env.
+            reward = evaluate_agents(agents, algo_name=f"{algo} (Epoch {episode+1})", sim_seconds=eval_seconds)
+            eval_history.append((episode + 1, reward))
+            
     # Save the trained models
     os.makedirs("models", exist_ok=True)
     for agent_id, agent in agents.items():
-        path = os.path.join("models", f"iql_tabular_{agent_id}.npy")
+        path = os.path.join("models", f"{algo}_{agent_id}.npy")
         np.save(path, agent.q_table)
         
-    print("\nTraining completed. Q-tables saved to models/")
+    print(f"\nTraining completed. Q-tables saved to models/{algo}_*.npy")
     env.close()
-    return agents
+    return agents, eval_history
 
 def evaluate_agents(agents_dict, algo_name="Tabular IQL", sim_seconds=3600):
     env = make_wave_env(net_file="wave_1x4.net.xml", route_file="wave_1x4.rou.xml", num_seconds=sim_seconds)
@@ -95,29 +109,53 @@ def evaluate_agents(agents_dict, algo_name="Tabular IQL", sim_seconds=3600):
     print(f"System Global Return (Total Negative Delay): {system_reward:.2f}")
     return system_reward
 
+import csv
+import matplotlib.pyplot as plt
+
 if __name__ == "__main__":
-    # 1. Train Tabular Agents
-    trained_iql_agents = train_tabular_agents(episodes=30, sim_seconds=1000)
+    # 1. Train Tabular Agents (100 episodes, evaluate every 10)
+    trained_iql_agents, iql_history = train_tabular_agents(algo="iql_tabular", episodes=100, sim_seconds=1000, eval_interval=5, eval_seconds=600)
+    trained_hysteretic_agents, hyst_history = train_tabular_agents(algo="hysteretic", episodes=100, sim_seconds=1000, eval_interval=5, eval_seconds=600)
     
     print("\n" + "="*50)
+    print("EVALUATING FIXED BASELINE (600 seconds)")
     print("="*50)
     
-    # 2. Evaluate Trained IQL
-    iql_reward = evaluate_agents(trained_iql_agents, algo_name="Tabular Q-Learning", sim_seconds=3600)
+    # 2. Evaluate Fixed Time Baseline (using 600s to match the training eval duration)
+    # Empirically determined to be the best fixed baseline: 50/50 split, no offsets
+    fixed_agents = {
+        agent: FixedTimeController(agent, ew_steps=10, ns_steps=10, offset_steps=0)
+        for agent in trained_iql_agents.keys()
+    }
+    fixed_reward = evaluate_agents(fixed_agents, algo_name="Fixed-Time (50/50)", sim_seconds=600)
     
-    # 3. Evaluate Fixed Time Baseline
-    print("STARTING DETERMINISTIC EVALUATION (3600 seconds)")
-    fixed_agents = {agent: FixedTimeController(agent, cycle_steps=6) for agent in trained_iql_agents.keys()}
-    fixed_reward = evaluate_agents(fixed_agents, algo_name="Fixed-Time Controller", sim_seconds=3600)
+    # 3. Save to CSV
+    log_file = "training_evaluation_log.csv"
+    with open(log_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Epoch", "Tabular_IQL_Reward", "Hysteretic_Reward", "Fixed_Baseline_Reward"])
+        for (ep, iql_r), (_, hyst_r) in zip(iql_history, hyst_history):
+            writer.writerow([ep, iql_r, hyst_r, fixed_reward])
+            
+    print(f"\nSaved evaluation history to {log_file}")
     
-    print("\n" + "="*50)
-    print("FINAL COMPARISON")
-    print("="*50)
-    print(f"Fixed-Time Total Reward: {fixed_reward:.2f}")
-    print(f"Tabular IQL Total Reward: {iql_reward:.2f}")
+    # 4. Plot Learning Curves (Log-Scaled Absolute Delay)
+    epochs = [x[0] for x in iql_history]
+    iql_delays = [abs(x[1]) for x in iql_history]
+    hyst_delays = [abs(x[1]) for x in hyst_history]
+    fixed_delay = abs(fixed_reward)
     
-    if iql_reward > fixed_reward:
-        improvement = ((iql_reward - fixed_reward) / abs(fixed_reward)) * 100
-        print(f"\nResult: Tabular IQL outperformed Fixed-Time by {improvement:.1f}%!")
-    else:
-        print("\nResult: Tabular IQL did not outperform Fixed-Time. (Try more training episodes!)")
+    plt.figure(figsize=(10, 6))
+    plt.plot(epochs, iql_delays, marker='o', label="Tabular IQL")
+    plt.plot(epochs, hyst_delays, marker='s', label="Hysteretic Q-Learning")
+    plt.axhline(y=fixed_delay, color='r', linestyle='--', label="Fixed-Time (50/50) Baseline")
+    
+    plt.yscale('log')
+    plt.xlabel("Training Epochs")
+    plt.ylabel("Absolute Total Delay (Log Scale) [Lower is Better]")
+    plt.title("MARL Coordination: Learning Curves (600s Evaluation)")
+    plt.legend()
+    plt.grid(True, which="both", ls="-", alpha=0.2)
+    
+    plt.savefig("learning_curves.png", dpi=300)
+    print("Saved learning curves plot to learning_curves.png")

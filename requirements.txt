@@ -1,0 +1,10 @@
+sumo-rl==1.4.5
+pettingzoo==1.24.3
+tianshou==2.0.1
+torch==2.7.1
+matplotlib
+pandas
+numpy
+pytest
+tqdm
+seaborn

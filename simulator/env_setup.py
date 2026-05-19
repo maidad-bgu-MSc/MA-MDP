@@ -147,22 +147,10 @@ class GlobalRewardWrapper:
     def step(self, actions):
         obs, rewards, terminations, truncations, infos = self.env.step(actions)
         
-        # Gridlock Reset check: if any queue hits Bin 4 (30+ cars, meaning obs[0] >= 4)
-        gridlock = False
-        for agent_id, agent_obs in obs.items():
-            if agent_obs[0] >= 4:
-                gridlock = True
-                break
-                
-        if gridlock:
-            # Enforce immediate early termination across all agents
-            terminations = {agent: True for agent in rewards.keys()}
-            # Apply a massive terminal penalty
-            synchronized_rewards = {agent: -10000.0 for agent in rewards.keys()}
-        else:
-            # Broadcast the sum of negative waiting times as the global reward
-            global_reward = sum(rewards.values())
-            synchronized_rewards = {agent: global_reward for agent in rewards.keys()}
+        # Broadcast the sum of negative waiting times as the global reward.
+        # Early gridlock resets have been removed to let agents learn from natural cumulative queue delay.
+        global_reward = sum(rewards.values())
+        synchronized_rewards = {agent: global_reward for agent in rewards.keys()}
             
         return obs, synchronized_rewards, terminations, truncations, infos
         

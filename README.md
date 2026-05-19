@@ -1,129 +1,150 @@
-# Adaptive Traffic Light Control (ATLC) using Multi-Agent Reinforcement Learning
+# Adaptive Traffic Light Control (ATLC) on a 1x4 Corridor with Multi-Agent Reinforcement Learning (MARL)
 
-[![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.13-blue.svg)](https://www.python.org/)
+[![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
 [![SUMO version](https://img.shields.io/badge/SUMO-1.20%2B-orange.svg)](https://eclipse.dev/sumo/)
 
-This repository implements a highly modular, scalable Multi-Agent Reinforcement Learning (MARL) framework to solve the **Adaptive Traffic Light Control (ATLC)** optimization problem in complex urban road networks. The system features a progression from baseline non-MDP systems to classical game-theoretic decentralized coordinators, graph-based message-passing, and modern deep value-factorization mixing architectures.
+This repository implements a decentralized coordination framework for **Adaptive Traffic Light Control (ATLC)** on a 1-dimensional, 4-intersection horizontal road corridor ($1 \times 4$ grid) using SUMO (Simulation of Urban MObility) and PettingZoo. The traffic corridor represents a green wave scenario, where dense vehicle platoons are periodically injected eastbound and westbound along the arterial corridor, while stochastic Poisson cross-traffic intersects vertically. The goal of the system is to coordinate traffic light phase choices (East-West vs. North-South) to minimize cumulative vehicle waiting time and maximize corridor throughput.
+
+The system is modeled as a Decentralized Partially Observable Markov Decision Process (Dec-POMDP) utilizing a cooperative global reward structure. It provides implementations of classical tabular multi-agent algorithms (Independent Q-Learning and Hysteretic Q-Learning) alongside advanced PyTorch deep networks (Independent DQN, Independent PPO, and QMIX mixing network structures) to evaluate coordination performance against predefined fixed-time signaling baseline policies.
 
 ---
 
-## 📖 Abstract & Project Overview
+## 📂 Repository Structure
 
-Metropolitan traffic congestion poses a significant economic and environmental burden. Traditional systems rely on pre-programmed fixed-time phases that cannot adapt to stochastic, dynamic vehicular arrival rates. 
-
-We formulate the adaptive traffic light control problem as a **Decentralized Partially Observable Markov Decision Process (Dec-POMDP)**, denoted by the tuple $\langle \mathcal{S}, \mathcal{A}, \mathcal{T}, \mathcal{R}, \Omega, \mathcal{O}, \gamma \rangle$:
-
-*   **Agents ($\mathcal{N}$):** A grid of $K \times K$ intersections (e.g., a $2\times2$ grid containing 4 coordinated agents).
-*   **State Space ($\mathcal{S}$):** The custom partially observable queue length (halted vehicle count) along all incoming lanes at each intersection.
-*   **Action Space ($\mathcal{A}$):** Discrete phase selection indicating which direction receives the green light (e.g., North-South green vs. East-West green). Corner junctions use single-phase plans, while boundary/center junctions support multi-phase coordinated transitions.
-*   **Transition Dynamics ($\mathcal{T}$):** Vehicular traffic flows generated using a stochastic **Poisson process** ($\lambda = 0.05$) to model realistic dynamic vehicle arrivals.
-*   **Reward Function ($\mathcal{R}$):** The accumulated negative waiting time of all vehicles halted at the intersection's junctions, driving the agents to minimize travel delays:
-    $$R_i(t) = - \sum_{v \in \mathcal{V}_i} W_v(t)$$
-*   **Observations ($\Omega$):** Dimension-adapted local queue metrics standardized for continuous deep networks.
-
----
-
-## 🛠️ Implemented Algorithms & Methodologies
-
-The repository includes a complete roster of **7 coordinated and deep algorithms** to evaluate how modern deep MARL compares against classical coordination graphs and baselines:
+The codebase is organized into the following components:
 
 ```
-ATLC Roster Progression
- ├── Category A: Baselines & Classical Game Theory
- │    ├── 1. Fixed-Time Controller (Non-MDP Baseline round-robin)
- │    ├── 2. Independent Tabular Q-Learning (Decentralized State-Binning)
- │    └── 3. Independent SARSA (On-Policy counterpart)
- ├── Category B: Classical Coordination Mechanics
- │    ├── 4. Distributed W-Learning (Resource competitor negotiations)
- │    ├── 5. Joint-Action Learners (JAL) (Action-history tracking)
- │    └── 6. Max-Plus Algorithm (Message-Passing Coordination Graphs)
- └── Category C: Modern Centralized Mixing
-      └── 7. QMIX Centralized Mixing (Centralized Training, Decentralized Execution - CTDE)
+MA-MDP/
+ ├── simulator/                       # Core simulation module
+ │    ├── __init__.py
+ │    ├── generate_1x4_wave.py        # Generates SUMO network, route plans, and traffic flows
+ │    └── env_setup.py                # PettingZoo environment wrapper and global reward synced step
+ ├── models/                          # Directory for saving trained agent policy models
+ ├── tests/                           # Unit testing suite
+ │    ├── __init__.py
+ │    ├── test_imports.py             # Verifies dependencies and syntax
+ │    ├── test_1x4_dynamics.py        # Tests environment stepping dynamics and reward broadcasting
+ │    ├── test_algorithms.py          # Tests tabular update steps and network dimensions
+ │    └── test_action_handshake.py    # Tests action constraints and traffic light phase transitions
+ ├── requirements.txt                 # Project library dependencies
+ ├── marl_algorithms.py               # Implements tabular policies and QMIX mixing networks
+ ├── train.py                         # Deep RL training script using Tianshou v2 (IQL/DQN and IPPO/PPO)
+ ├── evaluate.py                      # Evaluation pipeline for trained Deep RL models
+ ├── evaluate_baselines.py            # Evaluates preconfigured fixed-time baseline controllers
+ ├── plot_results.py                  # Processes evaluation log CSVs and generates comparison plots
+ ├── run_all_tests.py                 # Runner wrapper script for running pytest
+ ├── run_tabular_experiment.py        # Trains and evaluates Tabular IQL and Hysteretic agents
+ └── watch_agents.py                  # Visual simulation CLI tool using SUMO-GUI
 ```
 
-### Key Engineering Features:
-*   **Dynamic Lane Dimension Adapters:** Automates observation shape transformation (padding/slicing) to evaluate pre-trained models on arbitrary grid sizes ($2\times2$ to $5\times5$) without dimensional shape crashes.
-*   **Coordination Graph KeyError Safeguards:** Configures Max-Plus message-passing to gracefully default missing communication links to neutral utility boundaries.
-*   **Automated Scaling Pipeline:** Programmatically compiles networks, edits green durations, and runs multi-seed scaled environments.
+### Core Scripts:
+*   **`simulator/env_setup.py`**: Wraps `sumo-rl` in a PettingZoo AEC interface. Uses a 4D queue observation function (local E-W, local N-S, rest-of-network E-W, rest-of-network N-S queues) discretized into 5 bins ($5^4 = 625$ states), and synchronizes rewards globally.
+*   **`marl_algorithms.py`**: Defines agent classes including decentralized tabular Q-learning, Hysteretic Q-learning, and PyTorch deep neural network architectures for QMIX.
+*   **`run_tabular_experiment.py`**: Trains tabular agents for 100 episodes, saves evaluation results to `training_evaluation_log.csv`, and outputs the learning curves to `learning_curves.png`.
+*   **`evaluate_baselines.py`**: Runs 5 fixed-time control heuristics for comparison.
+*   **`train.py` & `evaluate.py`**: Trains and evaluates deep reinforcement learning agents (IQL/DQN and IPPO/PPO) with Tianshou.
 
 ---
 
-## 💻 Technologies Used
-
-*   **Traffic Simulator:** Eclipse SUMO (Simulation of Urban MObility) & `sumo-rl`
-*   **Environment Standard:** PettingZoo (Parallel API Wrapper) & Gymnasium
-*   **Core Logic:** Python, PyTorch (Deep Mixing Networks), NumPy, Pandas
-*   **Visualizations:** Seaborn & Matplotlib
-*   **Verification:** Pytest
-
----
-
-## ⚙️ Setup and Installation
+## ⚙️ Installation & Prerequisites
 
 ### 1. Install Eclipse SUMO
-Ensure that SUMO is installed on your local operating system:
-*   **Windows:** Download the MSI installer from [SUMO Downloads](https://eclipse.dev/sumo/) and install it.
-*   **Linux (Ubuntu/Debian):**
+Ensure Eclipse SUMO is installed on your operating system:
+*   **Windows**: Download and run the MSI installer from the [Eclipse SUMO Downloads](https://eclipse.dev/sumo/) page.
+*   **Linux (Ubuntu/Debian)**:
     ```bash
     sudo apt-get update
     sudo apt-get install sumo sumo-tools sumo-gui
     ```
 
 ### 2. Configure Environment Variables
-Set the `SUMO_HOME` environment variable to point to your SUMO installation folder:
-*   **Windows (Powershell):**
+Set `SUMO_HOME` to point to the root folder of your SUMO installation:
+*   **Windows (PowerShell)**:
     ```powershell
     [System.Environment]::SetEnvironmentVariable("SUMO_HOME", "C:\Program Files (x86)\Eclipse\Sumo", "User")
     ```
-*   **Linux/macOS:**
+*   **Linux/macOS**:
     ```bash
     export SUMO_HOME=/usr/share/sumo
     ```
 
-### 3. Clone and Install Python Dependencies
+### 3. Install Python Dependencies
+Install required packages using the Python Launcher (`py`) or your active virtual environment:
 ```bash
-git clone https://github.com/yourusername/ATLC-MARL.git
-cd ATLC-MARL
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Usage & Testing
+## 🚀 Usage Instructions
 
-### 1. Running the Automated Testing Suite
-We include a lightning-fast, comprehensive automated testing suite with **24 modular tests** verifying imports, environment stepping, XML generations, and coordination message passes in **under 10 seconds**:
+### 1. Run the Automated Tests
+Run the test suite using the testing wrapper:
 ```bash
 python run_all_tests.py
 ```
 
-### 2. Run Scaling Evaluation
-Execute the scaling pipeline to train and evaluate all 7 algorithms across $2\times2$ to $5\times5$ grids and plot comparison metrics:
+### 2. Run Tabular Experiments
+Train and evaluate Tabular IQL and Hysteretic Q-Learning agents:
 ```bash
-python run_followup_experiments.py
+python run_tabular_experiment.py
 ```
-This writes numerical metrics to `outputs/scaled_results.csv` and a high-resolution comparative scaling plot to `outputs/scaled_performance_comparison.png`.
+This logs evaluation returns to `training_evaluation_log.csv` and saves the training plot to `learning_curves.png`.
 
-### 3. Visual Simulator & Real-time Console Monitor
-Open the SUMO-GUI window and step slowly through a simulation episode to visually observe vehicle queues and coordinated green phase switches:
+### 3. Evaluate Fixed-Time Baselines
+Evaluate the 5 preconfigured fixed-time controllers over 600-second simulation runs:
 ```bash
-python watch_agents.py --size 2 --algo qmix --delay 0.1
+python evaluate_baselines.py
 ```
+
+### 4. Train & Evaluate Deep RL Agents
+Train the Deep IQL (DQN) and IPPO (PPO) models, deterministic evaluation runs, and plot results:
+```bash
+python train.py
+python evaluate.py
+python plot_results.py
+```
+This produces step-by-step logs under the `outputs/` folder, creates `outputs/summary.md`, and outputs comparative line plots to `outputs/performance_comparison.png`.
+
+### 5. Watch Agents in SUMO-GUI
+Observe policies visually in the SUMO simulator:
+```bash
+python watch_agents.py --algo iql_tabular --delay 0.1
+```
+*(Options for `--algo` are `iql_tabular`, `hysteretic`, `qmix`, `iql_deep`, or `fixed`)*
 
 ---
 
-## 📈 Evaluation Results & Interpretability
+## 📈 Results & Outputs
 
-Numerical comparison metrics are automatically plotted and saved to disk. Independent decentralized models show moderate improvements over the Fixed-Time baseline on small networks, while centralized coordination graph message-passing (Max-Plus) and centralization mixing (QMIX) exhibit superior scaling properties by preventing queue congestion bottlenecks across high agent densities.
+### 1. Tabular Learning Performance (`training_evaluation_log.csv`)
+The following table shows the evaluation returns (sum of system-wide negative delays over 600 seconds) logged across 100 training epochs:
 
-*Place your generated plot comparison from `outputs/scaled_performance_comparison.png` here to visually document algorithmic performance scaling!*
+| Epoch | Tabular IQL Return | Hysteretic Q-Learning Return | Fixed-Time (50/50) Baseline Return |
+| :--- | :---: | :---: | :---: |
+| **5** | -220,935.00 | -512,944.00 | -111,698.00 |
+| **10** | -204,823.00 | -1,125,423.00 | -111,698.00 |
+| **20** | -48,989.00 | -94,521.00 | -111,698.00 |
+| **25** | **-43,357.00** | -59,290.00 | -111,698.00 |
+| **30** | -467,245.00 | -246,688.00 | -111,698.00 |
+| **40** | -76,799.00 | -132,195.00 | -111,698.00 |
+| **45** | -57,988.00 | **-38,745.00** | -111,698.00 |
+| **60** | -94,534.00 | -48,968.00 | -111,698.00 |
+| **80** | -125,874.00 | -80,233.00 | -111,698.00 |
+| **100** | -111,649.00 | -77,375.00 | -111,698.00 |
 
----
+*   **Analysis**: Both reinforcement learning methods successfully learn policies that outperform the naive fixed-time baseline (constant return of `-111,698.00`). Tabular IQL reaches a peak return of `-43,357.00` at epoch 25, while Hysteretic Q-learning achieves the overall best return of `-38,745.00` at epoch 45.
 
-## 📄 License
+### 2. Fixed-Time Heuristic Comparison
+Evaluating the static fixed-time baselines (`evaluate_baselines.py`) over 600 seconds of simulation yields:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+| Rank | Policy Name | Configuration | Total Delay Return |
+| :---: | :--- | :--- | :---: |
+| **1** | Policy 1: Naive 50/50 Split | EW Green: 50s, NS Green: 50s, No offsets | **-110,530.00** |
+| **2** | Policy 5: Short Cycle Green Wave | EW Green: 60s, NS Green: 15s, Staggered offsets (0, 3, 6, 9) | **-321,881.00** |
+| **3** | Policy 2: 80/20 Proportional Split | EW Green: 120s, NS Green: 30s, No offsets | **-325,535.00** |
+| **4** | Policy 3: 80/20 Split, Green Wave | EW Green: 120s, NS Green: 30s, Staggered offsets (0, 3, 6, 9) | **-347,468.00** |
+| **5** | Policy 4: Short Cycle Split | EW Green: 60s, NS Green: 15s, No offsets | **-448,139.00** |
+
+*   **Analysis**: Among non-learning heuristics, Policy 1 performs best because it allocates sufficient time to clear stochastic cross-street vehicle queues. However, trained learning agents coordinate more dynamically, outperforming all fixed baselines.

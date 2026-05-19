@@ -6,26 +6,37 @@ import numpy as np
 import torch
 
 from simulator.env_setup import make_wave_env
-from marl_algorithms import TabularQLearningAgent, QMIXAgentNetwork
+from marl_algorithms import TabularQLearningAgent, HystereticQLearningAgent, QMIXAgentNetwork
 
 class FixedTimeController:
-    """Cycle traffic signals in a standard round-robin fashion."""
-    def __init__(self, agent_id, cycle_steps=6):
+    """Coordinated Fixed-Time Controller with proportional splits and offsets."""
+    def __init__(self, agent_id, ew_steps=24, ns_steps=6, offset_steps=0):
         self.agent_id = agent_id
-        self.cycle_steps = cycle_steps
-        self.step_count = 0
-        self.current_action = 0
+        self.ew_steps = ew_steps
+        self.ns_steps = ns_steps
+        self.cycle_steps = ew_steps + ns_steps
+        # Shift the step count by the offset to create the staggered "Green Wave"
+        self.step_count = offset_steps
+        self.current_action = 1
+        self._update_action()
+
+    def _update_action(self):
+        cycle_pos = self.step_count % self.cycle_steps
+        # Phase 1 is EW Green, Phase 0 is NS Green
+        if cycle_pos < self.ew_steps:
+            self.current_action = 1
+        else:
+            self.current_action = 0
 
     def compute_action(self, obs, explore=False):
-        if self.step_count > 0 and self.step_count % self.cycle_steps == 0:
-            self.current_action = 1 - self.current_action
+        self._update_action()
         self.step_count += 1
         return self.current_action
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Watch pre-trained MARL agents in SUMO-GUI.")
     parser.add_argument("--algo", type=str, default="iql_tabular",
-                        choices=["iql_tabular", "qmix", "iql_deep", "fixed"],
+                        choices=["iql_tabular", "hysteretic", "qmix", "iql_deep", "fixed"],
                         help="Algorithm to watch in GUI.")
     parser.add_argument("--delay", type=float, default=0.1, help="Simulation step sleep delay in seconds.")
     return parser.parse_args()
@@ -44,6 +55,16 @@ def load_policy(algo, agent_ids):
             if os.path.exists(path):
                 agent.q_table = np.load(path)
                 print(f"Loaded tabular Q-table for agent {agent_id} from {path}")
+            else:
+                print(f"Warning: {path} not found. Running with un-trained/empty policy.")
+            agents[agent_id] = agent
+            
+        elif algo == "hysteretic":
+            agent = HystereticQLearningAgent(agent_id, num_states=625)
+            path = os.path.join(model_dir, f"{algo}_{agent_id}.npy")
+            if os.path.exists(path):
+                agent.q_table = np.load(path)
+                print(f"Loaded Hysteretic Q-table for agent {agent_id} from {path}")
             else:
                 print(f"Warning: {path} not found. Running with un-trained/empty policy.")
             agents[agent_id] = agent
@@ -76,8 +97,8 @@ def load_policy(algo, agent_ids):
                 print("Warning: Could not import QNet from train.py.")
                 
         elif algo == "fixed":
-            agent = FixedTimeController(agent_id)
-            print(f"Loaded Fixed-Time Controller for agent {agent_id}")
+            agent = FixedTimeController(agent_id, ew_steps=10, ns_steps=10, offset_steps=0)
+            print(f"Loaded Fixed-Time Controller (50/50) for agent {agent_id}")
             agents[agent_id] = agent
                 
     return agents

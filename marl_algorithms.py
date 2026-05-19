@@ -42,7 +42,7 @@ def get_discrete_state(obs):
 # =====================================================================
 class TabularQLearningAgent:
     """Decentralized tabular Q-Learning with discretized state space."""
-    def __init__(self, agent_id, num_states=625, num_actions=2, lr=0.1, gamma=0.95, epsilon=0.1):
+    def __init__(self, agent_id, num_states=625, num_actions=2, lr=0.01, gamma=0.95, epsilon=0.1):
         self.agent_id = agent_id
         self.num_states = num_states
         self.num_actions = num_actions
@@ -65,6 +65,39 @@ class TabularQLearningAgent:
         td_target = reward + (0.0 if done else self.gamma * self.q_table[next_state, best_next_action])
         td_error = td_target - self.q_table[state, action]
         self.q_table[state, action] += self.lr * td_error
+
+class HystereticQLearningAgent:
+    """Decentralized Hysteretic Q-Learning for multi-agent coordination."""
+    def __init__(self, agent_id, num_states=625, num_actions=2, alpha=0.01, beta=0.001, gamma=0.95, epsilon=0.1):
+        self.agent_id = agent_id
+        self.num_states = num_states
+        self.num_actions = num_actions
+        self.alpha = alpha  # Optimistic learning rate for positive TD error
+        self.beta = beta    # Pessimistic learning rate for negative TD error
+        self.gamma = gamma
+        self.epsilon = epsilon
+        self.q_table = np.zeros((num_states, num_actions))
+
+    def compute_action(self, obs, explore=True):
+        state = get_discrete_state(obs)
+        if explore and np.random.rand() < self.epsilon:
+            return np.random.randint(self.num_actions)
+        return int(np.argmax(self.q_table[state]))
+
+    def update(self, obs, action, reward, next_obs, done):
+        state = get_discrete_state(obs)
+        next_state = get_discrete_state(next_obs)
+        best_next_action = np.argmax(self.q_table[next_state])
+        
+        td_target = reward + (0.0 if done else self.gamma * self.q_table[next_state, best_next_action])
+        td_error = td_target - self.q_table[state, action]
+        
+        # Hysteretic update
+        if td_error >= 0:
+            self.q_table[state, action] += self.alpha * td_error
+        else:
+            self.q_table[state, action] += self.beta * td_error
+
 
 # =====================================================================
 # 2. QMIX Centralized Mixing Deep Network
