@@ -38,7 +38,7 @@ def test_yellow_phase_xml_states():
     # We construct a mock minimal XML net file to verify traffic light phases are correctly modified
     xml_content = """<?xml version="1.0" encoding="UTF-8"?>
     <net>
-        <tlLogic id="A1" type="static" programID="0" offset="0">
+        <tlLogic id="A0" type="static" programID="0" offset="0">
             <phase duration="42" state="GGrrGG"/>
             <phase duration="42" state="yyrryy"/>
             <phase duration="42" state="rrGGrr"/>
@@ -51,7 +51,7 @@ def test_yellow_phase_xml_states():
         f.write(xml_content)
         
     try:
-        from scale_network import modify_traffic_lights
+        from simulator.generate_1x4_wave import modify_traffic_lights
         modify_traffic_lights(mock_net_file)
         
         # Verify yellow transition phases (phases 1 and 3) are set to duration 3

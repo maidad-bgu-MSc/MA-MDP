@@ -4,9 +4,16 @@ import torch.nn as nn
 import numpy as np
 
 # Setup SUMO paths
-from env_setup import setup_sumo_env, make_env
-setup_sumo_env()
+from simulator.env_setup import make_wave_env
+import os
 
+def make_env(num_seconds=3600, out_csv_name=None):
+    net_file = "wave_1x4.net.xml"
+    rou_file = "wave_1x4.rou.xml"
+    if not os.path.exists(net_file) or not os.path.exists(rou_file):
+        from simulator.generate_1x4_wave import build_1x4_scenario
+        build_1x4_scenario()
+    return make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=num_seconds, out_csv_name=out_csv_name)
 # Tianshou imports
 from tianshou.env import PettingZooEnv, DummyVectorEnv
 from tianshou.data import Collector

@@ -1,286 +1,140 @@
 import os
 import sys
-
-# Setup SUMO paths programmatically before other imports
-from scale_network import setup_sumo_env
-setup_sumo_env()
-
 import time
 import argparse
 import numpy as np
 import torch
-import torch.nn as nn
-import sumo_rl
-from env_setup import QueueObservationFunction, custom_reward_fn
-from marl_algorithms import (
-    FixedTimeController, TabularQLearningAgent, SARSAAgent,
-    WLearningAgent, JALAgent, MaxPlusAgent, run_max_plus_coordination,
-    QMIXAgentNetwork
-)
 
-def adapt_obs_dict(obs_dict):
-    """Adapts all observations in the dictionary to have exactly size 2."""
-    adapted = {}
-    for agent_id, obs in obs_dict.items():
-        obs = np.array(obs, dtype=np.float32)
-        if len(obs) > 2:
-            adapted[agent_id] = obs[:2]
-        elif len(obs) < 2:
-            adapted[agent_id] = np.pad(obs, (0, 2 - len(obs)), mode="constant")
-        else:
-            adapted[agent_id] = obs
-    return adapted
+from simulator.env_setup import make_wave_env
+from marl_algorithms import TabularQLearningAgent, QMIXAgentNetwork
+
+class FixedTimeController:
+    """Cycle traffic signals in a standard round-robin fashion."""
+    def __init__(self, agent_id, cycle_steps=6):
+        self.agent_id = agent_id
+        self.cycle_steps = cycle_steps
+        self.step_count = 0
+        self.current_action = 0
+
+    def compute_action(self, obs, explore=False):
+        if self.step_count > 0 and self.step_count % self.cycle_steps == 0:
+            self.current_action = 1 - self.current_action
+        self.step_count += 1
+        return self.current_action
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Watch pre-trained MARL agents in SUMO-GUI.")
-    parser.add_argument("--size", type=int, default=2, choices=[2, 3, 4, 5], help="Grid network size.")
-    parser.add_argument("--algo", type=str, default="fixed",
-                        choices=["fixed", "iql_tabular", "sarsa_tabular", "w_learning", "jal", "max_plus", "qmix", "iql_deep"],
+    parser.add_argument("--algo", type=str, default="iql_tabular",
+                        choices=["iql_tabular", "qmix", "iql_deep", "fixed"],
                         help="Algorithm to watch in GUI.")
     parser.add_argument("--delay", type=float, default=0.1, help="Simulation step sleep delay in seconds.")
-    parser.add_argument("--scenario", type=str, default="standard",
-                        choices=["standard", "platoon", "osm", "bottleneck", "spillback"],
-                        help="Scenario to run in SUMO-GUI.")
     return parser.parse_args()
 
-
-def load_policy(algo, agent_ids, size, scenario="standard"):
+def load_policy(algo, agent_ids):
     """Loads a pre-trained policy for each agent from disk."""
     agents = {}
-    
-    # Grid size specific naming
     model_dir = "models"
     os.makedirs(model_dir, exist_ok=True)
     
     for agent_id in agent_ids:
-        if algo == "fixed":
-            agents[agent_id] = FixedTimeController(agent_id)
-        elif algo == "iql_tabular":
-            agent = TabularQLearningAgent(agent_id)
-            path = os.path.join(model_dir, f"{algo}_{agent_id}_{size}x{size}.npy")
+        if algo == "iql_tabular":
+            agent = TabularQLearningAgent(agent_id, num_states=25)
+            # Adjust model path based on naming convention
+            path = os.path.join(model_dir, f"{algo}_{agent_id}.npy")
             if os.path.exists(path):
                 agent.q_table = np.load(path)
                 print(f"Loaded tabular Q-table for agent {agent_id} from {path}")
             else:
                 print(f"Warning: {path} not found. Running with un-trained/empty policy.")
             agents[agent_id] = agent
-        elif algo == "sarsa_tabular":
-            agent = SARSAAgent(agent_id)
-            path = os.path.join(model_dir, f"{algo}_{agent_id}_{size}x{size}.npy")
-            if os.path.exists(path):
-                agent.q_table = np.load(path)
-                print(f"Loaded SARSA Q-table for agent {agent_id} from {path}")
-            else:
-                print(f"Warning: {path} not found. Running with empty policy.")
-            agents[agent_id] = agent
-        elif algo == "w_learning":
-            agent = WLearningAgent(agent_id)
-            # Load Sub-Q tables and W tables
-            for i in range(2):
-                q_path = os.path.join(model_dir, f"w_learning_q_{i}_{agent_id}_{size}x{size}.npy")
-                w_path = os.path.join(model_dir, f"w_learning_w_{i}_{agent_id}_{size}x{size}.npy")
-                if os.path.exists(q_path):
-                    agent.q_tables[i] = np.load(q_path)
-                if os.path.exists(w_path):
-                    agent.w_tables[i] = np.load(w_path)
-            print(f"Loaded W-Learning tables for agent {agent_id}")
-            agents[agent_id] = agent
-        elif algo == "jal":
-            if scenario == "osm":
-                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
-            elif scenario == "bottleneck":
-                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
-            else:
-                col = ord(agent_id[0]) - 65
-                row = int(agent_id[1])
-                neighbor_ids = []
-                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
             
-            agent = JALAgent(agent_id, neighbor_ids)
-            path = os.path.join(model_dir, f"jal_{agent_id}_{size}x{size}.npy")
-            if os.path.exists(path):
-                agent.q_table = np.load(path)
-                print(f"Loaded JAL Q-table for agent {agent_id}")
-            agents[agent_id] = agent
-        elif algo == "max_plus":
-            if scenario == "osm":
-                neighbor_ids = ["B"] if agent_id in ["A", "C"] else ["A", "C"]
-            elif scenario == "bottleneck":
-                neighbor_ids = ["B"] if agent_id == "A" else ["A"]
-            else:
-                col = ord(agent_id[0]) - 65
-                row = int(agent_id[1])
-                neighbor_ids = []
-                if col > 0: neighbor_ids.append(f"{chr(65 + col - 1)}{row}")
-                if col < size - 1: neighbor_ids.append(f"{chr(65 + col + 1)}{row}")
-                if row > 0: neighbor_ids.append(f"{chr(65 + col)}{row - 1}")
-                if row < size - 1: neighbor_ids.append(f"{chr(65 + col)}{row + 1}")
-            
-            agent = MaxPlusAgent(agent_id, neighbor_ids)
-            # Load local and pair Q tables
-            local_path = os.path.join(model_dir, f"maxplus_local_{agent_id}_{size}x{size}.npy")
-            if os.path.exists(local_path):
-                agent.q_local = np.load(local_path)
-            for n_id in neighbor_ids:
-                pair_path = os.path.join(model_dir, f"maxplus_pair_{agent_id}_{n_id}_{size}x{size}.npy")
-                if os.path.exists(pair_path):
-                    agent.q_pairs[n_id] = np.load(pair_path)
-            print(f"Loaded Max-Plus matrices for agent {agent_id}")
-            agents[agent_id] = agent
         elif algo == "qmix":
             agent = QMIXAgentNetwork(obs_dim=2, action_dim=2)
-            path = os.path.join(model_dir, f"qmix_{agent_id}_{size}x{size}.pth")
+            path = os.path.join(model_dir, f"qmix_{agent_id}.pth")
             if os.path.exists(path):
                 agent.load_state_dict(torch.load(path))
                 agent.eval()
                 print(f"Loaded QMIX agent network for {agent_id} from {path}")
-            agents[agent_id] = agent
-        elif algo == "iql_deep":
-            # Backward compatibility with trained PyTorch model
-            from train import QNet
-            agent = QNet(state_shape=2, action_shape=2)
-            path = os.path.join("models", "iql_policy.pth")
-            if os.path.exists(path):
-                state_dict = torch.load(path, map_location="cpu")
-                # Strip Tianshou policy prefixes if present
-                clean_dict = {}
-                for k, v in state_dict.items():
-                    if k.startswith("model."):
-                        clean_dict[k.replace("model.", "")] = v
-                    else:
-                        clean_dict[k] = v
-                agent.load_state_dict(clean_dict, strict=False)
-                agent.eval()
-                print(f"Loaded Deep IQL network from {path}")
+            else:
+                print(f"Warning: {path} not found. Running with un-trained/empty policy.")
             agents[agent_id] = agent
             
+        elif algo == "iql_deep":
+            try:
+                from train import QNet
+                agent = QNet(state_shape=2, action_shape=2)
+                path = os.path.join("models", "iql_policy.pth")
+                if os.path.exists(path):
+                    state_dict = torch.load(path, map_location="cpu")
+                    # Strip Tianshou policy prefixes if present
+                    clean_dict = {k.replace("model.", ""): v for k, v in state_dict.items()}
+                    agent.load_state_dict(clean_dict, strict=False)
+                    agent.eval()
+                    print(f"Loaded Deep IQL network from {path}")
+                agents[agent_id] = agent
+            except ImportError:
+                print("Warning: Could not import QNet from train.py.")
+                
+        elif algo == "fixed":
+            agent = FixedTimeController(agent_id)
+            print(f"Loaded Fixed-Time Controller for agent {agent_id}")
+            agents[agent_id] = agent
+                
     return agents
 
 def run_gui_simulation():
     args = parse_args()
-    scenario = args.scenario
-    size = args.size
     
-    if scenario == "standard":
-        net_file = f"grid_{size}x{size}.net.xml"
-        rou_file = f"grid_{size}x{size}.rou.xml"
-        if not os.path.exists(net_file) or not os.path.exists(rou_file):
-            print(f"Error: Network files for {size}x{size} grid do not exist.")
-            print("Please run 'scale_network.py --size [N]' to generate them first.")
-            sys.exit(1)
-    elif scenario == "platoon":
-        net_file = f"grid_{size}x{size}_platoon.net.xml"
-        rou_file = f"grid_{size}x{size}_platoon.rou.xml"
-        if not os.path.exists(net_file) or not os.path.exists(rou_file):
-            from generate_platoon_network import build_platoon_scenario
-            build_platoon_scenario(size)
-    elif scenario == "osm":
-        net_file = "osm.net.xml"
-        rou_file = "osm.rou.xml"
-        if not os.path.exists(net_file) or not os.path.exists(rou_file):
-            from generate_osm_network import build_osm_scenario
-            build_osm_scenario()
-        size = 3
-    elif scenario == "bottleneck":
-        net_file = "bottleneck.net.xml"
-        rou_file = "bottleneck.rou.xml"
-        if not os.path.exists(net_file) or not os.path.exists(rou_file):
-            from generate_bottleneck_network import build_bottleneck_scenario
-            build_bottleneck_scenario()
-        size = 2
-    elif scenario == "spillback":
-        net_file = f"grid_{size}x{size}_spillback.net.xml"
-        rou_file = f"grid_{size}x{size}_spillback.rou.xml"
-        if not os.path.exists(net_file) or not os.path.exists(rou_file):
-            from generate_spillback_network import build_spillback_scenario
-            build_spillback_scenario(size)
-            
-    print(f"\nLaunching SUMO-GUI for algorithm '{args.algo}' on scenario '{scenario}'...")
+    print(f"\nLaunching SUMO-GUI for algorithm '{args.algo}' on the 1x4 Green Wave Scenario...")
     
-    # Initialize parallel environment directly (forces SUMO-GUI)
-    env = sumo_rl.parallel_env(
-        net_file=net_file,
-        route_file=rou_file,
-        use_gui=True,
-        num_seconds=3600,
-        delta_time=5,
-        reward_fn=custom_reward_fn,
-        observation_class=QueueObservationFunction
-    )
+    # Generate the wave network if it doesn't exist
+    net_file = "wave_1x4.net.xml"
+    rou_file = "wave_1x4.rou.xml"
+    if not os.path.exists(net_file) or not os.path.exists(rou_file):
+        from simulator.generate_1x4_wave import build_1x4_scenario
+        build_1x4_scenario()
+        
+    env = make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=3600, delta_time=5, use_gui=True)
+    env.reset()
     
     agent_ids = env.possible_agents
-    agents = load_policy(args.algo, agent_ids, size, scenario=scenario)
-    
-    # Step through one episode slowly
-    step = 0
-    done = False
-    
-    # Dictionaries to maintain step action histories for JAL / Max-Plus
-    obs_dict = {a_id: np.zeros(2) for a_id in agent_ids}
-    action_dict = {a_id: 0 for a_id in agent_ids}
+    agents = load_policy(args.algo, agent_ids)
     
     print("\nStarting Real-time Decision Monitoring...")
     print("-" * 100)
     
-    # Reset parallel env
-    obs_dict, infos = env.reset()
-    obs_dict = adapt_obs_dict(obs_dict)
+    step = 0
     
     try:
-        while env.agents:
-            step += 5  # sumo-rl environment delta_time is 5 seconds
+        for agent_id in env.agent_iter():
+            observation, reward, termination, truncation, info = env.last()
             
-            # 1. Action selection
-            if args.algo == "max_plus":
-                # Joint message passing coordination
-                actions = run_max_plus_coordination(agents, obs_dict)
+            if termination or truncation:
+                action = None
             else:
-                actions = {}
-                for agent_id in env.agents:
-                    obs = obs_dict[agent_id]
-                    agent = agents[agent_id]
-                    
-                    if args.algo in ["qmix", "iql_deep"]:
-                        # PyTorch forward pass
-                        with torch.no_grad():
-                            obs_t = torch.FloatTensor(obs).unsqueeze(0)
-                            out = agent(obs_t)
-                            # Handle QNet returning (q, state) tuple vs QMIXAgentNetwork returning tensor
-                            q_vals = out[0] if isinstance(out, tuple) else out
-                            actions[agent_id] = int(q_vals.argmax(dim=-1).item())
-                    elif args.algo == "jal":
-                        # Feed adjacent neighbors' previous action context
-                        actions[agent_id] = agent.compute_action(obs, explore=False)
-                    else:
-                        # Classical tabular compute_action
-                        actions[agent_id] = agent.compute_action(obs, explore=False)
-
-            # Ensure all selected actions are mathematically safe for each agent's active action space
-            for agent_id in list(actions.keys()):
-                action_space = env.action_space(agent_id)
-                if hasattr(action_space, "n"):
-                    actions[agent_id] = int(actions[agent_id] % action_space.n)
-            
-            # Print decision logging to console in real-time in requested format
-            for agent_id in env.agents:
-                obs = obs_dict[agent_id]
-                act = actions.get(agent_id, 0)
-                phase_name = "Green North-South" if act == 0 else "Green East-West"
-                print(f"Step {step:04d} | Agent '{agent_id}' | State (Queues) - N: {int(obs[0])}, S: 0, E: {int(obs[1])}, W: 0 | Action Selected: {phase_name}")
+                agent = agents.get(agent_id)
+                obs = np.array(observation, dtype=np.float32)
                 
-            # Step the environment
-            next_obs_dict, rewards, terminations, truncations, infos = env.step(actions)
-            next_obs_dict = adapt_obs_dict(next_obs_dict)
+                if args.algo in ["qmix", "iql_deep"]:
+                    with torch.no_grad():
+                        obs_t = torch.FloatTensor(obs).unsqueeze(0)
+                        out = agent(obs_t)
+                        q_vals = out[0] if isinstance(out, tuple) else out
+                        action = int(q_vals.argmax(dim=-1).item())
+                else:
+                    action = agent.compute_action(obs, explore=False)
+                    
+                # Action mapping (AEC loops handle one agent per time step, delay after all actions are processed could be added)
+                phase_name = "Green North-South" if action == 0 else "Green East-West"
+                print(f"Step {step} | Agent '{agent_id}' | State: [Local: {int(obs[0])}, Upstream: {int(obs[1])}] | Action Selected: {phase_name}")
+                
+            env.step(action)
             
-            # Store history
-            obs_dict = next_obs_dict
-            action_dict = actions
+            # Simple heuristic to delay visually roughly once per environment step (4 agents = 4 actions = 1 step)
+            if action is not None and step % 4 == 0:
+                time.sleep(args.delay)
             
-            # Small delay for visual inspection
-            time.sleep(args.delay)
+            step += 1
             
     except KeyboardInterrupt:
         print("\nSimulation interrupted by user.")

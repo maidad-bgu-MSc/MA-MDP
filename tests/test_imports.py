@@ -5,14 +5,13 @@ import pytest
 def test_syntax_and_imports():
     """Asserts that all core codebase files can be imported cleanly and have correct syntax."""
     modules_to_test = [
-        "env_setup",
+        "simulator.env_setup",
+        "simulator.generate_1x4_wave",
         "train",
         "evaluate",
         "plot_results",
         "marl_algorithms",
-        "scale_network",
-        "watch_agents",
-        "run_followup_experiments"
+        "watch_agents"
     ]
     
     for mod_name in modules_to_test:
