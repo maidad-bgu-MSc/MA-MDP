@@ -106,7 +106,7 @@ def train_iql(num_seconds=1000, epochs=5):
     dqn_agents = []
     agents = env.agents
     for agent in agents:
-        net = QNet(state_shape=2, action_shape=2)
+        net = QNet(state_shape=4, action_shape=2)
         # Tianshou v2: First create a policy class DiscreteQLearningPolicy
         policy = DiscreteQLearningPolicy(
             model=net,
@@ -181,8 +181,8 @@ def train_ippo(num_seconds=1000, epochs=5):
     ppo_agents = []
     agents = env.agents
     for agent in agents:
-        actor = ActorNet(state_shape=2, action_shape=2)
-        critic = CriticNet(state_shape=2)
+        actor = ActorNet(state_shape=4, action_shape=2)
+        critic = CriticNet(state_shape=4)
         
         # Tianshou v2: First create a policy class ProbabilisticActorPolicy
         actor_policy = ProbabilisticActorPolicy(

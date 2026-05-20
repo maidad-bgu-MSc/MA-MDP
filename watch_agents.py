@@ -70,7 +70,7 @@ def load_policy(algo, agent_ids):
             agents[agent_id] = agent
             
         elif algo == "qmix":
-            agent = QMIXAgentNetwork(obs_dim=2, action_dim=2)
+            agent = QMIXAgentNetwork(obs_dim=4, action_dim=2)
             path = os.path.join(model_dir, f"qmix_{agent_id}.pth")
             if os.path.exists(path):
                 agent.load_state_dict(torch.load(path))
@@ -83,7 +83,7 @@ def load_policy(algo, agent_ids):
         elif algo == "iql_deep":
             try:
                 from train import QNet
-                agent = QNet(state_shape=2, action_shape=2)
+                agent = QNet(state_shape=4, action_shape=2)
                 path = os.path.join("models", "iql_policy.pth")
                 if os.path.exists(path):
                     state_dict = torch.load(path, map_location="cpu")

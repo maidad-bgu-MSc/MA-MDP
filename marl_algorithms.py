@@ -100,7 +100,52 @@ class HystereticQLearningAgent:
 
 
 # =====================================================================
-# 2. QMIX Centralized Mixing Deep Network
+# 2. Tabular VDN (Value Decomposition Networks)
+# =====================================================================
+class TabularVDNAgents:
+    """Cooperative tabular VDN: Q_total = sum of individual Q_i(s_i, a_i).
+
+    Centralized training: all agents share a single TD error computed on
+    Q_total. Decentralized execution: each agent acts greedily on its own
+    Q-table independently.
+    """
+    def __init__(self, agent_ids, num_states=625, num_actions=2,
+                 lr=0.01, gamma=0.95, epsilon=0.1):
+        self.agent_ids = list(agent_ids)
+        self.num_states = num_states
+        self.num_actions = num_actions
+        self.lr = lr
+        self.gamma = gamma
+        self.epsilon = epsilon
+        self.q_tables = {aid: np.zeros((num_states, num_actions)) for aid in self.agent_ids}
+
+    def compute_action(self, agent_id, obs, explore=True):
+        state = get_discrete_state(obs)
+        if explore and np.random.rand() < self.epsilon:
+            return np.random.randint(self.num_actions)
+        return int(np.argmax(self.q_tables[agent_id][state]))
+
+    def update(self, obs_dict, action_dict, reward, next_obs_dict, done):
+        """Centralized VDN update: same TD scalar applied to every agent's Q-table entry."""
+        q_total = 0.0
+        q_next_total = 0.0
+        states = {}
+        for aid in self.agent_ids:
+            s = get_discrete_state(obs_dict[aid])
+            s_next = get_discrete_state(next_obs_dict[aid])
+            states[aid] = s
+            q_total += self.q_tables[aid][s, action_dict[aid]]
+            q_next_total += np.max(self.q_tables[aid][s_next])
+
+        td_target = reward + (0.0 if done else self.gamma * q_next_total)
+        td_error = td_target - q_total
+        delta = self.lr * td_error
+        for aid in self.agent_ids:
+            self.q_tables[aid][states[aid], action_dict[aid]] += delta
+
+
+# =====================================================================
+# 3. QMIX Centralized Mixing Deep Network
 # =====================================================================
 class QMIXMixingNetwork(nn.Module):
     """Centralized monotonic utility mixing network using PyTorch hypernetworks."""
@@ -153,7 +198,7 @@ class QMIXMixingNetwork(nn.Module):
 
 class QMIXAgentNetwork(nn.Module):
     """Individual deep Q-network for QMIX execution."""
-    def __init__(self, obs_dim=2, action_dim=2):
+    def __init__(self, obs_dim=4, action_dim=2):
         super(QMIXAgentNetwork, self).__init__()
         self.fc = nn.Sequential(
             nn.Linear(obs_dim, 64),

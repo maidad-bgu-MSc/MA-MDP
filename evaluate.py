@@ -98,7 +98,7 @@ def evaluate_iql(num_seconds=3600):
     # Create DQN agents
     dqn_agents = []
     for agent in env.agents:
-        net = QNet(state_shape=2, action_shape=2)
+        net = QNet(state_shape=4, action_shape=2)
         policy = DiscreteQLearningPolicy(
             model=net,
             action_space=env.action_space,
@@ -140,8 +140,8 @@ def evaluate_ippo(num_seconds=3600):
     # Create PPO agents
     ppo_agents = []
     for agent in env.agents:
-        actor = ActorNet(state_shape=2, action_shape=2)
-        critic = CriticNet(state_shape=2)
+        actor = ActorNet(state_shape=4, action_shape=2)
+        critic = CriticNet(state_shape=4)
         actor_policy = ProbabilisticActorPolicy(
             actor=actor,
             dist_fn=lambda logits: torch.distributions.Categorical(logits=logits),
