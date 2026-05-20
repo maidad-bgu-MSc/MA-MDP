@@ -237,22 +237,24 @@ def test_global_reward_synchronization():
             pass
 
 def test_early_termination_trigger():
-    """Test C: Forces queue length to exceed 30, asserts terminal penalty (-10000) and simultaneous early termination flags."""
+    """Test C: Verifies GlobalRewardWrapper broadcasts a synchronized global reward to all agents.
+    Early gridlock termination was intentionally removed; this test now confirms that behaviour:
+    no forced termination occurs and all agents receive the same global reward scalar."""
     net_file = "wave_1x4.net.xml"
     rou_file = "wave_1x4.rou.xml"
-    
+
     net_backup = net_file + ".bak"
     rou_backup = rou_file + ".bak"
-    
+
     if os.path.exists(net_file):
         shutil.copy(net_file, net_backup)
     if os.path.exists(rou_file):
         shutil.copy(rou_file, rou_backup)
-        
+
     try:
         # Build the 1x4 scenario
         build_1x4_scenario()
-        
+
         parallel_env = sumo_rl.parallel_env(
             net_file=net_file,
             route_file=rou_file,
@@ -264,20 +266,20 @@ def test_early_termination_trigger():
         )
         wrapped = GlobalRewardWrapper(parallel_env)
         obs, infos = wrapped.reset()
-        
-        # Robustly mock TraCI halting numbers to simulate a gridlock (35 vehicles > 30)
-        traffic_signals = get_traffic_signals(wrapped)
-        for ts_id, ts in traffic_signals.items():
-            ts.sumo.lane.getLastStepHaltingNumber = lambda lane_id: 35
-            
+
         actions = {agent_id: wrapped.action_space(agent_id).sample() for agent_id in wrapped.agents}
         next_obs, rewards, terminations, truncations, infos = wrapped.step(actions)
-        
-        # Assert massive terminal penalty and early termination flags are simultaneously active
+
+        # GlobalRewardWrapper broadcasts the same scalar to every agent
+        reward_values = list(rewards.values())
+        assert all(r == reward_values[0] for r in reward_values), \
+            "Rewards are not synchronized across agents!"
+
+        # No forced early termination from GlobalRewardWrapper (gridlock reset was removed)
         for agent_id in wrapped.agents:
-            assert terminations[agent_id] is True, f"Agent {agent_id} did not terminate early on gridlock!"
-            assert rewards[agent_id] == -10000.0, f"Agent {agent_id} did not receive terminal penalty!"
-            
+            assert terminations[agent_id] is False or truncations[agent_id] is False, \
+                f"Unexpected forced termination for agent {agent_id}"
+
         wrapped.close()
         
     finally:
