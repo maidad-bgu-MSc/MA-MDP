@@ -30,5 +30,6 @@ outputs/*.png
 .vscode/
 .idea/
 .gemini/
+.claude/
 .DS_Store
 Thumbs.db

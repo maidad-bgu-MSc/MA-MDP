@@ -1,5 +1,6 @@
 import os
 import glob
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -128,7 +129,7 @@ def plot_tabular_learning_curves():
     labels = {"Tabular_IQL_Reward": "Tabular IQL", "Hysteretic_Reward": "Hysteretic Q", "VDN_Reward": "VDN"}
 
     for ax, scenario in zip(axes, SCENARIOS):
-        csv_path = f"training_evaluation_log_{scenario}.csv"
+        csv_path = os.path.join("outputs", f"training_evaluation_log_{scenario}.csv")
         if not os.path.exists(csv_path):
             ax.set_title(f"{scenario} (no data)")
             continue
@@ -211,7 +212,7 @@ def plot_cross_algorithm_bar():
     qmix_df = pd.read_csv(qmix_csv) if os.path.exists(qmix_csv) else None
 
     for scenario in SCENARIOS:
-        csv_path = f"training_evaluation_log_{scenario}.csv"
+        csv_path = os.path.join("outputs", f"training_evaluation_log_{scenario}.csv")
         if not os.path.exists(csv_path):
             continue
         valid_scenarios.append(scenario.replace("_", " ").title())

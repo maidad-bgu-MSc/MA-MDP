@@ -161,9 +161,9 @@ def make_problem_env(scenario_name: str, num_seconds: int = 3600, out_csv_name=N
 
 def make_problem_parallel_env(scenario_name: str, num_seconds: int = 3600):
     """Returns GlobalRewardWrapper(parallel_env) for VDN/QMIX training."""
-    import sumo_rl
     from simulator.env_setup import GlobalRewardWrapper, QueueObservationFunction, global_reward_fn, setup_sumo_env
     setup_sumo_env()
+    import sumo_rl
     net_file, rou_file = generate_problem(scenario_name)
     parallel_env = sumo_rl.parallel_env(
         net_file=net_file,

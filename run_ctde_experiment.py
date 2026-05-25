@@ -1,6 +1,9 @@
 import os
 import copy
 import csv
+import sys
+import traceback
+from datetime import datetime
 import numpy as np
 import torch
 import torch.nn as nn
@@ -9,6 +12,30 @@ from tqdm import tqdm
 
 from marl_algorithms import QMIXAgentNetwork, QMIXMixingNetwork
 from simulator.problem_generator import SCENARIOS, make_problem_parallel_env
+
+
+class _Tee:
+    """Duplicates writes to multiple streams. Used to mirror stdout/stderr into a log file
+    so a mid-run crash leaves a full trace on disk (SUMO TraCI disconnects, OOM, etc.)."""
+    def __init__(self, *streams):
+        self.streams = streams
+
+    def write(self, data):
+        for s in self.streams:
+            s.write(data)
+            s.flush()
+
+    def flush(self):
+        for s in self.streams:
+            s.flush()
+
+
+def _open_log(path="ctde_training.log"):
+    fh = open(path, "w", buffering=1, encoding="utf-8")
+    fh.write(f"=== run_ctde_experiment.py started at {datetime.now().isoformat()} ===\n")
+    sys.stdout = _Tee(sys.__stdout__, fh)
+    sys.stderr = _Tee(sys.__stderr__, fh)
+    return fh
 
 NUM_AGENTS = 4
 OBS_DIM = 4
@@ -224,17 +251,31 @@ if __name__ == "__main__":
     os.makedirs("outputs", exist_ok=True)
     results = []
 
-    for scenario in SCENARIOS:
-        print(f"\n{'='*55}")
-        print(f"QMIX TRAINING: {scenario.upper()}")
-        print(f"{'='*55}")
-        history = train_qmix(scenario_name=scenario, num_episodes=200, eval_interval=20)
-        for episode, reward in history:
-            results.append({"scenario": scenario, "episode": episode, "eval_reward": reward})
+    log_fh = _open_log("ctde_training.log")
+    current_phase = "startup"
+    try:
+        for scenario in SCENARIOS:
+            print(f"\n{'='*55}")
+            print(f"QMIX TRAINING: {scenario.upper()}")
+            print(f"{'='*55}")
+            current_phase = f"{scenario} / qmix_train"
+            history = train_qmix(scenario_name=scenario, num_episodes=200, eval_interval=20)
+            for episode, reward in history:
+                results.append({"scenario": scenario, "episode": episode, "eval_reward": reward})
 
-    out_csv = os.path.join("outputs", "qmix_results.csv")
-    with open(out_csv, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["scenario", "episode", "eval_reward"])
-        writer.writeheader()
-        writer.writerows(results)
-    print(f"\nQMIX results saved to {out_csv}")
+            # Write CSV incrementally after each scenario so a later crash doesn't
+            # lose results we already paid for.
+            current_phase = f"{scenario} / write_csv"
+            out_csv = os.path.join("outputs", "qmix_results.csv")
+            with open(out_csv, "w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["scenario", "episode", "eval_reward"])
+                writer.writeheader()
+                writer.writerows(results)
+            print(f"Saved {out_csv} ({len(results)} rows after {scenario})")
+    except BaseException:
+        print(f"\n!!! CRASHED during phase: {current_phase} at {datetime.now().isoformat()} !!!")
+        traceback.print_exc()
+        raise
+    finally:
+        print(f"=== run_ctde_experiment.py finished at {datetime.now().isoformat()} ===")
+        log_fh.close()

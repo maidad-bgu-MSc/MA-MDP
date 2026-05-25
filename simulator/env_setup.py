@@ -4,8 +4,19 @@ import numpy as np
 import gymnasium as gym
 
 # Setup SUMO paths programmatically
+_SUMO_ENV_INITIALIZED = False
+
 def setup_sumo_env():
-    """Locates sumo / netgenerate executables and sets SUMO_HOME programmatically."""
+    """Locates sumo / netgenerate executables and sets SUMO_HOME programmatically.
+
+    Idempotent: safe to call repeatedly. Only prepends paths that are not already
+    on PATH, so it cannot grow the env var without bound (Windows caps env vars
+    at 32767 chars).
+    """
+    global _SUMO_ENV_INITIALIZED
+    if _SUMO_ENV_INITIALIZED:
+        return
+
     try:
         import sumo
         sumo_home = os.path.abspath(os.path.dirname(sumo.__file__))
@@ -15,14 +26,19 @@ def setup_sumo_env():
 
     python_dir = os.path.dirname(sys.executable)
     scripts_dir = os.path.join(python_dir, "Scripts")
-    
+
     paths = []
     if sumo_home:
         paths.append(os.path.join(sumo_home, "bin"))
     paths.append(scripts_dir)
-    
+
     current_path = os.environ.get("PATH", "")
-    os.environ["PATH"] = os.pathsep.join(paths) + os.pathsep + current_path
+    existing = current_path.split(os.pathsep)
+    to_prepend = [p for p in paths if p not in existing]
+    if to_prepend:
+        os.environ["PATH"] = os.pathsep.join(to_prepend) + os.pathsep + current_path
+
+    _SUMO_ENV_INITIALIZED = True
 
 setup_sumo_env()
 

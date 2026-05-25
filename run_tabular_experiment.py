@@ -1,11 +1,38 @@
 import os
 import csv
+import sys
+import traceback
+from datetime import datetime
 import numpy as np
 from tqdm import tqdm
 from simulator.env_setup import make_wave_env, GlobalRewardWrapper, QueueObservationFunction, global_reward_fn
 from marl_algorithms import TabularQLearningAgent, HystereticQLearningAgent, TabularVDNAgents
 from watch_agents import FixedTimeController
 from simulator.problem_generator import SCENARIOS, generate_problem, make_problem_env, make_problem_parallel_env
+
+
+class _Tee:
+    """Duplicates writes to multiple streams. Used to mirror stdout/stderr into a log file
+    so a mid-run crash leaves a full trace on disk (SUMO TraCI disconnects, etc.)."""
+    def __init__(self, *streams):
+        self.streams = streams
+
+    def write(self, data):
+        for s in self.streams:
+            s.write(data)
+            s.flush()
+
+    def flush(self):
+        for s in self.streams:
+            s.flush()
+
+
+def _open_log(path="training.log"):
+    fh = open(path, "w", buffering=1, encoding="utf-8")
+    fh.write(f"=== run_tabular_experiment.py started at {datetime.now().isoformat()} ===\n")
+    sys.stdout = _Tee(sys.__stdout__, fh)
+    sys.stderr = _Tee(sys.__stderr__, fh)
+    return fh
 
 
 def train_tabular_agents(algo="iql_tabular", scenario_name="baseline", episodes=100,
@@ -176,41 +203,56 @@ if __name__ == "__main__":
     EPISODES = 100
     EVAL_INTERVAL = 5
 
-    for scenario in SCENARIOS:
-        print(f"\n{'='*60}")
-        print(f"SCENARIO: {scenario.upper()}")
-        print(f"{'='*60}")
+    log_fh = _open_log("training.log")
+    current_phase = "startup"
+    try:
+        for scenario in SCENARIOS:
+            print(f"\n{'='*60}")
+            print(f"SCENARIO: {scenario.upper()}")
+            print(f"{'='*60}")
 
-        net_file, rou_file = generate_problem(scenario)
+            net_file, rou_file = generate_problem(scenario)
 
-        _, iql_h = train_tabular_agents(
-            algo="iql_tabular", scenario_name=scenario,
-            episodes=EPISODES, eval_interval=EVAL_INTERVAL
-        )
-        _, hyst_h = train_tabular_agents(
-            algo="hysteretic", scenario_name=scenario,
-            episodes=EPISODES, eval_interval=EVAL_INTERVAL
-        )
-        _, vdn_h = train_vdn_agents(
-            scenario_name=scenario, episodes=EPISODES, eval_interval=EVAL_INTERVAL
-        )
+            current_phase = f"{scenario} / iql_tabular"
+            _, iql_h = train_tabular_agents(
+                algo="iql_tabular", scenario_name=scenario,
+                episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
+            current_phase = f"{scenario} / hysteretic"
+            _, hyst_h = train_tabular_agents(
+                algo="hysteretic", scenario_name=scenario,
+                episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
+            current_phase = f"{scenario} / vdn"
+            _, vdn_h = train_vdn_agents(
+                scenario_name=scenario, episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
 
-        # Fixed baseline for this scenario
-        fixed_agents = {
-            aid: FixedTimeController(aid, ew_steps=10, ns_steps=10, offset_steps=0)
-            for aid in ["A0", "B0", "C0", "D0"]
-        }
-        fixed_reward = evaluate_agents(
-            fixed_agents, algo_name=f"Fixed-Time [{scenario}]",
-            net_file=net_file, rou_file=rou_file, sim_seconds=600
-        )
+            current_phase = f"{scenario} / fixed_baseline"
+            fixed_agents = {
+                aid: FixedTimeController(aid, ew_steps=10, ns_steps=10, offset_steps=0)
+                for aid in ["A0", "B0", "C0", "D0"]
+            }
+            fixed_reward = evaluate_agents(
+                fixed_agents, algo_name=f"Fixed-Time [{scenario}]",
+                net_file=net_file, rou_file=rou_file, sim_seconds=600
+            )
 
-        log_file = f"training_evaluation_log_{scenario}.csv"
-        with open(log_file, "w", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(["Epoch", "Tabular_IQL_Reward", "Hysteretic_Reward", "VDN_Reward", "Fixed_Baseline_Reward"])
-            min_len = min(len(iql_h), len(hyst_h), len(vdn_h))
-            for i in range(min_len):
-                ep = iql_h[i][0]
-                writer.writerow([ep, iql_h[i][1], hyst_h[i][1], vdn_h[i][1], fixed_reward])
-        print(f"Saved {log_file}")
+            current_phase = f"{scenario} / write_csv"
+            os.makedirs("outputs", exist_ok=True)
+            log_file = os.path.join("outputs", f"training_evaluation_log_{scenario}.csv")
+            with open(log_file, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["Epoch", "Tabular_IQL_Reward", "Hysteretic_Reward", "VDN_Reward", "Fixed_Baseline_Reward"])
+                min_len = min(len(iql_h), len(hyst_h), len(vdn_h))
+                for i in range(min_len):
+                    ep = iql_h[i][0]
+                    writer.writerow([ep, iql_h[i][1], hyst_h[i][1], vdn_h[i][1], fixed_reward])
+            print(f"Saved {log_file}")
+    except BaseException:
+        print(f"\n!!! CRASHED during phase: {current_phase} at {datetime.now().isoformat()} !!!")
+        traceback.print_exc()
+        raise
+    finally:
+        print(f"=== run_tabular_experiment.py finished at {datetime.now().isoformat()} ===")
+        log_fh.close()

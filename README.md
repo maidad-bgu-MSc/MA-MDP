@@ -153,7 +153,14 @@ python plot_results.py
 ```
 This produces step-by-step logs under the `outputs/` folder, creates `outputs/summary.md`, and outputs comparative line plots to `outputs/performance_comparison.png`.
 
-### 5. Watch Agents in SUMO-GUI
+### 5. Plot Results
+After any training run, regenerate all comparison plots and learning curves from the eval CSVs in `outputs/`:
+```bash
+python plot_results.py
+```
+This (re)generates `outputs/qmix_learning_curves.png`, `outputs/tabular_learning_curves.png`, and `outputs/cross_algorithm_bar.png` from `outputs/qmix_results.csv` and `outputs/training_evaluation_log_<scenario>.csv`. Aggregate metrics are summarized in `outputs/qmix_summary.md`.
+
+### 6. Watch Agents in SUMO-GUI
 Observe policies visually in the SUMO simulator:
 ```bash
 python watch_agents.py --algo iql_tabular --delay 0.1
