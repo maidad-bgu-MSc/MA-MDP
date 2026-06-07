@@ -1,0 +1,267 @@
+import os
+import csv
+import sys
+import traceback
+from datetime import datetime
+import numpy as np
+from tqdm import tqdm
+
+from simulator.env_setup_resco import make_resco_env, make_resco_parallel_env
+from marl_algorithms import TabularQLearningAgent, HystereticQLearningAgent, TabularVDNAgents
+from watch_agents import FixedTimeController
+
+
+class _Tee:
+    """Duplicates writes to multiple streams. Used to mirror stdout/stderr into a log file
+    so a mid-run crash leaves a full trace on disk."""
+    def __init__(self, *streams):
+        self.streams = streams
+
+    def write(self, data):
+        for s in self.streams:
+            s.write(data)
+            s.flush()
+
+    def flush(self):
+        for s in self.streams:
+            s.flush()
+
+
+def _open_log(path="resco_tabular_training.log"):
+    fh = open(path, "w", buffering=1, encoding="utf-8")
+    fh.write(f"=== run_resco_tabular_experiment.py started at {datetime.now().isoformat()} ===\n")
+    sys.stdout = _Tee(sys.__stdout__, fh)
+    sys.stderr = _Tee(sys.__stderr__, fh)
+    return fh
+
+
+def train_tabular_agents(algo="iql_tabular", scenario_name="cologne3", episodes=100,
+                         sim_seconds=1000, eval_interval=10, eval_seconds=600):
+    print("\n" + "="*50)
+    print(f"TRAINING {algo.upper()} [{scenario_name}] ({episodes} episodes)")
+    print("="*50)
+
+    env = make_resco_env(scenario_name, num_seconds=sim_seconds)
+    env.reset()
+
+    if algo == "iql_tabular":
+        agents = {agent: TabularQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
+    elif algo == "hysteretic":
+        agents = {agent: HystereticQLearningAgent(agent, num_states=625) for agent in env.possible_agents}
+    else:
+        raise ValueError(f"Unsupported tabular algorithm: {algo}")
+
+    eval_history = []
+
+    for episode in tqdm(range(episodes), desc=f"{algo} [{scenario_name}]"):
+        env.reset()
+        last_obs = {a: None for a in env.possible_agents}
+        last_action = {a: None for a in env.possible_agents}
+
+        epsilon = max(0.05, 1.0 - (episode / (episodes * 0.8)))
+        for agent_id in agents:
+            agents[agent_id].epsilon = epsilon
+
+        for agent_id in env.agent_iter():
+            observation, reward, termination, truncation, info = env.last()
+            obs = np.array(observation, dtype=np.float32)
+
+            if last_obs[agent_id] is not None:
+                agents[agent_id].update(
+                    obs=last_obs[agent_id],
+                    action=last_action[agent_id],
+                    reward=reward,
+                    next_obs=obs,
+                    done=termination or truncation,
+                )
+
+            if termination or truncation:
+                action = None
+            else:
+                action = agents[agent_id].compute_action(obs, explore=True)
+                last_obs[agent_id] = obs
+                last_action[agent_id] = action
+
+            env.step(action)
+
+        if (episode + 1) % eval_interval == 0:
+            r = evaluate_agents(agents, algo_name=f"{algo} [{scenario_name}] (ep {episode+1})",
+                                scenario_name=scenario_name, sim_seconds=eval_seconds)
+            eval_history.append((episode + 1, r))
+
+    os.makedirs("models", exist_ok=True)
+    for agent_id, agent in agents.items():
+        # Sanitize agent ID for filename safety (real-world OSM junction IDs can contain special characters)
+        sanitized_id = str(agent_id).replace(":", "_").replace("/", "_")
+        np.save(os.path.join("models", f"{algo}_{scenario_name}_{sanitized_id}.npy"), agent.q_table)
+
+    print(f"\nTraining complete. Models saved to models/{algo}_{scenario_name}_*.npy")
+    env.close()
+    return agents, eval_history
+
+
+def evaluate_agents(agents_dict, algo_name="Tabular IQL", sim_seconds=3600,
+                    scenario_name="cologne3"):
+    env = make_resco_env(scenario_name, num_seconds=sim_seconds)
+    env.reset()
+
+    total_rewards = {a: 0.0 for a in env.possible_agents}
+
+    for agent_id in env.agent_iter():
+        observation, reward, termination, truncation, info = env.last()
+        total_rewards[agent_id] += reward
+
+        if termination or truncation:
+            action = None
+        else:
+            obs = np.array(observation, dtype=np.float32)
+            action = agents_dict[agent_id].compute_action(obs, explore=False)
+
+        env.step(action)
+
+    env.close()
+    system_reward = sum(total_rewards.values()) / len(total_rewards)
+    print(f"--- {algo_name} | Return: {system_reward:.2f}")
+    return system_reward
+
+
+def train_vdn_agents(scenario_name="cologne3", episodes=100, sim_seconds=1000,
+                     eval_interval=10, eval_seconds=600):
+    print("\n" + "="*50)
+    print(f"TRAINING VDN [{scenario_name}] ({episodes} episodes)")
+    print("="*50)
+
+    env = make_resco_parallel_env(scenario_name, num_seconds=sim_seconds)
+    agent_ids = env.possible_agents
+    vdn = TabularVDNAgents(agent_ids=agent_ids, num_states=625)
+    eval_history = []
+
+    for episode in tqdm(range(episodes), desc=f"VDN [{scenario_name}]"):
+        vdn.epsilon = max(0.05, 1.0 - (episode / (episodes * 0.8)))
+        obs_dict, _ = env.reset()
+
+        while True:
+            actions = {
+                aid: vdn.compute_action(aid, np.array(obs_dict[aid], dtype=np.float32), explore=True)
+                for aid in agent_ids
+            }
+            next_obs_dict, rewards, terminations, truncations, _ = env.step(actions)
+            reward = float(list(rewards.values())[0])
+            done = any(terminations.values()) or any(truncations.values())
+
+            vdn.update(
+                obs_dict={aid: np.array(obs_dict[aid], dtype=np.float32) for aid in agent_ids},
+                action_dict=actions,
+                reward=reward,
+                next_obs_dict={aid: np.array(next_obs_dict[aid], dtype=np.float32) for aid in agent_ids},
+                done=done,
+            )
+            obs_dict = next_obs_dict
+            if done:
+                break
+
+        if (episode + 1) % eval_interval == 0:
+            r = evaluate_vdn_agents(vdn, scenario_name=scenario_name, sim_seconds=eval_seconds)
+            eval_history.append((episode + 1, r))
+
+    env.close()
+
+    os.makedirs("models", exist_ok=True)
+    for aid, qt in vdn.q_tables.items():
+        sanitized_id = str(aid).replace(":", "_").replace("/", "_")
+        np.save(os.path.join("models", f"vdn_{scenario_name}_{sanitized_id}.npy"), qt)
+    print(f"\nVDN training complete. Models saved to models/vdn_{scenario_name}_*.npy")
+    return vdn, eval_history
+
+
+def evaluate_vdn_agents(vdn, scenario_name="cologne3", sim_seconds=3600):
+    env = make_resco_parallel_env(scenario_name, num_seconds=sim_seconds)
+    agent_ids = env.possible_agents
+    obs_dict, _ = env.reset()
+    total_reward = 0.0
+
+    while True:
+        actions = {
+            aid: vdn.compute_action(aid, np.array(obs_dict[aid], dtype=np.float32), explore=False)
+            for aid in agent_ids
+        }
+        next_obs_dict, rewards, terminations, truncations, _ = env.step(actions)
+        total_reward += float(list(rewards.values())[0])
+        obs_dict = next_obs_dict
+        if any(terminations.values()) or any(truncations.values()):
+            break
+
+    env.close()
+    print(f"--- VDN [{scenario_name}] | Return: {total_reward:.2f}")
+    return total_reward
+
+
+if __name__ == "__main__":
+    EPISODES = 100
+    EVAL_INTERVAL = 5
+    RESCO_SCENARIOS = ["cologne3"]
+
+    log_fh = _open_log("resco_tabular_training_cologne.log")
+    current_phase = "startup"
+    try:
+        for scenario in RESCO_SCENARIOS:
+            print(f"\n{'='*60}")
+            print(f"SCENARIO: {scenario.upper()}")
+            print(f"{'='*60}")
+
+            current_phase = f"{scenario} / iql_tabular"
+            _, iql_h = train_tabular_agents(
+                algo="iql_tabular", scenario_name=scenario,
+                episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
+            current_phase = f"{scenario} / hysteretic"
+            _, hyst_h = train_tabular_agents(
+                algo="hysteretic", scenario_name=scenario,
+                episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
+            current_phase = f"{scenario} / vdn"
+            _, vdn_h = train_vdn_agents(
+                scenario_name=scenario, episodes=EPISODES, eval_interval=EVAL_INTERVAL
+            )
+
+            current_phase = f"{scenario} / fixed_baseline"
+            
+            # Temporarily instantiate the environment to extract correct agent IDs dynamically
+            temp_env = make_resco_env(scenario, num_seconds=200)
+            agent_ids = temp_env.possible_agents
+            temp_env.close()
+            
+            fixed_agents = {
+                aid: FixedTimeController(aid, ew_steps=10, ns_steps=10, offset_steps=0)
+                for aid in agent_ids
+            }
+            fixed_reward = evaluate_agents(
+                fixed_agents, algo_name=f"Fixed-Time [{scenario}]",
+                scenario_name=scenario, sim_seconds=600
+            )
+
+            current_phase = f"{scenario} / write_csv"
+            os.makedirs("outputs", exist_ok=True)
+            log_file = os.path.join("outputs", f"training_evaluation_log_{scenario}.csv")
+            with open(log_file, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["Epoch", "Tabular_IQL_Reward", "Hysteretic_Reward", "VDN_Reward", "Fixed_Baseline_Reward"])
+                min_len = min(len(iql_h), len(hyst_h), len(vdn_h))
+                for i in range(min_len):
+                    ep = iql_h[i][0]
+                    writer.writerow([ep, iql_h[i][1], hyst_h[i][1], vdn_h[i][1], fixed_reward])
+            print(f"Saved {log_file}")
+    except BaseException:
+        print(f"\n!!! CRASHED during phase: {current_phase} at {datetime.now().isoformat()} !!!")
+        traceback.print_exc()
+        raise
+    finally:
+        try:
+            print("\nGenerating evaluation plots for RESCO scenarios...")
+            from plot_resco_results import plot_resco_tabular_learning_curves, plot_resco_cross_algorithm_bar
+            plot_resco_tabular_learning_curves()
+            plot_resco_cross_algorithm_bar()
+        except Exception as e:
+            print(f"Plotting failed: {e}")
+        print(f"=== run_resco_tabular_experiment.py finished at {datetime.now().isoformat()} ===")
+        log_fh.close()
