@@ -33,9 +33,9 @@ def plot_resco_tabular_learning_curves():
     plt.suptitle("RESCO Tabular Algorithms: Learning Curves per Scenario", fontsize=15, fontweight="bold")
     plt.tight_layout()
     os.makedirs("outputs", exist_ok=True)
-    plt.savefig("outputs/resco_tabular_learning_curves_cologne.png", dpi=300)
+    plt.savefig("outputs/resco_tabular_learning_curves.png", dpi=300)
     plt.close()
-    print("Saved outputs/resco_tabular_learning_curves_cologne.png")
+    print("Saved outputs/resco_tabular_learning_curves.png")
 
 def plot_resco_cross_algorithm_bar():
     RESCO_SCENARIOS = ["cologne3", "grid4x4"]
@@ -91,9 +91,9 @@ def plot_resco_cross_algorithm_bar():
     ax.legend(fontsize=10)
     ax.grid(axis="y", alpha=0.3)
     plt.tight_layout()
-    plt.savefig("outputs/resco_cross_algorithm_bar_cologne.png", dpi=300)
+    plt.savefig("outputs/resco_cross_algorithm_bar.png", dpi=300)
     plt.close()
-    print("Saved outputs/resco_cross_algorithm_bar_cologne.png")
+    print("Saved outputs/resco_cross_algorithm_bar.png")
 
 if __name__ == "__main__":
     try:
