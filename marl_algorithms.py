@@ -113,16 +113,22 @@ class TabularVDNAgents:
                  lr=0.01, gamma=0.95, epsilon=0.1):
         self.agent_ids = list(agent_ids)
         self.num_states = num_states
-        self.num_actions = num_actions
+        # num_actions may be a single int (homogeneous junctions, e.g. the 1x4 EW/NS
+        # signals) or a dict {agent_id: n} for heterogeneous junctions — real RESCO
+        # networks have varying green-phase counts (cologne3: 3-4, grid4x4: 8).
+        if isinstance(num_actions, dict):
+            self.num_actions = {aid: int(num_actions[aid]) for aid in self.agent_ids}
+        else:
+            self.num_actions = {aid: int(num_actions) for aid in self.agent_ids}
         self.lr = lr
         self.gamma = gamma
         self.epsilon = epsilon
-        self.q_tables = {aid: np.zeros((num_states, num_actions)) for aid in self.agent_ids}
+        self.q_tables = {aid: np.zeros((num_states, self.num_actions[aid])) for aid in self.agent_ids}
 
     def compute_action(self, agent_id, obs, explore=True):
         state = get_discrete_state(obs)
         if explore and np.random.rand() < self.epsilon:
-            return np.random.randint(self.num_actions)
+            return np.random.randint(self.num_actions[agent_id])
         return int(np.argmax(self.q_tables[agent_id][state]))
 
     def update(self, obs_dict, action_dict, reward, next_obs_dict, done):

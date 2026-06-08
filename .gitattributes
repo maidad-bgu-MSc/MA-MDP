@@ -1,0 +1,5 @@
+# Force LF for scripts that run on the Linux cluster, regardless of the
+# committer's OS / core.autocrlf setting. CRLF here would break the shebang
+# (e.g. "/bin/bash^M: bad interpreter") on SLURM nodes.
+*.sh    text eol=lf
+*.sbatch text eol=lf

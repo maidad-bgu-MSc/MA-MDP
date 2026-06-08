@@ -176,8 +176,11 @@ class GlobalRewardWrapper:
     def close(self):
         return self.env.close()
 
-def make_wave_env(net_file="wave_1x4.net.xml", route_file="wave_1x4.rou.xml", num_seconds=3600, delta_time=5, out_csv_name=None, use_gui=False):
-    """Initializes and wraps the sumo-rl environment into a PettingZoo AEC interface with look-ahead obs, global reward, and gridlock reset."""
+def make_wave_env(net_file="wave_1x4.net.xml", route_file="wave_1x4.rou.xml", num_seconds=3600, delta_time=5, out_csv_name=None, use_gui=False, sumo_seed="random"):
+    """Initializes and wraps the sumo-rl environment into a PettingZoo AEC interface with look-ahead obs, global reward, and gridlock reset.
+
+    sumo_seed: int for reproducible SUMO stochasticity (vehicle departures), or "random".
+    """
     # Create the parallel environment with min_green = 10 safety rail
     parallel_env = sumo_rl.parallel_env(
         net_file=net_file,
@@ -188,7 +191,8 @@ def make_wave_env(net_file="wave_1x4.net.xml", route_file="wave_1x4.rou.xml", nu
         min_green=10,
         reward_fn=global_reward_fn,
         observation_class=QueueObservationFunction,
-        out_csv_name=out_csv_name
+        out_csv_name=out_csv_name,
+        sumo_seed=sumo_seed,
     )
     
     # Wrap it to enforce global reward broadcast & early gridlock reset

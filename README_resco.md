@@ -4,7 +4,9 @@ This extension integrates two standard environments from the **RESCO (Reinforcem
 1. **`cologne3`**: A realistic 3-intersection arterial corridor in Cologne, Germany, simulating a morning peak rush hour.
 2. **`grid4x4`**: A synthetic $4 \times 4$ grid containing 16 intersections with `traffic_light_right_on_red` signals.
 
-Both scenarios are formulated as Decentralized Partially Observable Markov Decision Processes (Dec-POMDPs) utilizing a 4D look-ahead queue observation function and a synchronized global reward structure.
+Both scenarios are formulated as a cooperative **Multi-agent MDP (MMDP)**: a 4D look-ahead queue
+observation (local + rest-of-network queues, approximating the global state) with a single
+synchronized team reward. We evaluate cooperative MARL algorithms (IQL, Hysteretic-Q, VDN) on them.
 
 ---
 
@@ -46,21 +48,43 @@ python watch_resco_agents.py --scenario cologne3 --algo iql_tabular --delay 0.1
 
 ---
 
-## 📝 Key Findings & Zero-Reward Resolution
+## 📝 Bugs Found & Fixed
 
 ### 1. Cologne3 Zero-Reward Bug
-During initial training, we observed that all algorithms on `cologne3` evaluated to exactly `0.00` reward across all steps.
-*   **Diagnosis**: Vehicle trip starts in `cologne3.rou.xml` only begin at **`23512.0` seconds** (around 6:32 AM morning rush hour). Because the simulation `begin_time` defaulted to `0.00`, standard runs of 1000s or 600s terminated before any vehicles could spawn in the network.
-*   **Resolution**: Set `begin_time = 23500` for the `cologne3` scenario in [env_setup_resco.py](file:///c:/Users/advam/Documents/MA-MDP/simulator/env_setup_resco.py) to start the simulation 12 seconds prior to the first vehicle departure. Grid4x4 naturally starts departures at `0.00` and thus uses `begin_time = 0`.
+Initially all algorithms on `cologne3` evaluated to exactly `0.00` reward.
+*   **Diagnosis**: Vehicle departures in `cologne3.rou.xml` only begin at **`23512.0` s** (~6:32 AM rush hour); with `begin_time = 0` the simulation ended before any vehicle spawned.
+*   **Resolution**: `begin_time = 23500` for `cologne3` in `simulator/env_setup_resco.py` (grid4x4 starts at `0`).
 
-### 2. Tabular Results on Grid4x4
-The evaluation rewards (average negative waiting times) over a 600-second simulation run logged across 100 training epochs are summarized below:
+### 2. No-learning Bug (action-space mismatch) — the big one
+Every algorithm sat at ~the fixed-time baseline with **no learning trend** (e.g. grid4x4 ~-950k vs -919k).
+*   **Diagnosis**: the tabular agents were built with the default `num_actions=2`, but real RESCO junctions
+    have **more green phases** — `cologne3` has 3-4 and **`grid4x4` has 8**. The agents could therefore only
+    ever select 2 of up to 8 phases, starving the remaining movements and gridlocking the network.
+*   **Resolution**: size each agent's action space to its own junction via `env.action_space(agent).n`
+    (`TabularVDNAgents` now accepts per-agent action counts).
 
-| Epoch | Tabular IQL Return | Hysteretic Q-Learning Return | VDN Return | Fixed-Time Baseline Return |
-| :--- | :---: | :---: | :---: | :---: |
-| **5** | -927,360.00 | -946,910.00 | -960,257.00 | -919,449.00 |
-| **20** | -962,168.00 | -942,889.00 | -986,298.00 | -919,449.00 |
-| **25** | -950,267.00 | **-921,315.00** | -957,330.00 | -919,449.00 |
-| **50** | -960,801.00 | -976,723.00 | **-939,101.00** | -919,449.00 |
-| **80** | **-946,608.00** | -971,740.00 | -987,293.00 | -919,449.00 |
-| **100** | -1,013,757.00 | -952,222.00 | -950,349.00 | -919,449.00 |
+### 3. Observation saturation (grid4x4)
+*   **Diagnosis**: the "rest-of-network" queue summed over all 15 neighbours, which almost always hit the
+    top discretisation bin (30+), making 2 of the 4 state dimensions constant and uninformative.
+*   **Resolution**: average the rest-of-network queue **per neighbouring junction** before discretising.
+
+### 4. Stronger, fairer baselines
+The fixed-time baseline now reports **two** plans: the **SUMO-native** signal program (`fixed_ts=True`,
+the canonical RESCO baseline) and a **round-robin all-phases** controller. The old EW/NS controller only
+exercised 2 phases — itself a victim of bug #2.
+
+### Post-fix sanity check
+After the fixes, `cologne3` IQL improves from **-124k -> -30k in 15 episodes**, converging toward the
+SUMO-native fixed-time baseline (~-26k) — a real learning curve where there was previously none.
+**Validated multi-seed (5-seed) results are produced by the reproducibility pipeline below and written to
+`outputs/aggregated/`.**
+
+## 🔁 Reproducibility pipeline
+All experiments are seeded and run as a **5-seed × 6-scenario SLURM job array**:
+```bash
+bash cluster/setup_env.sh      # one-time: venv + SUMO (eclipse-sumo wheel) + deps
+bash cluster/submit.sh         # 30-task array, then chained aggregation
+python make_presentation.py    # build the deck from outputs/aggregated/
+```
+Locally: `python run_seeded_experiment.py --seed 0 --scenario grid4x4 [--quick]` then
+`python aggregate_seeds.py`. See [`cluster/README.md`](cluster/README.md).

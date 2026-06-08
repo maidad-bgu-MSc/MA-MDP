@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 from marl_algorithms import QMIXAgentNetwork, QMIXMixingNetwork
 from simulator.problem_generator import SCENARIOS, make_problem_parallel_env
+from seeding import episode_seed, eval_seed
 
 
 class _Tee:
@@ -135,7 +136,10 @@ def train_qmix(
     eval_interval=20,
     eval_seconds=600,
     save_dir="models",
+    seed=None,
 ):
+    if seed is not None:
+        save_dir = os.path.join(save_dir, f"seed{seed}")
     agent_nets = [QMIXAgentNetwork(obs_dim=OBS_DIM, action_dim=2) for _ in range(NUM_AGENTS)]
     target_agent_nets = [copy.deepcopy(net) for net in agent_nets]
     mixer = QMIXMixingNetwork(num_agents=NUM_AGENTS, state_dim=STATE_DIM)
@@ -152,9 +156,10 @@ def train_qmix(
     for episode in tqdm(range(num_episodes), desc=f"QMIX [{scenario_name}]"):
         epsilon = max(epsilon_end, epsilon_start - (epsilon_start - epsilon_end) * episode / epsilon_decay_episodes)
 
-        env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds)
+        ep_seed = episode_seed(seed, episode) if seed is not None else "random"
+        env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=ep_seed)
         agent_ids = env.possible_agents
-        obs_dict, _ = env.reset()
+        obs_dict, _ = env.reset(seed=(ep_seed if seed is not None else None))
 
         while True:
             obs_flat = np.concatenate([obs_dict[aid].astype(np.float32) for aid in agent_ids])
@@ -201,7 +206,8 @@ def train_qmix(
 
         # Periodic evaluation
         if (episode + 1) % eval_interval == 0:
-            r = evaluate_qmix(agent_nets, scenario_name, sim_seconds=eval_seconds)
+            es = eval_seed(seed) if seed is not None else None
+            r = evaluate_qmix(agent_nets, scenario_name, sim_seconds=eval_seconds, eval_sumo_seed=es)
             eval_history.append((episode + 1, r))
 
     # Save models
@@ -216,10 +222,11 @@ def train_qmix(
 # =====================================================================
 # Evaluation
 # =====================================================================
-def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600):
-    env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds)
+def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600, eval_sumo_seed=None):
+    construct_seed = eval_sumo_seed if eval_sumo_seed is not None else "random"
+    env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=construct_seed)
     agent_ids = env.possible_agents
-    obs_dict, _ = env.reset()
+    obs_dict, _ = env.reset(seed=eval_sumo_seed)
     total_reward = 0.0
     steps = 0
 
@@ -239,39 +246,41 @@ def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600):
             break
 
     env.close()
-    mean_reward = total_reward / max(steps, 1)
     print(f"  QMIX [{scenario_name}] eval reward: {total_reward:.2f} over {steps} steps")
     return total_reward
+
+
+def run_qmix_scenario(scenario, num_episodes=200, eval_interval=20, seed=None, out_dir="outputs",
+                      sim_seconds=1800, eval_seconds=600):
+    """Train QMIX (CTDE) on a 1x4 scenario, write a per-(scenario, seed) CSV of the eval
+    history, and return it. Reused by run_seeded_experiment.py."""
+    print(f"\n{'='*55}\nQMIX TRAINING: {scenario.upper()}  (seed={seed})\n{'='*55}")
+    history = train_qmix(scenario_name=scenario, num_episodes=num_episodes,
+                         eval_interval=eval_interval, seed=seed,
+                         sim_seconds=sim_seconds, eval_seconds=eval_seconds)
+
+    os.makedirs(out_dir, exist_ok=True)
+    suffix = f"_seed{seed}" if seed is not None else ""
+    out_csv = os.path.join(out_dir, f"qmix_results_{scenario}{suffix}.csv")
+    with open(out_csv, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["scenario", "episode", "eval_reward"])
+        writer.writeheader()
+        for episode, reward in history:
+            writer.writerow({"scenario": scenario, "episode": episode, "eval_reward": reward})
+    print(f"Saved {out_csv} ({len(history)} rows)")
+    return history
 
 
 # =====================================================================
 # Main
 # =====================================================================
 if __name__ == "__main__":
-    os.makedirs("outputs", exist_ok=True)
-    results = []
-
     log_fh = _open_log("ctde_training.log")
     current_phase = "startup"
     try:
         for scenario in SCENARIOS:
-            print(f"\n{'='*55}")
-            print(f"QMIX TRAINING: {scenario.upper()}")
-            print(f"{'='*55}")
-            current_phase = f"{scenario} / qmix_train"
-            history = train_qmix(scenario_name=scenario, num_episodes=200, eval_interval=20)
-            for episode, reward in history:
-                results.append({"scenario": scenario, "episode": episode, "eval_reward": reward})
-
-            # Write CSV incrementally after each scenario so a later crash doesn't
-            # lose results we already paid for.
-            current_phase = f"{scenario} / write_csv"
-            out_csv = os.path.join("outputs", "qmix_results.csv")
-            with open(out_csv, "w", newline="") as f:
-                writer = csv.DictWriter(f, fieldnames=["scenario", "episode", "eval_reward"])
-                writer.writeheader()
-                writer.writerows(results)
-            print(f"Saved {out_csv} ({len(results)} rows after {scenario})")
+            current_phase = scenario
+            run_qmix_scenario(scenario, num_episodes=200, eval_interval=20, seed=None)
     except BaseException:
         print(f"\n!!! CRASHED during phase: {current_phase} at {datetime.now().isoformat()} !!!")
         traceback.print_exc()

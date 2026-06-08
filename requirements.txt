@@ -1,4 +1,5 @@
 sumo-rl==1.4.5
+eclipse-sumo==1.26.0
 pettingzoo==1.24.3
 tianshou==2.0.1
 torch==2.7.1
@@ -8,3 +9,4 @@ numpy
 pytest
 tqdm
 seaborn
+python-pptx

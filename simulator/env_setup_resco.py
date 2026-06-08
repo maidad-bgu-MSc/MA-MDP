@@ -114,11 +114,17 @@ class QueueObservationFunctionResco(ObservationFunction):
             else:
                 local_ew += q
                 
-        # Sum up all rest-of-network queues
-        other_ew, other_ns = 0, 0
+        # Sum up all rest-of-network queues, then AVERAGE per other-junction so the
+        # magnitude stays comparable to a single local junction. Raw summing over many
+        # neighbours (grid4x4 has 15) saturates the top bin (30+) almost every step, which
+        # makes the two "rest-of-network" state dimensions constant and uninformative —
+        # collapsing the 625-state table to local-only and preventing any coordination.
+        other_ew, other_ns = 0.0, 0.0
+        num_others = 0
         for other_ts_id in self.ts.env.ts_ids:
             if other_ts_id == self.ts.id:
                 continue
+            num_others += 1
             other_ts = self.ts.env.traffic_signals[other_ts_id]
             for lane in other_ts.lanes:
                 q = self.ts.sumo.lane.getLastStepHaltingNumber(lane)
@@ -126,7 +132,11 @@ class QueueObservationFunctionResco(ObservationFunction):
                     other_ns += q
                 else:
                     other_ew += q
-                    
+
+        if num_others > 0:
+            other_ew /= num_others
+            other_ns /= num_others
+
         # Apply 5-bin discretization to all 4 dimensions
         obs = np.array([
             discretize_queue_5_bins(local_ew),
@@ -188,18 +198,24 @@ class GlobalRewardWrapperResco:
     def close(self):
         return self.env.close()
 
-def make_resco_env(scenario_name, num_seconds=3600, delta_time=5, out_csv_name=None, use_gui=False):
-    """Initializes and wraps a RESCO environment into a PettingZoo AEC interface."""
+def make_resco_env(scenario_name, num_seconds=3600, delta_time=5, out_csv_name=None,
+                   use_gui=False, sumo_seed="random", fixed_ts=False):
+    """Initializes and wraps a RESCO environment into a PettingZoo AEC interface.
+
+    sumo_seed: int for reproducible SUMO stochasticity (vehicle departures, etc.), or "random".
+    fixed_ts: if True, signals follow the net file's built-in fixed-time program and ignore actions
+              (used for the SUMO-native fixed-time baseline).
+    """
     net_file = os.path.join("simulator", "resco_environments", scenario_name, f"{scenario_name}.net.xml")
     route_file = os.path.join("simulator", "resco_environments", scenario_name, f"{scenario_name}.rou.xml")
-    
+
     if not os.path.exists(net_file) or not os.path.exists(route_file):
         # Auto-download if missing
         from simulator.download_resco_scenarios import download_resco_data
         download_resco_data()
-        
+
     begin_time = 23500 if scenario_name == "cologne3" else 0
-        
+
     parallel_env = sumo_rl.parallel_env(
         net_file=net_file,
         route_file=route_file,
@@ -210,24 +226,30 @@ def make_resco_env(scenario_name, num_seconds=3600, delta_time=5, out_csv_name=N
         min_green=10,
         reward_fn=global_reward_fn,
         observation_class=QueueObservationFunctionResco,
-        out_csv_name=out_csv_name
+        out_csv_name=out_csv_name,
+        sumo_seed=sumo_seed,
+        fixed_ts=fixed_ts,
     )
-    
+
     wrapped_parallel = GlobalRewardWrapperResco(parallel_env)
     aec_env = parallel_to_aec(wrapped_parallel)
     return aec_env
 
-def make_resco_parallel_env(scenario_name, num_seconds=3600, delta_time=5, use_gui=False):
-    """Initializes and returns the wrapped parallel sumo-rl environment (for VDN training)."""
+def make_resco_parallel_env(scenario_name, num_seconds=3600, delta_time=5, use_gui=False,
+                            sumo_seed="random", fixed_ts=False):
+    """Initializes and returns the wrapped parallel sumo-rl environment (for VDN training).
+
+    sumo_seed / fixed_ts: see make_resco_env.
+    """
     net_file = os.path.join("simulator", "resco_environments", scenario_name, f"{scenario_name}.net.xml")
     route_file = os.path.join("simulator", "resco_environments", scenario_name, f"{scenario_name}.rou.xml")
-    
+
     if not os.path.exists(net_file) or not os.path.exists(route_file):
         from simulator.download_resco_scenarios import download_resco_data
         download_resco_data()
-        
+
     begin_time = 23500 if scenario_name == "cologne3" else 0
-        
+
     parallel_env = sumo_rl.parallel_env(
         net_file=net_file,
         route_file=route_file,
@@ -237,7 +259,9 @@ def make_resco_parallel_env(scenario_name, num_seconds=3600, delta_time=5, use_g
         delta_time=delta_time,
         min_green=10,
         reward_fn=global_reward_fn,
-        observation_class=QueueObservationFunctionResco
+        observation_class=QueueObservationFunctionResco,
+        sumo_seed=sumo_seed,
+        fixed_ts=fixed_ts,
     )
     return GlobalRewardWrapperResco(parallel_env)
 

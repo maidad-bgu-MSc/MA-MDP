@@ -151,15 +151,15 @@ def generate_problem(scenario_name: str, out_dir: str = ".") -> tuple:
     return net_file, rou_file
 
 
-def make_problem_env(scenario_name: str, num_seconds: int = 3600, out_csv_name=None):
+def make_problem_env(scenario_name: str, num_seconds: int = 3600, out_csv_name=None, sumo_seed="random"):
     """Returns an AEC PettingZoo env for the given scenario (for tabular training/eval)."""
     from simulator.env_setup import make_wave_env
     net_file, rou_file = generate_problem(scenario_name)
     return make_wave_env(net_file=net_file, route_file=rou_file,
-                         num_seconds=num_seconds, out_csv_name=out_csv_name)
+                         num_seconds=num_seconds, out_csv_name=out_csv_name, sumo_seed=sumo_seed)
 
 
-def make_problem_parallel_env(scenario_name: str, num_seconds: int = 3600):
+def make_problem_parallel_env(scenario_name: str, num_seconds: int = 3600, sumo_seed="random"):
     """Returns GlobalRewardWrapper(parallel_env) for VDN/QMIX training."""
     from simulator.env_setup import GlobalRewardWrapper, QueueObservationFunction, global_reward_fn, setup_sumo_env
     setup_sumo_env()
@@ -174,6 +174,7 @@ def make_problem_parallel_env(scenario_name: str, num_seconds: int = 3600):
         min_green=10,
         reward_fn=global_reward_fn,
         observation_class=QueueObservationFunction,
+        sumo_seed=sumo_seed,
     )
     return GlobalRewardWrapper(parallel_env)
 
