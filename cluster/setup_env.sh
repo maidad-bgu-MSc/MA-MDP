@@ -32,6 +32,12 @@ print(subprocess.run([os.path.join(home, "bin", "sumo"), "--version"],
                      capture_output=True, text=True).stdout.splitlines()[0])
 import sumo_rl, torch  # noqa: F401
 print("sumo_rl + torch import OK")
+try:
+    import libsumo  # noqa: F401
+    print("libsumo import OK -> SUMO can run in-process (LIBSUMO_AS_TRACI=1)")
+except ImportError:
+    print("WARNING: libsumo NOT importable -> runs fall back to traci subprocess; "
+          "throttle array concurrency (e.g. %4) to avoid node contention")
 PY
 
 echo

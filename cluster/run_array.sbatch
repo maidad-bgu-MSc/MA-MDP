@@ -34,12 +34,21 @@ export PYTHONHASHSEED=$SLURM_ARRAY_TASK_ID
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
-# Run SUMO in-process via libsumo instead of spawning a sumo subprocess + TraCI
-# socket on every env.reset(). On busy/shared nodes the per-reset subprocess+port
-# dance fails ("TraCI server already finished" -> "Could not connect in 1 tries");
-# libsumo avoids it entirely and is much faster. Same SUMO core + sumo_seed, so
-# results stay consistent with any traci-backed runs. Overridable: pass 0 to disable.
-export LIBSUMO_AS_TRACI=${LIBSUMO_AS_TRACI:-1}
+# Prefer libsumo (SUMO in-process) over spawning a sumo subprocess + TraCI socket on
+# every env.reset(). On busy/shared nodes the per-reset subprocess+port dance fails
+# ("TraCI server already finished" -> "Could not connect in 1 tries"); libsumo avoids
+# it entirely and is much faster (same SUMO core + sumo_seed, so results are consistent).
+# IMPORTANT: only enable it if libsumo actually imports -- sumo-rl does `import libsumo
+# as traci` when LIBSUMO_AS_TRACI is set, which would crash every task if it's missing.
+# If libsumo is absent we fall back to traci; throttle array concurrency (e.g. %4) to
+# keep tasks off saturated nodes.
+if python -c "import libsumo" >/dev/null 2>&1; then
+    export LIBSUMO_AS_TRACI=1
+    echo "libsumo available -> running SUMO in-process"
+else
+    unset LIBSUMO_AS_TRACI
+    echo "libsumo NOT available -> using traci subprocess (throttle concurrency to avoid contention)"
+fi
 
 python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
 status=$?
