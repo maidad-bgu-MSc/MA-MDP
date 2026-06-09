@@ -2,6 +2,7 @@ sumo-rl==1.4.5
 eclipse-sumo==1.26.0
 libsumo==1.26.0   # in-process SUMO (LIBSUMO_AS_TRACI=1); avoids per-reset TraCI port contention on the cluster
 pettingzoo==1.24.3
+gymnasium         # directly imported by simulator/env_setup*.py (was only a transitive dep before)
 tianshou==2.0.1
 torch==2.7.1
 matplotlib
