@@ -9,17 +9,18 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=4G
 #SBATCH --output=logs/aggregate_%j.txt
-#SBATCH --mail-user=yoyo123233@gmail.com
+#SBATCH --mail-user=leashmil@post.bgu.ac.il
 #SBATCH --mail-type=END,FAIL
 
 ENV_NAME=${1:-mmdp}
-# Absolute interpreter path; do NOT module-load/conda-activate (it pollutes
-# PYTHONHOME/PYTHONPATH and makes $PY load the wrong site-packages). See run_array.sbatch.
-PY="$HOME/.conda/envs/$ENV_NAME/bin/python"
+# Mirror run_array.sbatch's proven env handling: module load -> conda activate ->
+# plain `python` (the activated pattern that actually works on the BGU cluster).
+module load anaconda
+source /storage/modules/packages/anaconda/etc/profile.d/conda.sh
+conda activate "$ENV_NAME"
 
 cd "$SLURM_SUBMIT_DIR"
-unset PYTHONHOME
-export PYTHONPATH="$(pwd)"
+export PYTHONPATH="$(pwd):$PYTHONPATH"
 
-"$PY" aggregate_seeds.py
+python aggregate_seeds.py
 echo "Aggregation complete -> outputs/aggregated/"
