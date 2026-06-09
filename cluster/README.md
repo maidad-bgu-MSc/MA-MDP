@@ -100,5 +100,10 @@ Copy `ATLC_MMDP_presentation.pptx` back to your machine (e.g. `scp`).
 - **Partition**: preset to `--partition=main`; no `--account` is required on this cluster.
 - **A task crashed**: its `logs/seed<seed>_<scenario>.log` ends with a full traceback. Fix and
   re-run just that task: `sbatch --array=<id> cluster/run_array.sbatch`, then `python aggregate_seeds.py`.
+- **`FatalTraCIError: Could not connect` / "TraCI server already finished"**: SUMO couldn't launch its
+  subprocess+TraCI socket, usually on a busy/shared node (port/process contention). `run_array.sbatch`
+  sets `LIBSUMO_AS_TRACI=1` to run SUMO **in-process** (no subprocess/ports), which avoids this and is
+  faster. If many tasks still pile onto the same nodes, throttle concurrency:
+  `sbatch --array=0-29%4 cluster/run_array.sbatch` (at most 4 tasks at once).
 - **Local smoke test** (no SLURM): `python run_seeded_experiment.py --seed 0 --scenario baseline --quick`
   then `python aggregate_seeds.py`.

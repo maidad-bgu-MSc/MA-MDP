@@ -34,7 +34,18 @@ export PYTHONHASHSEED=$SLURM_ARRAY_TASK_ID
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
-python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
+# Run SUMO in-process via libsumo instead of spawning a sumo subprocess + TraCI
+# socket on every env.reset(). On busy/shared nodes the per-reset subprocess+port
+# dance fails ("TraCI server already finished" -> "Could not connect in 1 tries");
+# libsumo avoids it entirely and is much faster. Same SUMO core + sumo_seed, so
+# results stay consistent with any traci-backed runs. Overridable: pass 0 to disable.
+export LIBSUMO_AS_TRACI=${LIBSUMO_AS_TRACI:-1}
 
-echo "--- MMDP Array Finish ---"
+python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
+status=$?
+
+echo "--- MMDP Array Finish (exit $status) ---"
 date
+# Propagate the real exit code so a crashed task is marked FAILED (not COMPLETED),
+# and the afterok aggregation dependency won't fire on partial results.
+exit $status
