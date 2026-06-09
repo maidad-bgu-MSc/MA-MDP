@@ -16,6 +16,11 @@
 #SBATCH --mail-type=ALL
 
 ENV_NAME=${1:-mmdp}
+# Call the env's interpreter by absolute path. `conda activate` is unreliable in a
+# non-interactive batch shell on some compute nodes (it can silently leave the base/
+# system python active -> ModuleNotFoundError for gymnasium/libsumo even though the
+# package is installed in the env). $PY guarantees the right interpreter regardless.
+PY="$HOME/.conda/envs/$ENV_NAME/bin/python"
 
 echo "--- MMDP Array Start ---"
 echo "Task ID: $SLURM_ARRAY_TASK_ID  |  env: $ENV_NAME  |  host: $(hostname)"
@@ -23,11 +28,20 @@ date
 
 module load anaconda
 source /storage/modules/packages/anaconda/etc/profile.d/conda.sh
-conda activate "$ENV_NAME"
+conda activate "$ENV_NAME" || echo "WARN: conda activate failed; using \$PY directly"
 
 cd "$SLURM_SUBMIT_DIR"
 export PYTHONPATH="$(pwd):$PYTHONPATH"
 mkdir -p logs outputs/seeds models
+
+# Fail loudly and early if the env interpreter is wrong/broken (instead of a cryptic
+# ModuleNotFoundError seconds into the run).
+echo "interpreter -> $PY"
+if ! "$PY" -c "import gymnasium, sumo_rl" >/dev/null 2>&1; then
+    echo "FATAL: $PY cannot import gymnasium/sumo_rl -- env '$ENV_NAME' missing or broken."
+    "$PY" -c "import gymnasium, sumo_rl"   # surface the real traceback in the log
+    exit 1
+fi
 
 # Reproducibility: PYTHONHASHSEED must be set BEFORE the interpreter starts.
 export PYTHONHASHSEED=$SLURM_ARRAY_TASK_ID
@@ -42,7 +56,7 @@ export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 # as traci` when LIBSUMO_AS_TRACI is set, which would crash every task if it's missing.
 # If libsumo is absent we fall back to traci; throttle array concurrency (e.g. %4) to
 # keep tasks off saturated nodes.
-if python -c "import libsumo" >/dev/null 2>&1; then
+if "$PY" -c "import libsumo" >/dev/null 2>&1; then
     export LIBSUMO_AS_TRACI=1
     echo "libsumo available -> running SUMO in-process"
 else
@@ -50,7 +64,7 @@ else
     echo "libsumo NOT available -> using traci subprocess (throttle concurrency to avoid contention)"
 fi
 
-python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
+"$PY" run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
 status=$?
 
 echo "--- MMDP Array Finish (exit $status) ---"
