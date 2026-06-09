@@ -16,22 +16,21 @@
 #SBATCH --mail-type=ALL
 
 ENV_NAME=${1:-mmdp}
-# Call the env's interpreter by absolute path. `conda activate` is unreliable in a
-# non-interactive batch shell on some compute nodes (it can silently leave the base/
-# system python active -> ModuleNotFoundError for gymnasium/libsumo even though the
-# package is installed in the env). $PY guarantees the right interpreter regardless.
+# Call the env's interpreter by absolute path and do NOT `module load anaconda` /
+# `conda activate`: loading the base anaconda module pollutes PYTHONHOME/PYTHONPATH,
+# which makes $PY load the WRONG site-packages (base anaconda's, where gymnasium isn't)
+# -> "ModuleNotFoundError: No module named 'gymnasium'". The env is self-contained
+# (libsumo/sumo_rl/gymnasium all import from $PY with no module/conda setup), so we
+# clear those vars and call $PY directly.
 PY="$HOME/.conda/envs/$ENV_NAME/bin/python"
 
 echo "--- MMDP Array Start ---"
 echo "Task ID: $SLURM_ARRAY_TASK_ID  |  env: $ENV_NAME  |  host: $(hostname)"
 date
 
-module load anaconda
-source /storage/modules/packages/anaconda/etc/profile.d/conda.sh
-conda activate "$ENV_NAME" || echo "WARN: conda activate failed; using \$PY directly"
-
 cd "$SLURM_SUBMIT_DIR"
-export PYTHONPATH="$(pwd):$PYTHONPATH"
+unset PYTHONHOME                 # defend against an inherited/base-anaconda PYTHONHOME
+export PYTHONPATH="$(pwd)"       # clean: just the repo (don't append a polluted PYTHONPATH)
 mkdir -p logs outputs/seeds models
 
 # Fail loudly and early if the env interpreter is wrong/broken (instead of a cryptic

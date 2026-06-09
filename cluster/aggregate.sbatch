@@ -13,14 +13,13 @@
 #SBATCH --mail-type=END,FAIL
 
 ENV_NAME=${1:-mmdp}
-PY="$HOME/.conda/envs/$ENV_NAME/bin/python"   # absolute path: conda activate is unreliable in batch
-
-module load anaconda
-source /storage/modules/packages/anaconda/etc/profile.d/conda.sh
-conda activate "$ENV_NAME" || echo "WARN: conda activate failed; using \$PY directly"
+# Absolute interpreter path; do NOT module-load/conda-activate (it pollutes
+# PYTHONHOME/PYTHONPATH and makes $PY load the wrong site-packages). See run_array.sbatch.
+PY="$HOME/.conda/envs/$ENV_NAME/bin/python"
 
 cd "$SLURM_SUBMIT_DIR"
-export PYTHONPATH="$(pwd):$PYTHONPATH"
+unset PYTHONHOME
+export PYTHONPATH="$(pwd)"
 
 "$PY" aggregate_seeds.py
 echo "Aggregation complete -> outputs/aggregated/"
