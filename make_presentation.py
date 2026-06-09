@@ -168,19 +168,19 @@ def parse_summary_md(path):
 # --------------------------------------------------------------------------- build deck
 add_title_slide(
     "Adaptive Traffic-Signal Control as a Multi-agent MDP",
-    "Modelling a new domain as an MMDP and evaluating cooperative MARL algorithms on it",
-    "ATLC course project  ·  SUMO + PettingZoo  ·  IQL · Hysteretic-Q · VDN · QMIX (CTDE)",
+    "A cooperative MMDP traffic domain and a head-to-head study of value-factorisation MARL",
+    "SUMO microsimulation + PettingZoo  ·  IQL · Hysteretic-Q · VDN · QMIX (CTDE)",
 )
 
-add_bullets("Project goal & contribution", [
-    ("Goal: \"Model a new domain as an MMDP and evaluate MMDP algorithms on it.\"", 0),
-    ("Domain: cooperative adaptive traffic-signal control (ATLC).", 0),
-    ("Each traffic signal is an agent choosing a green phase; agents share one cooperative objective.", 1),
-    ("We model it as a Multi-agent MDP (MMDP): shared near-full state, joint actions, team reward.", 0),
-    ("Contribution:", 0),
-    ("A configurable MMDP traffic domain with 4 purpose-built stress scenarios + 2 real RESCO benchmarks.", 1),
-    ("Head-to-head evaluation of IQL, Hysteretic-Q, VDN and QMIX (CTDE).", 1),
-    ("A reproducible 5-seed SLURM pipeline reporting mean +/- std.", 1),
+add_bullets("Motivation & contributions", [
+    ("Urban congestion is a coordination problem: fixed-time signals can't adapt to shifting demand,", 0),
+    ("and neighbouring junctions must act jointly to move platoons through a corridor.", 1),
+    ("We cast adaptive traffic-signal control as a cooperative Multi-agent MDP (MMDP):", 0),
+    ("one agent per junction picks a green phase; all agents share a single team reward.", 1),
+    ("Contributions", 0),
+    ("A configurable MMDP traffic domain: 4 purpose-built stress scenarios + 2 real RESCO benchmarks.", 1),
+    ("A head-to-head evaluation of IQL, Hysteretic-Q, VDN and QMIX (CTDE) on it.", 1),
+    ("A reproducible 5-seed pipeline reporting mean +/- std, with an open SLURM harness.", 1),
 ])
 
 # ---- MMDP formulation
@@ -328,13 +328,13 @@ else:
     ])
 
 # ---- Findings / conclusions
-add_section_header("Findings & conclusions")
-add_bullets("Key findings", [
-    ("On the 1x4 MMDP, QMIX (CTDE) is the strongest method - it beats fixed-time on every scenario.", 0),
-    ("Value factorisation (VDN/QMIX) > independent learners (IQL/Hysteretic) for cooperative control.", 1),
-    ("Tabular learners are high-variance; reporting mean +/- std over seeds is essential for honesty.", 1),
-    ("Fixing the RESCO action-space + observation bugs turned a non-learning pipeline into a learning one.", 0),
-    ("We are working to the project goal: a new domain modelled as an MMDP, with MMDP algorithms evaluated.", 0),
+add_section_header("Takeaways & outlook")
+add_bullets("Takeaways", [
+    ("On the 1x4 MMDP, value factorisation wins: QMIX (CTDE) beats coordinated fixed-time on every scenario.", 0),
+    ("VDN/QMIX (CTDE) consistently outperform independent learners (IQL/Hysteretic) under a shared reward.", 1),
+    ("Variance matters: tabular learners are high-variance, so we report mean +/- std across seeds, not single runs.", 0),
+    ("Modelling fidelity is decisive: getting the action space and observation right was the difference "
+     "between no learning and learning on the real RESCO benchmarks.", 0),
 ])
 add_bullets("Limitations & future work", [
     ("QMIX is currently specialised to the 1x4 topology; generalising it to RESCO (3/16 agents, "
