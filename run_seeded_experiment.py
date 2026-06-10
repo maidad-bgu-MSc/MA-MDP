@@ -73,10 +73,16 @@ def main():
                         help="SLURM array task id; decoded to (seed, scenario) via resolve_job().")
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--scenario", type=str, default=None, choices=ALL_SCENARIOS)
-    parser.add_argument("--episodes", type=int, default=100, help="Tabular training episodes.")
-    parser.add_argument("--eval-interval", type=int, default=5, help="Tabular eval interval (epochs).")
-    parser.add_argument("--qmix-episodes", type=int, default=200, help="QMIX training episodes (1x4 only).")
-    parser.add_argument("--qmix-eval-interval", type=int, default=20, help="QMIX eval interval.")
+    # Unified training budget: EVERY method (tabular IQL/Hysteretic/VDN and deep QMIX) on
+    # EVERY scenario trains for the same number of episodes at the same 1000s horizon ->
+    # identical environment-interaction budget (500 eps x 200 steps = 100k steps each) and
+    # identical seeded 600s evaluation. This removes any "unequal training" disparity when
+    # comparing methods (samples, not wall-clock, are the fair currency — QMIX is slower
+    # per step but equally sampled). See run_tabular_experiment / run_ctde_experiment.
+    parser.add_argument("--episodes", type=int, default=500, help="Tabular training episodes.")
+    parser.add_argument("--eval-interval", type=int, default=10, help="Tabular eval interval (epochs).")
+    parser.add_argument("--qmix-episodes", type=int, default=500, help="QMIX training episodes (1x4 only).")
+    parser.add_argument("--qmix-eval-interval", type=int, default=10, help="QMIX eval interval.")
     parser.add_argument("--quick", action="store_true",
                         help="Tiny run for smoke testing (overrides episode counts).")
     args = parser.parse_args()
@@ -90,7 +96,9 @@ def main():
     eval_interval = args.eval_interval
     qmix_episodes = args.qmix_episodes
     qmix_eval_interval = args.qmix_eval_interval
-    qmix_sim_seconds, qmix_eval_seconds = 1800, 600
+    # QMIX uses the same 1000s horizon as the tabular methods (was 1800) so total
+    # environment interactions match exactly across all methods.
+    qmix_sim_seconds, qmix_eval_seconds = 1000, 600
     if args.quick:
         episodes, eval_interval = 4, 2
         qmix_episodes, qmix_eval_interval = 4, 2
@@ -126,3 +134,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # sumo-rl/libsumo raises while CPython finalizes the interpreter (atexit teardown
+    # of the in-process SUMO connection: "Exception ignored in sys.unraisablehook"),
+    # so the process exits 120 *after* the run finished and every CSV/log was flushed
+    # -- SLURM then marks an otherwise-successful task FAILED on pure shutdown noise.
+    # main() has already completed and flushed all its work, and it re-raises on any
+    # real error (so a genuine crash never reaches this line and still exits non-zero).
+    # Hard-exit 0 here to skip the broken finalizer and give SLURM an honest code.
+    os._exit(0)

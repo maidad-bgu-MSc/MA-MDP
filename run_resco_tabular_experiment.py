@@ -7,7 +7,8 @@ import numpy as np
 from tqdm import tqdm
 
 from simulator.env_setup_resco import make_resco_env, make_resco_parallel_env
-from marl_algorithms import TabularQLearningAgent, HystereticQLearningAgent, TabularVDNAgents
+from marl_algorithms import (TabularQLearningAgent, HystereticQLearningAgent, TabularVDNAgents,
+                             get_resco_state, RESCO_NUM_STATES)
 from seeding import episode_seed, eval_seed
 
 
@@ -69,11 +70,17 @@ def train_tabular_agents(algo="iql_tabular", scenario_name="cologne3", episodes=
     # action space to its own junction (cologne3: 3-4, grid4x4: 8) instead of assuming 2.
     action_counts = {agent: env.action_space(agent).n for agent in env.possible_agents}
 
+    # Phase-aware state encoding (get_resco_state / RESCO_NUM_STATES) so the table can map
+    # the most-demanded phase onto the phase-index action on multi-phase RESCO junctions.
     if algo == "iql_tabular":
-        agents = {agent: TabularQLearningAgent(agent, num_states=625, num_actions=action_counts[agent])
+        agents = {agent: TabularQLearningAgent(agent, num_states=RESCO_NUM_STATES,
+                                               num_actions=action_counts[agent],
+                                               state_encoder=get_resco_state)
                   for agent in env.possible_agents}
     elif algo == "hysteretic":
-        agents = {agent: HystereticQLearningAgent(agent, num_states=625, num_actions=action_counts[agent])
+        agents = {agent: HystereticQLearningAgent(agent, num_states=RESCO_NUM_STATES,
+                                                  num_actions=action_counts[agent],
+                                                  state_encoder=get_resco_state)
                   for agent in env.possible_agents}
     else:
         raise ValueError(f"Unsupported tabular algorithm: {algo}")
@@ -167,7 +174,8 @@ def train_vdn_agents(scenario_name="cologne3", episodes=100, sim_seconds=1000,
     agent_ids = env.possible_agents
     # Per-agent action counts for heterogeneous RESCO junctions.
     action_counts = {aid: env.action_space(aid).n for aid in agent_ids}
-    vdn = TabularVDNAgents(agent_ids=agent_ids, num_states=625, num_actions=action_counts)
+    vdn = TabularVDNAgents(agent_ids=agent_ids, num_states=RESCO_NUM_STATES,
+                           num_actions=action_counts, state_encoder=get_resco_state)
     eval_history = []
 
     for episode in tqdm(range(episodes), desc=f"VDN [{scenario_name}]"):

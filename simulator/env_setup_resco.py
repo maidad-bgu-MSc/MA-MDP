@@ -154,6 +154,87 @@ class QueueObservationFunctionResco(ObservationFunction):
             dtype=np.int32
         )
 
+class MaxPressureObservationFunctionResco(ObservationFunction):
+    """Phase-aware observation for multi-phase RESCO junctions (cologne3: 3-4 phases,
+    grid4x4: 8). Reports 4 discrete values per agent:
+
+        0. most-demanded green phase  -- argmax over phases of the halting queue on the
+           lanes that phase gives green to. This is the key signal the old EW/NS encoding
+           lacked: it tells the agent WHICH of its N phases relieves the current demand,
+           so the state maps directly onto the phase-index action (cf. max-pressure control).
+        1. current green phase index  -- lets the agent account for min_green / switching.
+        2. local congestion bin       -- total local halting queue, 5-bin discretized.
+        3. rest-of-network bin        -- avg per-junction halting queue, 5-bin discretized.
+
+    Encoded to a single state index by marl_algorithms.get_resco_state (radix [8,8,5,5]).
+    """
+
+    def __init__(self, ts):
+        super().__init__(ts)
+        # ts.lanes / ts.green_phases don't exist yet at construction (TrafficSignal builds
+        # them right AFTER instantiating the observation_fn), so build the phase->lane map
+        # lazily on first call.
+        self._phase_lanes = None
+
+    def _build_phase_lanes(self):
+        """Map each green-phase index -> set of incoming lanes it gives green ('g'/'G') to.
+        The phase state-string index aligns with getControlledLinks() index."""
+        ts = self.ts
+        links = ts.sumo.trafficlight.getControlledLinks(ts.id)
+        phase_lanes = []
+        for phase in ts.green_phases:
+            served = set()
+            for i, sig in enumerate(phase.state):
+                if sig in ("g", "G") and i < len(links) and links[i]:
+                    served.add(links[i][0][0])  # incoming lane of the first connection
+            phase_lanes.append(served)
+        return phase_lanes
+
+    def __call__(self) -> np.ndarray:
+        ts = self.ts
+        # Under fixed_ts (the SUMO-native baseline) TrafficSignal._build_phases returns
+        # early and never sets green_phases; that baseline ignores observations anyway,
+        # so return a neutral vector instead of crashing.
+        if not hasattr(ts, "green_phases"):
+            return np.zeros(4, dtype=np.int32)
+        if self._phase_lanes is None:
+            self._phase_lanes = self._build_phase_lanes()
+
+        local_q = {lane: ts.sumo.lane.getLastStepHaltingNumber(lane) for lane in ts.lanes}
+        phase_queues = [sum(local_q.get(l, 0) for l in served) for served in self._phase_lanes]
+        local_max_phase = int(np.argmax(phase_queues)) if phase_queues else 0
+        current_phase = int(getattr(ts, "green_phase", 0))
+        total_local = sum(local_q.values())
+
+        # Average per-junction rest-of-network queue (same rationale as the EW/NS obs:
+        # averaging keeps the magnitude comparable to a single junction so the bin is
+        # informative rather than pinned at the top for large nets).
+        other_total, num_others = 0.0, 0
+        for other_id in ts.env.ts_ids:
+            if other_id == ts.id:
+                continue
+            num_others += 1
+            other_ts = ts.env.traffic_signals[other_id]
+            other_total += sum(ts.sumo.lane.getLastStepHaltingNumber(l) for l in other_ts.lanes)
+        if num_others > 0:
+            other_total /= num_others
+
+        return np.array([
+            local_max_phase,
+            current_phase,
+            discretize_queue_5_bins(total_local),
+            discretize_queue_5_bins(other_total),
+        ], dtype=np.int32)
+
+    def observation_space(self) -> gym.spaces.Box:
+        # Phase dims bounded by RESCO_MAX_PHASES-1 (=7; grid4x4 has the most, 8 phases);
+        # congestion dims by the 5-bin discretizer (0..4).
+        return gym.spaces.Box(
+            low=np.zeros(4, dtype=np.int32),
+            high=np.array([7, 7, 4, 4], dtype=np.int32),
+            dtype=np.int32,
+        )
+
 def global_reward_fn(ts):
     """Calculates individual negative waiting times at the intersection."""
     return -float(sum(ts.get_accumulated_waiting_time_per_lane()))
@@ -225,7 +306,7 @@ def make_resco_env(scenario_name, num_seconds=3600, delta_time=5, out_csv_name=N
         delta_time=delta_time,
         min_green=10,
         reward_fn=global_reward_fn,
-        observation_class=QueueObservationFunctionResco,
+        observation_class=MaxPressureObservationFunctionResco,
         out_csv_name=out_csv_name,
         sumo_seed=sumo_seed,
         fixed_ts=fixed_ts,
@@ -259,7 +340,7 @@ def make_resco_parallel_env(scenario_name, num_seconds=3600, delta_time=5, use_g
         delta_time=delta_time,
         min_green=10,
         reward_fn=global_reward_fn,
-        observation_class=QueueObservationFunctionResco,
+        observation_class=MaxPressureObservationFunctionResco,
         sumo_seed=sumo_seed,
         fixed_ts=fixed_ts,
     )

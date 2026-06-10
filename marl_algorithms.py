@@ -37,29 +37,51 @@ def get_discrete_state(obs):
     else:
         raise ValueError(f"Unsupported observation shape: {obs.shape}")
 
+# --- Phase-aware (max-pressure) state encoding for multi-phase RESCO junctions ---
+# The 1x4 EW/NS encoding above can't drive 3-8 phase real junctions: it tells the agent
+# how much EW/NS queue there is but not which of N phases relieves it. The phase-aware
+# observation (see MaxPressureObservationFunctionResco) instead reports, per step:
+#   [most-demanded green phase, current green phase, local congestion bin, network bin]
+# which maps directly onto the phase-index action. RESCO_MAX_PHASES is the radix for the
+# two phase dimensions and MUST be >= the largest green-phase count across scenarios
+# (grid4x4 has 8 -> indices 0..7). RESCO_CONG_BINS matches discretize_queue_5_bins (5).
+RESCO_MAX_PHASES = 8
+RESCO_CONG_BINS = 5
+RESCO_NUM_STATES = RESCO_MAX_PHASES * RESCO_MAX_PHASES * RESCO_CONG_BINS * RESCO_CONG_BINS  # 1600
+
+def get_resco_state(obs):
+    """Encodes a phase-aware RESCO observation [max_phase, current_phase, local_cong, net_cong]
+    into a single state index in [0, RESCO_NUM_STATES). Mixed radix [8, 8, 5, 5]."""
+    if len(obs) != 4:
+        raise ValueError(f"Phase-aware RESCO obs must have length 4, got {len(obs)}")
+    mp, cur, lc, nc = int(obs[0]), int(obs[1]), int(obs[2]), int(obs[3])
+    return ((mp * RESCO_MAX_PHASES + cur) * RESCO_CONG_BINS + lc) * RESCO_CONG_BINS + nc
+
 # =====================================================================
 # 1. Independent Tabular Q-Learning (Decentralized Classical)
 # =====================================================================
 class TabularQLearningAgent:
     """Decentralized tabular Q-Learning with discretized state space."""
-    def __init__(self, agent_id, num_states=625, num_actions=2, lr=0.01, gamma=0.95, epsilon=0.1):
+    def __init__(self, agent_id, num_states=625, num_actions=2, lr=0.01, gamma=0.95, epsilon=0.1,
+                 state_encoder=get_discrete_state):
         self.agent_id = agent_id
         self.num_states = num_states
         self.num_actions = num_actions
         self.lr = lr
         self.gamma = gamma
         self.epsilon = epsilon
+        self.state_encoder = state_encoder
         self.q_table = np.zeros((num_states, num_actions))
 
     def compute_action(self, obs, explore=True):
-        state = get_discrete_state(obs)
+        state = self.state_encoder(obs)
         if explore and np.random.rand() < self.epsilon:
             return np.random.randint(self.num_actions)
         return int(np.argmax(self.q_table[state]))
 
     def update(self, obs, action, reward, next_obs, done):
-        state = get_discrete_state(obs)
-        next_state = get_discrete_state(next_obs)
+        state = self.state_encoder(obs)
+        next_state = self.state_encoder(next_obs)
         best_next_action = np.argmax(self.q_table[next_state])
         
         td_target = reward + (0.0 if done else self.gamma * self.q_table[next_state, best_next_action])
@@ -68,7 +90,8 @@ class TabularQLearningAgent:
 
 class HystereticQLearningAgent:
     """Decentralized Hysteretic Q-Learning for multi-agent coordination."""
-    def __init__(self, agent_id, num_states=625, num_actions=2, alpha=0.01, beta=0.001, gamma=0.95, epsilon=0.1):
+    def __init__(self, agent_id, num_states=625, num_actions=2, alpha=0.01, beta=0.001, gamma=0.95, epsilon=0.1,
+                 state_encoder=get_discrete_state):
         self.agent_id = agent_id
         self.num_states = num_states
         self.num_actions = num_actions
@@ -76,17 +99,18 @@ class HystereticQLearningAgent:
         self.beta = beta    # Pessimistic learning rate for negative TD error
         self.gamma = gamma
         self.epsilon = epsilon
+        self.state_encoder = state_encoder
         self.q_table = np.zeros((num_states, num_actions))
 
     def compute_action(self, obs, explore=True):
-        state = get_discrete_state(obs)
+        state = self.state_encoder(obs)
         if explore and np.random.rand() < self.epsilon:
             return np.random.randint(self.num_actions)
         return int(np.argmax(self.q_table[state]))
 
     def update(self, obs, action, reward, next_obs, done):
-        state = get_discrete_state(obs)
-        next_state = get_discrete_state(next_obs)
+        state = self.state_encoder(obs)
+        next_state = self.state_encoder(next_obs)
         best_next_action = np.argmax(self.q_table[next_state])
         
         td_target = reward + (0.0 if done else self.gamma * self.q_table[next_state, best_next_action])
@@ -110,9 +134,10 @@ class TabularVDNAgents:
     Q-table independently.
     """
     def __init__(self, agent_ids, num_states=625, num_actions=2,
-                 lr=0.01, gamma=0.95, epsilon=0.1):
+                 lr=0.01, gamma=0.95, epsilon=0.1, state_encoder=get_discrete_state):
         self.agent_ids = list(agent_ids)
         self.num_states = num_states
+        self.state_encoder = state_encoder
         # num_actions may be a single int (homogeneous junctions, e.g. the 1x4 EW/NS
         # signals) or a dict {agent_id: n} for heterogeneous junctions — real RESCO
         # networks have varying green-phase counts (cologne3: 3-4, grid4x4: 8).
@@ -126,7 +151,7 @@ class TabularVDNAgents:
         self.q_tables = {aid: np.zeros((num_states, self.num_actions[aid])) for aid in self.agent_ids}
 
     def compute_action(self, agent_id, obs, explore=True):
-        state = get_discrete_state(obs)
+        state = self.state_encoder(obs)
         if explore and np.random.rand() < self.epsilon:
             return np.random.randint(self.num_actions[agent_id])
         return int(np.argmax(self.q_tables[agent_id][state]))
@@ -137,8 +162,8 @@ class TabularVDNAgents:
         q_next_total = 0.0
         states = {}
         for aid in self.agent_ids:
-            s = get_discrete_state(obs_dict[aid])
-            s_next = get_discrete_state(next_obs_dict[aid])
+            s = self.state_encoder(obs_dict[aid])
+            s_next = self.state_encoder(next_obs_dict[aid])
             states[aid] = s
             q_total += self.q_tables[aid][s, action_dict[aid]]
             q_next_total += np.max(self.q_tables[aid][s_next])
