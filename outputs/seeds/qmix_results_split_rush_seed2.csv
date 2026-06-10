@@ -1,0 +1,11 @@
+scenario,episode,eval_reward
+split_rush,20,-162141.0
+split_rush,40,-2003272.0
+split_rush,60,-120751.0
+split_rush,80,-209165.0
+split_rush,100,-178539.0
+split_rush,120,-38774.0
+split_rush,140,-41080.0
+split_rush,160,-47156.0
+split_rush,180,-47636.0
+split_rush,200,-38507.0

@@ -1,0 +1,303 @@
+------------------------------------
+Tue 09 Jun 2026 01:44:22 IDT
+SLURM_JOBID:		18048435
+SLURM_JOB_NODELIST:	cs-cpu-10
+SLURM_SCRATCH_DIR:	/scratch/leashmil/18048435
+Allocated Resouces:	cpu - 2 / mem -  MB / gpu - 
+SLURM_GPU_INDEX:	
+Running as leashmil from sternron account with normal QOS
+------------------------------------
+--- MMDP Array Start ---
+Task ID: 25  |  env: mmdp  |  host: cs-cpu-10.auth.ad.bgu.ac.il
+Tue 09 Jun 2026 01:44:22 IDT
+
+============================================================
+SCENARIO: DENSE_WAVE  (seed=4)
+============================================================
+
+==================================================
+TRAINING IQL_TABULAR [dense_wave] (100 episodes, seed=4)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45933 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 37767 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 33367 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 39117 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 41619 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43761 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42247 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42699 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 39213 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 36077 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45505 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 39519 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 44057 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45723 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 38335 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 38965 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43343 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 38159 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43311 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42911 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42187 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43079 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45457 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34495 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45973 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 44359 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 36173 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34341 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 37483 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 44339 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 33319 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 35169 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42607 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43041 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 42651 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34629 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 40889 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45379 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 40325 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43299 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34927 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 39115 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 35693 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34353 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 41303 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 46137 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34455 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45673 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 40909 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 46467 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 45863 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43045 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 34149 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 39361 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 43499 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 38103 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 46159 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 46595 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 38937 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py:156: UserWarning: Could not connect to TraCI server using port 35729 (TraCI server already finished). Retrying with different port.
+  warnings.warn(("Could not connect to TraCI server using port %s (%s)." +
+
+!!! CRASHED seed=4 scenario=dense_wave at 2026-06-09T01:45:30.019553 !!!
+Traceback (most recent call last):
+  File "/home/leashmil/MA-MDP/run_seeded_experiment.py", line 107, in main
+    run_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
+  File "/home/leashmil/MA-MDP/run_tabular_experiment.py", line 222, in run_scenario
+    _, iql_h = train_tabular_agents(algo="iql_tabular", scenario_name=scenario,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/MA-MDP/run_tabular_experiment.py", line 47, in train_tabular_agents
+    env = make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=sim_seconds,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/MA-MDP/simulator/env_setup.py", line 185, in make_wave_env
+    parallel_env = sumo_rl.parallel_env(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py", line 14, in par_fn
+    env = env_fn(**kwargs)
+          ^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 32, in env
+    env = SumoEnvironmentPZ(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 519, in __init__
+    self.env = SumoEnvironment(**self._kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 149, in __init__
+    traci.start([sumolib.checkBinary("sumo"), "-n", self._net], label="init_connection" + self.label)
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py", line 147, in start
+    result = init(sumoPort, numRetries, "localhost", label, sumoProcess, doSwitch, traceFile, traceGetters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py", line 116, in init
+    con = connect(port, numRetries, host, proc, 1, traceFile, traceGetters, label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py", line 106, in connect
+    raise FatalTraCIError("Could not connect in %s tries" % (numRetries + 1))
+traci.exceptions.FatalTraCIError: Could not connect in 1 tries
+object address  : 0x7fb8fc59f930
+object refcount : 3
+object type     : 0x564a63024a50
+object type name: FatalTraCIError
+object repr     : FatalTraCIError('Could not connect in 1 tries')
+lost sys.stderr
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo/bin/sumo: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
+Exception ignored in: Exception ignored in sys.unraisablehook--- MMDP Array Finish ---
+Tue 09 Jun 2026 01:45:31 IDT

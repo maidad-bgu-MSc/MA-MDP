@@ -1,0 +1,1044 @@
+=== run_seeded_experiment.py seed=0 scenario=dense_wave started 2026-06-08T20:33:13.026981 ===
+
+============================================================
+SCENARIO: DENSE_WAVE  (seed=0)
+============================================================
+Generated dense_wave routes: wave_1x4_dense_wave.rou.xml
+
+==================================================
+TRAINING IQL_TABULAR [dense_wave] (100 episodes, seed=0)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8d661e0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+iql_tabular [dense_wave]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+iql_tabular [dense_wave]:   1%|          | 1/100 [00:08<13:49,  8.38s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   2%|▏         | 2/100 [00:17<14:40,  8.98s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   3%|▎         | 3/100 [00:26<14:22,  8.89s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   4%|▍         | 4/100 [00:35<14:14,  8.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8338290>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 5) | Return: -312343.00
+iql_tabular [dense_wave]:   5%|▌         | 5/100 [00:50<17:48, 11.25s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   6%|▌         | 6/100 [01:00<16:35, 10.60s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   7%|▋         | 7/100 [01:09<15:35, 10.06s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   8%|▊         | 8/100 [01:18<14:51,  9.69s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:   9%|▉         | 9/100 [01:26<14:13,  9.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831eb70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 10) | Return: -92066.00
+iql_tabular [dense_wave]:  10%|█         | 10/100 [01:41<16:42, 11.14s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  11%|█         | 11/100 [01:51<15:38, 10.54s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  12%|█▏        | 12/100 [01:59<14:33,  9.93s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  13%|█▎        | 13/100 [02:07<13:39,  9.42s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  14%|█▍        | 14/100 [02:16<13:17,  9.27s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f81bb560>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 15) | Return: -262456.00
+iql_tabular [dense_wave]:  15%|█▌        | 15/100 [02:32<15:49, 11.17s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  16%|█▌        | 16/100 [02:41<14:47, 10.56s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  17%|█▋        | 17/100 [02:50<13:57, 10.09s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  18%|█▊        | 18/100 [02:59<13:24,  9.81s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  19%|█▉        | 19/100 [03:08<12:43,  9.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82b8380>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 20) | Return: -122780.00
+iql_tabular [dense_wave]:  20%|██        | 20/100 [03:23<15:00, 11.26s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  21%|██        | 21/100 [03:32<13:54, 10.56s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  22%|██▏       | 22/100 [03:41<13:05, 10.07s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  23%|██▎       | 23/100 [03:49<12:16,  9.56s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  24%|██▍       | 24/100 [03:58<11:55,  9.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c73a70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 25) | Return: -160926.00
+iql_tabular [dense_wave]:  25%|██▌       | 25/100 [04:14<14:06, 11.29s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  26%|██▌       | 26/100 [04:23<13:05, 10.61s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  27%|██▋       | 27/100 [04:32<12:22, 10.18s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  28%|██▊       | 28/100 [04:41<11:48,  9.84s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  29%|██▉       | 29/100 [04:51<11:26,  9.67s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8338e90>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 30) | Return: -114381.00
+iql_tabular [dense_wave]:  30%|███       | 30/100 [05:06<13:25, 11.51s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  31%|███       | 31/100 [05:15<12:16, 10.67s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  32%|███▏      | 32/100 [05:24<11:31, 10.17s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  33%|███▎      | 33/100 [05:33<11:01,  9.87s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  34%|███▍      | 34/100 [05:42<10:26,  9.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82f4500>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 35) | Return: -99799.00
+iql_tabular [dense_wave]:  35%|███▌      | 35/100 [05:57<12:13, 11.29s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  36%|███▌      | 36/100 [06:06<11:13, 10.53s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  37%|███▋      | 37/100 [06:15<10:37, 10.13s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  38%|███▊      | 38/100 [06:24<10:00,  9.69s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  39%|███▉      | 39/100 [06:33<09:38,  9.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82b9880>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 40) | Return: -408659.00
+iql_tabular [dense_wave]:  40%|████      | 40/100 [06:49<11:28, 11.47s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  41%|████      | 41/100 [06:58<10:34, 10.76s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  42%|████▏     | 42/100 [07:07<09:51, 10.20s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  43%|████▎     | 43/100 [07:16<09:22,  9.87s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  44%|████▍     | 44/100 [07:25<08:58,  9.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c73e60>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 45) | Return: -386625.00
+iql_tabular [dense_wave]:  45%|████▌     | 45/100 [07:41<10:27, 11.41s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  46%|████▌     | 46/100 [07:50<09:36, 10.68s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  47%|████▋     | 47/100 [07:58<08:52, 10.04s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  48%|████▊     | 48/100 [08:07<08:27,  9.77s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  49%|████▉     | 49/100 [08:17<08:11,  9.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f81dcef0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 50) | Return: -120753.00
+iql_tabular [dense_wave]:  50%|█████     | 50/100 [08:33<09:33, 11.46s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  51%|█████     | 51/100 [08:42<08:47, 10.76s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  52%|█████▏    | 52/100 [08:50<08:08, 10.18s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  53%|█████▎    | 53/100 [08:59<07:39,  9.77s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  54%|█████▍    | 54/100 [09:08<07:20,  9.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8ca72f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 55) | Return: -221655.00
+iql_tabular [dense_wave]:  55%|█████▌    | 55/100 [09:24<08:36, 11.48s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  56%|█████▌    | 56/100 [09:33<07:54, 10.77s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  57%|█████▋    | 57/100 [09:43<07:23, 10.31s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  58%|█████▊    | 58/100 [09:52<06:55,  9.90s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  59%|█████▉    | 59/100 [10:01<06:33,  9.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c71a60>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 60) | Return: -203186.00
+iql_tabular [dense_wave]:  60%|██████    | 60/100 [10:16<07:37, 11.44s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  61%|██████    | 61/100 [10:25<06:59, 10.75s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  62%|██████▏   | 62/100 [10:34<06:28, 10.23s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  63%|██████▎   | 63/100 [10:43<05:59,  9.72s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  64%|██████▍   | 64/100 [10:52<05:39,  9.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c83da0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 65) | Return: -1632907.00
+iql_tabular [dense_wave]:  65%|██████▌   | 65/100 [11:06<06:25, 11.02s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  66%|██████▌   | 66/100 [11:15<05:54, 10.42s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  67%|██████▋   | 67/100 [11:24<05:26,  9.88s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  68%|██████▊   | 68/100 [11:33<05:10,  9.69s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  69%|██████▉   | 69/100 [11:42<04:52,  9.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c73620>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 70) | Return: -1536021.00
+iql_tabular [dense_wave]:  70%|███████   | 70/100 [11:58<05:39, 11.30s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  71%|███████   | 71/100 [12:07<05:11, 10.73s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  72%|███████▏  | 72/100 [12:16<04:47, 10.27s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  73%|███████▎  | 73/100 [12:26<04:31, 10.05s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  74%|███████▍  | 74/100 [12:35<04:12,  9.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8256210>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 75) | Return: -282701.00
+iql_tabular [dense_wave]:  75%|███████▌  | 75/100 [12:51<04:49, 11.59s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  76%|███████▌  | 76/100 [13:00<04:20, 10.85s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  77%|███████▋  | 77/100 [13:09<03:54, 10.18s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  78%|███████▊  | 78/100 [13:18<03:36,  9.85s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  79%|███████▉  | 79/100 [13:27<03:22,  9.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82ba5a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 80) | Return: -464979.00
+iql_tabular [dense_wave]:  80%|████████  | 80/100 [13:42<03:48, 11.43s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  81%|████████  | 81/100 [13:51<03:23, 10.69s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  82%|████████▏ | 82/100 [14:00<03:01, 10.08s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  83%|████████▎ | 83/100 [14:09<02:45,  9.74s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  84%|████████▍ | 84/100 [14:18<02:32,  9.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c73560>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 85) | Return: -126481.00
+iql_tabular [dense_wave]:  85%|████████▌ | 85/100 [14:33<02:49, 11.30s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  86%|████████▌ | 86/100 [14:43<02:30, 10.72s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  87%|████████▋ | 87/100 [14:52<02:13, 10.24s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  88%|████████▊ | 88/100 [15:01<02:00, 10.02s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  89%|████████▉ | 89/100 [15:11<01:47,  9.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8338ec0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 90) | Return: -148849.00
+iql_tabular [dense_wave]:  90%|█████████ | 90/100 [15:26<01:55, 11.59s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  91%|█████████ | 91/100 [15:36<01:37, 10.82s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  92%|█████████▏| 92/100 [15:45<01:22, 10.28s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  93%|█████████▎| 93/100 [15:54<01:09,  9.99s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  94%|█████████▍| 94/100 [16:02<00:57,  9.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82564b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 95) | Return: -200032.00
+iql_tabular [dense_wave]:  95%|█████████▌| 95/100 [16:18<00:56, 11.27s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  96%|█████████▌| 96/100 [16:26<00:42, 10.54s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  97%|█████████▋| 97/100 [16:35<00:30, 10.04s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  98%|█████████▊| 98/100 [16:45<00:19,  9.82s/it] Retrying in 1 seconds
+iql_tabular [dense_wave]:  99%|█████████▉| 99/100 [16:53<00:09,  9.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c887a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [dense_wave] (ep 100) | Return: -220454.00
+iql_tabular [dense_wave]: 100%|██████████| 100/100 [17:09<00:00, 11.43s/it]iql_tabular [dense_wave]: 100%|██████████| 100/100 [17:09<00:00, 10.30s/it]
+
+Training complete. Models saved to models/seed0/iql_tabular_dense_wave_*.npy
+
+==================================================
+TRAINING HYSTERETIC [dense_wave] (100 episodes, seed=0)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c83530>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+hysteretic [dense_wave]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+hysteretic [dense_wave]:   1%|          | 1/100 [00:08<14:16,  8.65s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   2%|▏         | 2/100 [00:17<13:56,  8.54s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   3%|▎         | 3/100 [00:26<14:09,  8.76s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   4%|▍         | 4/100 [00:35<14:07,  8.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8cab2f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 5) | Return: -1450721.00
+hysteretic [dense_wave]:   5%|▌         | 5/100 [00:50<17:45, 11.22s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   6%|▌         | 6/100 [00:59<16:32, 10.55s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   7%|▋         | 7/100 [01:08<15:28,  9.98s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   8%|▊         | 8/100 [01:17<14:36,  9.53s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:   9%|▉         | 9/100 [01:26<14:12,  9.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82b83b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 10) | Return: -2124565.00
+hysteretic [dense_wave]:  10%|█         | 10/100 [01:41<16:54, 11.27s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  11%|█         | 11/100 [01:50<15:42, 10.59s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  12%|█▏        | 12/100 [01:59<14:47, 10.09s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  13%|█▎        | 13/100 [02:08<13:59,  9.65s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  14%|█▍        | 14/100 [02:17<13:32,  9.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c8be90>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 15) | Return: -106915.00
+hysteretic [dense_wave]:  15%|█▌        | 15/100 [02:33<16:07, 11.38s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  16%|█▌        | 16/100 [02:41<14:50, 10.60s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  17%|█▋        | 17/100 [02:50<13:54, 10.06s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  18%|█▊        | 18/100 [02:59<13:16,  9.72s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  19%|█▉        | 19/100 [03:08<12:43,  9.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831da00>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 20) | Return: -109343.00
+hysteretic [dense_wave]:  20%|██        | 20/100 [03:23<14:52, 11.16s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  21%|██        | 21/100 [03:32<13:57, 10.60s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  22%|██▏       | 22/100 [03:41<13:05, 10.07s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  23%|██▎       | 23/100 [03:50<12:29,  9.73s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  24%|██▍       | 24/100 [03:59<12:04,  9.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c863c0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 25) | Return: -153622.00
+hysteretic [dense_wave]:  25%|██▌       | 25/100 [04:15<14:12, 11.36s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  26%|██▌       | 26/100 [04:24<13:03, 10.58s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  27%|██▋       | 27/100 [04:32<12:09, 10.00s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  28%|██▊       | 28/100 [04:41<11:39,  9.72s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  29%|██▉       | 29/100 [04:50<11:15,  9.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f82638c0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 30) | Return: -143150.00
+hysteretic [dense_wave]:  30%|███       | 30/100 [05:06<13:16, 11.38s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  31%|███       | 31/100 [05:15<12:08, 10.56s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  32%|███▏      | 32/100 [05:24<11:28, 10.12s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  33%|███▎      | 33/100 [05:33<10:59,  9.84s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  34%|███▍      | 34/100 [05:42<10:31,  9.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831ea80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 35) | Return: -140350.00
+hysteretic [dense_wave]:  35%|███▌      | 35/100 [05:57<12:05, 11.16s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  36%|███▌      | 36/100 [06:06<11:07, 10.44s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  37%|███▋      | 37/100 [06:14<10:26,  9.95s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  38%|███▊      | 38/100 [06:24<10:01,  9.70s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  39%|███▉      | 39/100 [06:33<09:40,  9.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c38e00>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 40) | Return: -152199.00
+hysteretic [dense_wave]:  40%|████      | 40/100 [06:48<11:14, 11.23s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  41%|████      | 41/100 [06:57<10:27, 10.64s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  42%|████▏     | 42/100 [07:06<09:46, 10.11s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  43%|████▎     | 43/100 [07:15<09:16,  9.76s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  44%|████▍     | 44/100 [07:24<08:50,  9.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8caae70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 45) | Return: -331983.00
+hysteretic [dense_wave]:  45%|████▌     | 45/100 [07:39<10:18, 11.25s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  46%|████▌     | 46/100 [07:48<09:30, 10.57s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  47%|████▋     | 47/100 [07:57<08:54, 10.09s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  48%|████▊     | 48/100 [08:06<08:27,  9.76s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  49%|████▉     | 49/100 [08:15<08:04,  9.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8260830>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 50) | Return: -99155.00
+hysteretic [dense_wave]:  50%|█████     | 50/100 [08:31<09:25, 11.31s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  51%|█████     | 51/100 [08:39<08:36, 10.54s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  52%|█████▏    | 52/100 [08:48<08:02, 10.05s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  53%|█████▎    | 53/100 [08:57<07:38,  9.76s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  54%|█████▍    | 54/100 [09:06<07:20,  9.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831cb30>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 55) | Return: -249970.00
+hysteretic [dense_wave]:  55%|█████▌    | 55/100 [09:22<08:34, 11.44s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  56%|█████▌    | 56/100 [09:31<07:54, 10.79s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  57%|█████▋    | 57/100 [09:40<07:19, 10.22s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  58%|█████▊    | 58/100 [09:49<06:51,  9.80s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  59%|█████▉    | 59/100 [09:58<06:33,  9.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c178f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 60) | Return: -831552.00
+hysteretic [dense_wave]:  60%|██████    | 60/100 [10:14<07:37, 11.44s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  61%|██████    | 61/100 [10:23<06:54, 10.64s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  62%|██████▏   | 62/100 [10:32<06:22, 10.06s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  63%|██████▎   | 63/100 [10:40<05:55,  9.60s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  64%|██████▍   | 64/100 [10:49<05:40,  9.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c876b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 65) | Return: -118428.00
+hysteretic [dense_wave]:  65%|██████▌   | 65/100 [11:04<06:28, 11.11s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  66%|██████▌   | 66/100 [11:13<05:56, 10.50s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  67%|██████▋   | 67/100 [11:22<05:32, 10.07s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  68%|██████▊   | 68/100 [11:31<05:07,  9.61s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  69%|██████▉   | 69/100 [11:40<04:49,  9.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8262390>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 70) | Return: -263559.00
+hysteretic [dense_wave]:  70%|███████   | 70/100 [11:55<05:36, 11.22s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  71%|███████   | 71/100 [12:04<05:03, 10.46s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  72%|███████▏  | 72/100 [12:12<04:36,  9.89s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  73%|███████▎  | 73/100 [12:21<04:13,  9.38s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  74%|███████▍  | 74/100 [12:29<03:59,  9.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831cad0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 75) | Return: -175144.00
+hysteretic [dense_wave]:  75%|███████▌  | 75/100 [12:45<04:37, 11.10s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  76%|███████▌  | 76/100 [12:54<04:12, 10.52s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  77%|███████▋  | 77/100 [13:03<03:49,  9.98s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  78%|███████▊  | 78/100 [13:12<03:34,  9.74s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  79%|███████▉  | 79/100 [13:21<03:17,  9.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c85c40>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 80) | Return: -213102.00
+hysteretic [dense_wave]:  80%|████████  | 80/100 [13:36<03:45, 11.25s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  81%|████████  | 81/100 [13:45<03:19, 10.49s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  82%|████████▏ | 82/100 [13:54<02:59,  9.99s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  83%|████████▎ | 83/100 [14:03<02:44,  9.66s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  84%|████████▍ | 84/100 [14:11<02:30,  9.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8263a40>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 85) | Return: -121401.00
+hysteretic [dense_wave]:  85%|████████▌ | 85/100 [14:27<02:49, 11.32s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  86%|████████▌ | 86/100 [14:37<02:30, 10.73s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  87%|████████▋ | 87/100 [14:45<02:11, 10.10s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  88%|████████▊ | 88/100 [14:54<01:57,  9.77s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  89%|████████▉ | 89/100 [15:03<01:45,  9.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f831f590>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 90) | Return: -79839.00
+hysteretic [dense_wave]:  90%|█████████ | 90/100 [15:19<01:54, 11.47s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  91%|█████████ | 91/100 [15:28<01:35, 10.60s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  92%|█████████▏| 92/100 [15:37<01:20, 10.08s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  93%|█████████▎| 93/100 [15:45<01:07,  9.67s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  94%|█████████▍| 94/100 [15:54<00:56,  9.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f810cc20>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 95) | Return: -122250.00
+hysteretic [dense_wave]:  95%|█████████▌| 95/100 [16:09<00:55, 11.11s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  96%|█████████▌| 96/100 [16:18<00:41, 10.45s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  97%|█████████▋| 97/100 [16:27<00:29,  9.95s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  98%|█████████▊| 98/100 [16:36<00:19,  9.68s/it] Retrying in 1 seconds
+hysteretic [dense_wave]:  99%|█████████▉| 99/100 [16:45<00:09,  9.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f8c38230>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [dense_wave] (ep 100) | Return: -130400.00
+hysteretic [dense_wave]: 100%|██████████| 100/100 [17:00<00:00, 11.26s/it]hysteretic [dense_wave]: 100%|██████████| 100/100 [17:00<00:00, 10.21s/it]
+
+Training complete. Models saved to models/seed0/hysteretic_dense_wave_*.npy
+
+==================================================
+TRAINING VDN [dense_wave] (100 episodes, seed=0)
+==================================================
+ Retrying in 1 seconds
+VDN [dense_wave]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+VDN [dense_wave]:   1%|          | 1/100 [00:08<14:05,  8.54s/it] Retrying in 1 seconds
+VDN [dense_wave]:   2%|▏         | 2/100 [00:17<14:01,  8.58s/it] Retrying in 1 seconds
+VDN [dense_wave]:   3%|▎         | 3/100 [00:26<14:20,  8.87s/it] Retrying in 1 seconds
+VDN [dense_wave]:   4%|▍         | 4/100 [00:34<13:57,  8.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -165652.00
+VDN [dense_wave]:   5%|▌         | 5/100 [00:50<17:28, 11.04s/it] Retrying in 1 seconds
+VDN [dense_wave]:   6%|▌         | 6/100 [00:58<16:09, 10.31s/it] Retrying in 1 seconds
+VDN [dense_wave]:   7%|▋         | 7/100 [01:07<15:13,  9.82s/it] Retrying in 1 seconds
+VDN [dense_wave]:   8%|▊         | 8/100 [01:16<14:33,  9.49s/it] Retrying in 1 seconds
+VDN [dense_wave]:   9%|▉         | 9/100 [01:25<14:02,  9.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -69975.00
+VDN [dense_wave]:  10%|█         | 10/100 [01:40<16:49, 11.21s/it] Retrying in 1 seconds
+VDN [dense_wave]:  11%|█         | 11/100 [01:50<15:43, 10.60s/it] Retrying in 1 seconds
+VDN [dense_wave]:  12%|█▏        | 12/100 [01:59<14:49, 10.11s/it] Retrying in 1 seconds
+VDN [dense_wave]:  13%|█▎        | 13/100 [02:07<14:02,  9.69s/it] Retrying in 1 seconds
+VDN [dense_wave]:  14%|█▍        | 14/100 [02:16<13:35,  9.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -93858.00
+VDN [dense_wave]:  15%|█▌        | 15/100 [02:32<15:59, 11.28s/it] Retrying in 1 seconds
+VDN [dense_wave]:  16%|█▌        | 16/100 [02:41<14:45, 10.54s/it] Retrying in 1 seconds
+VDN [dense_wave]:  17%|█▋        | 17/100 [02:49<13:53, 10.04s/it] Retrying in 1 seconds
+VDN [dense_wave]:  18%|█▊        | 18/100 [02:59<13:21,  9.77s/it] Retrying in 1 seconds
+VDN [dense_wave]:  19%|█▉        | 19/100 [03:08<12:51,  9.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -185422.00
+VDN [dense_wave]:  20%|██        | 20/100 [03:23<15:11, 11.39s/it] Retrying in 1 seconds
+VDN [dense_wave]:  21%|██        | 21/100 [03:32<13:51, 10.53s/it] Retrying in 1 seconds
+VDN [dense_wave]:  22%|██▏       | 22/100 [03:41<12:59, 10.00s/it] Retrying in 1 seconds
+VDN [dense_wave]:  23%|██▎       | 23/100 [03:50<12:30,  9.74s/it] Retrying in 1 seconds
+VDN [dense_wave]:  24%|██▍       | 24/100 [03:59<12:15,  9.68s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -102561.00
+VDN [dense_wave]:  25%|██▌       | 25/100 [04:15<14:26, 11.55s/it] Retrying in 1 seconds
+VDN [dense_wave]:  26%|██▌       | 26/100 [04:24<13:19, 10.81s/it] Retrying in 1 seconds
+VDN [dense_wave]:  27%|██▋       | 27/100 [04:33<12:34, 10.34s/it] Retrying in 1 seconds
+VDN [dense_wave]:  28%|██▊       | 28/100 [04:42<11:44,  9.78s/it] Retrying in 1 seconds
+VDN [dense_wave]:  29%|██▉       | 29/100 [04:51<11:17,  9.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -151194.00
+VDN [dense_wave]:  30%|███       | 30/100 [05:07<13:18, 11.41s/it] Retrying in 1 seconds
+VDN [dense_wave]:  31%|███       | 31/100 [05:15<12:12, 10.61s/it] Retrying in 1 seconds
+VDN [dense_wave]:  32%|███▏      | 32/100 [05:24<11:28, 10.13s/it] Retrying in 1 seconds
+VDN [dense_wave]:  33%|███▎      | 33/100 [05:33<10:56,  9.79s/it] Retrying in 1 seconds
+VDN [dense_wave]:  34%|███▍      | 34/100 [05:42<10:30,  9.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -1745793.00
+VDN [dense_wave]:  35%|███▌      | 35/100 [05:58<12:22, 11.42s/it] Retrying in 1 seconds
+VDN [dense_wave]:  36%|███▌      | 36/100 [06:07<11:23, 10.68s/it] Retrying in 1 seconds
+VDN [dense_wave]:  37%|███▋      | 37/100 [06:16<10:42, 10.20s/it] Retrying in 1 seconds
+VDN [dense_wave]:  38%|███▊      | 38/100 [06:25<10:02,  9.72s/it] Retrying in 1 seconds
+VDN [dense_wave]:  39%|███▉      | 39/100 [06:34<09:40,  9.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -105233.00
+VDN [dense_wave]:  40%|████      | 40/100 [06:50<11:24, 11.41s/it] Retrying in 1 seconds
+VDN [dense_wave]:  41%|████      | 41/100 [06:59<10:29, 10.68s/it] Retrying in 1 seconds
+VDN [dense_wave]:  42%|████▏     | 42/100 [07:08<09:50, 10.18s/it] Retrying in 1 seconds
+VDN [dense_wave]:  43%|████▎     | 43/100 [07:17<09:19,  9.82s/it] Retrying in 1 seconds
+VDN [dense_wave]:  44%|████▍     | 44/100 [07:26<08:59,  9.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -136475.00
+VDN [dense_wave]:  45%|████▌     | 45/100 [07:41<10:27, 11.41s/it] Retrying in 1 seconds
+VDN [dense_wave]:  46%|████▌     | 46/100 [07:51<09:39, 10.74s/it] Retrying in 1 seconds
+VDN [dense_wave]:  47%|████▋     | 47/100 [08:00<09:03, 10.26s/it] Retrying in 1 seconds
+VDN [dense_wave]:  48%|████▊     | 48/100 [08:09<08:29,  9.81s/it] Retrying in 1 seconds
+VDN [dense_wave]:  49%|████▉     | 49/100 [08:18<08:07,  9.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -158000.00
+VDN [dense_wave]:  50%|█████     | 50/100 [08:34<09:34, 11.50s/it] Retrying in 1 seconds
+VDN [dense_wave]:  51%|█████     | 51/100 [08:43<08:49, 10.81s/it] Retrying in 1 seconds
+VDN [dense_wave]:  52%|█████▏    | 52/100 [08:52<08:10, 10.22s/it] Retrying in 1 seconds
+VDN [dense_wave]:  53%|█████▎    | 53/100 [09:01<07:44,  9.89s/it] Retrying in 1 seconds
+VDN [dense_wave]:  54%|█████▍    | 54/100 [09:10<07:24,  9.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -135684.00
+VDN [dense_wave]:  55%|█████▌    | 55/100 [09:26<08:39, 11.55s/it] Retrying in 1 seconds
+VDN [dense_wave]:  56%|█████▌    | 56/100 [09:35<07:55, 10.80s/it] Retrying in 1 seconds
+VDN [dense_wave]:  57%|█████▋    | 57/100 [09:44<07:23, 10.32s/it] Retrying in 1 seconds
+VDN [dense_wave]:  58%|█████▊    | 58/100 [09:53<07:02, 10.05s/it] Retrying in 1 seconds
+VDN [dense_wave]:  59%|█████▉    | 59/100 [10:02<06:39,  9.75s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -152329.00
+VDN [dense_wave]:  60%|██████    | 60/100 [10:18<07:43, 11.58s/it] Retrying in 1 seconds
+VDN [dense_wave]:  61%|██████    | 61/100 [10:27<07:01, 10.81s/it] Retrying in 1 seconds
+VDN [dense_wave]:  62%|██████▏   | 62/100 [10:37<06:35, 10.40s/it] Retrying in 1 seconds
+VDN [dense_wave]:  63%|██████▎   | 63/100 [10:46<06:08,  9.97s/it] Retrying in 1 seconds
+VDN [dense_wave]:  64%|██████▍   | 64/100 [10:55<05:49,  9.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -131121.00
+VDN [dense_wave]:  65%|██████▌   | 65/100 [11:11<06:44, 11.55s/it] Retrying in 1 seconds
+VDN [dense_wave]:  66%|██████▌   | 66/100 [11:19<06:04, 10.72s/it] Retrying in 1 seconds
+VDN [dense_wave]:  67%|██████▋   | 67/100 [11:29<05:38, 10.27s/it] Retrying in 1 seconds
+VDN [dense_wave]:  68%|██████▊   | 68/100 [11:38<05:16,  9.89s/it] Retrying in 1 seconds
+VDN [dense_wave]:  69%|██████▉   | 69/100 [11:47<04:58,  9.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -269882.00
+VDN [dense_wave]:  70%|███████   | 70/100 [12:03<05:45, 11.51s/it] Retrying in 1 seconds
+VDN [dense_wave]:  71%|███████   | 71/100 [12:12<05:12, 10.77s/it] Retrying in 1 seconds
+VDN [dense_wave]:  72%|███████▏  | 72/100 [12:21<04:48, 10.30s/it] Retrying in 1 seconds
+VDN [dense_wave]:  73%|███████▎  | 73/100 [12:30<04:29, 10.00s/it] Retrying in 1 seconds
+VDN [dense_wave]:  74%|███████▍  | 74/100 [12:39<04:13,  9.75s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -107450.00
+VDN [dense_wave]:  75%|███████▌  | 75/100 [12:56<04:52, 11.70s/it] Retrying in 1 seconds
+VDN [dense_wave]:  76%|███████▌  | 76/100 [13:05<04:22, 10.92s/it] Retrying in 1 seconds
+VDN [dense_wave]:  77%|███████▋  | 77/100 [13:14<03:59, 10.42s/it] Retrying in 1 seconds
+VDN [dense_wave]:  78%|███████▊  | 78/100 [13:23<03:40, 10.03s/it] Retrying in 1 seconds
+VDN [dense_wave]:  79%|███████▉  | 79/100 [13:32<03:26,  9.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -181710.00
+VDN [dense_wave]:  80%|████████  | 80/100 [13:48<03:53, 11.70s/it] Retrying in 1 seconds
+VDN [dense_wave]:  81%|████████  | 81/100 [13:58<03:28, 11.00s/it] Retrying in 1 seconds
+VDN [dense_wave]:  82%|████████▏ | 82/100 [14:07<03:07, 10.43s/it] Retrying in 1 seconds
+VDN [dense_wave]:  83%|████████▎ | 83/100 [14:16<02:51, 10.09s/it] Retrying in 1 seconds
+VDN [dense_wave]:  84%|████████▍ | 84/100 [14:25<02:37,  9.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -188155.00
+VDN [dense_wave]:  85%|████████▌ | 85/100 [14:41<02:52, 11.50s/it] Retrying in 1 seconds
+VDN [dense_wave]:  86%|████████▌ | 86/100 [14:50<02:30, 10.72s/it] Retrying in 1 seconds
+VDN [dense_wave]:  87%|████████▋ | 87/100 [14:59<02:13, 10.26s/it] Retrying in 1 seconds
+VDN [dense_wave]:  88%|████████▊ | 88/100 [15:08<01:58,  9.86s/it] Retrying in 1 seconds
+VDN [dense_wave]:  89%|████████▉ | 89/100 [15:17<01:47,  9.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -160915.00
+VDN [dense_wave]:  90%|█████████ | 90/100 [15:33<01:54, 11.45s/it] Retrying in 1 seconds
+VDN [dense_wave]:  91%|█████████ | 91/100 [15:42<01:36, 10.77s/it] Retrying in 1 seconds
+VDN [dense_wave]:  92%|█████████▏| 92/100 [15:51<01:22, 10.28s/it] Retrying in 1 seconds
+VDN [dense_wave]:  93%|█████████▎| 93/100 [16:00<01:09,  9.98s/it] Retrying in 1 seconds
+VDN [dense_wave]:  94%|█████████▍| 94/100 [16:10<00:58,  9.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -176972.00
+VDN [dense_wave]:  95%|█████████▌| 95/100 [16:26<00:58, 11.75s/it] Retrying in 1 seconds
+VDN [dense_wave]:  96%|█████████▌| 96/100 [16:35<00:44, 11.07s/it] Retrying in 1 seconds
+VDN [dense_wave]:  97%|█████████▋| 97/100 [16:45<00:31, 10.53s/it] Retrying in 1 seconds
+VDN [dense_wave]:  98%|█████████▊| 98/100 [16:54<00:20, 10.20s/it] Retrying in 1 seconds
+VDN [dense_wave]:  99%|█████████▉| 99/100 [17:04<00:09,  9.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [dense_wave] | Return: -131285.00
+VDN [dense_wave]: 100%|██████████| 100/100 [17:20<00:00, 11.78s/it]VDN [dense_wave]: 100%|██████████| 100/100 [17:20<00:00, 10.40s/it]
+
+VDN training complete. Models saved to models/seed0/vdn_dense_wave_*.npy
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7fd1f815a1e0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- Fixed-Time [dense_wave] | Return: -136476.00
+Saved outputs/seeds/training_evaluation_log_dense_wave_seed0.csv
+
+=======================================================
+QMIX TRAINING: DENSE_WAVE  (seed=0)
+=======================================================
+QMIX [dense_wave]:   0%|          | 0/200 [00:00<?, ?it/s] Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+QMIX [dense_wave]:   0%|          | 1/200 [00:17<57:15, 17.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   1%|          | 2/200 [00:35<59:34, 18.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   2%|▏         | 3/200 [00:55<1:01:37, 18.77s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   2%|▏         | 4/200 [01:14<1:02:01, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   2%|▎         | 5/200 [01:33<1:01:10, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   3%|▎         | 6/200 [01:53<1:01:55, 19.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   4%|▎         | 7/200 [02:11<1:01:04, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   4%|▍         | 8/200 [02:30<1:00:47, 19.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   4%|▍         | 9/200 [02:49<1:00:19, 18.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   5%|▌         | 10/200 [03:09<1:00:48, 19.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   6%|▌         | 11/200 [03:28<1:00:21, 19.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   6%|▌         | 12/200 [03:47<1:00:08, 19.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   6%|▋         | 13/200 [04:07<59:58, 19.24s/it]   Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   7%|▋         | 14/200 [04:26<59:50, 19.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   8%|▊         | 15/200 [04:46<59:39, 19.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   8%|▊         | 16/200 [05:05<59:33, 19.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   8%|▊         | 17/200 [05:24<59:07, 19.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:   9%|▉         | 18/200 [05:44<58:50, 19.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  10%|▉         | 19/200 [06:04<58:46, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -796882.00 over 120 steps
+QMIX [dense_wave]:  10%|█         | 20/200 [06:31<1:05:30, 21.84s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  10%|█         | 21/200 [06:50<1:03:02, 21.13s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  11%|█         | 22/200 [07:10<1:01:18, 20.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  12%|█▏        | 23/200 [07:29<59:40, 20.23s/it]   Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  12%|█▏        | 24/200 [07:48<58:21, 19.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  12%|█▎        | 25/200 [08:08<57:49, 19.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  13%|█▎        | 26/200 [08:27<57:02, 19.67s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  14%|█▎        | 27/200 [08:46<56:18, 19.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  14%|█▍        | 28/200 [09:06<55:42, 19.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  14%|█▍        | 29/200 [09:25<55:30, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  15%|█▌        | 30/200 [09:45<55:18, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  16%|█▌        | 31/200 [10:04<54:59, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  16%|█▌        | 32/200 [10:24<54:26, 19.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  16%|█▋        | 33/200 [10:43<54:19, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  17%|█▋        | 34/200 [11:03<54:10, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  18%|█▊        | 35/200 [11:23<53:55, 19.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  18%|█▊        | 36/200 [11:42<53:31, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  18%|█▊        | 37/200 [12:02<53:08, 19.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  19%|█▉        | 38/200 [12:21<52:49, 19.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  20%|█▉        | 39/200 [12:41<52:32, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -1154992.00 over 120 steps
+QMIX [dense_wave]:  20%|██        | 40/200 [13:08<58:23, 21.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  20%|██        | 41/200 [13:28<55:57, 21.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  21%|██        | 42/200 [13:47<54:11, 20.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  22%|██▏       | 43/200 [14:07<53:12, 20.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  22%|██▏       | 44/200 [14:26<52:13, 20.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  22%|██▎       | 45/200 [14:46<51:23, 19.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  23%|██▎       | 46/200 [15:05<50:46, 19.78s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  24%|██▎       | 47/200 [15:24<50:01, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  24%|██▍       | 48/200 [15:44<49:37, 19.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  24%|██▍       | 49/200 [16:03<49:13, 19.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  25%|██▌       | 50/200 [16:23<48:51, 19.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  26%|██▌       | 51/200 [16:43<48:44, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  26%|██▌       | 52/200 [17:02<48:26, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  26%|██▋       | 53/200 [17:22<48:15, 19.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  27%|██▋       | 54/200 [17:41<47:33, 19.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  28%|██▊       | 55/200 [18:01<47:03, 19.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  28%|██▊       | 56/200 [18:20<46:43, 19.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  28%|██▊       | 57/200 [18:40<46:30, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  29%|██▉       | 58/200 [18:59<46:03, 19.46s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  30%|██▉       | 59/200 [19:18<45:38, 19.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -150578.00 over 120 steps
+QMIX [dense_wave]:  30%|███       | 60/200 [19:45<50:17, 21.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  30%|███       | 61/200 [20:04<48:16, 20.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  31%|███       | 62/200 [20:24<47:07, 20.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  32%|███▏      | 63/200 [20:43<46:03, 20.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  32%|███▏      | 64/200 [21:03<45:23, 20.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  32%|███▎      | 65/200 [21:22<44:43, 19.88s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  33%|███▎      | 66/200 [21:42<44:14, 19.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  34%|███▎      | 67/200 [22:01<43:38, 19.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  34%|███▍      | 68/200 [22:21<43:13, 19.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  34%|███▍      | 69/200 [22:41<43:00, 19.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  35%|███▌      | 70/200 [23:00<42:26, 19.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  36%|███▌      | 71/200 [23:20<42:00, 19.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  36%|███▌      | 72/200 [23:39<41:30, 19.46s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  36%|███▋      | 73/200 [23:58<41:06, 19.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  37%|███▋      | 74/200 [24:18<40:46, 19.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  38%|███▊      | 75/200 [24:37<40:27, 19.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  38%|███▊      | 76/200 [24:57<40:26, 19.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  38%|███▊      | 77/200 [25:17<40:13, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  39%|███▉      | 78/200 [25:36<39:58, 19.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  40%|███▉      | 79/200 [25:56<39:29, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -91307.00 over 120 steps
+QMIX [dense_wave]:  40%|████      | 80/200 [26:23<43:30, 21.76s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  40%|████      | 81/200 [26:42<41:43, 21.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  41%|████      | 82/200 [27:02<40:36, 20.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  42%|████▏     | 83/200 [27:21<39:39, 20.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  42%|████▏     | 84/200 [27:41<38:45, 20.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  42%|████▎     | 85/200 [28:00<38:07, 19.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  43%|████▎     | 86/200 [28:20<37:39, 19.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  44%|████▎     | 87/200 [28:40<37:15, 19.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  44%|████▍     | 88/200 [28:59<36:45, 19.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  44%|████▍     | 89/200 [29:18<36:10, 19.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  45%|████▌     | 90/200 [29:38<35:56, 19.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  46%|████▌     | 91/200 [29:57<35:26, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  46%|████▌     | 92/200 [30:17<35:21, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  46%|████▋     | 93/200 [30:37<35:01, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  47%|████▋     | 94/200 [30:56<34:38, 19.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  48%|████▊     | 95/200 [31:16<34:17, 19.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  48%|████▊     | 96/200 [31:36<33:58, 19.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  48%|████▊     | 97/200 [31:55<33:42, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  49%|████▉     | 98/200 [32:15<33:21, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  50%|████▉     | 99/200 [32:35<33:04, 19.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -51304.00 over 120 steps
+QMIX [dense_wave]:  50%|█████     | 100/200 [33:01<36:12, 21.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  50%|█████     | 101/200 [33:21<34:44, 21.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  51%|█████     | 102/200 [33:40<33:44, 20.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  52%|█████▏    | 103/200 [34:00<32:51, 20.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  52%|█████▏    | 104/200 [34:20<32:09, 20.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  52%|█████▎    | 105/200 [34:39<31:40, 20.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  53%|█████▎    | 106/200 [34:59<31:05, 19.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  54%|█████▎    | 107/200 [35:18<30:35, 19.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  54%|█████▍    | 108/200 [35:38<30:05, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  55%|█████▍    | 109/200 [35:57<29:32, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  55%|█████▌    | 110/200 [36:16<29:17, 19.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  56%|█████▌    | 111/200 [36:36<28:57, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  56%|█████▌    | 112/200 [36:55<28:32, 19.46s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  56%|█████▋    | 113/200 [37:15<28:17, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  57%|█████▋    | 114/200 [37:34<27:58, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  57%|█████▊    | 115/200 [37:54<27:34, 19.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  58%|█████▊    | 116/200 [38:14<27:24, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  58%|█████▊    | 117/200 [38:33<27:00, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  59%|█████▉    | 118/200 [38:53<26:50, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  60%|█████▉    | 119/200 [39:13<26:38, 19.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -51758.00 over 120 steps
+QMIX [dense_wave]:  60%|██████    | 120/200 [39:40<29:04, 21.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  60%|██████    | 121/200 [39:59<27:55, 21.22s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  61%|██████    | 122/200 [40:19<27:05, 20.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  62%|██████▏   | 123/200 [40:39<26:14, 20.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  62%|██████▏   | 124/200 [40:59<25:38, 20.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  62%|██████▎   | 125/200 [41:18<25:05, 20.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  63%|██████▎   | 126/200 [41:38<24:32, 19.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  64%|██████▎   | 127/200 [41:57<24:04, 19.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  64%|██████▍   | 128/200 [42:17<23:42, 19.75s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  64%|██████▍   | 129/200 [42:37<23:19, 19.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  65%|██████▌   | 130/200 [42:56<22:53, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  66%|██████▌   | 131/200 [43:16<22:31, 19.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  66%|██████▌   | 132/200 [43:35<22:15, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  66%|██████▋   | 133/200 [43:55<21:59, 19.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  67%|██████▋   | 134/200 [44:15<21:34, 19.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  68%|██████▊   | 135/200 [44:34<21:20, 19.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  68%|██████▊   | 136/200 [44:54<21:03, 19.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  68%|██████▊   | 137/200 [45:14<20:43, 19.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  69%|██████▉   | 138/200 [45:34<20:22, 19.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  70%|██████▉   | 139/200 [45:53<20:01, 19.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -49691.00 over 120 steps
+QMIX [dense_wave]:  70%|███████   | 140/200 [46:20<21:39, 21.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  70%|███████   | 141/200 [46:39<20:45, 21.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  71%|███████   | 142/200 [46:59<20:01, 20.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  72%|███████▏  | 143/200 [47:19<19:20, 20.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  72%|███████▏  | 144/200 [47:38<18:48, 20.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  72%|███████▎  | 145/200 [47:58<18:22, 20.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  73%|███████▎  | 146/200 [48:18<17:56, 19.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  74%|███████▎  | 147/200 [48:38<17:32, 19.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  74%|███████▍  | 148/200 [48:57<17:10, 19.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  74%|███████▍  | 149/200 [49:17<16:48, 19.78s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  75%|███████▌  | 150/200 [49:37<16:30, 19.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  76%|███████▌  | 151/200 [49:57<16:08, 19.77s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  76%|███████▌  | 152/200 [50:17<15:52, 19.84s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  76%|███████▋  | 153/200 [50:36<15:34, 19.88s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  77%|███████▋  | 154/200 [50:56<15:13, 19.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  78%|███████▊  | 155/200 [51:16<14:52, 19.84s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  78%|███████▊  | 156/200 [51:36<14:31, 19.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  78%|███████▊  | 157/200 [51:56<14:14, 19.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  79%|███████▉  | 158/200 [52:15<13:48, 19.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  80%|███████▉  | 159/200 [52:35<13:27, 19.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -46074.00 over 120 steps
+QMIX [dense_wave]:  80%|████████  | 160/200 [53:01<14:28, 21.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  80%|████████  | 161/200 [53:21<13:44, 21.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  81%|████████  | 162/200 [53:41<13:07, 20.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  82%|████████▏ | 163/200 [54:01<12:37, 20.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  82%|████████▏ | 164/200 [54:21<12:10, 20.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  82%|████████▎ | 165/200 [54:40<11:45, 20.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  83%|████████▎ | 166/200 [55:00<11:21, 20.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  84%|████████▎ | 167/200 [55:20<10:59, 19.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  84%|████████▍ | 168/200 [55:39<10:33, 19.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  84%|████████▍ | 169/200 [55:59<10:15, 19.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  85%|████████▌ | 170/200 [56:19<09:53, 19.78s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  86%|████████▌ | 171/200 [56:39<09:34, 19.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  86%|████████▌ | 172/200 [56:58<09:11, 19.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  86%|████████▋ | 173/200 [57:18<08:50, 19.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  87%|████████▋ | 174/200 [57:37<08:29, 19.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  88%|████████▊ | 175/200 [57:57<08:10, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  88%|████████▊ | 176/200 [58:16<07:47, 19.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  88%|████████▊ | 177/200 [58:36<07:30, 19.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  89%|████████▉ | 178/200 [58:55<07:09, 19.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  90%|████████▉ | 179/200 [59:15<06:49, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -37535.00 over 120 steps
+QMIX [dense_wave]:  90%|█████████ | 180/200 [59:41<07:09, 21.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  90%|█████████ | 181/200 [1:00:01<06:38, 20.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  91%|█████████ | 182/200 [1:00:20<06:10, 20.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  92%|█████████▏| 183/200 [1:00:40<05:43, 20.21s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  92%|█████████▏| 184/200 [1:00:59<05:20, 20.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  92%|█████████▎| 185/200 [1:01:19<04:56, 19.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  93%|█████████▎| 186/200 [1:01:38<04:34, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  94%|█████████▎| 187/200 [1:01:57<04:15, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  94%|█████████▍| 188/200 [1:02:16<03:52, 19.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  94%|█████████▍| 189/200 [1:02:36<03:33, 19.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  95%|█████████▌| 190/200 [1:02:55<03:15, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  96%|█████████▌| 191/200 [1:03:15<02:54, 19.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  96%|█████████▌| 192/200 [1:03:34<02:34, 19.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  96%|█████████▋| 193/200 [1:03:53<02:15, 19.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  97%|█████████▋| 194/200 [1:04:13<01:56, 19.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  98%|█████████▊| 195/200 [1:04:33<01:37, 19.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  98%|█████████▊| 196/200 [1:04:52<01:18, 19.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  98%|█████████▊| 197/200 [1:05:12<00:58, 19.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]:  99%|█████████▉| 198/200 [1:05:32<00:39, 19.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [dense_wave]: 100%|█████████▉| 199/200 [1:05:51<00:19, 19.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [dense_wave] eval reward: -35105.00 over 120 steps
+QMIX [dense_wave]: 100%|██████████| 200/200 [1:06:17<00:00, 21.59s/it]QMIX [dense_wave]: 100%|██████████| 200/200 [1:06:17<00:00, 19.89s/it]
+Saved outputs/seeds/qmix_results_dense_wave_seed0.csv (10 rows)
+
+=== DONE seed=0 scenario=dense_wave at 2026-06-08T22:31:19.251763 ===

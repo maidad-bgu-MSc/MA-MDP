@@ -1,0 +1,11 @@
+scenario,episode,eval_reward
+dense_wave,20,-1173819.0
+dense_wave,40,-173931.0
+dense_wave,60,-90143.0
+dense_wave,80,-93649.0
+dense_wave,100,-46133.0
+dense_wave,120,-96374.0
+dense_wave,140,-48195.0
+dense_wave,160,-52317.0
+dense_wave,180,-38872.0
+dense_wave,200,-40520.0

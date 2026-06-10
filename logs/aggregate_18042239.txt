@@ -1,0 +1,21 @@
+------------------------------------
+Tue 09 Jun 2026 08:32:51 IDT
+SLURM_JOBID:		18042239
+SLURM_JOB_NODELIST:	cs-cpu-04
+SLURM_SCRATCH_DIR:	
+Allocated Resouces:	cpu - 2 / mem -  MB / gpu - 
+SLURM_GPU_INDEX:	
+Running as leashmil from sternron account with normal QOS
+------------------------------------
+[baseline] tabular: 3 seeds aggregated.
+[baseline] qmix: 3 seeds aggregated.
+[dense_wave] tabular: 3 seeds aggregated.
+[dense_wave] qmix: 3 seeds aggregated.
+[cross_surge] tabular: 3 seeds aggregated.
+[cross_surge] qmix: 3 seeds aggregated.
+[split_rush] tabular: 3 seeds aggregated.
+[split_rush] qmix: 3 seeds aggregated.
+[cologne3] tabular: 3 seeds aggregated.
+[grid4x4] tabular: 2 seeds aggregated.
+Wrote aggregated outputs to outputs/aggregated/ (summary.md, cross_algorithm_bars.png, per-scenario PNGs/CSVs).
+Aggregation complete -> outputs/aggregated/

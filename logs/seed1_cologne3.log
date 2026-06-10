@@ -1,0 +1,619 @@
+=== run_seeded_experiment.py seed=1 scenario=cologne3 started 2026-06-09T00:16:01.995104 ===
+
+============================================================
+SCENARIO: COLOGNE3  (seed=1)
+============================================================
+
+==================================================
+TRAINING IQL_TABULAR [cologne3] (100 episodes, seed=1)
+==================================================
+Downloading https://raw.githubusercontent.com/Pi-Star-Lab/RESCO/master/resco_benchmark/environments/cologne3/cologne3.net.xml to simulator/resco_environments/cologne3/cologne3.net.xml...
+Success!
+Downloading https://raw.githubusercontent.com/Pi-Star-Lab/RESCO/master/resco_benchmark/environments/cologne3/cologne3.rou.xml to simulator/resco_environments/cologne3/cologne3.rou.xml...
+Success!
+Downloading https://raw.githubusercontent.com/Pi-Star-Lab/RESCO/master/resco_benchmark/environments/grid4x4/grid4x4.net.xml to simulator/resco_environments/grid4x4/grid4x4.net.xml...
+Success!
+Downloading zip from https://raw.githubusercontent.com/Pi-Star-Lab/RESCO/master/resco_benchmark/environments/grid4x4/grid4x4.zip...
+Successfully extracted grid4x4_1.rou.xml to grid4x4.rou.xml!
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f049c6fe210>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+iql_tabular [cologne3]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+iql_tabular [cologne3]:   1%|          | 1/100 [00:06<11:25,  6.93s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   2%|▏         | 2/100 [00:13<11:04,  6.78s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   3%|▎         | 3/100 [00:19<10:23,  6.42s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   4%|▍         | 4/100 [00:26<10:26,  6.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497c666f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 5) | Return: -65367.00
+iql_tabular [cologne3]:   5%|▌         | 5/100 [00:37<13:03,  8.25s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   6%|▌         | 6/100 [00:45<12:50,  8.20s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   7%|▋         | 7/100 [00:51<11:43,  7.57s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   8%|▊         | 8/100 [00:57<10:51,  7.08s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:   9%|▉         | 9/100 [01:04<10:24,  6.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497d3f260>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 10) | Return: -83022.00
+iql_tabular [cologne3]:  10%|█         | 10/100 [01:15<12:27,  8.31s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  11%|█         | 11/100 [01:22<11:41,  7.88s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  12%|█▏        | 12/100 [01:30<11:19,  7.72s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  13%|█▎        | 13/100 [01:37<10:47,  7.45s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  14%|█▍        | 14/100 [01:43<10:03,  7.02s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bfa090>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 15) | Return: -150954.00
+iql_tabular [cologne3]:  15%|█▌        | 15/100 [01:55<12:09,  8.58s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  16%|█▌        | 16/100 [02:01<11:08,  7.96s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  17%|█▋        | 17/100 [02:08<10:19,  7.47s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  18%|█▊        | 18/100 [02:14<09:37,  7.05s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  19%|█▉        | 19/100 [02:21<09:33,  7.08s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8c170>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 20) | Return: -154116.00
+iql_tabular [cologne3]:  20%|██        | 20/100 [02:33<11:38,  8.73s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  21%|██        | 21/100 [02:39<10:26,  7.93s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  22%|██▏       | 22/100 [02:46<09:57,  7.67s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  23%|██▎       | 23/100 [02:53<09:15,  7.22s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  24%|██▍       | 24/100 [02:59<08:51,  6.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497308890>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 25) | Return: -396070.00
+iql_tabular [cologne3]:  25%|██▌       | 25/100 [03:12<10:51,  8.68s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  26%|██▌       | 26/100 [03:19<10:11,  8.26s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  27%|██▋       | 27/100 [03:25<09:22,  7.70s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  28%|██▊       | 28/100 [03:32<08:46,  7.31s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  29%|██▉       | 29/100 [03:38<08:24,  7.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8d1c0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 30) | Return: -29631.00
+iql_tabular [cologne3]:  30%|███       | 30/100 [03:50<09:50,  8.43s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  31%|███       | 31/100 [03:56<09:00,  7.84s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  32%|███▏      | 32/100 [04:03<08:27,  7.47s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  33%|███▎      | 33/100 [04:10<08:09,  7.30s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  34%|███▍      | 34/100 [04:16<07:38,  6.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497308650>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 35) | Return: -509952.00
+iql_tabular [cologne3]:  35%|███▌      | 35/100 [04:29<09:34,  8.83s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  36%|███▌      | 36/100 [04:37<08:59,  8.42s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  37%|███▋      | 37/100 [04:43<08:15,  7.87s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  38%|███▊      | 38/100 [04:50<07:40,  7.42s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  39%|███▉      | 39/100 [04:57<07:21,  7.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8edb0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 40) | Return: -156374.00
+iql_tabular [cologne3]:  40%|████      | 40/100 [05:08<08:25,  8.43s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  41%|████      | 41/100 [05:14<07:43,  7.86s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  42%|████▏     | 42/100 [05:21<07:13,  7.47s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  43%|████▎     | 43/100 [05:27<06:46,  7.13s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  44%|████▍     | 44/100 [05:33<06:13,  6.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f049730a570>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 45) | Return: -625220.00
+iql_tabular [cologne3]:  45%|████▌     | 45/100 [05:45<07:36,  8.31s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  46%|████▌     | 46/100 [05:51<07:00,  7.79s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  47%|████▋     | 47/100 [05:59<06:42,  7.60s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  48%|████▊     | 48/100 [06:05<06:20,  7.32s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  49%|████▉     | 49/100 [06:12<06:01,  7.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8e8d0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 50) | Return: -55867.00
+iql_tabular [cologne3]:  50%|█████     | 50/100 [06:22<06:47,  8.15s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  51%|█████     | 51/100 [06:29<06:10,  7.55s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  52%|█████▏    | 52/100 [06:35<05:43,  7.16s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  53%|█████▎    | 53/100 [06:42<05:29,  7.02s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  54%|█████▍    | 54/100 [06:47<05:06,  6.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497368500>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 55) | Return: -295477.00
+iql_tabular [cologne3]:  55%|█████▌    | 55/100 [06:59<06:03,  8.09s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  56%|█████▌    | 56/100 [07:05<05:31,  7.54s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  57%|█████▋    | 57/100 [07:11<05:07,  7.15s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  58%|█████▊    | 58/100 [07:18<04:52,  6.97s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  59%|█████▉    | 59/100 [07:24<04:35,  6.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8fd40>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 60) | Return: -105810.00
+iql_tabular [cologne3]:  60%|██████    | 60/100 [07:36<05:26,  8.17s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  61%|██████    | 61/100 [07:43<05:04,  7.82s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  62%|██████▏   | 62/100 [07:50<04:52,  7.70s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  63%|██████▎   | 63/100 [07:56<04:31,  7.33s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  64%|██████▍   | 64/100 [08:03<04:13,  7.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497369280>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 65) | Return: -154128.00
+iql_tabular [cologne3]:  65%|██████▌   | 65/100 [08:14<04:54,  8.41s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  66%|██████▌   | 66/100 [08:21<04:27,  7.85s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  67%|██████▋   | 67/100 [08:28<04:13,  7.69s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  68%|██████▊   | 68/100 [08:35<03:58,  7.46s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  69%|██████▉   | 69/100 [08:42<03:41,  7.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8ede0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 70) | Return: -148594.00
+iql_tabular [cologne3]:  70%|███████   | 70/100 [08:53<04:12,  8.42s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  71%|███████   | 71/100 [08:59<03:43,  7.72s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  72%|███████▏  | 72/100 [09:05<03:21,  7.19s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  73%|███████▎  | 73/100 [09:12<03:10,  7.05s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  74%|███████▍  | 74/100 [09:19<03:01,  6.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497c587d0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 75) | Return: -204324.00
+iql_tabular [cologne3]:  75%|███████▌  | 75/100 [09:30<03:30,  8.41s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  76%|███████▌  | 76/100 [09:37<03:08,  7.85s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  77%|███████▋  | 77/100 [09:43<02:51,  7.45s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  78%|███████▊  | 78/100 [09:50<02:37,  7.16s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  79%|███████▉  | 79/100 [09:56<02:22,  6.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8fa70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 80) | Return: -542166.00
+iql_tabular [cologne3]:  80%|████████  | 80/100 [10:08<02:49,  8.49s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  81%|████████  | 81/100 [10:15<02:32,  8.02s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  82%|████████▏ | 82/100 [10:23<02:20,  7.80s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  83%|████████▎ | 83/100 [10:29<02:06,  7.44s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  84%|████████▍ | 84/100 [10:37<02:00,  7.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497c58ad0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 85) | Return: -44958.00
+iql_tabular [cologne3]:  85%|████████▌ | 85/100 [10:47<02:06,  8.41s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  86%|████████▌ | 86/100 [10:53<01:47,  7.64s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  87%|████████▋ | 87/100 [10:59<01:33,  7.20s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  88%|████████▊ | 88/100 [11:06<01:23,  6.93s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  89%|████████▉ | 89/100 [11:12<01:13,  6.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8c2f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 90) | Return: -99346.00
+iql_tabular [cologne3]:  90%|█████████ | 90/100 [11:23<01:21,  8.18s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  91%|█████████ | 91/100 [11:29<01:07,  7.52s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  92%|█████████▏| 92/100 [11:36<00:57,  7.16s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  93%|█████████▎| 93/100 [11:43<00:50,  7.15s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  94%|█████████▍| 94/100 [11:50<00:43,  7.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497c5a330>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 95) | Return: -58029.00
+iql_tabular [cologne3]:  95%|█████████▌| 95/100 [12:01<00:41,  8.40s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  96%|█████████▌| 96/100 [12:08<00:31,  7.82s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  97%|█████████▋| 97/100 [12:15<00:23,  7.70s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  98%|█████████▊| 98/100 [12:23<00:15,  7.77s/it] Retrying in 1 seconds
+iql_tabular [cologne3]:  99%|█████████▉| 99/100 [12:30<00:07,  7.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bb86b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [cologne3] (ep 100) | Return: -198165.00
+iql_tabular [cologne3]: 100%|██████████| 100/100 [12:42<00:00,  8.76s/it]iql_tabular [cologne3]: 100%|██████████| 100/100 [12:42<00:00,  7.62s/it]
+
+Training complete. Models saved to models/seed1/iql_tabular_cologne3_*.npy
+
+==================================================
+TRAINING HYSTERETIC [cologne3] (100 episodes, seed=1)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497d3f170>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+hysteretic [cologne3]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+hysteretic [cologne3]:   1%|          | 1/100 [00:06<11:08,  6.76s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   2%|▏         | 2/100 [00:13<11:14,  6.88s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   3%|▎         | 3/100 [00:20<11:04,  6.85s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   4%|▍         | 4/100 [00:26<10:37,  6.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f049733b200>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 5) | Return: -90689.00
+hysteretic [cologne3]:   5%|▌         | 5/100 [00:38<13:17,  8.39s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   6%|▌         | 6/100 [00:45<12:44,  8.13s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   7%|▋         | 7/100 [00:52<11:51,  7.65s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   8%|▊         | 8/100 [00:59<11:29,  7.50s/it] Retrying in 1 seconds
+hysteretic [cologne3]:   9%|▉         | 9/100 [01:06<10:50,  7.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bb8b90>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 10) | Return: -89711.00
+hysteretic [cologne3]:  10%|█         | 10/100 [01:18<12:53,  8.59s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  11%|█         | 11/100 [01:24<11:36,  7.83s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  12%|█▏        | 12/100 [01:30<10:48,  7.37s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  13%|█▎        | 13/100 [01:36<10:18,  7.10s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  14%|█▍        | 14/100 [01:44<10:34,  7.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497250170>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 15) | Return: -136446.00
+hysteretic [cologne3]:  15%|█▌        | 15/100 [01:56<12:11,  8.61s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  16%|█▌        | 16/100 [02:02<11:07,  7.94s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  17%|█▋        | 17/100 [02:09<10:38,  7.69s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  18%|█▊        | 18/100 [02:15<09:42,  7.10s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  19%|█▉        | 19/100 [02:22<09:34,  7.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bbba70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 20) | Return: -750607.00
+hysteretic [cologne3]:  20%|██        | 20/100 [02:34<11:24,  8.56s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  21%|██        | 21/100 [02:41<10:33,  8.02s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  22%|██▏       | 22/100 [02:49<10:27,  8.04s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  23%|██▎       | 23/100 [02:56<09:59,  7.79s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  24%|██▍       | 24/100 [03:03<09:21,  7.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f04972535c0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 25) | Return: -59371.00
+hysteretic [cologne3]:  25%|██▌       | 25/100 [03:14<10:31,  8.42s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  26%|██▌       | 26/100 [03:20<09:51,  7.99s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  27%|██▋       | 27/100 [03:27<09:16,  7.62s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  28%|██▊       | 28/100 [03:34<08:44,  7.29s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  29%|██▉       | 29/100 [03:40<08:09,  6.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bb9e80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 30) | Return: -401187.00
+hysteretic [cologne3]:  30%|███       | 30/100 [03:52<09:51,  8.45s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  31%|███       | 31/100 [03:58<08:56,  7.78s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  32%|███▏      | 32/100 [04:04<08:10,  7.22s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  33%|███▎      | 33/100 [04:11<07:57,  7.12s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  34%|███▍      | 34/100 [04:17<07:40,  6.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f04970aeae0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 35) | Return: -56730.00
+hysteretic [cologne3]:  35%|███▌      | 35/100 [04:28<08:50,  8.16s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  36%|███▌      | 36/100 [04:34<07:59,  7.50s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  37%|███▋      | 37/100 [04:41<07:32,  7.18s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  38%|███▊      | 38/100 [04:47<07:09,  6.93s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  39%|███▉      | 39/100 [04:54<06:55,  6.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bba270>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 40) | Return: -118476.00
+hysteretic [cologne3]:  40%|████      | 40/100 [05:05<08:10,  8.18s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  41%|████      | 41/100 [05:11<07:28,  7.60s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  42%|████▏     | 42/100 [05:18<07:00,  7.25s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  43%|████▎     | 43/100 [05:24<06:37,  6.97s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  44%|████▍     | 44/100 [05:31<06:23,  6.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f049711e030>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 45) | Return: -167957.00
+hysteretic [cologne3]:  45%|████▌     | 45/100 [05:43<07:42,  8.42s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  46%|████▌     | 46/100 [05:49<06:57,  7.74s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  47%|████▋     | 47/100 [05:55<06:27,  7.32s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  48%|████▊     | 48/100 [06:02<06:11,  7.15s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  49%|████▉     | 49/100 [06:09<05:58,  7.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8fb00>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 50) | Return: -102342.00
+hysteretic [cologne3]:  50%|█████     | 50/100 [06:20<06:48,  8.18s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  51%|█████     | 51/100 [06:26<06:22,  7.80s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  52%|█████▏    | 52/100 [06:33<05:54,  7.38s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  53%|█████▎    | 53/100 [06:39<05:34,  7.12s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  54%|█████▍    | 54/100 [06:46<05:15,  6.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0496fd9520>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 55) | Return: -139493.00
+hysteretic [cologne3]:  55%|█████▌    | 55/100 [06:58<06:23,  8.53s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  56%|█████▌    | 56/100 [07:05<05:50,  7.97s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  57%|█████▋    | 57/100 [07:12<05:33,  7.75s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  58%|█████▊    | 58/100 [07:19<05:10,  7.39s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  59%|█████▉    | 59/100 [07:25<04:57,  7.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bbba10>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 60) | Return: -345838.00
+hysteretic [cologne3]:  60%|██████    | 60/100 [07:37<05:45,  8.64s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  61%|██████    | 61/100 [07:44<05:11,  8.00s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  62%|██████▏   | 62/100 [07:51<04:53,  7.72s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  63%|██████▎   | 63/100 [07:57<04:32,  7.35s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  64%|██████▍   | 64/100 [08:04<04:11,  6.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497044a70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 65) | Return: -116055.00
+hysteretic [cologne3]:  65%|██████▌   | 65/100 [08:15<04:52,  8.35s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  66%|██████▌   | 66/100 [08:22<04:26,  7.83s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  67%|██████▋   | 67/100 [08:29<04:09,  7.57s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  68%|██████▊   | 68/100 [08:36<03:55,  7.35s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  69%|██████▉   | 69/100 [08:43<03:44,  7.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8c470>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 70) | Return: -277203.00
+hysteretic [cologne3]:  70%|███████   | 70/100 [08:54<04:19,  8.65s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  71%|███████   | 71/100 [09:01<03:56,  8.16s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  72%|███████▏  | 72/100 [09:09<03:40,  7.86s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  73%|███████▎  | 73/100 [09:15<03:20,  7.44s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  74%|███████▍  | 74/100 [09:22<03:11,  7.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497047f20>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 75) | Return: -346363.00
+hysteretic [cologne3]:  75%|███████▌  | 75/100 [09:34<03:36,  8.67s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  76%|███████▌  | 76/100 [09:41<03:17,  8.23s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  77%|███████▋  | 77/100 [09:48<02:57,  7.74s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  78%|███████▊  | 78/100 [09:55<02:49,  7.71s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  79%|███████▉  | 79/100 [10:02<02:34,  7.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bb90a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 80) | Return: -154283.00
+hysteretic [cologne3]:  80%|████████  | 80/100 [10:13<02:52,  8.60s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  81%|████████  | 81/100 [10:20<02:31,  7.97s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  82%|████████▏ | 82/100 [10:26<02:13,  7.41s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  83%|████████▎ | 83/100 [10:32<02:00,  7.10s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  84%|████████▍ | 84/100 [10:40<01:53,  7.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0496eab440>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 85) | Return: -202711.00
+hysteretic [cologne3]:  85%|████████▌ | 85/100 [10:52<02:11,  8.73s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  86%|████████▌ | 86/100 [10:59<01:52,  8.06s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  87%|████████▋ | 87/100 [11:05<01:39,  7.66s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  88%|████████▊ | 88/100 [11:12<01:30,  7.51s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  89%|████████▉ | 89/100 [11:19<01:20,  7.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8e7b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 90) | Return: -94746.00
+hysteretic [cologne3]:  90%|█████████ | 90/100 [11:31<01:26,  8.68s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  91%|█████████ | 91/100 [11:38<01:14,  8.23s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  92%|█████████▏| 92/100 [11:45<01:01,  7.63s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  93%|█████████▎| 93/100 [11:51<00:51,  7.29s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  94%|█████████▍| 94/100 [11:57<00:41,  6.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0496f0e960>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 95) | Return: -147724.00
+hysteretic [cologne3]:  95%|█████████▌| 95/100 [12:10<00:43,  8.74s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  96%|█████████▌| 96/100 [12:16<00:31,  7.96s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  97%|█████████▋| 97/100 [12:23<00:22,  7.46s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  98%|█████████▊| 98/100 [12:29<00:14,  7.17s/it] Retrying in 1 seconds
+hysteretic [cologne3]:  99%|█████████▉| 99/100 [12:36<00:07,  7.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bbb380>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [cologne3] (ep 100) | Return: -190161.00
+hysteretic [cologne3]: 100%|██████████| 100/100 [12:49<00:00,  8.71s/it]hysteretic [cologne3]: 100%|██████████| 100/100 [12:49<00:00,  7.69s/it]
+
+Training complete. Models saved to models/seed1/hysteretic_cologne3_*.npy
+
+==================================================
+TRAINING VDN [cologne3] (100 episodes, seed=1)
+==================================================
+ Retrying in 1 seconds
+VDN [cologne3]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+VDN [cologne3]:   1%|          | 1/100 [00:07<11:40,  7.08s/it] Retrying in 1 seconds
+VDN [cologne3]:   2%|▏         | 2/100 [00:14<11:36,  7.11s/it] Retrying in 1 seconds
+VDN [cologne3]:   3%|▎         | 3/100 [00:20<11:02,  6.83s/it] Retrying in 1 seconds
+VDN [cologne3]:   4%|▍         | 4/100 [00:27<10:54,  6.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -561514.00
+VDN [cologne3]:   5%|▌         | 5/100 [00:39<13:57,  8.82s/it] Retrying in 1 seconds
+VDN [cologne3]:   6%|▌         | 6/100 [00:46<12:33,  8.02s/it] Retrying in 1 seconds
+VDN [cologne3]:   7%|▋         | 7/100 [00:53<11:50,  7.64s/it] Retrying in 1 seconds
+VDN [cologne3]:   8%|▊         | 8/100 [01:00<11:24,  7.44s/it] Retrying in 1 seconds
+VDN [cologne3]:   9%|▉         | 9/100 [01:06<10:48,  7.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -71854.00
+VDN [cologne3]:  10%|█         | 10/100 [01:18<12:42,  8.48s/it] Retrying in 1 seconds
+VDN [cologne3]:  11%|█         | 11/100 [01:24<11:35,  7.82s/it] Retrying in 1 seconds
+VDN [cologne3]:  12%|█▏        | 12/100 [01:31<10:54,  7.43s/it] Retrying in 1 seconds
+VDN [cologne3]:  13%|█▎        | 13/100 [01:37<10:22,  7.15s/it] Retrying in 1 seconds
+VDN [cologne3]:  14%|█▍        | 14/100 [01:44<10:16,  7.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -98210.00
+VDN [cologne3]:  15%|█▌        | 15/100 [01:55<11:49,  8.34s/it] Retrying in 1 seconds
+VDN [cologne3]:  16%|█▌        | 16/100 [02:03<11:20,  8.10s/it] Retrying in 1 seconds
+VDN [cologne3]:  17%|█▋        | 17/100 [02:09<10:26,  7.55s/it] Retrying in 1 seconds
+VDN [cologne3]:  18%|█▊        | 18/100 [02:16<09:54,  7.25s/it] Retrying in 1 seconds
+VDN [cologne3]:  19%|█▉        | 19/100 [02:22<09:30,  7.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -689998.00
+VDN [cologne3]:  20%|██        | 20/100 [02:34<11:24,  8.55s/it] Retrying in 1 seconds
+VDN [cologne3]:  21%|██        | 21/100 [02:41<10:34,  8.04s/it] Retrying in 1 seconds
+VDN [cologne3]:  22%|██▏       | 22/100 [02:48<09:56,  7.65s/it] Retrying in 1 seconds
+VDN [cologne3]:  23%|██▎       | 23/100 [02:55<09:43,  7.58s/it] Retrying in 1 seconds
+VDN [cologne3]:  24%|██▍       | 24/100 [03:02<09:24,  7.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -68245.00
+VDN [cologne3]:  25%|██▌       | 25/100 [03:14<10:54,  8.72s/it] Retrying in 1 seconds
+VDN [cologne3]:  26%|██▌       | 26/100 [03:20<09:44,  7.90s/it] Retrying in 1 seconds
+VDN [cologne3]:  27%|██▋       | 27/100 [03:27<09:14,  7.60s/it] Retrying in 1 seconds
+VDN [cologne3]:  28%|██▊       | 28/100 [03:35<09:06,  7.60s/it] Retrying in 1 seconds
+VDN [cologne3]:  29%|██▉       | 29/100 [03:41<08:34,  7.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -153191.00
+VDN [cologne3]:  30%|███       | 30/100 [03:54<10:17,  8.83s/it] Retrying in 1 seconds
+VDN [cologne3]:  31%|███       | 31/100 [04:00<09:16,  8.07s/it] Retrying in 1 seconds
+VDN [cologne3]:  32%|███▏      | 32/100 [04:06<08:27,  7.46s/it] Retrying in 1 seconds
+VDN [cologne3]:  33%|███▎      | 33/100 [04:13<08:10,  7.32s/it] Retrying in 1 seconds
+VDN [cologne3]:  34%|███▍      | 34/100 [04:19<07:40,  6.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -111595.00
+VDN [cologne3]:  35%|███▌      | 35/100 [04:30<08:50,  8.16s/it] Retrying in 1 seconds
+VDN [cologne3]:  36%|███▌      | 36/100 [04:38<08:31,  8.00s/it] Retrying in 1 seconds
+VDN [cologne3]:  37%|███▋      | 37/100 [04:44<07:55,  7.55s/it] Retrying in 1 seconds
+VDN [cologne3]:  38%|███▊      | 38/100 [04:51<07:38,  7.39s/it] Retrying in 1 seconds
+VDN [cologne3]:  39%|███▉      | 39/100 [04:57<07:05,  6.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -197103.00
+VDN [cologne3]:  40%|████      | 40/100 [05:09<08:26,  8.44s/it] Retrying in 1 seconds
+VDN [cologne3]:  41%|████      | 41/100 [05:16<07:49,  7.96s/it] Retrying in 1 seconds
+VDN [cologne3]:  42%|████▏     | 42/100 [05:22<07:03,  7.31s/it] Retrying in 1 seconds
+VDN [cologne3]:  43%|████▎     | 43/100 [05:28<06:46,  7.13s/it] Retrying in 1 seconds
+VDN [cologne3]:  44%|████▍     | 44/100 [05:35<06:29,  6.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -117719.00
+VDN [cologne3]:  45%|████▌     | 45/100 [05:46<07:28,  8.15s/it] Retrying in 1 seconds
+VDN [cologne3]:  46%|████▌     | 46/100 [05:52<06:51,  7.62s/it] Retrying in 1 seconds
+VDN [cologne3]:  47%|████▋     | 47/100 [05:59<06:27,  7.31s/it] Retrying in 1 seconds
+VDN [cologne3]:  48%|████▊     | 48/100 [06:05<05:57,  6.87s/it] Retrying in 1 seconds
+VDN [cologne3]:  49%|████▉     | 49/100 [06:11<05:50,  6.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -591849.00
+VDN [cologne3]:  50%|█████     | 50/100 [06:24<07:11,  8.62s/it] Retrying in 1 seconds
+VDN [cologne3]:  51%|█████     | 51/100 [06:31<06:37,  8.11s/it] Retrying in 1 seconds
+VDN [cologne3]:  52%|█████▏    | 52/100 [06:38<06:13,  7.77s/it] Retrying in 1 seconds
+VDN [cologne3]:  53%|█████▎    | 53/100 [06:45<05:53,  7.53s/it] Retrying in 1 seconds
+VDN [cologne3]:  54%|█████▍    | 54/100 [06:51<05:30,  7.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -105641.00
+VDN [cologne3]:  55%|█████▌    | 55/100 [07:03<06:16,  8.37s/it] Retrying in 1 seconds
+VDN [cologne3]:  56%|█████▌    | 56/100 [07:09<05:39,  7.71s/it] Retrying in 1 seconds
+VDN [cologne3]:  57%|█████▋    | 57/100 [07:15<05:12,  7.28s/it] Retrying in 1 seconds
+VDN [cologne3]:  58%|█████▊    | 58/100 [07:21<04:51,  6.95s/it] Retrying in 1 seconds
+VDN [cologne3]:  59%|█████▉    | 59/100 [07:27<04:35,  6.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -66387.00
+VDN [cologne3]:  60%|██████    | 60/100 [07:38<05:11,  7.80s/it] Retrying in 1 seconds
+VDN [cologne3]:  61%|██████    | 61/100 [07:43<04:37,  7.13s/it] Retrying in 1 seconds
+VDN [cologne3]:  62%|██████▏   | 62/100 [07:50<04:25,  7.00s/it] Retrying in 1 seconds
+VDN [cologne3]:  63%|██████▎   | 63/100 [07:56<04:13,  6.84s/it] Retrying in 1 seconds
+VDN [cologne3]:  64%|██████▍   | 64/100 [08:03<03:59,  6.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -117011.00
+VDN [cologne3]:  65%|██████▌   | 65/100 [08:16<05:06,  8.76s/it] Retrying in 1 seconds
+VDN [cologne3]:  66%|██████▌   | 66/100 [08:24<04:47,  8.45s/it] Retrying in 1 seconds
+VDN [cologne3]:  67%|██████▋   | 67/100 [08:30<04:12,  7.66s/it] Retrying in 1 seconds
+VDN [cologne3]:  68%|██████▊   | 68/100 [08:36<03:51,  7.22s/it] Retrying in 1 seconds
+VDN [cologne3]:  69%|██████▉   | 69/100 [08:42<03:28,  6.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -120561.00
+VDN [cologne3]:  70%|███████   | 70/100 [08:53<04:06,  8.22s/it] Retrying in 1 seconds
+VDN [cologne3]:  71%|███████   | 71/100 [09:00<03:46,  7.82s/it] Retrying in 1 seconds
+VDN [cologne3]:  72%|███████▏  | 72/100 [09:07<03:30,  7.52s/it] Retrying in 1 seconds
+VDN [cologne3]:  73%|███████▎  | 73/100 [09:13<03:12,  7.12s/it] Retrying in 1 seconds
+VDN [cologne3]:  74%|███████▍  | 74/100 [09:20<03:02,  7.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -62996.00
+VDN [cologne3]:  75%|███████▌  | 75/100 [09:32<03:29,  8.37s/it] Retrying in 1 seconds
+VDN [cologne3]:  76%|███████▌  | 76/100 [09:38<03:04,  7.69s/it] Retrying in 1 seconds
+VDN [cologne3]:  77%|███████▋  | 77/100 [09:45<02:52,  7.52s/it] Retrying in 1 seconds
+VDN [cologne3]:  78%|███████▊  | 78/100 [09:52<02:41,  7.36s/it] Retrying in 1 seconds
+VDN [cologne3]:  79%|███████▉  | 79/100 [09:59<02:34,  7.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -126184.00
+VDN [cologne3]:  80%|████████  | 80/100 [10:10<02:48,  8.45s/it] Retrying in 1 seconds
+VDN [cologne3]:  81%|████████  | 81/100 [10:17<02:32,  8.01s/it] Retrying in 1 seconds
+VDN [cologne3]:  82%|████████▏ | 82/100 [10:23<02:14,  7.48s/it] Retrying in 1 seconds
+VDN [cologne3]:  83%|████████▎ | 83/100 [10:30<02:03,  7.27s/it] Retrying in 1 seconds
+VDN [cologne3]:  84%|████████▍ | 84/100 [10:37<01:55,  7.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -46125.00
+VDN [cologne3]:  85%|████████▌ | 85/100 [10:48<02:06,  8.42s/it] Retrying in 1 seconds
+VDN [cologne3]:  86%|████████▌ | 86/100 [10:57<01:57,  8.41s/it] Retrying in 1 seconds
+VDN [cologne3]:  87%|████████▋ | 87/100 [11:03<01:40,  7.74s/it] Retrying in 1 seconds
+VDN [cologne3]:  88%|████████▊ | 88/100 [11:09<01:28,  7.38s/it] Retrying in 1 seconds
+VDN [cologne3]:  89%|████████▉ | 89/100 [11:15<01:16,  6.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -48289.00
+VDN [cologne3]:  90%|█████████ | 90/100 [11:26<01:19,  7.92s/it] Retrying in 1 seconds
+VDN [cologne3]:  91%|█████████ | 91/100 [11:31<01:05,  7.25s/it] Retrying in 1 seconds
+VDN [cologne3]:  92%|█████████▏| 92/100 [11:37<00:55,  6.92s/it] Retrying in 1 seconds
+VDN [cologne3]:  93%|█████████▎| 93/100 [11:44<00:46,  6.70s/it] Retrying in 1 seconds
+VDN [cologne3]:  94%|█████████▍| 94/100 [11:50<00:39,  6.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -283242.00
+VDN [cologne3]:  95%|█████████▌| 95/100 [12:02<00:41,  8.30s/it] Retrying in 1 seconds
+VDN [cologne3]:  96%|█████████▌| 96/100 [12:09<00:31,  7.85s/it] Retrying in 1 seconds
+VDN [cologne3]:  97%|█████████▋| 97/100 [12:15<00:22,  7.41s/it] Retrying in 1 seconds
+VDN [cologne3]:  98%|█████████▊| 98/100 [12:22<00:14,  7.24s/it] Retrying in 1 seconds
+VDN [cologne3]:  99%|█████████▉| 99/100 [12:29<00:06,  6.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [cologne3] | Return: -109257.00
+VDN [cologne3]: 100%|██████████| 100/100 [12:40<00:00,  8.30s/it]VDN [cologne3]: 100%|██████████| 100/100 [12:40<00:00,  7.61s/it]
+
+VDN training complete. Models saved to models/seed1/vdn_cologne3_*.npy
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- Fixed-Native [cologne3] | Return: -40549.00
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497bbb9e0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f0497b8c650>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- Fixed-RoundRobin [cologne3] | Return: -173381.00
+Saved outputs/seeds/training_evaluation_log_cologne3_seed1.csv
+
+=== DONE seed=1 scenario=cologne3 at 2026-06-09T00:54:37.363976 ===

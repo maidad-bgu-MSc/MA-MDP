@@ -1,0 +1,207 @@
+------------------------------------
+Tue 09 Jun 2026 17:58:48 IDT
+SLURM_JOBID:		18066178
+SLURM_JOB_NODELIST:	cs-cpu-08
+SLURM_SCRATCH_DIR:	
+Allocated Resouces:	cpu - 2 / mem -  MB / gpu - 
+SLURM_GPU_INDEX:	
+Running as leashmil from sternron account with normal QOS
+------------------------------------
+--- MMDP Array Start ---
+Task ID: 29  |  env: mmdp  |  host: cs-cpu-08
+Tue 09 Jun 2026 17:58:48 IDT
+libsumo available -> running SUMO in-process
+Using libsumo as traci as requested by environment variable.
+
+============================================================
+SCENARIO: GRID4X4  (seed=4)
+============================================================
+
+==================================================
+TRAINING IQL_TABULAR [grid4x4] (100 episodes, seed=4)
+==================================================
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f035d292090>` does not have a `render_mode` defined.
+  warnings.warn(
+iql_tabular [grid4x4]:   0%|          | 0/100 [00:00<?, ?it/s]iql_tabular [grid4x4]:   1%|          | 1/100 [00:02<04:13,  2.56s/it]Warning: Vehicle '189' performs emergency braking on lane ':A2_42_0' with decel=9.00, wished=4.50, severity=1.00, time=938.00.
+iql_tabular [grid4x4]:   2%|▏         | 2/100 [00:05<04:09,  2.55s/it]iql_tabular [grid4x4]:   3%|▎         | 3/100 [00:07<04:07,  2.55s/it]iql_tabular [grid4x4]:   4%|▍         | 4/100 [00:10<04:05,  2.56s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e3d4a40>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 5) | Return: -966975.00
+iql_tabular [grid4x4]:   5%|▌         | 5/100 [00:14<05:02,  3.19s/it]iql_tabular [grid4x4]:   6%|▌         | 6/100 [00:17<04:40,  2.98s/it]iql_tabular [grid4x4]:   7%|▋         | 7/100 [00:19<04:25,  2.85s/it]iql_tabular [grid4x4]:   8%|▊         | 8/100 [00:22<04:14,  2.76s/it]Warning: Vehicle '71' performs emergency braking on lane ':A1_42_0' with decel=9.00, wished=4.50, severity=1.00, time=534.00.
+iql_tabular [grid4x4]:   9%|▉         | 9/100 [00:24<04:06,  2.71s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e3d5e20>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 10) | Return: -815296.00
+iql_tabular [grid4x4]:  10%|█         | 10/100 [00:29<04:47,  3.20s/it]iql_tabular [grid4x4]:  11%|█         | 11/100 [00:31<04:27,  3.01s/it]iql_tabular [grid4x4]:  12%|█▏        | 12/100 [00:34<04:14,  2.89s/it]iql_tabular [grid4x4]:  13%|█▎        | 13/100 [00:36<04:05,  2.82s/it]iql_tabular [grid4x4]:  14%|█▍        | 14/100 [00:39<03:55,  2.74s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e476660>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 15) | Return: -1010939.00
+iql_tabular [grid4x4]:  15%|█▌        | 15/100 [00:43<04:33,  3.22s/it]iql_tabular [grid4x4]:  16%|█▌        | 16/100 [00:46<04:15,  3.04s/it]iql_tabular [grid4x4]:  17%|█▋        | 17/100 [00:49<04:01,  2.91s/it]iql_tabular [grid4x4]:  18%|█▊        | 18/100 [00:51<03:51,  2.82s/it]iql_tabular [grid4x4]:  19%|█▉        | 19/100 [00:54<03:43,  2.75s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e4d4320>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 20) | Return: -789722.00
+iql_tabular [grid4x4]:  20%|██        | 20/100 [00:58<04:19,  3.25s/it]iql_tabular [grid4x4]:  21%|██        | 21/100 [01:01<04:01,  3.05s/it]iql_tabular [grid4x4]:  22%|██▏       | 22/100 [01:03<03:48,  2.92s/it]iql_tabular [grid4x4]:  23%|██▎       | 23/100 [01:06<03:38,  2.83s/it]iql_tabular [grid4x4]:  24%|██▍       | 24/100 [01:09<03:30,  2.77s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e175ca0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 25) | Return: -971399.00
+iql_tabular [grid4x4]:  25%|██▌       | 25/100 [01:13<04:04,  3.26s/it]iql_tabular [grid4x4]:  26%|██▌       | 26/100 [01:16<03:46,  3.07s/it]iql_tabular [grid4x4]:  27%|██▋       | 27/100 [01:18<03:34,  2.94s/it]iql_tabular [grid4x4]:  28%|██▊       | 28/100 [01:21<03:24,  2.85s/it]iql_tabular [grid4x4]:  29%|██▉       | 29/100 [01:24<03:17,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e570260>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 30) | Return: -887291.00
+iql_tabular [grid4x4]:  30%|███       | 30/100 [01:28<03:48,  3.26s/it]iql_tabular [grid4x4]:  31%|███       | 31/100 [01:31<03:31,  3.07s/it]iql_tabular [grid4x4]:  32%|███▏      | 32/100 [01:33<03:20,  2.94s/it]iql_tabular [grid4x4]:  33%|███▎      | 33/100 [01:36<03:11,  2.85s/it]iql_tabular [grid4x4]:  34%|███▍      | 34/100 [01:39<03:03,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e240110>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 35) | Return: -950977.00
+iql_tabular [grid4x4]:  35%|███▌      | 35/100 [01:43<03:33,  3.29s/it]iql_tabular [grid4x4]:  36%|███▌      | 36/100 [01:46<03:17,  3.09s/it]iql_tabular [grid4x4]:  37%|███▋      | 37/100 [01:48<03:05,  2.95s/it]Warning: Vehicle '0' performs emergency braking on lane ':D3_45_0' with decel=9.00, wished=4.50, severity=1.00, time=140.00.
+iql_tabular [grid4x4]:  38%|███▊      | 38/100 [01:51<02:57,  2.86s/it]iql_tabular [grid4x4]:  39%|███▉      | 39/100 [01:54<02:50,  2.79s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032dce84a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 40) | Return: -912835.00
+iql_tabular [grid4x4]:  40%|████      | 40/100 [01:58<03:16,  3.28s/it]iql_tabular [grid4x4]:  41%|████      | 41/100 [02:01<03:02,  3.09s/it]iql_tabular [grid4x4]:  42%|████▏     | 42/100 [02:03<02:51,  2.96s/it]iql_tabular [grid4x4]:  43%|████▎     | 43/100 [02:06<02:43,  2.87s/it]iql_tabular [grid4x4]:  44%|████▍     | 44/100 [02:09<02:37,  2.81s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e04a510>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 45) | Return: -844100.00
+iql_tabular [grid4x4]:  45%|████▌     | 45/100 [02:13<03:01,  3.30s/it]iql_tabular [grid4x4]:  46%|████▌     | 46/100 [02:16<02:47,  3.10s/it]iql_tabular [grid4x4]:  47%|████▋     | 47/100 [02:18<02:36,  2.96s/it]iql_tabular [grid4x4]:  48%|████▊     | 48/100 [02:21<02:29,  2.87s/it]iql_tabular [grid4x4]:  49%|████▉     | 49/100 [02:24<02:22,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032daff380>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 50) | Return: -893855.00
+iql_tabular [grid4x4]:  50%|█████     | 50/100 [02:28<02:44,  3.30s/it]iql_tabular [grid4x4]:  51%|█████     | 51/100 [02:31<02:31,  3.10s/it]iql_tabular [grid4x4]:  52%|█████▏    | 52/100 [02:33<02:22,  2.97s/it]iql_tabular [grid4x4]:  53%|█████▎    | 53/100 [02:36<02:14,  2.87s/it]iql_tabular [grid4x4]:  54%|█████▍    | 54/100 [02:39<02:08,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032dbe7d10>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 55) | Return: -817903.00
+iql_tabular [grid4x4]:  55%|█████▌    | 55/100 [02:43<02:28,  3.29s/it]iql_tabular [grid4x4]:  56%|█████▌    | 56/100 [02:46<02:16,  3.11s/it]iql_tabular [grid4x4]:  57%|█████▋    | 57/100 [02:48<02:08,  2.98s/it]iql_tabular [grid4x4]:  58%|█████▊    | 58/100 [02:51<02:00,  2.88s/it]iql_tabular [grid4x4]:  59%|█████▉    | 59/100 [02:54<01:54,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d8efc50>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 60) | Return: -876465.00
+iql_tabular [grid4x4]:  60%|██████    | 60/100 [02:58<02:11,  3.30s/it]iql_tabular [grid4x4]:  61%|██████    | 61/100 [03:01<02:01,  3.11s/it]iql_tabular [grid4x4]:  62%|██████▏   | 62/100 [03:03<01:53,  2.98s/it]iql_tabular [grid4x4]:  63%|██████▎   | 63/100 [03:06<01:46,  2.87s/it]iql_tabular [grid4x4]:  64%|██████▍   | 64/100 [03:09<01:41,  2.81s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032db4b1a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 65) | Return: -849544.00
+iql_tabular [grid4x4]:  65%|██████▌   | 65/100 [03:13<01:57,  3.35s/it]iql_tabular [grid4x4]:  66%|██████▌   | 66/100 [03:16<01:45,  3.11s/it]iql_tabular [grid4x4]:  67%|██████▋   | 67/100 [03:19<01:37,  2.97s/it]iql_tabular [grid4x4]:  68%|██████▊   | 68/100 [03:21<01:31,  2.87s/it]iql_tabular [grid4x4]:  69%|██████▉   | 69/100 [03:24<01:26,  2.79s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d92d190>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 70) | Return: -828897.00
+iql_tabular [grid4x4]:  70%|███████   | 70/100 [03:28<01:37,  3.26s/it]iql_tabular [grid4x4]:  71%|███████   | 71/100 [03:31<01:28,  3.06s/it]iql_tabular [grid4x4]:  72%|███████▏  | 72/100 [03:33<01:22,  2.93s/it]iql_tabular [grid4x4]:  73%|███████▎  | 73/100 [03:36<01:16,  2.83s/it]iql_tabular [grid4x4]:  74%|███████▍  | 74/100 [03:39<01:12,  2.79s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032dc309e0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 75) | Return: -934850.00
+iql_tabular [grid4x4]:  75%|███████▌  | 75/100 [03:43<01:21,  3.26s/it]iql_tabular [grid4x4]:  76%|███████▌  | 76/100 [03:46<01:13,  3.06s/it]iql_tabular [grid4x4]:  77%|███████▋  | 77/100 [03:48<01:07,  2.93s/it]iql_tabular [grid4x4]:  78%|███████▊  | 78/100 [03:51<01:02,  2.84s/it]iql_tabular [grid4x4]:  79%|███████▉  | 79/100 [03:54<00:58,  2.77s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032dc51250>` does not have a `render_mode` defined.
+  warnings.warn(
+Warning: Vehicle '8' performs emergency braking on lane ':D3_45_0' with decel=9.00, wished=4.50, severity=1.00, time=143.00.
+--- iql_tabular [grid4x4] (ep 80) | Return: -882493.00
+iql_tabular [grid4x4]:  80%|████████  | 80/100 [03:58<01:05,  3.27s/it]iql_tabular [grid4x4]:  81%|████████  | 81/100 [04:01<00:58,  3.07s/it]iql_tabular [grid4x4]:  82%|████████▏ | 82/100 [04:03<00:52,  2.94s/it]iql_tabular [grid4x4]:  83%|████████▎ | 83/100 [04:06<00:48,  2.84s/it]iql_tabular [grid4x4]:  84%|████████▍ | 84/100 [04:08<00:44,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032df19640>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 85) | Return: -1008416.00
+iql_tabular [grid4x4]:  85%|████████▌ | 85/100 [04:13<00:49,  3.27s/it]iql_tabular [grid4x4]:  86%|████████▌ | 86/100 [04:15<00:43,  3.08s/it]iql_tabular [grid4x4]:  87%|████████▋ | 87/100 [04:18<00:38,  2.95s/it]iql_tabular [grid4x4]:  88%|████████▊ | 88/100 [04:21<00:34,  2.85s/it]iql_tabular [grid4x4]:  89%|████████▉ | 89/100 [04:23<00:30,  2.79s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032db0dd00>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 90) | Return: -1039814.00
+iql_tabular [grid4x4]:  90%|█████████ | 90/100 [04:28<00:32,  3.27s/it]iql_tabular [grid4x4]:  91%|█████████ | 91/100 [04:30<00:27,  3.07s/it]iql_tabular [grid4x4]:  92%|█████████▏| 92/100 [04:33<00:23,  2.94s/it]iql_tabular [grid4x4]:  93%|█████████▎| 93/100 [04:36<00:19,  2.85s/it]Warning: Vehicle '189' performs emergency braking on lane ':A0_46_0' with decel=9.00, wished=4.50, severity=1.00, time=821.00.
+iql_tabular [grid4x4]:  94%|█████████▍| 94/100 [04:38<00:16,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e42f830>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 95) | Return: -981022.00
+iql_tabular [grid4x4]:  95%|█████████▌| 95/100 [04:43<00:16,  3.27s/it]iql_tabular [grid4x4]:  96%|█████████▌| 96/100 [04:45<00:12,  3.09s/it]iql_tabular [grid4x4]:  97%|█████████▋| 97/100 [04:48<00:08,  2.96s/it]iql_tabular [grid4x4]:  98%|█████████▊| 98/100 [04:51<00:05,  2.87s/it]iql_tabular [grid4x4]:  99%|█████████▉| 99/100 [04:53<00:02,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d826840>` does not have a `render_mode` defined.
+  warnings.warn(
+--- iql_tabular [grid4x4] (ep 100) | Return: -778582.00
+iql_tabular [grid4x4]: 100%|██████████| 100/100 [04:58<00:00,  3.28s/it]iql_tabular [grid4x4]: 100%|██████████| 100/100 [04:58<00:00,  2.98s/it]
+
+Training complete. Models saved to models/seed4/iql_tabular_grid4x4_*.npy
+
+==================================================
+TRAINING HYSTERETIC [grid4x4] (100 episodes, seed=4)
+==================================================
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032ef8f0b0>` does not have a `render_mode` defined.
+  warnings.warn(
+hysteretic [grid4x4]:   0%|          | 0/100 [00:00<?, ?it/s]hysteretic [grid4x4]:   1%|          | 1/100 [00:02<04:26,  2.69s/it]hysteretic [grid4x4]:   2%|▏         | 2/100 [00:05<04:22,  2.67s/it]hysteretic [grid4x4]:   3%|▎         | 3/100 [00:07<04:18,  2.66s/it]hysteretic [grid4x4]:   4%|▍         | 4/100 [00:10<04:14,  2.65s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e0f1b50>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 5) | Return: -932045.00
+hysteretic [grid4x4]:   5%|▌         | 5/100 [00:15<05:12,  3.29s/it]hysteretic [grid4x4]:   6%|▌         | 6/100 [00:17<04:48,  3.07s/it]hysteretic [grid4x4]:   7%|▋         | 7/100 [00:20<04:33,  2.94s/it]hysteretic [grid4x4]:   8%|▊         | 8/100 [00:23<04:22,  2.85s/it]hysteretic [grid4x4]:   9%|▉         | 9/100 [00:25<04:14,  2.79s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e37d430>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 10) | Return: -865268.00
+hysteretic [grid4x4]:  10%|█         | 10/100 [00:30<04:56,  3.29s/it]hysteretic [grid4x4]:  11%|█         | 11/100 [00:32<04:36,  3.10s/it]hysteretic [grid4x4]:  12%|█▏        | 12/100 [00:35<04:20,  2.97s/it]hysteretic [grid4x4]:  13%|█▎        | 13/100 [00:38<04:09,  2.87s/it]hysteretic [grid4x4]:  14%|█▍        | 14/100 [00:40<04:01,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e37c290>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 15) | Return: -1019831.00
+hysteretic [grid4x4]:  15%|█▌        | 15/100 [00:45<04:40,  3.30s/it]hysteretic [grid4x4]:  16%|█▌        | 16/100 [00:47<04:20,  3.10s/it]hysteretic [grid4x4]:  17%|█▋        | 17/100 [00:50<04:05,  2.96s/it]hysteretic [grid4x4]:  18%|█▊        | 18/100 [00:53<03:55,  2.87s/it]hysteretic [grid4x4]:  19%|█▉        | 19/100 [00:55<03:47,  2.81s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e2a02c0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 20) | Return: -901253.00
+hysteretic [grid4x4]:  20%|██        | 20/100 [01:00<04:24,  3.30s/it]hysteretic [grid4x4]:  21%|██        | 21/100 [01:02<04:06,  3.12s/it]hysteretic [grid4x4]:  22%|██▏       | 22/100 [01:05<03:51,  2.97s/it]hysteretic [grid4x4]:  23%|██▎       | 23/100 [01:08<03:41,  2.87s/it]hysteretic [grid4x4]:  24%|██▍       | 24/100 [01:10<03:32,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e2c29f0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 25) | Return: -805339.00
+hysteretic [grid4x4]:  25%|██▌       | 25/100 [01:15<04:06,  3.29s/it]hysteretic [grid4x4]:  26%|██▌       | 26/100 [01:17<03:48,  3.09s/it]hysteretic [grid4x4]:  27%|██▋       | 27/100 [01:20<03:36,  2.97s/it]hysteretic [grid4x4]:  28%|██▊       | 28/100 [01:23<03:26,  2.87s/it]Warning: Vehicle '11' performs emergency braking on lane ':A1_42_0' with decel=9.00, wished=4.50, severity=1.00, time=337.00.
+hysteretic [grid4x4]:  29%|██▉       | 29/100 [01:25<03:19,  2.81s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d519df0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 30) | Return: -861641.00
+hysteretic [grid4x4]:  30%|███       | 30/100 [01:30<03:50,  3.30s/it]hysteretic [grid4x4]:  31%|███       | 31/100 [01:32<03:34,  3.10s/it]hysteretic [grid4x4]:  32%|███▏      | 32/100 [01:35<03:21,  2.96s/it]hysteretic [grid4x4]:  33%|███▎      | 33/100 [01:38<03:12,  2.88s/it]hysteretic [grid4x4]:  34%|███▍      | 34/100 [01:40<03:06,  2.82s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e052180>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 35) | Return: -732813.00
+hysteretic [grid4x4]:  35%|███▌      | 35/100 [01:45<03:37,  3.35s/it]hysteretic [grid4x4]:  36%|███▌      | 36/100 [01:48<03:19,  3.12s/it]hysteretic [grid4x4]:  37%|███▋      | 37/100 [01:50<03:06,  2.97s/it]hysteretic [grid4x4]:  38%|███▊      | 38/100 [01:53<02:57,  2.86s/it]hysteretic [grid4x4]:  39%|███▉      | 39/100 [01:55<02:49,  2.77s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d6a96a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 40) | Return: -888771.00
+hysteretic [grid4x4]:  40%|████      | 40/100 [02:00<03:14,  3.24s/it]hysteretic [grid4x4]:  41%|████      | 41/100 [02:02<02:59,  3.05s/it]hysteretic [grid4x4]:  42%|████▏     | 42/100 [02:05<02:48,  2.91s/it]hysteretic [grid4x4]:  43%|████▎     | 43/100 [02:08<02:40,  2.82s/it]hysteretic [grid4x4]:  44%|████▍     | 44/100 [02:10<02:34,  2.76s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d3ffd10>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 45) | Return: -980912.00
+hysteretic [grid4x4]:  45%|████▌     | 45/100 [02:15<02:58,  3.25s/it]hysteretic [grid4x4]:  46%|████▌     | 46/100 [02:17<02:45,  3.06s/it]hysteretic [grid4x4]:  47%|████▋     | 47/100 [02:20<02:35,  2.93s/it]hysteretic [grid4x4]:  48%|████▊     | 48/100 [02:22<02:28,  2.85s/it]hysteretic [grid4x4]:  49%|████▉     | 49/100 [02:25<02:21,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d5bb7a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 50) | Return: -951784.00
+hysteretic [grid4x4]:  50%|█████     | 50/100 [02:29<02:42,  3.24s/it]hysteretic [grid4x4]:  51%|█████     | 51/100 [02:32<02:29,  3.05s/it]hysteretic [grid4x4]:  52%|█████▏    | 52/100 [02:35<02:20,  2.92s/it]hysteretic [grid4x4]:  53%|█████▎    | 53/100 [02:37<02:13,  2.83s/it]hysteretic [grid4x4]:  54%|█████▍    | 54/100 [02:40<02:07,  2.77s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e4da2d0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 55) | Return: -946627.00
+hysteretic [grid4x4]:  55%|█████▌    | 55/100 [02:44<02:26,  3.26s/it]hysteretic [grid4x4]:  56%|█████▌    | 56/100 [02:47<02:15,  3.08s/it]hysteretic [grid4x4]:  57%|█████▋    | 57/100 [02:50<02:06,  2.93s/it]hysteretic [grid4x4]:  58%|█████▊    | 58/100 [02:52<01:59,  2.84s/it]hysteretic [grid4x4]:  59%|█████▉    | 59/100 [02:55<01:54,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032ef725a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 60) | Return: -957306.00
+hysteretic [grid4x4]:  60%|██████    | 60/100 [02:59<02:10,  3.27s/it]hysteretic [grid4x4]:  61%|██████    | 61/100 [03:02<01:59,  3.07s/it]hysteretic [grid4x4]:  62%|██████▏   | 62/100 [03:05<01:52,  2.96s/it]hysteretic [grid4x4]:  63%|██████▎   | 63/100 [03:07<01:46,  2.87s/it]hysteretic [grid4x4]:  64%|██████▍   | 64/100 [03:10<01:40,  2.80s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e371f70>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 65) | Return: -690176.00
+hysteretic [grid4x4]:  65%|██████▌   | 65/100 [03:14<01:54,  3.28s/it]hysteretic [grid4x4]:  66%|██████▌   | 66/100 [03:17<01:44,  3.09s/it]hysteretic [grid4x4]:  67%|██████▋   | 67/100 [03:19<01:37,  2.95s/it]hysteretic [grid4x4]:  68%|██████▊   | 68/100 [03:22<01:31,  2.85s/it]hysteretic [grid4x4]:  69%|██████▉   | 69/100 [03:25<01:26,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e5186b0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 70) | Return: -910856.00
+hysteretic [grid4x4]:  70%|███████   | 70/100 [03:29<01:37,  3.27s/it]hysteretic [grid4x4]:  71%|███████   | 71/100 [03:32<01:29,  3.07s/it]hysteretic [grid4x4]:  72%|███████▏  | 72/100 [03:34<01:22,  2.93s/it]hysteretic [grid4x4]:  73%|███████▎  | 73/100 [03:37<01:16,  2.84s/it]hysteretic [grid4x4]:  74%|███████▍  | 74/100 [03:40<01:12,  2.77s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e5e66f0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 75) | Return: -907183.00
+hysteretic [grid4x4]:  75%|███████▌  | 75/100 [03:44<01:21,  3.26s/it]hysteretic [grid4x4]:  76%|███████▌  | 76/100 [03:47<01:13,  3.08s/it]hysteretic [grid4x4]:  77%|███████▋  | 77/100 [03:49<01:07,  2.95s/it]hysteretic [grid4x4]:  78%|███████▊  | 78/100 [03:52<01:02,  2.84s/it]hysteretic [grid4x4]:  79%|███████▉  | 79/100 [03:54<00:58,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e4465d0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 80) | Return: -927853.00
+hysteretic [grid4x4]:  80%|████████  | 80/100 [03:59<01:05,  3.26s/it]hysteretic [grid4x4]:  81%|████████  | 81/100 [04:01<00:58,  3.06s/it]hysteretic [grid4x4]:  82%|████████▏ | 82/100 [04:04<00:52,  2.92s/it]hysteretic [grid4x4]:  83%|████████▎ | 83/100 [04:07<00:48,  2.84s/it]hysteretic [grid4x4]:  84%|████████▍ | 84/100 [04:09<00:44,  2.78s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d7624b0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 85) | Return: -846871.00
+hysteretic [grid4x4]:  85%|████████▌ | 85/100 [04:14<00:49,  3.27s/it]hysteretic [grid4x4]:  86%|████████▌ | 86/100 [04:17<00:43,  3.13s/it]hysteretic [grid4x4]:  87%|████████▋ | 87/100 [04:19<00:39,  3.00s/it]hysteretic [grid4x4]:  88%|████████▊ | 88/100 [04:22<00:34,  2.89s/it]hysteretic [grid4x4]:  89%|████████▉ | 89/100 [04:25<00:31,  2.84s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e661ac0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 90) | Return: -941200.00
+hysteretic [grid4x4]:  90%|█████████ | 90/100 [04:29<00:33,  3.32s/it]hysteretic [grid4x4]:  91%|█████████ | 91/100 [04:32<00:28,  3.12s/it]hysteretic [grid4x4]:  92%|█████████▏| 92/100 [04:34<00:23,  2.98s/it]hysteretic [grid4x4]:  93%|█████████▎| 93/100 [04:37<00:20,  2.89s/it]hysteretic [grid4x4]:  94%|█████████▍| 94/100 [04:40<00:16,  2.82s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d84a8a0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 95) | Return: -923098.00
+hysteretic [grid4x4]:  95%|█████████▌| 95/100 [04:44<00:16,  3.32s/it]hysteretic [grid4x4]:  96%|█████████▌| 96/100 [04:47<00:12,  3.12s/it]Warning: Vehicle '98' performs emergency braking on lane ':B0_39_0' with decel=9.00, wished=4.50, severity=1.00, time=612.00.
+hysteretic [grid4x4]:  97%|█████████▋| 97/100 [04:50<00:08,  2.98s/it]hysteretic [grid4x4]:  98%|█████████▊| 98/100 [04:52<00:05,  2.88s/it]hysteretic [grid4x4]:  99%|█████████▉| 99/100 [04:55<00:02,  2.81s/it]/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032d6eeb40>` does not have a `render_mode` defined.
+  warnings.warn(
+--- hysteretic [grid4x4] (ep 100) | Return: -869957.00
+hysteretic [grid4x4]: 100%|██████████| 100/100 [04:59<00:00,  3.29s/it]hysteretic [grid4x4]: 100%|██████████| 100/100 [04:59<00:00,  3.00s/it]
+
+Training complete. Models saved to models/seed4/hysteretic_grid4x4_*.npy
+
+==================================================
+TRAINING VDN [grid4x4] (100 episodes, seed=4)
+==================================================
+VDN [grid4x4]:   0%|          | 0/100 [00:00<?, ?it/s]VDN [grid4x4]:   1%|          | 1/100 [00:02<04:21,  2.64s/it]VDN [grid4x4]:   2%|▏         | 2/100 [00:05<04:20,  2.65s/it]VDN [grid4x4]:   3%|▎         | 3/100 [00:07<04:18,  2.67s/it]VDN [grid4x4]:   4%|▍         | 4/100 [00:10<04:13,  2.64s/it]--- VDN [grid4x4] | Return: -833924.00
+VDN [grid4x4]:   5%|▌         | 5/100 [00:14<05:10,  3.27s/it]VDN [grid4x4]:   6%|▌         | 6/100 [00:17<04:46,  3.05s/it]VDN [grid4x4]:   7%|▋         | 7/100 [00:20<04:29,  2.90s/it]VDN [grid4x4]:   8%|▊         | 8/100 [00:22<04:18,  2.81s/it]VDN [grid4x4]:   9%|▉         | 9/100 [00:25<04:10,  2.75s/it]--- VDN [grid4x4] | Return: -860768.00
+VDN [grid4x4]:  10%|█         | 10/100 [00:29<04:53,  3.26s/it]VDN [grid4x4]:  11%|█         | 11/100 [00:32<04:34,  3.08s/it]VDN [grid4x4]:  12%|█▏        | 12/100 [00:35<04:26,  3.02s/it]VDN [grid4x4]:  13%|█▎        | 13/100 [00:38<04:12,  2.90s/it]VDN [grid4x4]:  14%|█▍        | 14/100 [00:40<04:02,  2.82s/it]--- VDN [grid4x4] | Return: -806059.00
+VDN [grid4x4]:  15%|█▌        | 15/100 [00:44<04:38,  3.27s/it]VDN [grid4x4]:  16%|█▌        | 16/100 [00:47<04:16,  3.06s/it]VDN [grid4x4]:  17%|█▋        | 17/100 [00:50<04:00,  2.90s/it]VDN [grid4x4]:  18%|█▊        | 18/100 [00:52<03:50,  2.81s/it]VDN [grid4x4]:  19%|█▉        | 19/100 [00:55<03:40,  2.72s/it]Warning: Vehicle '71' performs emergency braking on lane ':A1_42_0' with decel=9.00, wished=4.50, severity=1.00, time=496.00.
+--- VDN [grid4x4] | Return: -816761.00
+VDN [grid4x4]:  20%|██        | 20/100 [00:59<04:12,  3.15s/it]VDN [grid4x4]:  21%|██        | 21/100 [01:01<03:52,  2.94s/it]VDN [grid4x4]:  22%|██▏       | 22/100 [01:04<03:37,  2.78s/it]VDN [grid4x4]:  23%|██▎       | 23/100 [01:06<03:27,  2.69s/it]VDN [grid4x4]:  24%|██▍       | 24/100 [01:09<03:18,  2.62s/it]--- VDN [grid4x4] | Return: -795320.00
+VDN [grid4x4]:  25%|██▌       | 25/100 [01:13<03:49,  3.06s/it]VDN [grid4x4]:  26%|██▌       | 26/100 [01:15<03:31,  2.86s/it]VDN [grid4x4]:  27%|██▋       | 27/100 [01:18<03:19,  2.74s/it]VDN [grid4x4]:  28%|██▊       | 28/100 [01:20<03:10,  2.65s/it]VDN [grid4x4]:  29%|██▉       | 29/100 [01:22<03:04,  2.60s/it]--- VDN [grid4x4] | Return: -881071.00
+VDN [grid4x4]:  30%|███       | 30/100 [01:27<03:32,  3.04s/it]VDN [grid4x4]:  31%|███       | 31/100 [01:29<03:17,  2.86s/it]VDN [grid4x4]:  32%|███▏      | 32/100 [01:31<03:04,  2.72s/it]VDN [grid4x4]:  33%|███▎      | 33/100 [01:34<02:56,  2.63s/it]VDN [grid4x4]:  34%|███▍      | 34/100 [01:36<02:48,  2.55s/it]--- VDN [grid4x4] | Return: -938931.00
+VDN [grid4x4]:  35%|███▌      | 35/100 [01:40<03:13,  2.98s/it]VDN [grid4x4]:  36%|███▌      | 36/100 [01:43<02:58,  2.79s/it]VDN [grid4x4]:  37%|███▋      | 37/100 [01:45<02:47,  2.66s/it]VDN [grid4x4]:  38%|███▊      | 38/100 [01:47<02:39,  2.57s/it]VDN [grid4x4]:  39%|███▉      | 39/100 [01:50<02:33,  2.52s/it]--- VDN [grid4x4] | Return: -772459.00
+VDN [grid4x4]:  40%|████      | 40/100 [01:54<02:58,  2.97s/it]VDN [grid4x4]:  41%|████      | 41/100 [01:56<02:44,  2.79s/it]VDN [grid4x4]:  42%|████▏     | 42/100 [01:58<02:35,  2.68s/it]VDN [grid4x4]:  43%|████▎     | 43/100 [02:01<02:27,  2.59s/it]VDN [grid4x4]:  44%|████▍     | 44/100 [02:03<02:22,  2.54s/it]--- VDN [grid4x4] | Return: -618364.00
+VDN [grid4x4]:  45%|████▌     | 45/100 [02:07<02:43,  2.97s/it]VDN [grid4x4]:  46%|████▌     | 46/100 [02:10<02:31,  2.80s/it]VDN [grid4x4]:  47%|████▋     | 47/100 [02:12<02:21,  2.67s/it]Warning: Vehicle '71' performs emergency braking on lane ':A1_42_0' with decel=9.00, wished=4.50, severity=1.00, time=498.00.
+VDN [grid4x4]:  48%|████▊     | 48/100 [02:14<02:14,  2.59s/it]VDN [grid4x4]:  49%|████▉     | 49/100 [02:17<02:09,  2.54s/it]--- VDN [grid4x4] | Return: -851335.00
+VDN [grid4x4]:  50%|█████     | 50/100 [02:21<02:29,  2.99s/it]VDN [grid4x4]:  51%|█████     | 51/100 [02:23<02:17,  2.82s/it]VDN [grid4x4]:  52%|█████▏    | 52/100 [02:26<02:09,  2.71s/it]VDN [grid4x4]:  53%|█████▎    | 53/100 [02:28<02:03,  2.62s/it]VDN [grid4x4]:  54%|█████▍    | 54/100 [02:31<01:57,  2.56s/it]--- VDN [grid4x4] | Return: -782479.00
+VDN [grid4x4]:  55%|█████▌    | 55/100 [02:35<02:15,  3.00s/it]VDN [grid4x4]:  56%|█████▌    | 56/100 [02:37<02:04,  2.82s/it]VDN [grid4x4]:  57%|█████▋    | 57/100 [02:39<01:55,  2.69s/it]VDN [grid4x4]:  58%|█████▊    | 58/100 [02:42<01:49,  2.62s/it]VDN [grid4x4]:  59%|█████▉    | 59/100 [02:44<01:45,  2.57s/it]--- VDN [grid4x4] | Return: -783154.00
+VDN [grid4x4]:  60%|██████    | 60/100 [02:48<02:00,  3.01s/it]VDN [grid4x4]:  61%|██████    | 61/100 [02:51<01:50,  2.84s/it]VDN [grid4x4]:  62%|██████▏   | 62/100 [02:53<01:43,  2.73s/it]VDN [grid4x4]:  63%|██████▎   | 63/100 [02:56<01:38,  2.65s/it]VDN [grid4x4]:  64%|██████▍   | 64/100 [02:58<01:33,  2.59s/it]--- VDN [grid4x4] | Return: -785990.00
+VDN [grid4x4]:  65%|██████▌   | 65/100 [03:02<01:46,  3.04s/it]VDN [grid4x4]:  66%|██████▌   | 66/100 [03:05<01:37,  2.87s/it]VDN [grid4x4]:  67%|██████▋   | 67/100 [03:07<01:30,  2.75s/it]VDN [grid4x4]:  68%|██████▊   | 68/100 [03:10<01:25,  2.68s/it]Warning: Vehicle '143' performs emergency braking on lane ':D1_36_0' with decel=9.00, wished=4.50, severity=1.00, time=931.00.
+VDN [grid4x4]:  69%|██████▉   | 69/100 [03:12<01:21,  2.62s/it]--- VDN [grid4x4] | Return: -752980.00
+VDN [grid4x4]:  70%|███████   | 70/100 [03:16<01:31,  3.07s/it]VDN [grid4x4]:  71%|███████   | 71/100 [03:19<01:23,  2.88s/it]VDN [grid4x4]:  72%|███████▏  | 72/100 [03:21<01:17,  2.78s/it]VDN [grid4x4]:  73%|███████▎  | 73/100 [03:24<01:12,  2.70s/it]Warning: Vehicle '141' performs emergency braking on lane ':A0_42_0' with decel=9.00, wished=4.50, severity=1.00, time=627.00.
+VDN [grid4x4]:  74%|███████▍  | 74/100 [03:26<01:09,  2.66s/it]--- VDN [grid4x4] | Return: -753870.00
+VDN [grid4x4]:  75%|███████▌  | 75/100 [03:31<01:18,  3.13s/it]VDN [grid4x4]:  76%|███████▌  | 76/100 [03:33<01:10,  2.96s/it]VDN [grid4x4]:  77%|███████▋  | 77/100 [03:36<01:05,  2.85s/it]VDN [grid4x4]:  78%|███████▊  | 78/100 [03:38<01:00,  2.76s/it]VDN [grid4x4]:  79%|███████▉  | 79/100 [03:41<00:56,  2.70s/it]--- VDN [grid4x4] | Return: -715486.00
+VDN [grid4x4]:  80%|████████  | 80/100 [03:45<01:03,  3.15s/it]VDN [grid4x4]:  81%|████████  | 81/100 [03:48<00:56,  2.98s/it]VDN [grid4x4]:  82%|████████▏ | 82/100 [03:50<00:51,  2.85s/it]VDN [grid4x4]:  83%|████████▎ | 83/100 [03:53<00:46,  2.75s/it]VDN [grid4x4]:  84%|████████▍ | 84/100 [03:55<00:43,  2.70s/it]--- VDN [grid4x4] | Return: -662467.00
+VDN [grid4x4]:  85%|████████▌ | 85/100 [04:00<00:47,  3.16s/it]VDN [grid4x4]:  86%|████████▌ | 86/100 [04:02<00:41,  2.97s/it]VDN [grid4x4]:  87%|████████▋ | 87/100 [04:05<00:36,  2.82s/it]VDN [grid4x4]:  88%|████████▊ | 88/100 [04:07<00:32,  2.72s/it]VDN [grid4x4]:  89%|████████▉ | 89/100 [04:09<00:29,  2.64s/it]--- VDN [grid4x4] | Return: -703545.00
+VDN [grid4x4]:  90%|█████████ | 90/100 [04:14<00:30,  3.08s/it]VDN [grid4x4]:  91%|█████████ | 91/100 [04:16<00:25,  2.87s/it]VDN [grid4x4]:  92%|█████████▏| 92/100 [04:18<00:21,  2.73s/it]VDN [grid4x4]:  93%|█████████▎| 93/100 [04:21<00:18,  2.64s/it]VDN [grid4x4]:  94%|█████████▍| 94/100 [04:23<00:15,  2.58s/it]--- VDN [grid4x4] | Return: -744125.00
+VDN [grid4x4]:  95%|█████████▌| 95/100 [04:27<00:15,  3.00s/it]VDN [grid4x4]:  96%|█████████▌| 96/100 [04:30<00:11,  2.82s/it]VDN [grid4x4]:  97%|█████████▋| 97/100 [04:32<00:08,  2.70s/it]VDN [grid4x4]:  98%|█████████▊| 98/100 [04:34<00:05,  2.60s/it]VDN [grid4x4]:  99%|█████████▉| 99/100 [04:37<00:02,  2.53s/it]--- VDN [grid4x4] | Return: -692875.00
+VDN [grid4x4]: 100%|██████████| 100/100 [04:41<00:00,  2.96s/it]VDN [grid4x4]: 100%|██████████| 100/100 [04:41<00:00,  2.81s/it]
+
+VDN training complete. Models saved to models/seed4/vdn_grid4x4_*.npy
+--- Fixed-Native [grid4x4] | Return: -31433.00
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032e68b560>` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup_resco.GlobalRewardWrapperResco object at 0x7f032dfe8bc0>` does not have a `render_mode` defined.
+  warnings.warn(
+--- Fixed-RoundRobin [grid4x4] | Return: -46443.00
+Saved outputs/seeds/training_evaluation_log_grid4x4_seed4.csv
+
+=== DONE seed=4 scenario=grid4x4 at 2026-06-09T18:13:37.460162 ===
+Exception ignored in: Exception ignored in sys.unraisablehook--- MMDP Array Finish (exit 120) ---
+Tue 09 Jun 2026 18:13:38 IDT

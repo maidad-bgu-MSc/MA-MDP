@@ -1,0 +1,11 @@
+scenario,episode,eval_reward
+baseline,20,-30775.0
+baseline,40,-76650.0
+baseline,60,-45683.0
+baseline,80,-35413.0
+baseline,100,-25188.0
+baseline,120,-25343.0
+baseline,140,-24922.0
+baseline,160,-25755.0
+baseline,180,-21352.0
+baseline,200,-24332.0

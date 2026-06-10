@@ -1,0 +1,11 @@
+scenario,episode,eval_reward
+cross_surge,20,-1415069.0
+cross_surge,40,-2022666.0
+cross_surge,60,-120338.0
+cross_surge,80,-87330.0
+cross_surge,100,-88971.0
+cross_surge,120,-124336.0
+cross_surge,140,-92366.0
+cross_surge,160,-85519.0
+cross_surge,180,-83944.0
+cross_surge,200,-85865.0

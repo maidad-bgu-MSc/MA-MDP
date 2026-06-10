@@ -1,0 +1,1043 @@
+=== run_seeded_experiment.py seed=2 scenario=baseline started 2026-06-09T00:54:44.667494 ===
+
+============================================================
+SCENARIO: BASELINE  (seed=2)
+============================================================
+
+==================================================
+TRAINING IQL_TABULAR [baseline] (100 episodes, seed=2)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9004199280>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+iql_tabular [baseline]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+iql_tabular [baseline]:   1%|          | 1/100 [00:14<23:19, 14.13s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   2%|▏         | 2/100 [00:29<23:49, 14.59s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   3%|▎         | 3/100 [00:43<23:21, 14.45s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   4%|▍         | 4/100 [00:59<24:15, 15.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90015aaae0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 5) | Return: -261303.00
+iql_tabular [baseline]:   5%|▌         | 5/100 [01:25<30:01, 18.97s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   6%|▌         | 6/100 [01:41<28:03, 17.91s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   7%|▋         | 7/100 [01:56<26:30, 17.10s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   8%|▊         | 8/100 [02:11<25:18, 16.51s/it] Retrying in 1 seconds
+iql_tabular [baseline]:   9%|▉         | 9/100 [02:27<24:36, 16.22s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9001588bc0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 10) | Return: -77036.00
+iql_tabular [baseline]:  10%|█         | 10/100 [02:53<28:50, 19.23s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  11%|█         | 11/100 [03:08<26:47, 18.07s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  12%|█▏        | 12/100 [03:24<25:24, 17.33s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  13%|█▎        | 13/100 [03:39<24:07, 16.64s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  14%|█▍        | 14/100 [03:55<23:26, 16.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000cb41d0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 15) | Return: -42641.00
+iql_tabular [baseline]:  15%|█▌        | 15/100 [04:19<26:39, 18.81s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  16%|█▌        | 16/100 [04:35<25:06, 17.93s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  17%|█▋        | 17/100 [04:50<23:30, 16.99s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  18%|█▊        | 18/100 [05:04<21:57, 16.07s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  19%|█▉        | 19/100 [05:20<21:39, 16.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9001625dc0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 20) | Return: -51829.00
+iql_tabular [baseline]:  20%|██        | 20/100 [05:44<24:39, 18.50s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  21%|██        | 21/100 [05:59<23:02, 17.50s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  22%|██▏       | 22/100 [06:14<21:51, 16.81s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  23%|██▎       | 23/100 [06:30<20:58, 16.35s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  24%|██▍       | 24/100 [06:45<20:22, 16.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90016264e0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 25) | Return: -94866.00
+iql_tabular [baseline]:  25%|██▌       | 25/100 [07:11<23:39, 18.93s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  26%|██▌       | 26/100 [07:26<22:07, 17.94s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  27%|██▋       | 27/100 [07:41<20:44, 17.05s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  28%|██▊       | 28/100 [07:56<19:41, 16.40s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  29%|██▉       | 29/100 [08:12<19:03, 16.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900160f740>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 30) | Return: -70792.00
+iql_tabular [baseline]:  30%|███       | 30/100 [08:37<21:54, 18.78s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  31%|███       | 31/100 [08:51<20:05, 17.47s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  32%|███▏      | 32/100 [09:06<18:48, 16.59s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  33%|███▎      | 33/100 [09:21<18:11, 16.29s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  34%|███▍      | 34/100 [09:36<17:20, 15.77s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000d00e90>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 35) | Return: -107346.00
+iql_tabular [baseline]:  35%|███▌      | 35/100 [10:01<20:19, 18.76s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  36%|███▌      | 36/100 [10:17<18:58, 17.78s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  37%|███▋      | 37/100 [10:32<17:46, 16.92s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  38%|███▊      | 38/100 [10:48<17:05, 16.54s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  39%|███▉      | 39/100 [11:01<15:54, 15.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90016248f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 40) | Return: -69576.00
+iql_tabular [baseline]:  40%|████      | 40/100 [11:25<18:09, 18.16s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  41%|████      | 41/100 [11:39<16:38, 16.92s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  42%|████▏     | 42/100 [11:55<15:54, 16.45s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  43%|████▎     | 43/100 [12:10<15:28, 16.28s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  44%|████▍     | 44/100 [12:26<15:01, 16.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c1d700>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 45) | Return: -146494.00
+iql_tabular [baseline]:  45%|████▌     | 45/100 [12:52<17:35, 19.20s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  46%|████▌     | 46/100 [13:07<16:00, 17.80s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  47%|████▋     | 47/100 [13:21<14:47, 16.75s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  48%|████▊     | 48/100 [13:36<14:05, 16.27s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  49%|████▉     | 49/100 [13:51<13:20, 15.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000b8fd70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 50) | Return: -65056.00
+iql_tabular [baseline]:  50%|█████     | 50/100 [14:15<15:17, 18.36s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  51%|█████     | 51/100 [14:31<14:15, 17.46s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  52%|█████▏    | 52/100 [14:46<13:28, 16.83s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  53%|█████▎    | 53/100 [15:02<13:02, 16.65s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  54%|█████▍    | 54/100 [15:16<12:07, 15.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900158a960>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 55) | Return: -160220.00
+iql_tabular [baseline]:  55%|█████▌    | 55/100 [15:41<13:51, 18.48s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  56%|█████▌    | 56/100 [15:56<12:47, 17.43s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  57%|█████▋    | 57/100 [16:11<11:54, 16.62s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  58%|█████▊    | 58/100 [16:27<11:29, 16.42s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  59%|█████▉    | 59/100 [16:42<10:54, 15.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9001625f70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 60) | Return: -1467399.00
+iql_tabular [baseline]:  60%|██████    | 60/100 [17:08<12:44, 19.10s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  61%|██████    | 61/100 [17:22<11:28, 17.67s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  62%|██████▏   | 62/100 [17:37<10:38, 16.81s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  63%|██████▎   | 63/100 [17:52<10:06, 16.38s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  64%|██████▍   | 64/100 [18:07<09:34, 15.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000b8f050>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 65) | Return: -424404.00
+iql_tabular [baseline]:  65%|██████▌   | 65/100 [18:34<11:06, 19.05s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  66%|██████▌   | 66/100 [18:48<10:03, 17.74s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  67%|██████▋   | 67/100 [19:05<09:36, 17.48s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  68%|██████▊   | 68/100 [19:21<09:01, 16.91s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  69%|██████▉   | 69/100 [19:35<08:15, 15.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000cf0ce0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 70) | Return: -50306.00
+iql_tabular [baseline]:  70%|███████   | 70/100 [19:59<09:19, 18.64s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  71%|███████   | 71/100 [20:15<08:29, 17.57s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  72%|███████▏  | 72/100 [20:29<07:47, 16.70s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  73%|███████▎  | 73/100 [20:44<07:18, 16.25s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  74%|███████▍  | 74/100 [20:59<06:53, 15.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000a9b680>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 75) | Return: -655228.00
+iql_tabular [baseline]:  75%|███████▌  | 75/100 [21:25<07:48, 18.73s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  76%|███████▌  | 76/100 [21:40<07:06, 17.79s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  77%|███████▋  | 77/100 [21:56<06:32, 17.08s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  78%|███████▊  | 78/100 [22:10<05:58, 16.31s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  79%|███████▉  | 79/100 [22:26<05:37, 16.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900158d5b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 80) | Return: -232582.00
+iql_tabular [baseline]:  80%|████████  | 80/100 [22:52<06:21, 19.07s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  81%|████████  | 81/100 [23:07<05:39, 17.87s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  82%|████████▏ | 82/100 [23:23<05:12, 17.36s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  83%|████████▎ | 83/100 [23:39<04:45, 16.79s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  84%|████████▍ | 84/100 [23:54<04:19, 16.22s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900171ac00>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 85) | Return: -82167.00
+iql_tabular [baseline]:  85%|████████▌ | 85/100 [24:17<04:37, 18.50s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  86%|████████▌ | 86/100 [24:32<04:02, 17.35s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  87%|████████▋ | 87/100 [24:46<03:33, 16.40s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  88%|████████▊ | 88/100 [25:01<03:12, 16.04s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  89%|████████▉ | 89/100 [25:16<02:52, 15.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000ac2330>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 90) | Return: -86309.00
+iql_tabular [baseline]:  90%|█████████ | 90/100 [25:42<03:07, 18.79s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  91%|█████████ | 91/100 [25:57<02:37, 17.47s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  92%|█████████▏| 92/100 [26:12<02:13, 16.73s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  93%|█████████▎| 93/100 [26:27<01:53, 16.15s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  94%|█████████▍| 94/100 [26:41<01:34, 15.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c1bcb0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 95) | Return: -236154.00
+iql_tabular [baseline]:  95%|█████████▌| 95/100 [27:07<01:34, 18.86s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  96%|█████████▌| 96/100 [27:23<01:11, 17.97s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  97%|█████████▋| 97/100 [27:40<00:52, 17.49s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  98%|█████████▊| 98/100 [27:55<00:33, 16.81s/it] Retrying in 1 seconds
+iql_tabular [baseline]:  99%|█████████▉| 99/100 [28:11<00:16, 16.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000aba840>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [baseline] (ep 100) | Return: -61529.00
+iql_tabular [baseline]: 100%|██████████| 100/100 [28:36<00:00, 19.10s/it]iql_tabular [baseline]: 100%|██████████| 100/100 [28:36<00:00, 17.17s/it]
+
+Training complete. Models saved to models/seed2/iql_tabular_baseline_*.npy
+
+==================================================
+TRAINING HYSTERETIC [baseline] (100 episodes, seed=2)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000b8d1f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+hysteretic [baseline]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+hysteretic [baseline]:   1%|          | 1/100 [00:15<26:15, 15.91s/it] Retrying in 1 seconds
+hysteretic [baseline]:   2%|▏         | 2/100 [00:30<24:36, 15.06s/it] Retrying in 1 seconds
+hysteretic [baseline]:   3%|▎         | 3/100 [00:45<24:01, 14.86s/it] Retrying in 1 seconds
+hysteretic [baseline]:   4%|▍         | 4/100 [01:00<24:23, 15.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c11490>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 5) | Return: -584229.00
+hysteretic [baseline]:   5%|▌         | 5/100 [01:27<30:30, 19.27s/it] Retrying in 1 seconds
+hysteretic [baseline]:   6%|▌         | 6/100 [01:42<28:09, 17.97s/it] Retrying in 1 seconds
+hysteretic [baseline]:   7%|▋         | 7/100 [01:58<26:41, 17.22s/it] Retrying in 1 seconds
+hysteretic [baseline]:   8%|▊         | 8/100 [02:13<25:09, 16.41s/it] Retrying in 1 seconds
+hysteretic [baseline]:   9%|▉         | 9/100 [02:29<24:54, 16.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000a1af30>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 10) | Return: -50677.00
+hysteretic [baseline]:  10%|█         | 10/100 [02:54<28:28, 18.98s/it] Retrying in 1 seconds
+hysteretic [baseline]:  11%|█         | 11/100 [03:10<26:49, 18.08s/it] Retrying in 1 seconds
+hysteretic [baseline]:  12%|█▏        | 12/100 [03:25<25:11, 17.17s/it] Retrying in 1 seconds
+hysteretic [baseline]:  13%|█▎        | 13/100 [03:40<24:08, 16.65s/it] Retrying in 1 seconds
+hysteretic [baseline]:  14%|█▍        | 14/100 [03:56<23:27, 16.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000951910>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 15) | Return: -69354.00
+hysteretic [baseline]:  15%|█▌        | 15/100 [04:21<26:54, 18.99s/it] Retrying in 1 seconds
+hysteretic [baseline]:  16%|█▌        | 16/100 [04:36<24:51, 17.75s/it] Retrying in 1 seconds
+hysteretic [baseline]:  17%|█▋        | 17/100 [04:50<23:08, 16.73s/it] Retrying in 1 seconds
+hysteretic [baseline]:  18%|█▊        | 18/100 [05:06<22:14, 16.27s/it] Retrying in 1 seconds
+hysteretic [baseline]:  19%|█▉        | 19/100 [05:20<21:21, 15.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000a3c920>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 20) | Return: -77543.00
+hysteretic [baseline]:  20%|██        | 20/100 [05:46<24:57, 18.72s/it] Retrying in 1 seconds
+hysteretic [baseline]:  21%|██        | 21/100 [06:00<23:00, 17.48s/it] Retrying in 1 seconds
+hysteretic [baseline]:  22%|██▏       | 22/100 [06:16<22:00, 16.93s/it] Retrying in 1 seconds
+hysteretic [baseline]:  23%|██▎       | 23/100 [06:32<21:19, 16.62s/it] Retrying in 1 seconds
+hysteretic [baseline]:  24%|██▍       | 24/100 [06:47<20:22, 16.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90009c1e80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 25) | Return: -203259.00
+hysteretic [baseline]:  25%|██▌       | 25/100 [07:12<23:36, 18.88s/it] Retrying in 1 seconds
+hysteretic [baseline]:  26%|██▌       | 26/100 [07:28<21:59, 17.83s/it] Retrying in 1 seconds
+hysteretic [baseline]:  27%|██▋       | 27/100 [07:44<21:21, 17.55s/it] Retrying in 1 seconds
+hysteretic [baseline]:  28%|██▊       | 28/100 [08:00<20:17, 16.92s/it] Retrying in 1 seconds
+hysteretic [baseline]:  29%|██▉       | 29/100 [08:15<19:32, 16.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c10260>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 30) | Return: -84071.00
+hysteretic [baseline]:  30%|███       | 30/100 [08:41<22:20, 19.15s/it] Retrying in 1 seconds
+hysteretic [baseline]:  31%|███       | 31/100 [08:55<20:30, 17.83s/it] Retrying in 1 seconds
+hysteretic [baseline]:  32%|███▏      | 32/100 [09:11<19:17, 17.02s/it] Retrying in 1 seconds
+hysteretic [baseline]:  33%|███▎      | 33/100 [09:26<18:28, 16.55s/it] Retrying in 1 seconds
+hysteretic [baseline]:  34%|███▍      | 34/100 [09:42<18:02, 16.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c41cd0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 35) | Return: -63714.00
+hysteretic [baseline]:  35%|███▌      | 35/100 [10:08<20:50, 19.24s/it] Retrying in 1 seconds
+hysteretic [baseline]:  36%|███▌      | 36/100 [10:24<19:35, 18.37s/it] Retrying in 1 seconds
+hysteretic [baseline]:  37%|███▋      | 37/100 [10:41<18:40, 17.79s/it] Retrying in 1 seconds
+hysteretic [baseline]:  38%|███▊      | 38/100 [10:56<17:37, 17.05s/it] Retrying in 1 seconds
+hysteretic [baseline]:  39%|███▉      | 39/100 [11:11<16:40, 16.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c1d040>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 40) | Return: -66280.00
+hysteretic [baseline]:  40%|████      | 40/100 [11:36<19:02, 19.04s/it] Retrying in 1 seconds
+hysteretic [baseline]:  41%|████      | 41/100 [11:51<17:30, 17.80s/it] Retrying in 1 seconds
+hysteretic [baseline]:  42%|████▏     | 42/100 [12:06<16:19, 16.88s/it] Retrying in 1 seconds
+hysteretic [baseline]:  43%|████▎     | 43/100 [12:21<15:29, 16.31s/it] Retrying in 1 seconds
+hysteretic [baseline]:  44%|████▍     | 44/100 [12:36<14:49, 15.88s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9001744830>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 45) | Return: -77046.00
+hysteretic [baseline]:  45%|████▌     | 45/100 [13:02<17:20, 18.91s/it] Retrying in 1 seconds
+hysteretic [baseline]:  46%|████▌     | 46/100 [13:17<16:06, 17.89s/it] Retrying in 1 seconds
+hysteretic [baseline]:  47%|████▋     | 47/100 [13:32<14:53, 16.85s/it] Retrying in 1 seconds
+hysteretic [baseline]:  48%|████▊     | 48/100 [13:47<14:14, 16.43s/it] Retrying in 1 seconds
+hysteretic [baseline]:  49%|████▉     | 49/100 [14:03<13:47, 16.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000938110>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 50) | Return: -88417.00
+hysteretic [baseline]:  50%|█████     | 50/100 [14:28<15:53, 19.08s/it] Retrying in 1 seconds
+hysteretic [baseline]:  51%|█████     | 51/100 [14:45<14:50, 18.17s/it] Retrying in 1 seconds
+hysteretic [baseline]:  52%|█████▏    | 52/100 [14:59<13:38, 17.06s/it] Retrying in 1 seconds
+hysteretic [baseline]:  53%|█████▎    | 53/100 [15:14<12:49, 16.37s/it] Retrying in 1 seconds
+hysteretic [baseline]:  54%|█████▍    | 54/100 [15:28<12:03, 15.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90009bbfe0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 55) | Return: -71192.00
+hysteretic [baseline]:  55%|█████▌    | 55/100 [15:53<13:49, 18.43s/it] Retrying in 1 seconds
+hysteretic [baseline]:  56%|█████▌    | 56/100 [16:08<12:45, 17.40s/it] Retrying in 1 seconds
+hysteretic [baseline]:  57%|█████▋    | 57/100 [16:23<11:55, 16.64s/it] Retrying in 1 seconds
+hysteretic [baseline]:  58%|█████▊    | 58/100 [16:38<11:20, 16.19s/it] Retrying in 1 seconds
+hysteretic [baseline]:  59%|█████▉    | 59/100 [16:53<10:54, 15.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000a1a990>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 60) | Return: -105028.00
+hysteretic [baseline]:  60%|██████    | 60/100 [17:19<12:36, 18.91s/it] Retrying in 1 seconds
+hysteretic [baseline]:  61%|██████    | 61/100 [17:34<11:37, 17.89s/it] Retrying in 1 seconds
+hysteretic [baseline]:  62%|██████▏   | 62/100 [17:50<10:51, 17.15s/it] Retrying in 1 seconds
+hysteretic [baseline]:  63%|██████▎   | 63/100 [18:05<10:08, 16.44s/it] Retrying in 1 seconds
+hysteretic [baseline]:  64%|██████▍   | 64/100 [18:19<09:25, 15.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90009c1310>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 65) | Return: -71380.00
+hysteretic [baseline]:  65%|██████▌   | 65/100 [18:44<10:50, 18.59s/it] Retrying in 1 seconds
+hysteretic [baseline]:  66%|██████▌   | 66/100 [18:59<09:58, 17.61s/it] Retrying in 1 seconds
+hysteretic [baseline]:  67%|██████▋   | 67/100 [19:14<09:11, 16.70s/it] Retrying in 1 seconds
+hysteretic [baseline]:  68%|██████▊   | 68/100 [19:29<08:41, 16.29s/it] Retrying in 1 seconds
+hysteretic [baseline]:  69%|██████▉   | 69/100 [19:45<08:15, 15.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000cf3c80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 70) | Return: -146988.00
+hysteretic [baseline]:  70%|███████   | 70/100 [20:11<09:36, 19.20s/it] Retrying in 1 seconds
+hysteretic [baseline]:  71%|███████   | 71/100 [20:27<08:47, 18.20s/it] Retrying in 1 seconds
+hysteretic [baseline]:  72%|███████▏  | 72/100 [20:42<08:04, 17.31s/it] Retrying in 1 seconds
+hysteretic [baseline]:  73%|███████▎  | 73/100 [20:57<07:28, 16.61s/it] Retrying in 1 seconds
+hysteretic [baseline]:  74%|███████▍  | 74/100 [21:13<07:08, 16.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000cf0890>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 75) | Return: -120264.00
+hysteretic [baseline]:  75%|███████▌  | 75/100 [21:40<08:04, 19.39s/it] Retrying in 1 seconds
+hysteretic [baseline]:  76%|███████▌  | 76/100 [21:55<07:16, 18.18s/it] Retrying in 1 seconds
+hysteretic [baseline]:  77%|███████▋  | 77/100 [22:10<06:35, 17.18s/it] Retrying in 1 seconds
+hysteretic [baseline]:  78%|███████▊  | 78/100 [22:24<05:56, 16.22s/it] Retrying in 1 seconds
+hysteretic [baseline]:  79%|███████▉  | 79/100 [22:39<05:36, 16.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900078d100>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 80) | Return: -54378.00
+hysteretic [baseline]:  80%|████████  | 80/100 [23:04<06:13, 18.67s/it] Retrying in 1 seconds
+hysteretic [baseline]:  81%|████████  | 81/100 [23:20<05:35, 17.67s/it] Retrying in 1 seconds
+hysteretic [baseline]:  82%|████████▏ | 82/100 [23:34<05:01, 16.76s/it] Retrying in 1 seconds
+hysteretic [baseline]:  83%|████████▎ | 83/100 [23:49<04:33, 16.06s/it] Retrying in 1 seconds
+hysteretic [baseline]:  84%|████████▍ | 84/100 [24:03<04:10, 15.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000759010>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 85) | Return: -142646.00
+hysteretic [baseline]:  85%|████████▌ | 85/100 [24:29<04:39, 18.65s/it] Retrying in 1 seconds
+hysteretic [baseline]:  86%|████████▌ | 86/100 [24:44<04:04, 17.46s/it] Retrying in 1 seconds
+hysteretic [baseline]:  87%|████████▋ | 87/100 [24:59<03:38, 16.79s/it] Retrying in 1 seconds
+hysteretic [baseline]:  88%|████████▊ | 88/100 [25:14<03:15, 16.28s/it] Retrying in 1 seconds
+hysteretic [baseline]:  89%|████████▉ | 89/100 [25:28<02:53, 15.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000c1e570>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 90) | Return: -81144.00
+hysteretic [baseline]:  90%|█████████ | 90/100 [25:54<03:06, 18.66s/it] Retrying in 1 seconds
+hysteretic [baseline]:  91%|█████████ | 91/100 [26:09<02:38, 17.58s/it] Retrying in 1 seconds
+hysteretic [baseline]:  92%|█████████▏| 92/100 [26:24<02:13, 16.66s/it] Retrying in 1 seconds
+hysteretic [baseline]:  93%|█████████▎| 93/100 [26:38<01:52, 16.02s/it] Retrying in 1 seconds
+hysteretic [baseline]:  94%|█████████▍| 94/100 [26:53<01:33, 15.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f9000805fd0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 95) | Return: -181151.00
+hysteretic [baseline]:  95%|█████████▌| 95/100 [27:18<01:32, 18.47s/it] Retrying in 1 seconds
+hysteretic [baseline]:  96%|█████████▌| 96/100 [27:33<01:09, 17.33s/it] Retrying in 1 seconds
+hysteretic [baseline]:  97%|█████████▋| 97/100 [27:47<00:49, 16.44s/it] Retrying in 1 seconds
+hysteretic [baseline]:  98%|█████████▊| 98/100 [28:02<00:31, 15.96s/it] Retrying in 1 seconds
+hysteretic [baseline]:  99%|█████████▉| 99/100 [28:17<00:15, 15.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f900077ede0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [baseline] (ep 100) | Return: -59359.00
+hysteretic [baseline]: 100%|██████████| 100/100 [28:43<00:00, 18.77s/it]hysteretic [baseline]: 100%|██████████| 100/100 [28:43<00:00, 17.23s/it]
+
+Training complete. Models saved to models/seed2/hysteretic_baseline_*.npy
+
+==================================================
+TRAINING VDN [baseline] (100 episodes, seed=2)
+==================================================
+ Retrying in 1 seconds
+VDN [baseline]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+VDN [baseline]:   1%|          | 1/100 [00:15<24:45, 15.00s/it] Retrying in 1 seconds
+VDN [baseline]:   2%|▏         | 2/100 [00:30<25:19, 15.51s/it] Retrying in 1 seconds
+VDN [baseline]:   3%|▎         | 3/100 [00:47<26:02, 16.10s/it] Retrying in 1 seconds
+VDN [baseline]:   4%|▍         | 4/100 [01:02<24:42, 15.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -91318.00
+VDN [baseline]:   5%|▌         | 5/100 [01:29<31:13, 19.72s/it] Retrying in 1 seconds
+VDN [baseline]:   6%|▌         | 6/100 [01:45<28:57, 18.48s/it] Retrying in 1 seconds
+VDN [baseline]:   7%|▋         | 7/100 [02:01<27:24, 17.68s/it] Retrying in 1 seconds
+VDN [baseline]:   8%|▊         | 8/100 [02:16<25:55, 16.91s/it] Retrying in 1 seconds
+VDN [baseline]:   9%|▉         | 9/100 [02:31<24:48, 16.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -66953.00
+VDN [baseline]:  10%|█         | 10/100 [02:56<28:25, 18.95s/it] Retrying in 1 seconds
+VDN [baseline]:  11%|█         | 11/100 [03:12<26:37, 17.95s/it] Retrying in 1 seconds
+VDN [baseline]:  12%|█▏        | 12/100 [03:27<24:52, 16.96s/it] Retrying in 1 seconds
+VDN [baseline]:  13%|█▎        | 13/100 [03:42<23:52, 16.47s/it] Retrying in 1 seconds
+VDN [baseline]:  14%|█▍        | 14/100 [03:57<23:04, 16.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -81977.00
+VDN [baseline]:  15%|█▌        | 15/100 [04:22<26:43, 18.87s/it] Retrying in 1 seconds
+VDN [baseline]:  16%|█▌        | 16/100 [04:37<24:47, 17.71s/it] Retrying in 1 seconds
+VDN [baseline]:  17%|█▋        | 17/100 [04:53<23:39, 17.10s/it] Retrying in 1 seconds
+VDN [baseline]:  18%|█▊        | 18/100 [05:09<22:39, 16.59s/it] Retrying in 1 seconds
+VDN [baseline]:  19%|█▉        | 19/100 [05:23<21:42, 16.08s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -73186.00
+VDN [baseline]:  20%|██        | 20/100 [05:49<25:19, 19.00s/it] Retrying in 1 seconds
+VDN [baseline]:  21%|██        | 21/100 [06:04<23:31, 17.87s/it] Retrying in 1 seconds
+VDN [baseline]:  22%|██▏       | 22/100 [06:19<22:00, 16.93s/it] Retrying in 1 seconds
+VDN [baseline]:  23%|██▎       | 23/100 [06:33<20:42, 16.13s/it] Retrying in 1 seconds
+VDN [baseline]:  24%|██▍       | 24/100 [06:49<20:12, 15.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -175038.00
+VDN [baseline]:  25%|██▌       | 25/100 [07:15<23:45, 19.01s/it] Retrying in 1 seconds
+VDN [baseline]:  26%|██▌       | 26/100 [07:31<22:16, 18.07s/it] Retrying in 1 seconds
+VDN [baseline]:  27%|██▋       | 27/100 [07:47<21:11, 17.42s/it] Retrying in 1 seconds
+VDN [baseline]:  28%|██▊       | 28/100 [08:02<20:05, 16.74s/it] Retrying in 1 seconds
+VDN [baseline]:  29%|██▉       | 29/100 [08:18<19:21, 16.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -78057.00
+VDN [baseline]:  30%|███       | 30/100 [08:43<22:22, 19.17s/it] Retrying in 1 seconds
+VDN [baseline]:  31%|███       | 31/100 [08:58<20:23, 17.74s/it] Retrying in 1 seconds
+VDN [baseline]:  32%|███▏      | 32/100 [09:12<18:58, 16.75s/it] Retrying in 1 seconds
+VDN [baseline]:  33%|███▎      | 33/100 [09:27<17:55, 16.05s/it] Retrying in 1 seconds
+VDN [baseline]:  34%|███▍      | 34/100 [09:42<17:24, 15.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -66473.00
+VDN [baseline]:  35%|███▌      | 35/100 [10:06<19:53, 18.37s/it] Retrying in 1 seconds
+VDN [baseline]:  36%|███▌      | 36/100 [10:20<18:18, 17.16s/it] Retrying in 1 seconds
+VDN [baseline]:  37%|███▋      | 37/100 [10:35<17:01, 16.22s/it] Retrying in 1 seconds
+VDN [baseline]:  38%|███▊      | 38/100 [10:49<16:15, 15.73s/it] Retrying in 1 seconds
+VDN [baseline]:  39%|███▉      | 39/100 [11:03<15:18, 15.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -115430.00
+VDN [baseline]:  40%|████      | 40/100 [11:27<17:54, 17.90s/it] Retrying in 1 seconds
+VDN [baseline]:  41%|████      | 41/100 [11:42<16:34, 16.85s/it] Retrying in 1 seconds
+VDN [baseline]:  42%|████▏     | 42/100 [11:56<15:44, 16.28s/it] Retrying in 1 seconds
+VDN [baseline]:  43%|████▎     | 43/100 [12:11<14:56, 15.73s/it] Retrying in 1 seconds
+VDN [baseline]:  44%|████▍     | 44/100 [12:27<14:39, 15.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -53509.00
+VDN [baseline]:  45%|████▌     | 45/100 [12:50<16:38, 18.15s/it] Retrying in 1 seconds
+VDN [baseline]:  46%|████▌     | 46/100 [13:05<15:23, 17.10s/it] Retrying in 1 seconds
+VDN [baseline]:  47%|████▋     | 47/100 [13:20<14:27, 16.37s/it] Retrying in 1 seconds
+VDN [baseline]:  48%|████▊     | 48/100 [13:34<13:45, 15.87s/it] Retrying in 1 seconds
+VDN [baseline]:  49%|████▉     | 49/100 [13:50<13:18, 15.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -40190.00
+VDN [baseline]:  50%|█████     | 50/100 [14:13<15:00, 18.01s/it] Retrying in 1 seconds
+VDN [baseline]:  51%|█████     | 51/100 [14:29<14:17, 17.49s/it] Retrying in 1 seconds
+VDN [baseline]:  52%|█████▏    | 52/100 [14:43<13:09, 16.44s/it] Retrying in 1 seconds
+VDN [baseline]:  53%|█████▎    | 53/100 [14:59<12:40, 16.17s/it] Retrying in 1 seconds
+VDN [baseline]:  54%|█████▍    | 54/100 [15:14<12:11, 15.91s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -67251.00
+VDN [baseline]:  55%|█████▌    | 55/100 [15:39<13:59, 18.66s/it] Retrying in 1 seconds
+VDN [baseline]:  56%|█████▌    | 56/100 [15:55<12:55, 17.63s/it] Retrying in 1 seconds
+VDN [baseline]:  57%|█████▋    | 57/100 [16:09<11:54, 16.61s/it] Retrying in 1 seconds
+VDN [baseline]:  58%|█████▊    | 58/100 [16:23<11:07, 15.89s/it] Retrying in 1 seconds
+VDN [baseline]:  59%|█████▉    | 59/100 [16:37<10:32, 15.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -60100.00
+VDN [baseline]:  60%|██████    | 60/100 [17:01<12:01, 18.04s/it] Retrying in 1 seconds
+VDN [baseline]:  61%|██████    | 61/100 [17:16<11:01, 16.96s/it] Retrying in 1 seconds
+VDN [baseline]:  62%|██████▏   | 62/100 [17:31<10:17, 16.26s/it] Retrying in 1 seconds
+VDN [baseline]:  63%|██████▎   | 63/100 [17:46<09:53, 16.04s/it] Retrying in 1 seconds
+VDN [baseline]:  64%|██████▍   | 64/100 [18:01<09:27, 15.78s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -87186.00
+VDN [baseline]:  65%|██████▌   | 65/100 [18:27<10:58, 18.81s/it] Retrying in 1 seconds
+VDN [baseline]:  66%|██████▌   | 66/100 [18:42<10:02, 17.72s/it] Retrying in 1 seconds
+VDN [baseline]:  67%|██████▋   | 67/100 [18:59<09:30, 17.28s/it] Retrying in 1 seconds
+VDN [baseline]:  68%|██████▊   | 68/100 [19:12<08:39, 16.25s/it] Retrying in 1 seconds
+VDN [baseline]:  69%|██████▉   | 69/100 [19:26<08:01, 15.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -59126.00
+VDN [baseline]:  70%|███████   | 70/100 [19:51<09:10, 18.35s/it] Retrying in 1 seconds
+VDN [baseline]:  71%|███████   | 71/100 [20:05<08:16, 17.13s/it] Retrying in 1 seconds
+VDN [baseline]:  72%|███████▏  | 72/100 [20:21<07:43, 16.55s/it] Retrying in 1 seconds
+VDN [baseline]:  73%|███████▎  | 73/100 [20:35<07:11, 15.98s/it] Retrying in 1 seconds
+VDN [baseline]:  74%|███████▍  | 74/100 [20:50<06:47, 15.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -71401.00
+VDN [baseline]:  75%|███████▌  | 75/100 [21:16<07:46, 18.65s/it] Retrying in 1 seconds
+VDN [baseline]:  76%|███████▌  | 76/100 [21:31<07:03, 17.63s/it] Retrying in 1 seconds
+VDN [baseline]:  77%|███████▋  | 77/100 [21:47<06:32, 17.09s/it] Retrying in 1 seconds
+VDN [baseline]:  78%|███████▊  | 78/100 [22:02<06:05, 16.61s/it] Retrying in 1 seconds
+VDN [baseline]:  79%|███████▉  | 79/100 [22:17<05:35, 15.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -79571.00
+VDN [baseline]:  80%|████████  | 80/100 [22:42<06:12, 18.63s/it] Retrying in 1 seconds
+VDN [baseline]:  81%|████████  | 81/100 [22:56<05:31, 17.46s/it] Retrying in 1 seconds
+VDN [baseline]:  82%|████████▏ | 82/100 [23:11<04:58, 16.57s/it] Retrying in 1 seconds
+VDN [baseline]:  83%|████████▎ | 83/100 [23:25<04:29, 15.84s/it] Retrying in 1 seconds
+VDN [baseline]:  84%|████████▍ | 84/100 [23:40<04:08, 15.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -67685.00
+VDN [baseline]:  85%|████████▌ | 85/100 [24:04<04:32, 18.19s/it] Retrying in 1 seconds
+VDN [baseline]:  86%|████████▌ | 86/100 [24:20<04:02, 17.34s/it] Retrying in 1 seconds
+VDN [baseline]:  87%|████████▋ | 87/100 [24:34<03:34, 16.50s/it] Retrying in 1 seconds
+VDN [baseline]:  88%|████████▊ | 88/100 [24:49<03:11, 15.96s/it] Retrying in 1 seconds
+VDN [baseline]:  89%|████████▉ | 89/100 [25:04<02:51, 15.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -127862.00
+VDN [baseline]:  90%|█████████ | 90/100 [25:29<03:04, 18.46s/it] Retrying in 1 seconds
+VDN [baseline]:  91%|█████████ | 91/100 [25:44<02:35, 17.32s/it] Retrying in 1 seconds
+VDN [baseline]:  92%|█████████▏| 92/100 [25:59<02:14, 16.87s/it] Retrying in 1 seconds
+VDN [baseline]:  93%|█████████▎| 93/100 [26:16<01:57, 16.75s/it] Retrying in 1 seconds
+VDN [baseline]:  94%|█████████▍| 94/100 [26:31<01:37, 16.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -66298.00
+VDN [baseline]:  95%|█████████▌| 95/100 [26:56<01:34, 18.83s/it] Retrying in 1 seconds
+VDN [baseline]:  96%|█████████▌| 96/100 [27:12<01:11, 17.96s/it] Retrying in 1 seconds
+VDN [baseline]:  97%|█████████▋| 97/100 [27:26<00:50, 16.96s/it] Retrying in 1 seconds
+VDN [baseline]:  98%|█████████▊| 98/100 [27:42<00:33, 16.56s/it] Retrying in 1 seconds
+VDN [baseline]:  99%|█████████▉| 99/100 [27:57<00:16, 16.02s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [baseline] | Return: -70188.00
+VDN [baseline]: 100%|██████████| 100/100 [28:21<00:00, 18.46s/it]VDN [baseline]: 100%|██████████| 100/100 [28:21<00:00, 17.01s/it]
+
+VDN training complete. Models saved to models/seed2/vdn_baseline_*.npy
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f90006a0950>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- Fixed-Time [baseline] | Return: -115411.00
+Saved outputs/seeds/training_evaluation_log_baseline_seed2.csv
+
+=======================================================
+QMIX TRAINING: BASELINE  (seed=2)
+=======================================================
+QMIX [baseline]:   0%|          | 0/200 [00:00<?, ?it/s] Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+QMIX [baseline]:   0%|          | 1/200 [00:30<1:39:54, 30.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   1%|          | 2/200 [01:02<1:43:26, 31.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   2%|▏         | 3/200 [01:35<1:45:38, 32.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   2%|▏         | 4/200 [02:12<1:51:12, 34.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   2%|▎         | 5/200 [02:45<1:49:59, 33.84s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   3%|▎         | 6/200 [03:21<1:51:44, 34.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   4%|▎         | 7/200 [03:58<1:53:23, 35.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   4%|▍         | 8/200 [04:33<1:52:32, 35.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   4%|▍         | 9/200 [05:08<1:51:38, 35.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   5%|▌         | 10/200 [05:44<1:52:06, 35.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   6%|▌         | 11/200 [06:19<1:51:27, 35.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   6%|▌         | 12/200 [06:53<1:49:36, 34.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   6%|▋         | 13/200 [07:30<1:50:09, 35.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   7%|▋         | 14/200 [08:03<1:47:51, 34.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   8%|▊         | 15/200 [08:36<1:45:54, 34.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   8%|▊         | 16/200 [09:10<1:44:35, 34.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   8%|▊         | 17/200 [09:45<1:44:52, 34.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:   9%|▉         | 18/200 [10:17<1:42:28, 33.78s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  10%|▉         | 19/200 [10:51<1:41:31, 33.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -31598.00 over 120 steps
+QMIX [baseline]:  10%|█         | 20/200 [11:36<1:51:23, 37.13s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  10%|█         | 21/200 [12:10<1:48:17, 36.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  11%|█         | 22/200 [12:44<1:45:43, 35.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  12%|█▏        | 23/200 [13:19<1:44:15, 35.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  12%|█▏        | 24/200 [13:53<1:42:05, 34.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  12%|█▎        | 25/200 [14:28<1:41:58, 34.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  13%|█▎        | 26/200 [15:01<1:39:39, 34.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  14%|█▎        | 27/200 [15:34<1:37:59, 33.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  14%|█▍        | 28/200 [16:07<1:36:32, 33.68s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  14%|█▍        | 29/200 [16:41<1:36:17, 33.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  15%|█▌        | 30/200 [17:12<1:33:32, 33.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  16%|█▌        | 31/200 [17:45<1:33:07, 33.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  16%|█▌        | 32/200 [18:18<1:31:50, 32.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  16%|█▋        | 33/200 [18:50<1:30:59, 32.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  17%|█▋        | 34/200 [19:23<1:30:56, 32.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  18%|█▊        | 35/200 [19:56<1:30:03, 32.75s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  18%|█▊        | 36/200 [20:30<1:30:39, 33.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  18%|█▊        | 37/200 [21:02<1:29:06, 32.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  19%|█▉        | 38/200 [21:34<1:28:23, 32.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  20%|█▉        | 39/200 [22:06<1:26:56, 32.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -24406.00 over 120 steps
+QMIX [baseline]:  20%|██        | 40/200 [22:48<1:33:50, 35.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  20%|██        | 41/200 [23:20<1:31:12, 34.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  21%|██        | 42/200 [23:53<1:29:05, 33.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  22%|██▏       | 43/200 [24:25<1:26:52, 33.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  22%|██▏       | 44/200 [24:57<1:25:53, 33.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  22%|██▎       | 45/200 [25:29<1:24:39, 32.77s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  23%|██▎       | 46/200 [26:03<1:24:49, 33.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  24%|██▎       | 47/200 [26:35<1:23:26, 32.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  24%|██▍       | 48/200 [27:07<1:21:57, 32.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  24%|██▍       | 49/200 [27:39<1:21:14, 32.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  25%|██▌       | 50/200 [28:10<1:20:06, 32.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  26%|██▌       | 51/200 [28:43<1:20:00, 32.22s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  26%|██▌       | 52/200 [29:15<1:19:27, 32.21s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  26%|██▋       | 53/200 [29:47<1:18:49, 32.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  27%|██▋       | 54/200 [30:20<1:18:30, 32.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  28%|██▊       | 55/200 [30:51<1:17:30, 32.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  28%|██▊       | 56/200 [31:23<1:16:32, 31.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  28%|██▊       | 57/200 [31:55<1:16:14, 31.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  29%|██▉       | 58/200 [32:27<1:15:29, 31.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  30%|██▉       | 59/200 [32:58<1:14:22, 31.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -24117.00 over 120 steps
+QMIX [baseline]:  30%|███       | 60/200 [33:39<1:20:29, 34.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  30%|███       | 61/200 [34:10<1:17:48, 33.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  31%|███       | 62/200 [34:42<1:16:04, 33.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  32%|███▏      | 63/200 [35:14<1:14:23, 32.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  32%|███▏      | 64/200 [35:45<1:13:00, 32.21s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  32%|███▎      | 65/200 [36:16<1:11:42, 31.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  33%|███▎      | 66/200 [36:46<1:10:14, 31.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  34%|███▎      | 67/200 [37:19<1:10:09, 31.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  34%|███▍      | 68/200 [37:49<1:08:55, 31.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  34%|███▍      | 69/200 [38:21<1:08:27, 31.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  35%|███▌      | 70/200 [38:51<1:07:34, 31.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  36%|███▌      | 71/200 [39:22<1:06:54, 31.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  36%|███▌      | 72/200 [39:54<1:06:42, 31.27s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  36%|███▋      | 73/200 [40:25<1:06:13, 31.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  37%|███▋      | 74/200 [40:56<1:05:38, 31.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  38%|███▊      | 75/200 [41:28<1:05:12, 31.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  38%|███▊      | 76/200 [42:00<1:05:01, 31.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  38%|███▊      | 77/200 [42:30<1:04:02, 31.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  39%|███▉      | 78/200 [43:02<1:03:38, 31.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  40%|███▉      | 79/200 [43:33<1:03:01, 31.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -24110.00 over 120 steps
+QMIX [baseline]:  40%|████      | 80/200 [44:13<1:07:58, 33.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  40%|████      | 81/200 [44:45<1:05:47, 33.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  41%|████      | 82/200 [45:16<1:04:07, 32.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  42%|████▏     | 83/200 [45:47<1:02:28, 32.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  42%|████▏     | 84/200 [46:18<1:01:18, 31.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  42%|████▎     | 85/200 [46:48<1:00:09, 31.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  43%|████▎     | 86/200 [47:19<59:14, 31.18s/it]   Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  44%|████▎     | 87/200 [47:50<58:33, 31.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  44%|████▍     | 88/200 [48:21<58:04, 31.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  44%|████▍     | 89/200 [48:52<57:24, 31.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  45%|████▌     | 90/200 [49:23<56:49, 31.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  46%|████▌     | 91/200 [49:53<56:10, 30.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  46%|████▌     | 92/200 [50:24<55:36, 30.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  46%|████▋     | 93/200 [50:55<55:08, 30.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  47%|████▋     | 94/200 [51:26<54:25, 30.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  48%|████▊     | 95/200 [51:57<53:59, 30.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  48%|████▊     | 96/200 [52:28<53:39, 30.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  48%|████▊     | 97/200 [52:59<53:02, 30.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  49%|████▉     | 98/200 [53:29<52:26, 30.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  50%|████▉     | 99/200 [53:59<51:25, 30.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -27478.00 over 120 steps
+QMIX [baseline]:  50%|█████     | 100/200 [54:39<55:41, 33.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  50%|█████     | 101/200 [55:11<54:20, 32.93s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  51%|█████     | 102/200 [55:43<53:03, 32.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  52%|█████▏    | 103/200 [56:13<51:40, 31.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  52%|█████▏    | 104/200 [56:45<51:04, 31.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  52%|█████▎    | 105/200 [57:16<50:06, 31.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  53%|█████▎    | 106/200 [57:47<49:19, 31.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  54%|█████▎    | 107/200 [58:18<48:30, 31.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  54%|█████▍    | 108/200 [58:50<48:00, 31.31s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  55%|█████▍    | 109/200 [59:20<47:17, 31.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  55%|█████▌    | 110/200 [59:52<46:51, 31.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  56%|█████▌    | 111/200 [1:00:23<46:29, 31.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  56%|█████▌    | 112/200 [1:00:55<45:55, 31.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  56%|█████▋    | 113/200 [1:01:26<45:22, 31.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  57%|█████▋    | 114/200 [1:01:57<44:56, 31.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  57%|█████▊    | 115/200 [1:02:29<44:22, 31.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  58%|█████▊    | 116/200 [1:02:59<43:29, 31.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  58%|█████▊    | 117/200 [1:03:30<42:54, 31.02s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  59%|█████▉    | 118/200 [1:04:01<42:25, 31.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  60%|█████▉    | 119/200 [1:04:33<42:04, 31.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -25402.00 over 120 steps
+QMIX [baseline]:  60%|██████    | 120/200 [1:05:13<45:09, 33.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  60%|██████    | 121/200 [1:05:44<43:37, 33.13s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  61%|██████    | 122/200 [1:06:15<42:22, 32.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  62%|██████▏   | 123/200 [1:06:48<41:45, 32.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  62%|██████▏   | 124/200 [1:07:19<40:52, 32.27s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  62%|██████▎   | 125/200 [1:07:51<40:14, 32.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  63%|██████▎   | 126/200 [1:08:23<39:22, 31.93s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  64%|██████▎   | 127/200 [1:08:54<38:30, 31.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  64%|██████▍   | 128/200 [1:09:25<37:56, 31.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  64%|██████▍   | 129/200 [1:09:57<37:21, 31.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  65%|██████▌   | 130/200 [1:10:28<36:33, 31.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  66%|██████▌   | 131/200 [1:10:58<35:37, 30.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  66%|██████▌   | 132/200 [1:11:29<35:09, 31.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  66%|██████▋   | 133/200 [1:12:00<34:36, 31.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  67%|██████▋   | 134/200 [1:12:30<33:57, 30.88s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  68%|██████▊   | 135/200 [1:13:01<33:25, 30.86s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  68%|██████▊   | 136/200 [1:13:33<33:04, 31.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  68%|██████▊   | 137/200 [1:14:03<32:29, 30.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  69%|██████▉   | 138/200 [1:14:34<31:51, 30.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  70%|██████▉   | 139/200 [1:15:05<31:16, 30.76s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -30456.00 over 120 steps
+QMIX [baseline]:  70%|███████   | 140/200 [1:15:45<33:44, 33.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  70%|███████   | 141/200 [1:16:16<32:23, 32.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  71%|███████   | 142/200 [1:16:47<31:17, 32.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  72%|███████▏  | 143/200 [1:17:18<30:13, 31.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  72%|███████▏  | 144/200 [1:17:49<29:26, 31.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  72%|███████▎  | 145/200 [1:18:19<28:39, 31.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  73%|███████▎  | 146/200 [1:18:50<27:57, 31.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  74%|███████▎  | 147/200 [1:19:21<27:23, 31.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  74%|███████▍  | 148/200 [1:19:52<26:54, 31.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  74%|███████▍  | 149/200 [1:20:23<26:26, 31.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  75%|███████▌  | 150/200 [1:20:54<25:56, 31.13s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  76%|███████▌  | 151/200 [1:21:26<25:25, 31.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  76%|███████▌  | 152/200 [1:21:56<24:50, 31.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  76%|███████▋  | 153/200 [1:22:28<24:22, 31.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  77%|███████▋  | 154/200 [1:22:58<23:46, 31.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  78%|███████▊  | 155/200 [1:23:29<23:08, 30.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  78%|███████▊  | 156/200 [1:24:00<22:45, 31.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  78%|███████▊  | 157/200 [1:24:32<22:15, 31.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  79%|███████▉  | 158/200 [1:25:03<21:45, 31.08s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  80%|███████▉  | 159/200 [1:25:33<21:11, 31.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -27244.00 over 120 steps
+QMIX [baseline]:  80%|████████  | 160/200 [1:26:14<22:32, 33.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  80%|████████  | 161/200 [1:26:45<21:26, 32.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  81%|████████  | 162/200 [1:27:15<20:25, 32.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  82%|████████▏ | 163/200 [1:27:46<19:35, 31.76s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  82%|████████▏ | 164/200 [1:28:17<18:55, 31.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  82%|████████▎ | 165/200 [1:28:49<18:24, 31.57s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  83%|████████▎ | 166/200 [1:29:20<17:51, 31.52s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  84%|████████▎ | 167/200 [1:29:51<17:14, 31.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  84%|████████▍ | 168/200 [1:30:23<16:44, 31.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  84%|████████▍ | 169/200 [1:30:53<16:06, 31.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  85%|████████▌ | 170/200 [1:31:24<15:29, 30.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  86%|████████▌ | 171/200 [1:31:54<14:55, 30.88s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  86%|████████▌ | 172/200 [1:32:26<14:28, 31.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  86%|████████▋ | 173/200 [1:32:56<13:54, 30.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  87%|████████▋ | 174/200 [1:33:28<13:28, 31.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  88%|████████▊ | 175/200 [1:33:59<12:55, 31.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  88%|████████▊ | 176/200 [1:34:30<12:23, 30.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  88%|████████▊ | 177/200 [1:35:00<11:50, 30.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  89%|████████▉ | 178/200 [1:35:31<11:20, 30.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  90%|████████▉ | 179/200 [1:36:02<10:47, 30.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -26036.00 over 120 steps
+QMIX [baseline]:  90%|█████████ | 180/200 [1:36:41<11:08, 33.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  90%|█████████ | 181/200 [1:37:12<10:20, 32.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  91%|█████████ | 182/200 [1:37:42<09:34, 31.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  92%|█████████▏| 183/200 [1:38:13<08:57, 31.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  92%|█████████▏| 184/200 [1:38:45<08:24, 31.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  92%|█████████▎| 185/200 [1:39:15<07:48, 31.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  93%|█████████▎| 186/200 [1:39:46<07:14, 31.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  94%|█████████▎| 187/200 [1:40:18<06:46, 31.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  94%|█████████▍| 188/200 [1:40:49<06:15, 31.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  94%|█████████▍| 189/200 [1:41:20<05:42, 31.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  95%|█████████▌| 190/200 [1:41:51<05:10, 31.07s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  96%|█████████▌| 191/200 [1:42:22<04:38, 31.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  96%|█████████▌| 192/200 [1:42:52<04:07, 30.89s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  96%|█████████▋| 193/200 [1:43:22<03:34, 30.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  97%|█████████▋| 194/200 [1:43:53<03:04, 30.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  98%|█████████▊| 195/200 [1:44:24<02:33, 30.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  98%|█████████▊| 196/200 [1:44:54<02:02, 30.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  98%|█████████▊| 197/200 [1:45:25<01:31, 30.65s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]:  99%|█████████▉| 198/200 [1:45:56<01:01, 30.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [baseline]: 100%|█████████▉| 199/200 [1:46:26<00:30, 30.67s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [baseline] eval reward: -23391.00 over 120 steps
+QMIX [baseline]: 100%|██████████| 200/200 [1:47:07<00:00, 33.58s/it]QMIX [baseline]: 100%|██████████| 200/200 [1:47:07<00:00, 32.14s/it]
+Saved outputs/seeds/qmix_results_baseline_seed2.csv (10 rows)
+
+=== DONE seed=2 scenario=baseline at 2026-06-09T04:08:02.043465 ===

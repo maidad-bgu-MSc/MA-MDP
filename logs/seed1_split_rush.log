@@ -1,0 +1,1043 @@
+=== run_seeded_experiment.py seed=1 scenario=split_rush started 2026-06-09T00:16:01.994226 ===
+
+============================================================
+SCENARIO: SPLIT_RUSH  (seed=1)
+============================================================
+
+==================================================
+TRAINING IQL_TABULAR [split_rush] (100 episodes, seed=1)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e480b00>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+iql_tabular [split_rush]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+iql_tabular [split_rush]:   1%|          | 1/100 [00:08<13:49,  8.38s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   2%|▏         | 2/100 [00:17<14:08,  8.65s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   3%|▎         | 3/100 [00:25<13:50,  8.57s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   4%|▍         | 4/100 [00:34<13:45,  8.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da9c320>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 5) | Return: -570557.00
+iql_tabular [split_rush]:   5%|▌         | 5/100 [00:49<17:30, 11.06s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   6%|▌         | 6/100 [00:58<16:08, 10.30s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   7%|▋         | 7/100 [01:07<15:05,  9.74s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   8%|▊         | 8/100 [01:16<14:39,  9.56s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:   9%|▉         | 9/100 [01:25<14:16,  9.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da7bdd0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 10) | Return: -544050.00
+iql_tabular [split_rush]:  10%|█         | 10/100 [01:41<17:02, 11.36s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  11%|█         | 11/100 [01:49<15:38, 10.55s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  12%|█▏        | 12/100 [01:58<14:39,  9.99s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  13%|█▎        | 13/100 [02:07<14:04,  9.71s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  14%|█▍        | 14/100 [02:16<13:27,  9.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d916690>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 15) | Return: -180502.00
+iql_tabular [split_rush]:  15%|█▌        | 15/100 [02:31<15:41, 11.08s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  16%|█▌        | 16/100 [02:40<14:34, 10.42s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  17%|█▋        | 17/100 [02:48<13:38,  9.86s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  18%|█▊        | 18/100 [02:57<12:52,  9.42s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  19%|█▉        | 19/100 [03:06<12:31,  9.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da782f0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 20) | Return: -308403.00
+iql_tabular [split_rush]:  20%|██        | 20/100 [03:21<14:45, 11.06s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  21%|██        | 21/100 [03:30<13:45, 10.45s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  22%|██▏       | 22/100 [03:38<12:49,  9.86s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  23%|██▎       | 23/100 [03:47<12:16,  9.57s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  24%|██▍       | 24/100 [03:56<11:47,  9.31s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da9eba0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 25) | Return: -98098.00
+iql_tabular [split_rush]:  25%|██▌       | 25/100 [04:11<13:38, 10.91s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  26%|██▌       | 26/100 [04:19<12:40, 10.28s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  27%|██▋       | 27/100 [04:28<11:59,  9.86s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  28%|██▊       | 28/100 [04:37<11:28,  9.57s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  29%|██▉       | 29/100 [04:46<11:04,  9.36s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3df560>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 30) | Return: -149824.00
+iql_tabular [split_rush]:  30%|███       | 30/100 [05:01<13:00, 11.15s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  31%|███       | 31/100 [05:10<11:59, 10.43s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  32%|███▏      | 32/100 [05:19<11:17,  9.96s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  33%|███▎      | 33/100 [05:28<10:40,  9.56s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  34%|███▍      | 34/100 [05:37<10:21,  9.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da7bef0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 35) | Return: -105053.00
+iql_tabular [split_rush]:  35%|███▌      | 35/100 [05:52<12:16, 11.33s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  36%|███▌      | 36/100 [06:01<11:15, 10.55s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  37%|███▋      | 37/100 [06:10<10:36, 10.11s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  38%|███▊      | 38/100 [06:19<09:59,  9.67s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  39%|███▉      | 39/100 [06:28<09:35,  9.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da3b260>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 40) | Return: -92888.00
+iql_tabular [split_rush]:  40%|████      | 40/100 [06:43<11:13, 11.22s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  41%|████      | 41/100 [06:52<10:18, 10.48s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  42%|████▏     | 42/100 [07:01<09:38,  9.97s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  43%|████▎     | 43/100 [07:10<09:09,  9.63s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  44%|████▍     | 44/100 [07:18<08:46,  9.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3ddac0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 45) | Return: -148233.00
+iql_tabular [split_rush]:  45%|████▌     | 45/100 [07:34<10:23, 11.33s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  46%|████▌     | 46/100 [07:43<09:37, 10.69s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  47%|████▋     | 47/100 [07:52<08:54, 10.09s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  48%|████▊     | 48/100 [08:01<08:25,  9.71s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  49%|████▉     | 49/100 [08:10<08:00,  9.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da0e120>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 50) | Return: -127957.00
+iql_tabular [split_rush]:  50%|█████     | 50/100 [08:25<09:21, 11.22s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  51%|█████     | 51/100 [08:34<08:38, 10.58s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  52%|█████▏    | 52/100 [08:43<07:58,  9.98s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  53%|█████▎    | 53/100 [08:52<07:31,  9.60s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  54%|█████▍    | 54/100 [09:00<07:11,  9.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3e6150>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 55) | Return: -156075.00
+iql_tabular [split_rush]:  55%|█████▌    | 55/100 [09:16<08:25, 11.23s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  56%|█████▌    | 56/100 [09:25<07:42, 10.52s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  57%|█████▋    | 57/100 [09:34<07:10, 10.01s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  58%|█████▊    | 58/100 [09:42<06:44,  9.63s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  59%|█████▉    | 59/100 [09:51<06:26,  9.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da9cd70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 60) | Return: -171195.00
+iql_tabular [split_rush]:  60%|██████    | 60/100 [10:07<07:32, 11.31s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  61%|██████    | 61/100 [10:16<06:53, 10.60s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  62%|██████▏   | 62/100 [10:25<06:19,  9.99s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  63%|██████▎   | 63/100 [10:34<05:58,  9.69s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  64%|██████▍   | 64/100 [10:42<05:37,  9.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da0db80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 65) | Return: -179168.00
+iql_tabular [split_rush]:  65%|██████▌   | 65/100 [10:58<06:31, 11.19s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  66%|██████▌   | 66/100 [11:07<05:59, 10.59s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  67%|██████▋   | 67/100 [11:15<05:27,  9.94s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  68%|██████▊   | 68/100 [11:24<05:06,  9.57s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  69%|██████▉   | 69/100 [11:33<04:50,  9.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109ef2f1a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 70) | Return: -101794.00
+iql_tabular [split_rush]:  70%|███████   | 70/100 [11:48<05:30, 11.01s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  71%|███████   | 71/100 [11:57<05:00, 10.37s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  72%|███████▏  | 72/100 [12:05<04:35,  9.85s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  73%|███████▎  | 73/100 [12:14<04:14,  9.43s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  74%|███████▍  | 74/100 [12:23<04:01,  9.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3e59a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 75) | Return: -103051.00
+iql_tabular [split_rush]:  75%|███████▌  | 75/100 [12:38<04:38, 11.15s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  76%|███████▌  | 76/100 [12:47<04:10, 10.45s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  77%|███████▋  | 77/100 [12:56<03:48,  9.93s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  78%|███████▊  | 78/100 [13:04<03:27,  9.45s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  79%|███████▉  | 79/100 [13:13<03:14,  9.26s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dad40e0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 80) | Return: -294746.00
+iql_tabular [split_rush]:  80%|████████  | 80/100 [13:28<03:41, 11.10s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  81%|████████  | 81/100 [13:37<03:17, 10.38s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  82%|████████▏ | 82/100 [13:46<02:57,  9.88s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  83%|████████▎ | 83/100 [13:54<02:41,  9.49s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  84%|████████▍ | 84/100 [14:03<02:30,  9.39s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da79f70>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 85) | Return: -107325.00
+iql_tabular [split_rush]:  85%|████████▌ | 85/100 [14:19<02:49, 11.30s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  86%|████████▌ | 86/100 [14:28<02:27, 10.57s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  87%|████████▋ | 87/100 [14:37<02:11, 10.13s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  88%|████████▊ | 88/100 [14:46<01:56,  9.75s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  89%|████████▉ | 89/100 [14:55<01:45,  9.55s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da3a810>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 90) | Return: -161441.00
+iql_tabular [split_rush]:  90%|█████████ | 90/100 [15:11<01:54, 11.41s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  91%|█████████ | 91/100 [15:20<01:36, 10.72s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  92%|█████████▏| 92/100 [15:29<01:22, 10.28s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  93%|█████████▎| 93/100 [15:38<01:08,  9.83s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  94%|█████████▍| 94/100 [15:47<00:57,  9.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dad58b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 95) | Return: -143383.00
+iql_tabular [split_rush]:  95%|█████████▌| 95/100 [16:02<00:56, 11.26s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  96%|█████████▌| 96/100 [16:11<00:42, 10.55s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  97%|█████████▋| 97/100 [16:20<00:30, 10.04s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  98%|█████████▊| 98/100 [16:29<00:19,  9.68s/it] Retrying in 1 seconds
+iql_tabular [split_rush]:  99%|█████████▉| 99/100 [16:37<00:09,  9.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da9fe60>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- iql_tabular [split_rush] (ep 100) | Return: -128846.00
+iql_tabular [split_rush]: 100%|██████████| 100/100 [16:53<00:00, 11.37s/it]iql_tabular [split_rush]: 100%|██████████| 100/100 [16:53<00:00, 10.14s/it]
+
+Training complete. Models saved to models/seed1/iql_tabular_split_rush_*.npy
+
+==================================================
+TRAINING HYSTERETIC [split_rush] (100 episodes, seed=1)
+==================================================
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dac2ae0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+hysteretic [split_rush]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+hysteretic [split_rush]:   1%|          | 1/100 [00:08<14:29,  8.78s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   2%|▏         | 2/100 [00:17<14:35,  8.93s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   3%|▎         | 3/100 [00:26<14:12,  8.79s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   4%|▍         | 4/100 [00:35<14:03,  8.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dabaa50>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 5) | Return: -1177487.00
+hysteretic [split_rush]:   5%|▌         | 5/100 [00:50<17:47, 11.24s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   6%|▌         | 6/100 [00:59<16:15, 10.38s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   7%|▋         | 7/100 [01:08<15:21,  9.91s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   8%|▊         | 8/100 [01:17<14:44,  9.61s/it] Retrying in 1 seconds
+hysteretic [split_rush]:   9%|▉         | 9/100 [01:26<14:07,  9.31s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da0eb40>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 10) | Return: -191527.00
+hysteretic [split_rush]:  10%|█         | 10/100 [01:41<16:42, 11.14s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  11%|█         | 11/100 [01:50<15:28, 10.43s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  12%|█▏        | 12/100 [01:58<14:22,  9.80s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  13%|█▎        | 13/100 [02:07<13:42,  9.46s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  14%|█▍        | 14/100 [02:15<13:04,  9.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d82f830>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 15) | Return: -208587.00
+hysteretic [split_rush]:  15%|█▌        | 15/100 [02:31<15:42, 11.09s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  16%|█▌        | 16/100 [02:40<14:34, 10.41s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  17%|█▋        | 17/100 [02:48<13:38,  9.86s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  18%|█▊        | 18/100 [02:57<13:09,  9.63s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  19%|█▉        | 19/100 [03:06<12:28,  9.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da39700>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 20) | Return: -82731.00
+hysteretic [split_rush]:  20%|██        | 20/100 [03:20<14:21, 10.77s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  21%|██        | 21/100 [03:29<13:26, 10.21s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  22%|██▏       | 22/100 [03:38<12:49,  9.86s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  23%|██▎       | 23/100 [03:47<12:14,  9.54s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  24%|██▍       | 24/100 [03:55<11:48,  9.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dac19a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 25) | Return: -118596.00
+hysteretic [split_rush]:  25%|██▌       | 25/100 [04:11<13:50, 11.08s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  26%|██▌       | 26/100 [04:19<12:50, 10.41s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  27%|██▋       | 27/100 [04:28<11:58,  9.84s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  28%|██▊       | 28/100 [04:37<11:29,  9.58s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  29%|██▉       | 29/100 [04:46<11:09,  9.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3e7020>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 30) | Return: -140562.00
+hysteretic [split_rush]:  30%|███       | 30/100 [05:01<12:50, 11.01s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  31%|███       | 31/100 [05:10<12:03, 10.48s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  32%|███▏      | 32/100 [05:18<11:10,  9.86s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  33%|███▎      | 33/100 [05:27<10:40,  9.55s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  34%|███▍      | 34/100 [05:36<10:13,  9.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da32d50>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 35) | Return: -87808.00
+hysteretic [split_rush]:  35%|███▌      | 35/100 [05:51<12:04, 11.14s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  36%|███▌      | 36/100 [06:00<11:04, 10.39s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  37%|███▋      | 37/100 [06:08<10:14,  9.76s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  38%|███▊      | 38/100 [06:17<09:39,  9.34s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  39%|███▉      | 39/100 [06:25<09:15,  9.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d82fa10>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 40) | Return: -79763.00
+hysteretic [split_rush]:  40%|████      | 40/100 [06:40<10:54, 10.91s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  41%|████      | 41/100 [06:49<10:10, 10.35s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  42%|████▏     | 42/100 [06:58<09:32,  9.88s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  43%|████▎     | 43/100 [07:07<09:04,  9.55s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  44%|████▍     | 44/100 [07:16<08:43,  9.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da9d880>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 45) | Return: -215616.00
+hysteretic [split_rush]:  45%|████▌     | 45/100 [07:31<10:10, 11.11s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  46%|████▌     | 46/100 [07:40<09:19, 10.36s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  47%|████▋     | 47/100 [07:49<08:45,  9.92s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  48%|████▊     | 48/100 [07:58<08:23,  9.69s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  49%|████▉     | 49/100 [08:06<08:00,  9.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d9def30>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 50) | Return: -158262.00
+hysteretic [split_rush]:  50%|█████     | 50/100 [08:22<09:19, 11.20s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  51%|█████     | 51/100 [08:31<08:37, 10.56s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  52%|█████▏    | 52/100 [08:39<07:57,  9.96s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  53%|█████▎    | 53/100 [08:48<07:32,  9.63s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  54%|█████▍    | 54/100 [08:57<07:11,  9.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109e3ae7b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 55) | Return: -91466.00
+hysteretic [split_rush]:  55%|█████▌    | 55/100 [09:12<08:19, 11.09s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  56%|█████▌    | 56/100 [09:20<07:29, 10.22s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  57%|█████▋    | 57/100 [09:29<06:59,  9.77s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  58%|█████▊    | 58/100 [09:38<06:38,  9.50s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  59%|█████▉    | 59/100 [09:47<06:21,  9.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da7a0c0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 60) | Return: -85547.00
+hysteretic [split_rush]:  60%|██████    | 60/100 [10:02<07:18, 10.96s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  61%|██████    | 61/100 [10:10<06:39, 10.25s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  62%|██████▏   | 62/100 [10:19<06:11,  9.76s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  63%|██████▎   | 63/100 [10:28<05:54,  9.57s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  64%|██████▍   | 64/100 [10:37<05:34,  9.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d80a690>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 65) | Return: -92903.00
+hysteretic [split_rush]:  65%|██████▌   | 65/100 [10:52<06:26, 11.04s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  66%|██████▌   | 66/100 [11:00<05:51, 10.33s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  67%|██████▋   | 67/100 [11:09<05:26,  9.88s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  68%|██████▊   | 68/100 [11:18<05:04,  9.53s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  69%|██████▉   | 69/100 [11:27<04:48,  9.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d914560>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 70) | Return: -154878.00
+hysteretic [split_rush]:  70%|███████   | 70/100 [11:42<05:34, 11.14s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  71%|███████   | 71/100 [11:51<05:02, 10.44s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  72%|███████▏  | 72/100 [12:00<04:41, 10.06s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  73%|███████▎  | 73/100 [12:09<04:23,  9.75s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  74%|███████▍  | 74/100 [12:18<04:07,  9.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da3b4a0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 75) | Return: -105838.00
+hysteretic [split_rush]:  75%|███████▌  | 75/100 [12:33<04:40, 11.20s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  76%|███████▌  | 76/100 [12:42<04:13, 10.55s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  77%|███████▋  | 77/100 [12:51<03:50, 10.04s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  78%|███████▊  | 78/100 [13:00<03:34,  9.77s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  79%|███████▉  | 79/100 [13:09<03:16,  9.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da339b0>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 80) | Return: -949596.00
+hysteretic [split_rush]:  80%|████████  | 80/100 [13:24<03:44, 11.20s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  81%|████████  | 81/100 [13:33<03:18, 10.46s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  82%|████████▏ | 82/100 [13:41<02:57,  9.87s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  83%|████████▎ | 83/100 [13:50<02:41,  9.50s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  84%|████████▍ | 84/100 [13:59<02:29,  9.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109dac0470>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 85) | Return: -166944.00
+hysteretic [split_rush]:  85%|████████▌ | 85/100 [14:14<02:46, 11.11s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  86%|████████▌ | 86/100 [14:23<02:26, 10.47s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  87%|████████▋ | 87/100 [14:32<02:09,  9.96s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  88%|████████▊ | 88/100 [14:41<01:56,  9.67s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  89%|████████▉ | 89/100 [14:50<01:43,  9.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109d886990>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 90) | Return: -94361.00
+hysteretic [split_rush]:  90%|█████████ | 90/100 [15:05<01:51, 11.12s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  91%|█████████ | 91/100 [15:14<01:33, 10.40s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  92%|█████████▏| 92/100 [15:23<01:19,  9.94s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  93%|█████████▎| 93/100 [15:31<01:07,  9.61s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  94%|█████████▍| 94/100 [15:40<00:56,  9.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da39b80>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 95) | Return: -149587.00
+hysteretic [split_rush]:  95%|█████████▌| 95/100 [15:56<00:56, 11.21s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  96%|█████████▌| 96/100 [16:04<00:41, 10.47s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  97%|█████████▋| 97/100 [16:13<00:29,  9.87s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  98%|█████████▊| 98/100 [16:22<00:19,  9.61s/it] Retrying in 1 seconds
+hysteretic [split_rush]:  99%|█████████▉| 99/100 [16:30<00:09,  9.31s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da57680>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- hysteretic [split_rush] (ep 100) | Return: -135884.00
+hysteretic [split_rush]: 100%|██████████| 100/100 [16:46<00:00, 11.04s/it]hysteretic [split_rush]: 100%|██████████| 100/100 [16:46<00:00, 10.06s/it]
+
+Training complete. Models saved to models/seed1/hysteretic_split_rush_*.npy
+
+==================================================
+TRAINING VDN [split_rush] (100 episodes, seed=1)
+==================================================
+ Retrying in 1 seconds
+VDN [split_rush]:   0%|          | 0/100 [00:00<?, ?it/s] Retrying in 1 seconds
+VDN [split_rush]:   1%|          | 1/100 [00:09<15:01,  9.11s/it] Retrying in 1 seconds
+VDN [split_rush]:   2%|▏         | 2/100 [00:17<14:32,  8.90s/it] Retrying in 1 seconds
+VDN [split_rush]:   3%|▎         | 3/100 [00:26<14:22,  8.89s/it] Retrying in 1 seconds
+VDN [split_rush]:   4%|▍         | 4/100 [00:35<14:05,  8.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -547293.00
+VDN [split_rush]:   5%|▌         | 5/100 [00:50<17:42, 11.18s/it] Retrying in 1 seconds
+VDN [split_rush]:   6%|▌         | 6/100 [00:59<16:18, 10.41s/it] Retrying in 1 seconds
+VDN [split_rush]:   7%|▋         | 7/100 [01:08<15:17,  9.87s/it] Retrying in 1 seconds
+VDN [split_rush]:   8%|▊         | 8/100 [01:16<14:25,  9.40s/it] Retrying in 1 seconds
+VDN [split_rush]:   9%|▉         | 9/100 [01:25<14:01,  9.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -117318.00
+VDN [split_rush]:  10%|█         | 10/100 [01:41<16:42, 11.14s/it] Retrying in 1 seconds
+VDN [split_rush]:  11%|█         | 11/100 [01:50<15:32, 10.47s/it] Retrying in 1 seconds
+VDN [split_rush]:  12%|█▏        | 12/100 [01:58<14:20,  9.78s/it] Retrying in 1 seconds
+VDN [split_rush]:  13%|█▎        | 13/100 [02:07<13:50,  9.54s/it] Retrying in 1 seconds
+VDN [split_rush]:  14%|█▍        | 14/100 [02:16<13:26,  9.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -1555461.00
+VDN [split_rush]:  15%|█▌        | 15/100 [02:31<15:46, 11.14s/it] Retrying in 1 seconds
+VDN [split_rush]:  16%|█▌        | 16/100 [02:40<14:37, 10.44s/it] Retrying in 1 seconds
+VDN [split_rush]:  17%|█▋        | 17/100 [02:49<13:42,  9.91s/it] Retrying in 1 seconds
+VDN [split_rush]:  18%|█▊        | 18/100 [02:58<13:10,  9.64s/it] Retrying in 1 seconds
+VDN [split_rush]:  19%|█▉        | 19/100 [03:07<12:49,  9.49s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -132155.00
+VDN [split_rush]:  20%|██        | 20/100 [03:22<15:01, 11.26s/it] Retrying in 1 seconds
+VDN [split_rush]:  21%|██        | 21/100 [03:31<13:59, 10.62s/it] Retrying in 1 seconds
+VDN [split_rush]:  22%|██▏       | 22/100 [03:40<13:10, 10.14s/it] Retrying in 1 seconds
+VDN [split_rush]:  23%|██▎       | 23/100 [03:49<12:30,  9.75s/it] Retrying in 1 seconds
+VDN [split_rush]:  24%|██▍       | 24/100 [03:58<11:59,  9.47s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -325590.00
+VDN [split_rush]:  25%|██▌       | 25/100 [04:14<14:17, 11.44s/it] Retrying in 1 seconds
+VDN [split_rush]:  26%|██▌       | 26/100 [04:22<13:02, 10.58s/it] Retrying in 1 seconds
+VDN [split_rush]:  27%|██▋       | 27/100 [04:32<12:21, 10.16s/it] Retrying in 1 seconds
+VDN [split_rush]:  28%|██▊       | 28/100 [04:40<11:41,  9.74s/it] Retrying in 1 seconds
+VDN [split_rush]:  29%|██▉       | 29/100 [04:50<11:18,  9.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -233685.00
+VDN [split_rush]:  30%|███       | 30/100 [05:05<13:18, 11.41s/it] Retrying in 1 seconds
+VDN [split_rush]:  31%|███       | 31/100 [05:14<12:12, 10.61s/it] Retrying in 1 seconds
+VDN [split_rush]:  32%|███▏      | 32/100 [05:23<11:25, 10.08s/it] Retrying in 1 seconds
+VDN [split_rush]:  33%|███▎      | 33/100 [05:32<10:51,  9.73s/it] Retrying in 1 seconds
+VDN [split_rush]:  34%|███▍      | 34/100 [05:41<10:25,  9.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -139036.00
+VDN [split_rush]:  35%|███▌      | 35/100 [05:57<12:21, 11.41s/it] Retrying in 1 seconds
+VDN [split_rush]:  36%|███▌      | 36/100 [06:06<11:23, 10.68s/it] Retrying in 1 seconds
+VDN [split_rush]:  37%|███▋      | 37/100 [06:14<10:32, 10.05s/it] Retrying in 1 seconds
+VDN [split_rush]:  38%|███▊      | 38/100 [06:23<10:07,  9.79s/it] Retrying in 1 seconds
+VDN [split_rush]:  39%|███▉      | 39/100 [06:32<09:41,  9.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -115124.00
+VDN [split_rush]:  40%|████      | 40/100 [06:48<11:24, 11.42s/it] Retrying in 1 seconds
+VDN [split_rush]:  41%|████      | 41/100 [06:57<10:34, 10.75s/it] Retrying in 1 seconds
+VDN [split_rush]:  42%|████▏     | 42/100 [07:06<09:56, 10.28s/it] Retrying in 1 seconds
+VDN [split_rush]:  43%|████▎     | 43/100 [07:15<09:24,  9.90s/it] Retrying in 1 seconds
+VDN [split_rush]:  44%|████▍     | 44/100 [07:25<09:04,  9.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -148252.00
+VDN [split_rush]:  45%|████▌     | 45/100 [07:41<10:39, 11.63s/it] Retrying in 1 seconds
+VDN [split_rush]:  46%|████▌     | 46/100 [07:50<09:46, 10.87s/it] Retrying in 1 seconds
+VDN [split_rush]:  47%|████▋     | 47/100 [07:59<09:10, 10.39s/it] Retrying in 1 seconds
+VDN [split_rush]:  48%|████▊     | 48/100 [08:09<08:44, 10.09s/it] Retrying in 1 seconds
+VDN [split_rush]:  49%|████▉     | 49/100 [08:18<08:19,  9.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -129706.00
+VDN [split_rush]:  50%|█████     | 50/100 [08:34<09:45, 11.70s/it] Retrying in 1 seconds
+VDN [split_rush]:  51%|█████     | 51/100 [08:43<08:58, 10.98s/it] Retrying in 1 seconds
+VDN [split_rush]:  52%|█████▏    | 52/100 [08:52<08:16, 10.35s/it] Retrying in 1 seconds
+VDN [split_rush]:  53%|█████▎    | 53/100 [09:01<07:47,  9.96s/it] Retrying in 1 seconds
+VDN [split_rush]:  54%|█████▍    | 54/100 [09:10<07:23,  9.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -138375.00
+VDN [split_rush]:  55%|█████▌    | 55/100 [09:27<08:53, 11.85s/it] Retrying in 1 seconds
+VDN [split_rush]:  56%|█████▌    | 56/100 [09:36<08:06, 11.07s/it] Retrying in 1 seconds
+VDN [split_rush]:  57%|█████▋    | 57/100 [09:45<07:29, 10.46s/it] Retrying in 1 seconds
+VDN [split_rush]:  58%|█████▊    | 58/100 [09:55<07:06, 10.16s/it] Retrying in 1 seconds
+VDN [split_rush]:  59%|█████▉    | 59/100 [10:04<06:46,  9.91s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -362506.00
+VDN [split_rush]:  60%|██████    | 60/100 [10:20<07:49, 11.73s/it] Retrying in 1 seconds
+VDN [split_rush]:  61%|██████    | 61/100 [10:29<07:05, 10.91s/it] Retrying in 1 seconds
+VDN [split_rush]:  62%|██████▏   | 62/100 [10:38<06:36, 10.43s/it] Retrying in 1 seconds
+VDN [split_rush]:  63%|██████▎   | 63/100 [10:48<06:12, 10.08s/it] Retrying in 1 seconds
+VDN [split_rush]:  64%|██████▍   | 64/100 [10:57<05:56,  9.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -1729500.00
+VDN [split_rush]:  65%|██████▌   | 65/100 [11:12<06:40, 11.44s/it] Retrying in 1 seconds
+VDN [split_rush]:  66%|██████▌   | 66/100 [11:21<06:00, 10.61s/it] Retrying in 1 seconds
+VDN [split_rush]:  67%|██████▋   | 67/100 [11:30<05:36, 10.19s/it] Retrying in 1 seconds
+VDN [split_rush]:  68%|██████▊   | 68/100 [11:39<05:19,  9.98s/it] Retrying in 1 seconds
+VDN [split_rush]:  69%|██████▉   | 69/100 [11:48<05:00,  9.69s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -178940.00
+VDN [split_rush]:  70%|███████   | 70/100 [12:04<05:43, 11.45s/it] Retrying in 1 seconds
+VDN [split_rush]:  71%|███████   | 71/100 [12:13<05:13, 10.83s/it] Retrying in 1 seconds
+VDN [split_rush]:  72%|███████▏  | 72/100 [12:23<04:50, 10.36s/it] Retrying in 1 seconds
+VDN [split_rush]:  73%|███████▎  | 73/100 [12:32<04:31, 10.07s/it] Retrying in 1 seconds
+VDN [split_rush]:  74%|███████▍  | 74/100 [12:41<04:14,  9.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -118294.00
+VDN [split_rush]:  75%|███████▌  | 75/100 [12:57<04:50, 11.63s/it] Retrying in 1 seconds
+VDN [split_rush]:  76%|███████▌  | 76/100 [13:06<04:20, 10.85s/it] Retrying in 1 seconds
+VDN [split_rush]:  77%|███████▋  | 77/100 [13:15<03:56, 10.30s/it] Retrying in 1 seconds
+VDN [split_rush]:  78%|███████▊  | 78/100 [13:24<03:38,  9.92s/it] Retrying in 1 seconds
+VDN [split_rush]:  79%|███████▉  | 79/100 [13:33<03:22,  9.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -115400.00
+VDN [split_rush]:  80%|████████  | 80/100 [13:49<03:48, 11.43s/it] Retrying in 1 seconds
+VDN [split_rush]:  81%|████████  | 81/100 [13:58<03:23, 10.70s/it] Retrying in 1 seconds
+VDN [split_rush]:  82%|████████▏ | 82/100 [14:07<03:03, 10.21s/it] Retrying in 1 seconds
+VDN [split_rush]:  83%|████████▎ | 83/100 [14:16<02:48,  9.90s/it] Retrying in 1 seconds
+VDN [split_rush]:  84%|████████▍ | 84/100 [14:25<02:35,  9.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -290339.00
+VDN [split_rush]:  85%|████████▌ | 85/100 [14:41<02:53, 11.58s/it] Retrying in 1 seconds
+VDN [split_rush]:  86%|████████▌ | 86/100 [14:50<02:31, 10.83s/it] Retrying in 1 seconds
+VDN [split_rush]:  87%|████████▋ | 87/100 [15:00<02:15, 10.40s/it] Retrying in 1 seconds
+VDN [split_rush]:  88%|████████▊ | 88/100 [15:09<02:00, 10.00s/it] Retrying in 1 seconds
+VDN [split_rush]:  89%|████████▉ | 89/100 [15:18<01:47,  9.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -172110.00
+VDN [split_rush]:  90%|█████████ | 90/100 [15:34<01:55, 11.51s/it] Retrying in 1 seconds
+VDN [split_rush]:  91%|█████████ | 91/100 [15:43<01:37, 10.83s/it] Retrying in 1 seconds
+VDN [split_rush]:  92%|█████████▏| 92/100 [15:52<01:23, 10.38s/it] Retrying in 1 seconds
+VDN [split_rush]:  93%|█████████▎| 93/100 [16:01<01:09,  9.99s/it] Retrying in 1 seconds
+VDN [split_rush]:  94%|█████████▍| 94/100 [16:11<00:58,  9.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -291388.00
+VDN [split_rush]:  95%|█████████▌| 95/100 [16:26<00:57, 11.60s/it] Retrying in 1 seconds
+VDN [split_rush]:  96%|█████████▌| 96/100 [16:36<00:43, 10.84s/it] Retrying in 1 seconds
+VDN [split_rush]:  97%|█████████▋| 97/100 [16:44<00:30, 10.24s/it] Retrying in 1 seconds
+VDN [split_rush]:  98%|█████████▊| 98/100 [16:53<00:19,  9.90s/it] Retrying in 1 seconds
+VDN [split_rush]:  99%|█████████▉| 99/100 [17:03<00:09,  9.67s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+--- VDN [split_rush] | Return: -240756.00
+VDN [split_rush]: 100%|██████████| 100/100 [17:19<00:00, 11.57s/it]VDN [split_rush]: 100%|██████████| 100/100 [17:19<00:00, 10.39s/it]
+
+VDN training complete. Models saved to models/seed1/vdn_split_rush_*.npy
+ Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f109da32210>` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+--- Fixed-Time [split_rush] | Return: -143485.00
+Saved outputs/seeds/training_evaluation_log_split_rush_seed1.csv
+
+=======================================================
+QMIX TRAINING: SPLIT_RUSH  (seed=1)
+=======================================================
+QMIX [split_rush]:   0%|          | 0/200 [00:00<?, ?it/s] Retrying in 1 seconds
+/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
+  warnings.warn(
+ Retrying in 1 seconds
+QMIX [split_rush]:   0%|          | 1/200 [00:16<55:05, 16.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   1%|          | 2/200 [00:34<57:26, 17.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   2%|▏         | 3/200 [00:53<59:34, 18.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   2%|▏         | 4/200 [01:12<59:46, 18.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   2%|▎         | 5/200 [01:31<1:00:26, 18.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   3%|▎         | 6/200 [01:50<1:00:50, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   4%|▎         | 7/200 [02:09<1:00:52, 18.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   4%|▍         | 8/200 [02:28<1:00:48, 19.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   4%|▍         | 9/200 [02:47<1:00:10, 18.90s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   5%|▌         | 10/200 [03:07<1:00:28, 19.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   6%|▌         | 11/200 [03:25<59:58, 19.04s/it]   Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   6%|▌         | 12/200 [03:44<58:56, 18.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   6%|▋         | 13/200 [04:03<58:59, 18.93s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   7%|▋         | 14/200 [04:22<58:49, 18.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   8%|▊         | 15/200 [04:41<58:27, 18.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   8%|▊         | 16/200 [04:59<57:21, 18.70s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   8%|▊         | 17/200 [05:17<56:46, 18.62s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:   9%|▉         | 18/200 [05:36<56:25, 18.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  10%|▉         | 19/200 [05:55<56:30, 18.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -1407411.00 over 120 steps
+QMIX [split_rush]:  10%|█         | 20/200 [06:22<1:03:50, 21.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  10%|█         | 21/200 [06:41<1:01:00, 20.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  11%|█         | 22/200 [07:00<59:12, 19.96s/it]   Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  12%|█▏        | 23/200 [07:18<57:42, 19.56s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  12%|█▏        | 24/200 [07:37<56:18, 19.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  12%|█▎        | 25/200 [07:56<55:51, 19.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  13%|█▎        | 26/200 [08:14<55:10, 19.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  14%|█▎        | 27/200 [08:33<54:48, 19.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  14%|█▍        | 28/200 [08:52<53:57, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  14%|█▍        | 29/200 [09:11<54:10, 19.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  15%|█▌        | 30/200 [09:30<53:48, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  16%|█▌        | 31/200 [09:49<53:03, 18.83s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  16%|█▌        | 32/200 [10:07<52:27, 18.73s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  16%|█▋        | 33/200 [10:26<52:23, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  17%|█▋        | 34/200 [10:45<52:02, 18.81s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  18%|█▊        | 35/200 [11:04<52:04, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  18%|█▊        | 36/200 [11:23<51:53, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  18%|█▊        | 37/200 [11:43<51:51, 19.09s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  19%|█▉        | 38/200 [12:02<51:26, 19.05s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  20%|█▉        | 39/200 [12:20<50:59, 19.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -2203155.00 over 120 steps
+QMIX [split_rush]:  20%|██        | 40/200 [12:48<57:42, 21.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  20%|██        | 41/200 [13:07<55:07, 20.80s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  21%|██        | 42/200 [13:26<53:03, 20.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  22%|██▏       | 43/200 [13:45<51:56, 19.85s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  22%|██▏       | 44/200 [14:04<51:02, 19.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  22%|██▎       | 45/200 [14:23<50:19, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  23%|██▎       | 46/200 [14:42<49:44, 19.38s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  24%|██▎       | 47/200 [15:01<49:10, 19.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  24%|██▍       | 48/200 [15:20<48:43, 19.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  24%|██▍       | 49/200 [15:39<47:54, 19.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  25%|██▌       | 50/200 [15:58<47:23, 18.96s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  26%|██▌       | 51/200 [16:17<47:10, 19.00s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  26%|██▌       | 52/200 [16:36<47:08, 19.11s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  26%|██▋       | 53/200 [16:55<46:41, 19.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  27%|██▋       | 54/200 [17:14<46:25, 19.08s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  28%|██▊       | 55/200 [17:33<45:53, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  28%|██▊       | 56/200 [17:52<45:32, 18.97s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  28%|██▊       | 57/200 [18:11<45:19, 19.02s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  29%|██▉       | 58/200 [18:31<45:20, 19.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  30%|██▉       | 59/200 [18:50<45:02, 19.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -1952653.00 over 120 steps
+QMIX [split_rush]:  30%|███       | 60/200 [19:17<50:30, 21.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  30%|███       | 61/200 [19:37<48:32, 20.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  31%|███       | 62/200 [19:56<46:57, 20.42s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  32%|███▏      | 63/200 [20:15<45:47, 20.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  32%|███▏      | 64/200 [20:34<44:48, 19.77s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  32%|███▎      | 65/200 [20:53<43:53, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  33%|███▎      | 66/200 [21:12<43:01, 19.27s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  34%|███▎      | 67/200 [21:31<42:25, 19.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  34%|███▍      | 68/200 [21:50<42:21, 19.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  34%|███▍      | 69/200 [22:09<41:51, 19.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  35%|███▌      | 70/200 [22:28<41:35, 19.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  36%|███▌      | 71/200 [22:48<41:23, 19.25s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  36%|███▌      | 72/200 [23:07<41:00, 19.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  36%|███▋      | 73/200 [23:26<40:30, 19.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  37%|███▋      | 74/200 [23:45<40:11, 19.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  38%|███▊      | 75/200 [24:04<39:52, 19.14s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  38%|███▊      | 76/200 [24:23<39:31, 19.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  38%|███▊      | 77/200 [24:42<39:02, 19.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  39%|███▉      | 78/200 [25:01<38:39, 19.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  40%|███▉      | 79/200 [25:20<38:11, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -394927.00 over 120 steps
+QMIX [split_rush]:  40%|████      | 80/200 [25:47<42:40, 21.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  40%|████      | 81/200 [26:05<40:51, 20.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  41%|████      | 82/200 [26:25<39:41, 20.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  42%|████▏     | 83/200 [26:44<38:57, 19.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  42%|████▏     | 84/200 [27:03<38:00, 19.66s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  42%|████▎     | 85/200 [27:22<37:23, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  43%|████▎     | 86/200 [27:42<37:06, 19.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  44%|████▎     | 87/200 [28:01<36:35, 19.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  44%|████▍     | 88/200 [28:20<36:09, 19.37s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  44%|████▍     | 89/200 [28:40<35:47, 19.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  45%|████▌     | 90/200 [28:58<35:12, 19.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  46%|████▌     | 91/200 [29:17<34:48, 19.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  46%|████▌     | 92/200 [29:37<34:32, 19.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  46%|████▋     | 93/200 [29:56<34:10, 19.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  47%|████▋     | 94/200 [30:15<33:58, 19.23s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  48%|████▊     | 95/200 [30:34<33:32, 19.16s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  48%|████▊     | 96/200 [30:53<33:11, 19.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  48%|████▊     | 97/200 [31:13<32:55, 19.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  49%|████▉     | 98/200 [31:32<32:29, 19.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  50%|████▉     | 99/200 [31:51<32:06, 19.08s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -1004138.00 over 120 steps
+QMIX [split_rush]:  50%|█████     | 100/200 [32:17<35:28, 21.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  50%|█████     | 101/200 [32:36<33:56, 20.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  51%|█████     | 102/200 [32:56<33:08, 20.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  52%|█████▏    | 103/200 [33:15<32:11, 19.91s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  52%|█████▏    | 104/200 [33:34<31:24, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  52%|█████▎    | 105/200 [33:53<30:53, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  53%|█████▎    | 106/200 [34:12<30:29, 19.46s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  54%|█████▎    | 107/200 [34:31<30:06, 19.43s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  54%|█████▍    | 108/200 [34:50<29:33, 19.27s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  55%|█████▍    | 109/200 [35:09<29:09, 19.22s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  55%|█████▌    | 110/200 [35:29<28:55, 19.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  56%|█████▌    | 111/200 [35:48<28:39, 19.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  56%|█████▌    | 112/200 [36:08<28:20, 19.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  56%|█████▋    | 113/200 [36:27<28:01, 19.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  57%|█████▋    | 114/200 [36:46<27:41, 19.32s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  57%|█████▊    | 115/200 [37:05<27:15, 19.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  58%|█████▊    | 116/200 [37:24<26:51, 19.19s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  58%|█████▊    | 117/200 [37:44<26:31, 19.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  59%|█████▉    | 118/200 [38:03<26:25, 19.34s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  60%|█████▉    | 119/200 [38:22<26:03, 19.30s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -1474181.00 over 120 steps
+QMIX [split_rush]:  60%|██████    | 120/200 [38:50<28:59, 21.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  60%|██████    | 121/200 [39:09<27:34, 20.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  61%|██████    | 122/200 [39:28<26:30, 20.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  62%|██████▏   | 123/200 [39:48<25:52, 20.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  62%|██████▏   | 124/200 [40:07<25:15, 19.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  62%|██████▎   | 125/200 [40:26<24:29, 19.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  63%|██████▎   | 126/200 [40:45<24:03, 19.51s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  64%|██████▎   | 127/200 [41:05<23:46, 19.54s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  64%|██████▍   | 128/200 [41:24<23:13, 19.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  64%|██████▍   | 129/200 [41:43<22:57, 19.40s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  65%|██████▌   | 130/200 [42:03<22:38, 19.41s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  66%|██████▌   | 131/200 [42:22<22:14, 19.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  66%|██████▌   | 132/200 [42:41<21:48, 19.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  66%|██████▋   | 133/200 [43:01<21:36, 19.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  67%|██████▋   | 134/200 [43:20<21:14, 19.31s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  68%|██████▊   | 135/200 [43:39<20:50, 19.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  68%|██████▊   | 136/200 [43:58<20:23, 19.12s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  68%|██████▊   | 137/200 [44:16<19:53, 18.95s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  69%|██████▉   | 138/200 [44:36<19:44, 19.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  70%|██████▉   | 139/200 [44:55<19:25, 19.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -492509.00 over 120 steps
+QMIX [split_rush]:  70%|███████   | 140/200 [45:20<21:03, 21.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  70%|███████   | 141/200 [45:39<20:00, 20.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  71%|███████   | 142/200 [45:57<19:03, 19.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  72%|███████▏  | 143/200 [46:15<18:14, 19.20s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  72%|███████▏  | 144/200 [46:34<17:49, 19.10s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  72%|███████▎  | 145/200 [46:54<17:34, 19.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  73%|███████▎  | 146/200 [47:13<17:14, 19.15s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  74%|███████▎  | 147/200 [47:31<16:50, 19.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  74%|███████▍  | 148/200 [47:50<16:21, 18.87s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  74%|███████▍  | 149/200 [48:08<15:56, 18.76s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  75%|███████▌  | 150/200 [48:27<15:30, 18.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  76%|███████▌  | 151/200 [48:45<15:05, 18.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  76%|███████▌  | 152/200 [49:04<14:53, 18.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  76%|███████▋  | 153/200 [49:23<14:39, 18.71s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  77%|███████▋  | 154/200 [49:42<14:22, 18.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  78%|███████▊  | 155/200 [50:01<14:07, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  78%|███████▊  | 156/200 [50:19<13:38, 18.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  78%|███████▊  | 157/200 [50:37<13:20, 18.63s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  79%|███████▉  | 158/200 [50:56<13:06, 18.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  80%|███████▉  | 159/200 [51:15<12:47, 18.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -534935.00 over 120 steps
+QMIX [split_rush]:  80%|████████  | 160/200 [51:41<13:56, 20.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  80%|████████  | 161/200 [52:00<13:11, 20.29s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  81%|████████  | 162/200 [52:17<12:20, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  82%|████████▏ | 163/200 [52:35<11:40, 18.92s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  82%|████████▏ | 164/200 [52:54<11:21, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  82%|████████▎ | 165/200 [53:12<10:50, 18.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  83%|████████▎ | 166/200 [53:29<10:21, 18.28s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  84%|████████▎ | 167/200 [53:48<10:01, 18.24s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  84%|████████▍ | 168/200 [54:06<09:47, 18.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  84%|████████▍ | 169/200 [54:24<09:23, 18.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  85%|████████▌ | 170/200 [54:43<09:09, 18.33s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  86%|████████▌ | 171/200 [55:01<08:52, 18.35s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  86%|████████▌ | 172/200 [55:20<08:40, 18.59s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  86%|████████▋ | 173/200 [55:39<08:21, 18.58s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  87%|████████▋ | 174/200 [55:57<07:59, 18.45s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  88%|████████▊ | 175/200 [56:16<07:45, 18.60s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  88%|████████▊ | 176/200 [56:34<07:26, 18.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  88%|████████▊ | 177/200 [56:53<07:10, 18.72s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  89%|████████▉ | 178/200 [57:12<06:53, 18.79s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  90%|████████▉ | 179/200 [57:31<06:35, 18.82s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -39439.00 over 120 steps
+QMIX [split_rush]:  90%|█████████ | 180/200 [57:56<06:52, 20.61s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  90%|█████████ | 181/200 [58:15<06:20, 20.04s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  91%|█████████ | 182/200 [58:33<05:53, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  92%|█████████▏| 183/200 [58:53<05:31, 19.48s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  92%|█████████▏| 184/200 [59:12<05:10, 19.44s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  92%|█████████▎| 185/200 [59:32<04:52, 19.53s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  93%|█████████▎| 186/200 [59:50<04:28, 19.17s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  94%|█████████▎| 187/200 [1:00:09<04:09, 19.18s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  94%|█████████▍| 188/200 [1:00:28<03:48, 19.06s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  94%|█████████▍| 189/200 [1:00:47<03:28, 18.99s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  95%|█████████▌| 190/200 [1:01:06<03:09, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  96%|█████████▌| 191/200 [1:01:25<02:50, 18.93s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  96%|█████████▌| 192/200 [1:01:44<02:31, 18.98s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  96%|█████████▋| 193/200 [1:02:03<02:13, 19.02s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  97%|█████████▋| 194/200 [1:02:22<01:54, 19.01s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  98%|█████████▊| 195/200 [1:02:41<01:34, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  98%|█████████▊| 196/200 [1:02:59<01:15, 18.94s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  98%|█████████▊| 197/200 [1:03:19<00:57, 19.03s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]:  99%|█████████▉| 198/200 [1:03:40<00:39, 19.74s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+QMIX [split_rush]: 100%|█████████▉| 199/200 [1:03:59<00:19, 19.64s/it] Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+ Retrying in 1 seconds
+  QMIX [split_rush] eval reward: -71787.00 over 120 steps
+QMIX [split_rush]: 100%|██████████| 200/200 [1:04:25<00:00, 21.50s/it]QMIX [split_rush]: 100%|██████████| 200/200 [1:04:25<00:00, 19.33s/it]
+Saved outputs/seeds/qmix_results_split_rush_seed1.csv (10 rows)
+
+=== DONE seed=1 scenario=split_rush at 2026-06-09T02:11:44.325411 ===
