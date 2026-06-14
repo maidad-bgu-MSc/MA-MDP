@@ -51,7 +51,10 @@ else
     echo "libsumo NOT available -> using traci subprocess (throttle concurrency to avoid contention)"
 fi
 
-python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID"
+# Args after the env name ($1) are forwarded to the runner, e.g.
+#   sbatch --array=4,5,10,11,16,17,22,23,28,29 run_array.sbatch mmdp --qmix-only
+# backfills only the QMIX cells on the RESCO scenarios (cologne3=idx4, grid4x4=idx5).
+python run_seeded_experiment.py --job_id "$SLURM_ARRAY_TASK_ID" "${@:2}"
 status=$?
 
 echo "--- MMDP Array Finish (exit $status) ---"

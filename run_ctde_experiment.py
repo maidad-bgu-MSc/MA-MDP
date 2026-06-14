@@ -11,8 +11,23 @@ import torch.optim as optim
 from tqdm import tqdm
 
 from marl_algorithms import QMIXAgentNetwork, QMIXMixingNetwork
-from simulator.problem_generator import SCENARIOS, make_problem_parallel_env
+from simulator.problem_generator import SCENARIOS
 from seeding import episode_seed, eval_seed
+
+# RESCO scenarios use a different env maker (real multi-phase junctions, heterogeneous
+# per-agent action counts) and a different observation function. Everything downstream
+# (agent count, obs dim, per-agent action dims, mixer state dim) is derived from the env
+# at run time, so the same QMIX code trains on both the 1x4 corridor and RESCO networks.
+RESCO_SCENARIOS = ("cologne3", "grid4x4")
+
+
+def make_parallel_env(scenario_name, num_seconds, sumo_seed):
+    """Return the appropriate PettingZoo parallel env for a scenario (1x4 vs RESCO)."""
+    if scenario_name in RESCO_SCENARIOS:
+        from simulator.env_setup_resco import make_resco_parallel_env
+        return make_resco_parallel_env(scenario_name, num_seconds=num_seconds, sumo_seed=sumo_seed)
+    from simulator.problem_generator import make_problem_parallel_env
+    return make_problem_parallel_env(scenario_name, num_seconds=num_seconds, sumo_seed=sumo_seed)
 
 
 class _Tee:
@@ -38,21 +53,16 @@ def _open_log(path="ctde_training.log"):
     sys.stderr = _Tee(sys.__stderr__, fh)
     return fh
 
-NUM_AGENTS = 4
-OBS_DIM = 4
-STATE_DIM = NUM_AGENTS * OBS_DIM  # 16 — concatenated agent observations fed to mixer
-
-
 # =====================================================================
 # Replay Buffer
 # =====================================================================
 class ReplayBuffer:
-    def __init__(self, capacity=10000):
+    def __init__(self, state_dim, num_agents, capacity=10000):
         self.capacity = capacity
-        self._obs = np.zeros((capacity, STATE_DIM), dtype=np.float32)
-        self._actions = np.zeros((capacity, NUM_AGENTS), dtype=np.int64)
+        self._obs = np.zeros((capacity, state_dim), dtype=np.float32)
+        self._actions = np.zeros((capacity, num_agents), dtype=np.int64)
         self._rewards = np.zeros(capacity, dtype=np.float32)
-        self._next_obs = np.zeros((capacity, STATE_DIM), dtype=np.float32)
+        self._next_obs = np.zeros((capacity, state_dim), dtype=np.float32)
         self._dones = np.zeros(capacity, dtype=np.float32)
         self._ptr = 0
         self._size = 0
@@ -88,10 +98,14 @@ class ReplayBuffer:
 def compute_qmix_loss(batch, agent_nets, target_agent_nets, mixer, target_mixer, gamma):
     obs_flat, actions, rewards, next_obs_flat, dones = batch
     B = obs_flat.shape[0]
+    num_agents = len(agent_nets)
+    obs_dim = obs_flat.shape[1] // num_agents
 
-    # Split flat obs into per-agent observations
-    obs_per_agent = obs_flat.view(B, NUM_AGENTS, OBS_DIM)
-    next_obs_per_agent = next_obs_flat.view(B, NUM_AGENTS, OBS_DIM)
+    # Split flat obs into per-agent observations. Agents may have different action-space
+    # sizes (RESCO junctions have 3-8 phases); that is fine because each agent's Q-values
+    # are gathered/maxed over its OWN network output below — only obs_dim must be uniform.
+    obs_per_agent = obs_flat.view(B, num_agents, obs_dim)
+    next_obs_per_agent = next_obs_flat.view(B, num_agents, obs_dim)
 
     # Chosen Q-values for each agent
     chosen_qs = []
@@ -140,45 +154,61 @@ def train_qmix(
 ):
     if seed is not None:
         save_dir = os.path.join(save_dir, f"seed{seed}")
-    agent_nets = [QMIXAgentNetwork(obs_dim=OBS_DIM, action_dim=2) for _ in range(NUM_AGENTS)]
-    target_agent_nets = [copy.deepcopy(net) for net in agent_nets]
-    mixer = QMIXMixingNetwork(num_agents=NUM_AGENTS, state_dim=STATE_DIM)
-    target_mixer = copy.deepcopy(mixer)
 
-    all_params = list(mixer.parameters())
-    for net in agent_nets:
-        all_params += list(net.parameters())
-    optimizer = optim.Adam(all_params, lr=lr)
-
-    buffer = ReplayBuffer(capacity=buffer_capacity)
+    # Networks are built lazily on the first episode, once the env reveals the agent set,
+    # observation dimension and each junction's action-space size. This makes the same code
+    # work for the 1x4 corridor (4 agents x 2 actions) and RESCO nets (3-16 agents, 3-8
+    # phases each) without any hard-coded shapes.
+    agent_nets = target_agent_nets = mixer = target_mixer = None
+    optimizer = buffer = None
+    agent_ids = action_counts = None
     eval_history = []
 
     for episode in tqdm(range(num_episodes), desc=f"QMIX [{scenario_name}]"):
         epsilon = max(epsilon_end, epsilon_start - (epsilon_start - epsilon_end) * episode / epsilon_decay_episodes)
 
         ep_seed = episode_seed(seed, episode) if seed is not None else "random"
-        env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=ep_seed)
-        agent_ids = env.possible_agents
+        env = make_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=ep_seed)
+        agent_ids = list(env.possible_agents)
         obs_dict, _ = env.reset(seed=(ep_seed if seed is not None else None))
 
-        while True:
-            obs_flat = np.concatenate([obs_dict[aid].astype(np.float32) for aid in agent_ids])
+        if agent_nets is None:
+            num_agents = len(agent_ids)
+            obs_dim = int(np.asarray(obs_dict[agent_ids[0]]).size)
+            action_counts = [int(env.action_space(aid).n) for aid in agent_ids]
+            state_dim = num_agents * obs_dim
+            agent_nets = [QMIXAgentNetwork(obs_dim=obs_dim, action_dim=action_counts[i])
+                          for i in range(num_agents)]
+            target_agent_nets = [copy.deepcopy(net) for net in agent_nets]
+            mixer = QMIXMixingNetwork(num_agents=num_agents, state_dim=state_dim)
+            target_mixer = copy.deepcopy(mixer)
+            all_params = list(mixer.parameters())
+            for net in agent_nets:
+                all_params += list(net.parameters())
+            optimizer = optim.Adam(all_params, lr=lr)
+            buffer = ReplayBuffer(state_dim=state_dim, num_agents=num_agents,
+                                  capacity=buffer_capacity)
+            print(f"  QMIX [{scenario_name}] {num_agents} agents, obs_dim={obs_dim}, "
+                  f"action_counts={action_counts}")
 
-            # Epsilon-greedy action selection
+        while True:
+            obs_flat = np.concatenate([np.asarray(obs_dict[aid], dtype=np.float32) for aid in agent_ids])
+
+            # Epsilon-greedy action selection (each agent samples within its own phase count)
             actions = {}
             with torch.no_grad():
                 for i, aid in enumerate(agent_ids):
                     if np.random.rand() < epsilon:
-                        actions[aid] = np.random.randint(2)
+                        actions[aid] = np.random.randint(action_counts[i])
                     else:
-                        obs_t = torch.FloatTensor(obs_dict[aid]).unsqueeze(0)
+                        obs_t = torch.FloatTensor(np.asarray(obs_dict[aid], dtype=np.float32)).unsqueeze(0)
                         q_vals = agent_nets[i](obs_t)
                         actions[aid] = int(q_vals.argmax(dim=-1).item())
 
             next_obs_dict, rewards, terminations, truncations, _ = env.step(actions)
             reward = float(list(rewards.values())[0])
             done = any(terminations.values()) or any(truncations.values())
-            next_obs_flat = np.concatenate([next_obs_dict[aid].astype(np.float32) for aid in agent_ids])
+            next_obs_flat = np.concatenate([np.asarray(next_obs_dict[aid], dtype=np.float32) for aid in agent_ids])
             actions_arr = np.array([actions[aid] for aid in agent_ids], dtype=np.int64)
 
             buffer.push(obs_flat, actions_arr, reward, next_obs_flat, done)
@@ -207,13 +237,15 @@ def train_qmix(
         # Periodic evaluation
         if (episode + 1) % eval_interval == 0:
             es = eval_seed(seed) if seed is not None else None
-            r = evaluate_qmix(agent_nets, scenario_name, sim_seconds=eval_seconds, eval_sumo_seed=es)
+            r = evaluate_qmix(agent_nets, agent_ids, scenario_name,
+                              sim_seconds=eval_seconds, eval_sumo_seed=es)
             eval_history.append((episode + 1, r))
 
-    # Save models
+    # Save models (sanitize ids — real OSM junction names can contain ':' / '/')
     os.makedirs(save_dir, exist_ok=True)
-    for i, (aid, net) in enumerate(zip(agent_ids, agent_nets)):
-        torch.save(net.state_dict(), os.path.join(save_dir, f"qmix_{scenario_name}_agent_{aid}.pth"))
+    for aid, net in zip(agent_ids, agent_nets):
+        sanitized_id = str(aid).replace(":", "_").replace("/", "_")
+        torch.save(net.state_dict(), os.path.join(save_dir, f"qmix_{scenario_name}_agent_{sanitized_id}.pth"))
     torch.save(mixer.state_dict(), os.path.join(save_dir, f"qmix_{scenario_name}_mixer.pth"))
 
     return eval_history
@@ -222,10 +254,9 @@ def train_qmix(
 # =====================================================================
 # Evaluation
 # =====================================================================
-def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600, eval_sumo_seed=None):
+def evaluate_qmix(agent_nets, agent_ids, scenario_name, sim_seconds=600, eval_sumo_seed=None):
     construct_seed = eval_sumo_seed if eval_sumo_seed is not None else "random"
-    env = make_problem_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=construct_seed)
-    agent_ids = env.possible_agents
+    env = make_parallel_env(scenario_name, num_seconds=sim_seconds, sumo_seed=construct_seed)
     obs_dict, _ = env.reset(seed=eval_sumo_seed)
     total_reward = 0.0
     steps = 0
@@ -234,7 +265,7 @@ def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600, eval_sumo_seed=Non
         actions = {}
         with torch.no_grad():
             for i, aid in enumerate(agent_ids):
-                obs_t = torch.FloatTensor(obs_dict[aid]).unsqueeze(0)
+                obs_t = torch.FloatTensor(np.asarray(obs_dict[aid], dtype=np.float32)).unsqueeze(0)
                 q_vals = agent_nets[i](obs_t)
                 actions[aid] = int(q_vals.argmax(dim=-1).item())
 
@@ -252,8 +283,9 @@ def evaluate_qmix(agent_nets, scenario_name, sim_seconds=600, eval_sumo_seed=Non
 
 def run_qmix_scenario(scenario, num_episodes=200, eval_interval=20, seed=None, out_dir="outputs",
                       sim_seconds=1800, eval_seconds=600):
-    """Train QMIX (CTDE) on a 1x4 scenario, write a per-(scenario, seed) CSV of the eval
-    history, and return it. Reused by run_seeded_experiment.py."""
+    """Train QMIX (CTDE) on any scenario (1x4 corridor or RESCO net), write a
+    per-(scenario, seed) CSV of the eval history, and return it. Reused by
+    run_seeded_experiment.py."""
     print(f"\n{'='*55}\nQMIX TRAINING: {scenario.upper()}  (seed={seed})\n{'='*55}")
     history = train_qmix(scenario_name=scenario, num_episodes=num_episodes,
                          eval_interval=eval_interval, seed=seed,

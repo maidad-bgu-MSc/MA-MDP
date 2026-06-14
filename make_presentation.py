@@ -150,7 +150,8 @@ def add_table_slide(title, header, rows, caption=None, col_widths=None, font=12)
 
 
 def parse_summary_md(path):
-    """Parse outputs/aggregated/summary.md table into rows of (scenario, algo, mean, std, n)."""
+    """Parse outputs/aggregated/summary.md table into rows of
+    (scenario, algo, final, late-window, peak, n seeds)."""
     rows = []
     if not os.path.exists(path):
         return rows
@@ -160,8 +161,8 @@ def parse_summary_md(path):
             if not line.startswith("|") or "---" in line or "Scenario" in line:
                 continue
             cells = [c.strip() for c in line.strip("|").split("|")]
-            if len(cells) >= 5:
-                rows.append(cells[:5])
+            if len(cells) >= 6:
+                rows.append(cells[:6])
     return rows
 
 
@@ -287,15 +288,22 @@ have_agg = bool(summary_rows)
 
 if have_agg:
     add_table_slide(
-        "Final performance across seeds (mean +/- std)",
-        ["Scenario", "Algorithm", "Mean return", "Std", "Seeds"],
+        "Performance across seeds: final / late-window / peak (mean +/- std)",
+        ["Scenario", "Algorithm", "Final", "Late-window", "Peak", "Seeds"],
         summary_rows,
-        caption="From outputs/aggregated/summary.md. Return is negative; closer to 0 is better.",
-        col_widths=[2.2, 3.0, 2.7, 2.1, 2.1], font=11,
+        caption="From outputs/aggregated/summary.md. Return is negative; closer to 0 is better. "
+                "Late-window = mean of last 5 evals (fair plateau metric); Peak = best eval per seed.",
+        col_widths=[1.7, 2.2, 2.6, 2.6, 2.6, 0.9], font=10,
     )
-    add_image_slide("Cross-algorithm comparison (mean +/- std over seeds)",
+    add_image_slide("Cross-algorithm comparison: final epoch (mean +/- std over seeds)",
                     os.path.join(AGG_DIR, "cross_algorithm_bars.png"),
                     caption="Final delay = |return| per scenario/algorithm; error bars = std across seeds.")
+    late_bars = os.path.join(AGG_DIR, "cross_algorithm_bars_late.png")
+    if os.path.exists(late_bars):
+        add_image_slide("Cross-algorithm comparison: converged plateau (last 5 evals)",
+                        late_bars,
+                        caption="Late-window delay = |return|; the fair head-to-head metric, "
+                                "robust to late epsilon-greedy noise in the tabular learners.")
     for scen in ["baseline", "dense_wave", "cross_surge", "split_rush", "cologne3", "grid4x4"]:
         lc = os.path.join(AGG_DIR, f"{scen}_learning.png")
         if os.path.exists(lc):

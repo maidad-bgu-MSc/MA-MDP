@@ -4,7 +4,7 @@ Designed to be launched once per SLURM array task. Given a seed and a scenario i
   * sets global RNG seeds (numpy / torch / random) for reproducibility,
   * trains the appropriate algorithms for that scenario family:
        - 1x4 custom scenarios  -> tabular IQL/Hysteretic/VDN  +  QMIX (CTDE)
-       - RESCO scenarios       -> tabular IQL/Hysteretic/VDN  (vs both fixed baselines)
+       - RESCO scenarios       -> tabular IQL/Hysteretic/VDN  +  QMIX (CTDE)  (vs both fixed baselines)
   * writes per-(scenario, seed) CSVs under outputs/seeds/ and models under models/seed<seed>/,
   * mirrors all stdout/stderr to logs/seed<seed>_<scenario>.log.
 
@@ -81,10 +81,13 @@ def main():
     # per step but equally sampled). See run_tabular_experiment / run_ctde_experiment.
     parser.add_argument("--episodes", type=int, default=500, help="Tabular training episodes.")
     parser.add_argument("--eval-interval", type=int, default=10, help="Tabular eval interval (epochs).")
-    parser.add_argument("--qmix-episodes", type=int, default=500, help="QMIX training episodes (1x4 only).")
+    parser.add_argument("--qmix-episodes", type=int, default=500, help="QMIX training episodes.")
     parser.add_argument("--qmix-eval-interval", type=int, default=10, help="QMIX eval interval.")
     parser.add_argument("--quick", action="store_true",
                         help="Tiny run for smoke testing (overrides episode counts).")
+    parser.add_argument("--qmix-only", "--qmix_only", action="store_true", dest="qmix_only",
+                        help="Train ONLY QMIX (skip the tabular methods). Use to backfill the "
+                             "QMIX cells without recomputing existing tabular results.")
     args = parser.parse_args()
 
     if args.job_id is not None:
@@ -109,18 +112,24 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
 
     try:
+        from run_ctde_experiment import run_qmix_scenario
         if args.scenario in ONE_X_FOUR:
-            from run_tabular_experiment import run_scenario
-            from run_ctde_experiment import run_qmix_scenario
-            run_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
-                         seed=args.seed, out_dir=OUT_DIR)
+            if not args.qmix_only:
+                from run_tabular_experiment import run_scenario
+                run_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
+                             seed=args.seed, out_dir=OUT_DIR)
             run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
                               eval_interval=qmix_eval_interval, seed=args.seed, out_dir=OUT_DIR,
                               sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
         elif args.scenario in RESCO:
-            from run_resco_tabular_experiment import run_resco_scenario
-            run_resco_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
-                               seed=args.seed, out_dir=OUT_DIR)
+            if not args.qmix_only:
+                from run_resco_tabular_experiment import run_resco_scenario
+                run_resco_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
+                                   seed=args.seed, out_dir=OUT_DIR)
+            # QMIX (CTDE) now runs on RESCO too — same unified budget as the 1x4 path.
+            run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
+                              eval_interval=qmix_eval_interval, seed=args.seed, out_dir=OUT_DIR,
+                              sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
         print(f"\n=== DONE seed={args.seed} scenario={args.scenario} "
               f"at {datetime.now().isoformat()} ===")
     except BaseException:
