@@ -311,6 +311,36 @@ if have_agg:
         q = os.path.join(AGG_DIR, f"{scen}_qmix.png")
         if os.path.exists(q):
             add_image_slide(f"{scen}: QMIX (CTDE) learning curve", q)
+
+    # ---- Focused analysis of the RESCO / QMIX-at-scale results
+    add_bullets("Finding: QMIX (CTDE) extends to real multi-phase junctions", [
+        ("We generalised QMIX from the 1x4 topology to RESCO: agent count, observation dim and "
+         "per-agent action count are now read from the env (cologne3: 3 agents, 3-4 phases; "
+         "grid4x4: 16 agents, 8 phases).", 0),
+        ("cologne3 - value factorisation wins decisively:", 0),
+        ("All factorised/independent learners beat both fixed-time baselines (native -44k, round-robin -175k).", 1),
+        ("QMIX reaches the best single-run policy of any method (peak ~ -2.9k); 4 of 5 seeds converge "
+         "to ~ -3.5k.", 1),
+        ("But QMIX shows late-training instability: 1 of 5 seeds diverged to -43k, inflating its mean/variance.", 1),
+        ("VDN is the most RELIABLE winner on cologne3 (-5.4k +/- 0.4k) - near-best and low variance.", 1),
+    ])
+    add_bullets("Finding: at 16 agents, expressiveness does NOT buy scalability", [
+        ("grid4x4 (16 agents x 8 phases, single global reward): NO learner beats fixed-time (native -31k).", 0),
+        ("Among learners, simple VDN is best (late-window -156k); QMIX is the WORST learner (-452k) -",  0),
+        ("worse than VDN and even below the tabular learners' best policies.", 1),
+        ("Interpretation: the bottleneck at scale is sample-efficiency / credit assignment / exploration,", 0),
+        ("NOT mixer expressiveness. Under a fixed 500-episode budget, QMIX's heavier deep hypernetwork "
+         "mixer (over a 64-dim joint state, 16 agents) is harder to train than VDN's simple sum.", 1),
+        ("More expressive != better at scale when samples are the binding constraint - a clean negative result.", 1),
+    ])
+    add_bullets("The scalability picture (complete algorithm x problem grid)", [
+        ("Small scale (1x4 corridor, cologne3): value factorisation wins; QMIX/VDN beat fixed-time and "
+         "the independent learners.", 0),
+        ("Large scale (grid4x4, 16 agents): cooperative MARL hits a wall - even the most expressive "
+         "method fails to beat fixed-time, and expressiveness does not rescue it.", 0),
+        ("Severity scales with agent count and phase count (2 -> ok, 3-4 -> RL wins, 8x16 -> RL loses),", 1),
+        ("pointing to coordination/credit-assignment at scale as the open problem, not the algorithm class.", 1),
+    ])
 else:
     add_bullets("Results status (DRAFT - awaiting the multi-seed sweep)", [
         ("This deck was built before the 5-seed SLURM sweep completed.", 0),
@@ -340,14 +370,21 @@ add_section_header("Takeaways & outlook")
 add_bullets("Takeaways", [
     ("On the 1x4 MMDP, value factorisation wins: QMIX (CTDE) beats coordinated fixed-time on every scenario.", 0),
     ("VDN/QMIX (CTDE) consistently outperform independent learners (IQL/Hysteretic) under a shared reward.", 1),
-    ("Variance matters: tabular learners are high-variance, so we report mean +/- std across seeds, not single runs.", 0),
+    ("Generalised to real RESCO junctions: on cologne3 (3 agents) factorisation beats fixed-time by ~10x; "
+     "QMIX hits the best peak policy, VDN is the most reliable.", 0),
+    ("Scalability wall: at grid4x4 (16 agents) NO learner beats fixed-time, and QMIX's heavier mixer is the "
+     "WORST learner - expressiveness does not buy scale under a fixed sample budget.", 0),
+    ("Variance matters: we report final / late-window / peak (mean +/- std across 5 seeds), not single runs; "
+     "deep learners can find a great policy yet fail to hold it (1 cologne3 QMIX seed diverged).", 0),
     ("Modelling fidelity is decisive: getting the action space and observation right was the difference "
      "between no learning and learning on the real RESCO benchmarks.", 0),
 ])
 add_bullets("Limitations & future work", [
-    ("QMIX is currently specialised to the 1x4 topology; generalising it to RESCO (3/16 agents, "
-     "variable phases) is the natural next step.", 0),
-    ("Hyperparameter tuning and longer training for the tabular learners on RESCO.", 0),
+    ("grid4x4 is unsolved by all methods: the open problem is coordination / credit assignment at 16 agents, "
+     "not the algorithm class - try a larger sample budget, reward shaping, or per-agent rewards.", 0),
+    ("Stabilise deep CTDE: early-stopping / Double-Q / target smoothing to prevent the late-training "
+     "divergence seen on cologne3 QMIX.", 0),
+    ("Hyperparameter tuning and longer training for both tabular and deep learners on RESCO.", 0),
     ("Add per-agent metrics (throughput, average delay) alongside the global reward.", 0),
     ("Statistical significance tests across seeds for the headline comparisons.", 0),
 ])
