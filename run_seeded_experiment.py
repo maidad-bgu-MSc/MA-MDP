@@ -88,6 +88,9 @@ def main():
     parser.add_argument("--qmix-only", "--qmix_only", action="store_true", dest="qmix_only",
                         help="Train ONLY QMIX (skip the tabular methods). Use to backfill the "
                              "QMIX cells without recomputing existing tabular results.")
+    parser.add_argument("--tabular-only", "--tabular_only", action="store_true", dest="tabular_only",
+                        help="Train ONLY the tabular methods (skip QMIX). Mirror of --qmix-only; "
+                             "useful for reproducing tabular cells without the QMIX cost.")
     parser.add_argument("--out-dir", "--out_dir", type=str, default=OUT_DIR, dest="out_dir",
                         help="Directory for per-seed CSVs (default outputs/seeds). Point at a scratch "
                              "dir to rerun for a reproducibility check without clobbering committed results.")
@@ -97,6 +100,8 @@ def main():
         args.seed, args.scenario = resolve_job(args.job_id)
     if args.seed is None or args.scenario is None:
         parser.error("provide either --job-id, or both --seed and --scenario")
+    if args.qmix_only and args.tabular_only:
+        parser.error("--qmix-only and --tabular-only are mutually exclusive")
 
     episodes = args.episodes
     eval_interval = args.eval_interval
@@ -122,18 +127,20 @@ def main():
                 from run_tabular_experiment import run_scenario
                 run_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
                              seed=args.seed, out_dir=out_dir)
-            run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
-                              eval_interval=qmix_eval_interval, seed=args.seed, out_dir=out_dir,
-                              sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
+            if not args.tabular_only:
+                run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
+                                  eval_interval=qmix_eval_interval, seed=args.seed, out_dir=out_dir,
+                                  sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
         elif args.scenario in RESCO:
             if not args.qmix_only:
                 from run_resco_tabular_experiment import run_resco_scenario
                 run_resco_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
                                    seed=args.seed, out_dir=out_dir)
             # QMIX (CTDE) now runs on RESCO too — same unified budget as the 1x4 path.
-            run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
-                              eval_interval=qmix_eval_interval, seed=args.seed, out_dir=out_dir,
-                              sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
+            if not args.tabular_only:
+                run_qmix_scenario(args.scenario, num_episodes=qmix_episodes,
+                                  eval_interval=qmix_eval_interval, seed=args.seed, out_dir=out_dir,
+                                  sim_seconds=qmix_sim_seconds, eval_seconds=qmix_eval_seconds)
         print(f"\n=== DONE seed={args.seed} scenario={args.scenario} "
               f"at {datetime.now().isoformat()} ===")
     except BaseException:
