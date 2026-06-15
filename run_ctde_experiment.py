@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 from marl_algorithms import QMIXAgentNetwork, QMIXMixingNetwork
 from simulator.problem_generator import SCENARIOS
-from seeding import episode_seed, eval_seed
+from seeding import episode_seed, eval_seed, set_global_seeds
 
 # RESCO scenarios use a different env maker (real multi-phase junctions, heterogeneous
 # per-agent action counts) and a different observation function. Everything downstream
@@ -154,6 +154,11 @@ def train_qmix(
 ):
     if seed is not None:
         save_dir = os.path.join(save_dir, f"seed{seed}")
+        # Re-seed at the start of QMIX so its RNG (net init, epsilon-greedy, replay
+        # sampling) is independent of anything that ran before in the same process
+        # (e.g. tabular training). This makes QMIX bit-reproducible and identical
+        # whether launched via a full run or --qmix-only.
+        set_global_seeds(seed)
 
     # Networks are built lazily on the first episode, once the env reveals the agent set,
     # observation dimension and each junction's action-space size. This makes the same code
