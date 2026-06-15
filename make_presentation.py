@@ -1,13 +1,11 @@
 """Generate the MMDP project presentation (ATLC_MMDP_presentation.pptx).
 
 Static content (problem, MMDP formulation, algorithms, test scenarios, methodology,
-conclusions) is authored here. Results slides are data-driven:
-
-  * If ``outputs/aggregated/`` exists (i.e. the multi-seed SLURM sweep has been run and
-    aggregate_seeds.py has executed), the deck uses the mean +/- std summary table and the
-    aggregated plots with error bands.
-  * Otherwise it builds a DRAFT: it embeds the real single-seed 1x4 plots already in
-    ``outputs/`` and flags that the validated multi-seed RESCO results are pending the sweep.
+conclusions) is authored here. Results slides are data-driven from the canonical
+multi-seed results: the deck uses ``outputs/aggregated/`` (mean +/- std summary table
+and aggregated plots with error bands), produced by aggregate_seeds.py over the 5-seed
+SLURM sweep. If that directory is missing the script errors out rather than building a
+single-run draft -- regenerate the aggregated results first.
 
 Re-run this script after the cluster sweep to regenerate the final deck.
 
@@ -326,8 +324,9 @@ if have_agg:
     ])
     add_bullets("Finding: at 16 agents, expressiveness does NOT buy scalability", [
         ("grid4x4 (16 agents x 8 phases, single global reward): NO learner beats fixed-time (native -31k).", 0),
-        ("Among learners, simple VDN is best (late-window -156k); QMIX is the WORST learner (-452k) -",  0),
-        ("worse than VDN and even below the tabular learners' best policies.", 1),
+        ("Among learners, simple VDN is best by far (late-window -156k); every other learner is ~3x worse.", 0),
+        ("QMIX is the most UNSTABLE: worst final epoch (-517k) and the highest variance of any learner; its "
+         "late-window plateau (-452k) is only mid-pack, and its peak (-307k) is below the tabular learners' best.", 1),
         ("Interpretation: the bottleneck at scale is sample-efficiency / credit assignment / exploration,", 0),
         ("NOT mixer expressiveness. Under a fixed 500-episode budget, QMIX's heavier deep hypernetwork "
          "mixer (over a 64-dim joint state, 16 agents) is harder to train than VDN's simple sum.", 1),
@@ -342,28 +341,11 @@ if have_agg:
         ("pointing to coordination/credit-assignment at scale as the open problem, not the algorithm class.", 1),
     ])
 else:
-    add_bullets("Results status (DRAFT - awaiting the multi-seed sweep)", [
-        ("This deck was built before the 5-seed SLURM sweep completed.", 0),
-        ("Shown below: the existing single-seed 1x4 results (real) as a preview.", 1),
-        ("After running cluster/submit.sh + aggregate_seeds.py, re-run make_presentation.py", 0),
-        ("to replace these with mean +/- std plots and the full summary table.", 1),
-    ])
-    add_image_slide("1x4 - QMIX (CTDE) learning curves (single-seed preview)",
-                    os.path.join(OUT_DIR, "qmix_learning_curves.png"))
-    add_image_slide("1x4 - tabular learning curves (single-seed preview)",
-                    os.path.join(OUT_DIR, "tabular_learning_curves.png"))
-    add_image_slide("1x4 - cross-algorithm comparison (single-seed preview)",
-                    os.path.join(OUT_DIR, "cross_algorithm_bar.png"))
-    add_bullets("RESCO: from broken to learning (the fix)", [
-        ("Original RESCO runs showed NO learning - every algorithm ~ or worse than fixed-time.", 0),
-        ("Root causes we fixed:", 0),
-        ("Action-space bug: agents were hard-capped to 2 actions, but grid4x4 junctions have 8 "
-         "(cologne3 3-4) -> 6 of 8 phases were never usable.", 1),
-        ("State saturation: the rest-of-network queue summed over 15 neighbours always hit the top "
-         "bin -> 2 of 4 state dims were constant. Now averaged per junction.", 1),
-        ("Sanity check after the fix (cologne3, IQL): eval return improved -124k -> -30k in 15 episodes,", 0),
-        ("converging toward the SUMO-native fixed-time baseline (~-26k). Full multi-seed sweep pending.", 1),
-    ])
+    raise SystemExit(
+        "outputs/aggregated/summary.md not found or empty. Run the multi-seed sweep "
+        "(cluster/submit.sh) then aggregate_seeds.py before building the deck; the deck "
+        "is now always generated from the canonical aggregated multi-seed results."
+    )
 
 # ---- Findings / conclusions
 add_section_header("Takeaways & outlook")
@@ -372,8 +354,9 @@ add_bullets("Takeaways", [
     ("VDN/QMIX (CTDE) consistently outperform independent learners (IQL/Hysteretic) under a shared reward.", 1),
     ("Generalised to real RESCO junctions: on cologne3 (3 agents) factorisation beats fixed-time by ~10x; "
      "QMIX hits the best peak policy, VDN is the most reliable.", 0),
-    ("Scalability wall: at grid4x4 (16 agents) NO learner beats fixed-time, and QMIX's heavier mixer is the "
-     "WORST learner - expressiveness does not buy scale under a fixed sample budget.", 0),
+    ("Scalability wall: at grid4x4 (16 agents) NO learner beats fixed-time; simple VDN is best by far while "
+     "QMIX's heavier mixer is the most unstable (worst final epoch, highest variance) - expressiveness does "
+     "not buy scale under a fixed sample budget.", 0),
     ("Variance matters: we report final / late-window / peak (mean +/- std across 5 seeds), not single runs; "
      "deep learners can find a great policy yet fail to hold it (1 cologne3 QMIX seed diverged).", 0),
     ("Modelling fidelity is decisive: getting the action space and observation right was the difference "

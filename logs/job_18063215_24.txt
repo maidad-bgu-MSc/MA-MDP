@@ -1,91 +1,0 @@
-------------------------------------
-Tue 09 Jun 2026 12:28:32 IDT
-SLURM_JOBID:		18063230
-SLURM_JOB_NODELIST:	ise-cpu-intl-06
-SLURM_SCRATCH_DIR:	/scratch/leashmil/18063230
-Allocated Resouces:	cpu - 2 / mem -  MB / gpu - 
-SLURM_GPU_INDEX:	
-Running as leashmil from sternron account with normal QOS
-------------------------------------
---- MMDP Array Start ---
-Task ID: 24  |  env: mmdp  |  host: ise-cpu-intl-06.auth.ad.bgu.ac.il
-Tue 09 Jun 2026 12:28:32 IDT
-/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/__init__.py:55: UserWarning: Could not import libsumo using /home/leashmil/.conda/envs/mmdp/bin/python, falling back to pure python traci (No module named 'libsumo').
-  warnings.warn("Could not import libsumo using %s, falling back to pure python traci (%s)." %
-
-============================================================
-SCENARIO: BASELINE  (seed=4)
-============================================================
-
-==================================================
-TRAINING IQL_TABULAR [baseline] (100 episodes, seed=4)
-==================================================
- Retrying in 1 seconds
-Step #0.00 (0ms ?*RT. ?UPS, TraCI: 7ms, vehicles TOT 0 ACT 0 BUF 0)                      
-/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:132: UserWarning: The base environment `sumo_rl_v0` does not have a `render_mode` defined.
-  warnings.warn(
-/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py:252: UserWarning: The base environment `<simulator.env_setup.GlobalRewardWrapper object at 0x7f4122ce0200>` does not have a `render_mode` defined.
-  warnings.warn(
- Retrying in 1 seconds
-iql_tabular [baseline]:   0%|          | 0/100 [00:00<?, ?it/s]Step #0.00 (0ms ?*RT. ?UPS, TraCI: 16ms, vehicles TOT 0 ACT 0 BUF 0)                     
- Retrying in 1 seconds
-iql_tabular [baseline]:   1%|          | 1/100 [00:10<16:34, 10.05s/it]Step #0.00 (0ms ?*RT. ?UPS, TraCI: 12ms, vehicles TOT 2 ACT 2 BUF 0)                      Step #100.00 (0ms ?*RT. ?UPS, TraCI: 35ms, vehicles TOT 144 ACT 76 BUF 0)                 Step #200.00 (1ms ~= 1000.00*RT, ~100000.00UPS, TraCI: 40ms, vehicles TOT 268 ACT 100 BUF Step #300.00 (1ms ~= 1000.00*RT, ~90000.00UPS, TraCI: 35ms, vehicles TOT 374 ACT 90 BUF 4)Step #400.00 (0ms ?*RT. ?UPS, TraCI: 46ms, vehicles TOT 511 ACT 112 BUF 12)               Step #500.00 (1ms ~= 1000.00*RT, ~116000.00UPS, TraCI: 48ms, vehicles TOT 620 ACT 116 BUF Step #600.00 (1ms ~= 1000.00*RT, ~101000.00UPS, TraCI: 42ms, vehicles TOT 730 ACT 101 BUF Step #700.00 (1ms ~= 1000.00*RT, ~117000.00UPS, TraCI: 48ms, vehicles TOT 848 ACT 117 BUF Step #800.00 (0ms ?*RT. ?UPS, TraCI: 47ms, vehicles TOT 971 ACT 111 BUF 21)               Step #900.00 (0ms ?*RT. ?UPS, TraCI: 43ms, vehicles TOT 1070 ACT 109 BUF 0)               Step #1000.00 (0ms ?*RT. ?UPS, TraCI: 49ms, vehicles TOT 1198 ACT 111 BUF 6)               
- Retrying in 1 seconds
-iql_tabular [baseline]:   2%|▏         | 2/100 [00:19<15:56,  9.76s/it]Step #0.00 (1ms ~= 1000.00*RT, ~2000.00UPS, TraCI: 12ms, vehicles TOT 2 ACT 2 BUF 0)      Step #100.00 (0ms ?*RT. ?UPS, TraCI: 35ms, vehicles TOT 137 ACT 83 BUF 0)                 Step #200.00 (1ms ~= 1000.00*RT, ~97000.00UPS, TraCI: 40ms, vehicles TOT 269 ACT 97 BUF 18Step #300.00 (1ms ~= 1000.00*RT, ~74000.00UPS, TraCI: 32ms, vehicles TOT 362 ACT 74 BUF 0)Step #400.00 (0ms ?*RT. ?UPS, TraCI: 40ms, vehicles TOT 493 ACT 95 BUF 1)                 Step #500.00 (1ms ~= 1000.00*RT, ~113000.00UPS, TraCI: 45ms, vehicles TOT 620 ACT 113 BUF Step #600.00 (0ms ?*RT. ?UPS, TraCI: 35ms, vehicles TOT 724 ACT 85 BUF 0)                 Step #700.00 (0ms ?*RT. ?UPS, TraCI: 42ms, vehicles TOT 867 ACT 108 BUF 1)                Step #800.00 (0ms ?*RT. ?UPS, TraCI: 42ms, vehicles TOT 983 ACT 113 BUF 18)               Step #900.00 (0ms ?*RT. ?UPS, TraCI: 32ms, vehicles TOT 1065 ACT 73 BUF 1)                Step #1000.00 (0ms ?*RT. ?UPS, TraCI: 45ms, vehicles TOT 1197 ACT 110 BUF 4)               
- Retrying in 1 seconds
-iql_tabular [baseline]:   3%|▎         | 3/100 [00:30<16:24, 10.15s/it]Step #0.00 (0ms ?*RT. ?UPS, TraCI: 12ms, vehicles TOT 3 ACT 3 BUF 0)                      Step #100.00 (0ms ?*RT. ?UPS, TraCI: 37ms, vehicles TOT 166 ACT 93 BUF 1)                 Step #200.00 (0ms ?*RT. ?UPS, TraCI: 46ms, vehicles TOT 294 ACT 107 BUF 19)               Step #300.00 (0ms ?*RT. ?UPS, TraCI: 38ms, vehicles TOT 394 ACT 98 BUF 0)                 Step #400.00 (1ms ~= 1000.00*RT, ~105000.00UPS, TraCI: 42ms, vehicles TOT 520 ACT 105 BUF Step #500.00 (1ms ~= 1000.00*RT, ~125000.00UPS, TraCI: 50ms, vehicles TOT 647 ACT 125 BUF Step #600.00 (1ms ~= 1000.00*RT, ~100000.00UPS, TraCI: 41ms, vehicles TOT 747 ACT 100 BUF Step #700.00 (1ms ~= 1000.00*RT, ~138000.00UPS, TraCI: 51ms, vehicles TOT 891 ACT 138 BUF Step #800.00 (0ms ?*RT. ?UPS, TraCI: 51ms, vehicles TOT 1006 ACT 129 BUF 20)              Step #900.00 (1ms ~= 1000.00*RT, ~111000.00UPS, TraCI: 45ms, vehicles TOT 1105 ACT 111 BUFStep #1000.00 (0ms ?*RT. ?UPS, TraCI: 47ms, vehicles TOT 1235 ACT 114 BUF 0)               
- Retrying in 1 seconds
-iql_tabular [baseline]:   4%|▍         | 4/100 [00:39<15:56,  9.96s/it]Step #0.00 (1ms ~= 1000.00*RT, ~2000.00UPS, TraCI: 13ms, vehicles TOT 2 ACT 2 BUF 0)      Step #100.00 (1ms ~= 1000.00*RT, ~83000.00UPS, TraCI: 35ms, vehicles TOT 135 ACT 83 BUF 0)Step #200.00 (0ms ?*RT. ?UPS, TraCI: 39ms, vehicles TOT 258 ACT 100 BUF 16)               Step #300.00 (0ms ?*RT. ?UPS, TraCI: 34ms, vehicles TOT 359 ACT 82 BUF 0)                 Step #400.00 (0ms ?*RT. ?UPS, TraCI: 40ms, vehicles TOT 492 ACT 91 BUF 0)                 Step #500.00 (1ms ~= 1000.00*RT, ~114000.00UPS, TraCI: 48ms, vehicles TOT 619 ACT 114 BUF Step #600.00 (1ms ~= 1000.00*RT, ~98000.00UPS, TraCI: 39ms, vehicles TOT 701 ACT 98 BUF 0)Step #700.00 (0ms ?*RT. ?UPS, TraCI: 46ms, vehicles TOT 838 ACT 117 BUF 0)                Step #800.00 (0ms ?*RT. ?UPS, TraCI: 47ms, vehicles TOT 973 ACT 114 BUF 14)               Step #900.00 (1ms ~= 1000.00*RT, ~92000.00UPS, TraCI: 37ms, vehicles TOT 1076 ACT 92 BUF 0Step #1000.00 (0ms ?*RT. ?UPS, TraCI: 37ms, vehicles TOT 1207 ACT 98 BUF 1)                
- Retrying in 1 seconds
-iql_tabular [baseline]:   4%|▍         | 4/100 [00:49<19:59, 12.49s/it]
-
-!!! CRASHED seed=4 scenario=baseline at 2026-06-09T12:29:33.393283 !!!
-Traceback (most recent call last):
-  File "/home/leashmil/MA-MDP/run_seeded_experiment.py", line 107, in main
-    run_scenario(args.scenario, episodes=episodes, eval_interval=eval_interval,
-  File "/home/leashmil/MA-MDP/run_tabular_experiment.py", line 222, in run_scenario
-    _, iql_h = train_tabular_agents(algo="iql_tabular", scenario_name=scenario,
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/MA-MDP/run_tabular_experiment.py", line 93, in train_tabular_agents
-    r = evaluate_agents(agents, algo_name=f"{algo} [{scenario_name}] (ep {episode+1})",
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/MA-MDP/run_tabular_experiment.py", line 111, in evaluate_agents
-    env = make_wave_env(net_file=net_file, route_file=rou_file, num_seconds=sim_seconds,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/MA-MDP/simulator/env_setup.py", line 185, in make_wave_env
-    parallel_env = sumo_rl.parallel_env(
-                   ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/pettingzoo/utils/conversions.py", line 14, in par_fn
-    env = env_fn(**kwargs)
-          ^^^^^^^^^^^^^^^^
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 32, in env
-    env = SumoEnvironmentPZ(**kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 519, in __init__
-    self.env = SumoEnvironment(**self._kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 146, in __init__
-    traci.start([sumolib.checkBinary("sumo"), "-n", self._net])  # Start only to retrieve traffic light information
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py", line 139, in start
-    raise TraCIException("Connection '%s' is already active." % label)
-traci.exceptions.TraCIException: Connection 'default' is already active.
-object address  : 0x7f4122cedb00
-object refcount : 3
-object type     : 0x55be802235c0
-object type name: TraCIException
-object repr     : TraCIException("Connection 'default' is already active.")
-lost sys.stderr
-Exception ignored in: Exception ignored in sys.unraisablehookException ignored in: <function SumoEnvironment.__del__ at 0x7f4122cbba60>
-Traceback (most recent call last):
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 460, in __del__
-Step #0.00 (0ms ?*RT. ?UPS, TraCI: 12ms, vehicles TOT 2 ACT 2 BUF 0)                      Step #100.00 (0ms ?*RT. ?UPS, TraCI: 36ms, vehicles TOT 146 ACT 83 BUF 0)                 Step #200.00 (0ms ?*RT. ?UPS, TraCI: 38ms, vehicles TOT 267 ACT 91 BUF 18)                Step #300.00 (1ms ~= 1000.00*RT, ~86000.00UPS, TraCI: 35ms, vehicles TOT 377 ACT 86 BUF 0)Step #400.00 (0ms ?*RT. ?UPS, TraCI: 42ms, vehicles TOT 514 ACT 103 BUF 3)                Step #500.00 (1ms ~= 1000.00*RT, ~101000.00UPS, TraCI: 42ms, vehicles TOT 637 ACT 101 BUF Step #600.00 (0ms ?*RT. ?UPS, TraCI: 39ms, vehicles TOT 740 ACT 98 BUF 0)                 Step #700.00 (1ms ~= 1000.00*RT, ~120000.00UPS, TraCI: 48ms, vehicles TOT 871 ACT 120 BUF Step #800.00 (0ms ?*RT. ?UPS, TraCI: 49ms, vehicles TOT 993 ACT 122 BUF 25)               Step #900.00 (1ms ~= 1000.00*RT, ~104000.00UPS, TraCI: 43ms, vehicles TOT 1089 ACT 104 BUFStep #1000.00Error: tcpip::Socket::recvAndCheck @ recv: peer shutdown
-Quitting (on error).
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/sumo_rl/environment/env.py", line 450, in close
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/main.py", line 264, in close
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/connection.py", line 398, in close
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/connection.py", line 232, in _sendCmd
-  File "/home/leashmil/.conda/envs/mmdp/lib/python3.12/site-packages/traci/connection.py", line 130, in _sendExact
-OSError: [Errno 9] Bad file descriptor
---- MMDP Array Finish (exit 120) ---
-Tue 09 Jun 2026 12:29:33 IDT

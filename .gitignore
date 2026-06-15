@@ -21,6 +21,10 @@ htmlcov/
 *.net.xml.bak
 *.rou.xml.bak
 mock_net.xml
+# ...but keep the RESCO benchmark networks (external data, ~1.5MB) so the repo is
+# self-contained and does not depend on the upstream RESCO GitHub repo at run time.
+!simulator/resco_environments/**/*.net.xml
+!simulator/resco_environments/**/*.rou.xml
 
 # Outputs and Plots (kept for local review, but excluded from raw git sync)
 outputs/*.csv
@@ -32,6 +36,8 @@ models/seed*/
 # Generated presentation + Office lock files
 *.pptx
 ~$*
+# ...but track the final deliverable deck.
+!ATLC_MMDP_presentation.pptx
 
 # Editor / System Files
 .vscode/

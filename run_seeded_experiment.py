@@ -93,7 +93,7 @@ def main():
                              "useful for reproducing tabular cells without the QMIX cost.")
     parser.add_argument("--out-dir", "--out_dir", type=str, default=OUT_DIR, dest="out_dir",
                         help="Directory for per-seed CSVs (default outputs/seeds). Point at a scratch "
-                             "dir to rerun for a reproducibility check without clobbering committed results.")
+                             "dir to rerun without clobbering the committed results.")
     args = parser.parse_args()
 
     if args.job_id is not None:
